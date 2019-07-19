@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>UI-Scratches</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header class="mx-1 btn-block">
+        <div class="container">
+            <div class="row">
+                <div class="col"><input class="form-control-plaintext" type="text" value="Chimwemwe Mkandawire" readonly=""></div>
+                <div class="col-1"><input class="form-control-plaintext" type="text" value="Male" readonly=""></div>
+                <div class="col"><input class="form-control-plaintext" type="text" value="21 March 1998 / 21 yrs" readonly=""></div>
+                <div class="col"><input class="form-control-plaintext" type="text" value="Nkhata-Bay / Malanda" readonly=""></div>
+                <div class="col"><input class="form-control-plaintext" type="text" value="Lilongwe City / Kawale II (A4)" readonly=""></div>
+            </div>
+        </div>
+    </header>
+    <hr class="mt-auto">
+    <div class="container">
+        <h4>Birthdate</h4>
+        <div class="row">
+            <div class="col"><label>Year&nbsp;</label><input type="text" id="year" maxlength="4" minlength="4">
+                <div style="width: 200px;">
+                    <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="keypad-1" type="button">1</button><button class="btn btn-primary mx-1" id="keypad-2" type="button">2</button><button class="btn btn-primary" id="keypad-3" type="button">3</button></div>
+                    <div class="btn-group btn-block"
+                        role="group"><button class="btn btn-primary" id="keypad-4" type="button">4</button><button class="btn btn-primary mx-1" id="keypad-5" type="button">5</button><button class="btn btn-primary" id="keypad-6" type="button">6</button></div>
+                    <div class="btn-group btn-block"
+                        role="group"><button class="btn btn-primary" id="keypad-7" type="button">7</button><button class="btn btn-primary mx-1" id="keypad-8" type="button">8</button><button class="btn btn-primary" id="keypad-9" type="button">9</button></div>
+                    <div class="btn-group btn-block"
+                        role="group"><button class="btn btn-primary" id="keypad-dot" type="button" style="width: 96.9375px;">.</button><button class="btn btn-primary mx-1" id="keypad-0" type="button" style="width: 96.9375px;">0</button><button class="btn btn-primary"
+                            id="keypad-bksp" type="button" style="width: 96.9375px;">Bksp</button></div>
+                </div>
+            </div>
+            <div class="col"><label>Month&nbsp;</label><input type="text" id="month" minlength="2" maxlength="2">
+                <div style="width: 220px;">
+                    <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="monthpad-01" type="button">01 (Jan)</button><button class="btn btn-primary mx-1" id="monthpad-02" type="button">02 (Feb)</button><button class="btn btn-primary" id="monthpad-03" type="button">03 (Mar)</button></div>
+                    <div
+                        class="btn-group btn-block" role="group"><button class="btn btn-primary" id="monthpad-04" type="button">04 (Apr)</button><button class="btn btn-primary mx-1" id="monthpad-05" type="button">05 (May)</button><button class="btn btn-primary" id="monthpad-06" type="button">06 (Jun)</button></div>
+                <div
+                    class="btn-group btn-block" role="group"><button class="btn btn-primary" id="monthpad-07" type="button">07 (Jul)</button><button class="btn btn-primary mx-1" id="monthpad-08" type="button">08 (Aug)</button><button class="btn btn-primary" id="monthpad-09" type="button">09 (Sep)</button></div>
+            <div
+                class="btn-group btn-block" role="group"><button class="btn btn-primary" id="monthpad-10" type="button">10 (Oct)</button><button class="btn btn-primary mx-1" id="monthpad-11" type="button">11 (Nov)</button><button class="btn btn-primary" id="monthpad-12" type="button">12 (Dec)</button></div>
+    </div>
+    </div>
+    <div class="col"><label>Day&nbsp;</label><input type="text" id="day" minlength="1" maxlength="2">
+        <div>
+            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" type="button" disabled="">0</button><button class="btn btn-primary mx-1" id="day-1" type="button">1</button><button class="btn btn-primary" id="day-2" type="button">2</button><button class="btn btn-primary mx-1"
+                    id="day-3" type="button">3</button><button class="btn btn-primary" id="day-4" type="button">4</button><button class="btn btn-primary mx-1" id="day-5" type="button">5</button><button class="btn btn-primary" id="day-6" type="button">6</button>
+                <button
+                    class="btn btn-primary mx-1" id="day-7" type="button">7</button><button class="btn btn-primary" id="day-8" type="button">8</button><button class="btn btn-primary mx-1" id="day-9" type="button">9</button></div>
+            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="day-10" type="button">10</button><button class="btn btn-primary mx-1" id="day-11" type="button">11</button><button class="btn btn-primary" id="day-12" type="button">12</button><button class="btn btn-primary mx-1"
+                    id="day-13" type="button">13</button><button class="btn btn-primary" id="day-14" type="button">14</button><button class="btn btn-primary mx-1" id="day-15" type="button">15</button><button class="btn btn-primary" id="day-16" type="button">16</button>
+                <button
+                    class="btn btn-primary mx-1" id="day-17" type="button">17</button><button class="btn btn-primary" id="day-18" type="button">18</button><button class="btn btn-primary mx-1" id="day-19" type="button">19</button></div>
+            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="day-20" type="button">20</button><button class="btn btn-primary mx-1" id="day-21" type="button">21</button><button class="btn btn-primary" id="day-22" type="button">22</button><button class="btn btn-primary mx-1"
+                    id="day-23" type="button">23</button><button class="btn btn-primary" id="day-24" type="button">24</button><button class="btn btn-primary mx-1" id="day-25" type="button">25</button><button class="btn btn-primary" id="day-26" type="button">26</button>
+                <button
+                    class="btn btn-primary mx-1" id="day-27" type="button">27</button><button class="btn btn-primary" id="day-28" type="button">28</button><button class="btn btn-primary mx-1" id="day-29" type="button">29</button></div>
+            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="day-30" type="button">30</button><button class="btn btn-primary mx-1" id="day-31" type="button">31</button><button class="btn btn-primary" type="button" disabled="">32</button><button class="btn btn-primary mx-1"
+                    type="button" disabled="">33</button><button class="btn btn-primary" type="button" disabled="">34</button><button class="btn btn-primary mx-1" type="button" disabled="">35</button><button class="btn btn-primary" type="button" disabled="">36</button>
+                <button
+                    class="btn btn-primary mx-1" type="button" disabled="">37</button><button class="btn btn-primary" type="button" disabled="">38</button><button class="btn btn-primary mx-1" type="button" disabled="">39</button></div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div><label>Age in years&nbsp;</label><input type="text" id="age-in-years" maxlength="3" minlength="1">
+                <div style="width: 550px;">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">0 - 19</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">20 - 39</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">40 - 59</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">60 - 79</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-5">80 - 99</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-6">100+</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" role="tabpanel" id="tab-1">
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="age-in-years-0" type="button">0</button><button class="btn btn-primary mx-1" id="age-in-years-1" type="button">1</button><button class="btn btn-primary" id="age-in-years-2" type="button">2</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="age-in-years-3" type="button">3</button><button class="btn btn-primary" id="age-in-years-4" type="button">4</button><button class="btn btn-primary mx-1" id="age-in-years-5" type="button">5</button><button class="btn btn-primary" id="age-in-years-6"
+                                        type="button">6</button><button class="btn btn-primary mx-1" id="age-in-years-7" type="button">7</button><button class="btn btn-primary" id="age-in-years-8" type="button">8</button><button class="btn btn-primary mx-1"
+                                        id="age-in-years-9" type="button">9</button></div>
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="age-in-years-10" type="button">10</button><button class="btn btn-primary mx-1" id="age-in-years-11" type="button">11</button><button class="btn btn-primary" id="age-in-years-12" type="button">12</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="age-in-years-13" type="button">13</button><button class="btn btn-primary" id="age-in-years-14" type="button">14</button><button class="btn btn-primary mx-1" id="age-in-years-15" type="button">15</button><button class="btn btn-primary" id="age-in-years-16"
+                                        type="button">16</button><button class="btn btn-primary mx-1" id="age-in-years-17" type="button">17</button><button class="btn btn-primary" id="age-in-years-18" type="button">18</button><button class="btn btn-primary mx-1"
+                                        id="age-in-years-19" type="button">19</button></div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-2">
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="age-in-years-20" type="button">20</button><button class="btn btn-primary mx-1" id="age-in-years-21" type="button">21</button><button class="btn btn-primary" id="age-in-years-22" type="button">22</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="age-in-years-23" type="button">23</button><button class="btn btn-primary" id="age-in-years-24" type="button">24</button><button class="btn btn-primary mx-1" id="age-in-years-25" type="button">25</button><button class="btn btn-primary" id="age-in-years-26"
+                                        type="button">26</button><button class="btn btn-primary mx-1" id="age-in-years-27" type="button">27</button><button class="btn btn-primary" id="age-in-years-28" type="button">28</button><button class="btn btn-primary mx-1"
+                                        id="age-in-years-29" type="button">29</button></div>
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="age-in-years-30" type="button">30</button><button class="btn btn-primary mx-1" id="age-in-years-31" type="button">31</button><button class="btn btn-primary" id="age-in-years-32" type="button">32</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="age-in-years-33" type="button">33</button><button class="btn btn-primary" id="age-in-years-34" type="button">34</button><button class="btn btn-primary mx-1" id="age-in-years-35" type="button">35</button><button class="btn btn-primary" id="age-in-years-36"
+                                        type="button">36</button><button class="btn btn-primary mx-1" id="age-in-years-37" type="button">37</button><button class="btn btn-primary" id="age-in-years-38" type="button">38</button><button class="btn btn-primary mx-1"
+                                        id="age-in-years-39" type="button">39</button></div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-3">
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary mx-1" id="age-in-years-40" type="button">40</button><button class="btn btn-primary" id="age-in-years-41" type="button">41</button><button class="btn btn-primary mx-1" id="age-in-years-42" type="button">42</button>
+                                <button
+                                    class="btn btn-primary" id="age-in-years-43" type="button">43</button><button class="btn btn-primary mx-1" id="age-in-years-44" type="button">44</button><button class="btn btn-primary" id="age-in-years-45" type="button">45</button><button class="btn btn-primary mx-1" id="age-in-years-46"
+                                        type="button">46</button><button class="btn btn-primary" id="age-in-years-47" type="button">47</button><button class="btn btn-primary mx-1" id="age-in-years-48" type="button">48</button><button class="btn btn-primary"
+                                        id="age-in-years-49" type="button">49</button></div>
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary mx-1" id="age-in-years-50" type="button">50</button><button class="btn btn-primary" id="age-in-years-51" type="button">51</button><button class="btn btn-primary mx-1" id="age-in-years-52" type="button">52</button>
+                                <button
+                                    class="btn btn-primary" id="age-in-years-53" type="button">53</button><button class="btn btn-primary mx-1" id="age-in-years-54" type="button">54</button><button class="btn btn-primary" id="age-in-years-55" type="button">55</button><button class="btn btn-primary mx-1" id="age-in-years-56"
+                                        type="button">56</button><button class="btn btn-primary" id="age-in-years-57" type="button">57</button><button class="btn btn-primary mx-1" id="age-in-years-58" type="button">58</button><button class="btn btn-primary"
+                                        id="age-in-years-59" type="button">59</button></div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-4">
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary mx-1" id="age-in-years-60" type="button">60</button><button class="btn btn-primary" id="age-in-years-61" type="button">61</button><button class="btn btn-primary mx-1" id="age-in-years-62" type="button">62</button>
+                                <button
+                                    class="btn btn-primary" id="age-in-years-63" type="button">63</button><button class="btn btn-primary mx-1" id="age-in-years-64" type="button">64</button><button class="btn btn-primary" id="age-in-years-65" type="button">65</button><button class="btn btn-primary mx-1" id="age-in-years-66"
+                                        type="button">66</button><button class="btn btn-primary" id="age-in-years-67" type="button">67</button><button class="btn btn-primary mx-1" id="age-in-years-68" type="button">68</button><button class="btn btn-primary"
+                                        id="age-in-years-69" type="button">69</button></div>
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary mx-1" id="age-in-years-70" type="button">70</button><button class="btn btn-primary" id="age-in-years-71" type="button">71</button><button class="btn btn-primary mx-1" id="age-in-years-72" type="button">72</button>
+                                <button
+                                    class="btn btn-primary" id="age-in-years-73" type="button">73</button><button class="btn btn-primary mx-1" id="age-in-years-74" type="button">74</button><button class="btn btn-primary" id="age-in-years-75" type="button">75</button><button class="btn btn-primary mx-1" id="age-in-years-76"
+                                        type="button">76</button><button class="btn btn-primary" id="age-in-years-77" type="button">77</button><button class="btn btn-primary mx-1" id="age-in-years-78" type="button">78</button><button class="btn btn-primary"
+                                        id="age-in-years-79" type="button">79</button></div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-5">
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary mx-1" id="age-in-years-80" type="button">80</button><button class="btn btn-primary" id="age-in-years-81" type="button">81</button><button class="btn btn-primary mx-1" id="age-in-years-82" type="button">82</button>
+                                <button
+                                    class="btn btn-primary" id="age-in-years-83" type="button">83</button><button class="btn btn-primary mx-1" id="age-in-years-84" type="button">84</button><button class="btn btn-primary" id="age-in-years-85" type="button">85</button><button class="btn btn-primary mx-1" id="age-in-years-86"
+                                        type="button">86</button><button class="btn btn-primary" id="age-in-years-87" type="button">87</button><button class="btn btn-primary mx-1" id="age-in-years-88" type="button">88</button><button class="btn btn-primary"
+                                        id="age-in-years-89" type="button">89</button></div>
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary mx-1" id="age-in-years-90" type="button">90</button><button class="btn btn-primary" id="age-in-years-91" type="button">91</button><button class="btn btn-primary mx-1" id="age-in-years-92" type="button">92</button>
+                                <button
+                                    class="btn btn-primary" id="age-in-years-93" type="button">93</button><button class="btn btn-primary mx-1" id="age-in-years-94" type="button">94</button><button class="btn btn-primary" id="age-in-years-95" type="button">95</button><button class="btn btn-primary mx-1" id="age-in-years-96"
+                                        type="button">96</button><button class="btn btn-primary" id="age-in-years-97" type="button">97</button><button class="btn btn-primary mx-1" id="age-in-years-98" type="button">98</button><button class="btn btn-primary"
+                                        id="age-in-years-99" type="button">99</button></div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-6">
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary mx-1" id="age-in-years-100" type="button">100</button><button class="btn btn-primary" id="age-in-years-101" type="button">101</button><button class="btn btn-primary mx-1" id="age-in-years-102"
+                                    type="button">102</button><button class="btn btn-primary" id="age-in-years-103" type="button">103</button><button class="btn btn-primary mx-1" id="age-in-years-104" type="button">104</button><button class="btn btn-primary"
+                                    id="age-in-years-105" type="button">105</button><button class="btn btn-primary mx-1" id="age-in-years-106" type="button">106</button><button class="btn btn-primary" id="age-in-years-107" type="button">107</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="age-in-years-108" type="button">108</button><button class="btn btn-primary" id="age-in-years-109" type="button">109</button></div>
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary mx-1" id="age-in-years-110" type="button">110</button><button class="btn btn-primary" id="age-in-years-111" type="button">111</button><button class="btn btn-primary mx-1" id="age-in-years-112"
+                                    type="button">112</button><button class="btn btn-primary" id="age-in-years-113" type="button">113</button><button class="btn btn-primary mx-1" id="age-in-years-114" type="button">114</button><button class="btn btn-primary"
+                                    id="age-in-years-115" type="button">115</button><button class="btn btn-primary mx-1" id="age-in-years-116" type="button">116</button><button class="btn btn-primary" id="age-in-years-117" type="button">117</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="age-in-years-118" type="button">118</button><button class="btn btn-primary" id="age-in-years-119" type="button">119</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="text-center fixed-bottom">
+        <div>
+            <hr class="mb-auto">
+            <div class="row">
+                <div class="col mx-5"><input class="form-control-plaintext" type="text" id="footer-area" readonly="" value="Patient Registration - Demographics - Birthdate"></div>
+                <div class="btn-group btn-block col mx-5"><button class="btn btn-primary btn-danger" id="navigation-back" type="button">Back</button><button class="btn btn-primary mx-1 btn-warning" id="navigation-clear" type="button">Clear</button><button class="btn btn-primary active btn-success"
+                        id="navigation-next" type="button">Next</button></div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/library.js"></script>
+    <script src="assets/js/nodered.js"></script>
+</body>
+
+</html>

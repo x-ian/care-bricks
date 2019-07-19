@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>UI-Scratches</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header class="mx-1 btn-block"></header>
+    <hr class="mt-auto">
+    <div class="container">
+        <h4>Find patient</h4>
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><label>Scan or search (for ID or name)&nbsp;</label><input type="text" id="input" maxlength="3">
+                <div class="row">
+                    <div class="col" style="width: 600px;">
+                        <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="alphanumpad-a" type="button">A</button><button class="btn btn-primary mx-1" id="alphanumpad-b" type="button">B</button><button class="btn btn-primary" id="alphanumpad-c" type="button">C</button>
+                            <button
+                                class="btn btn-primary mx-1" id="alphanumpad-d" type="button">D</button><button class="btn btn-primary" id="alphanumpad-e" type="button">E</button><button class="btn btn-primary mx-1" id="alphanumpad-f" type="button">F</button><button class="btn btn-primary" id="alphanumpad-g" type="button">G</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="alphanumpad-h" type="button">H</button><button class="btn btn-primary" id="alphanumpad-bksp" type="button">Bksp</button></div>
+                        <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="alphanumpad-i" type="button">I</button><button class="btn btn-primary mx-1" id="alphanumpad-j" type="button">J</button><button class="btn btn-primary" id="alphanumpad-k" type="button">K</button>
+                            <button
+                                class="btn btn-primary mx-1" id="alphanumpad-l" type="button">L</button><button class="btn btn-primary" id="alphanumpad-m" type="button">M</button><button class="btn btn-primary mx-1" id="alphanumpad-n" type="button">N</button><button class="btn btn-primary" id="alphanumpad-o" type="button">O</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="alphanumpad-p" type="button">P</button><button class="btn btn-primary" id="alphanumpad-quote" type="button">'</button><button class="btn btn-primary mx-1" id="alphanumpad-dash" type="button">-</button></div>
+                        <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="alphanumpad-q" type="button">Q</button><button class="btn btn-primary mx-1" id="alphanumpad-r" type="button">R</button><button class="btn btn-primary" id="alphanumpad-s" type="button">S</button>
+                            <button
+                                class="btn btn-primary mx-1" id="alphanumpad-t" type="button">T</button><button class="btn btn-primary" id="alphanumpad-u" type="button">U</button><button class="btn btn-primary mx-1" id="alphanumpad-v" type="button">V</button><button class="btn btn-primary" id="alphanumpad-w" type="button">W</button>
+                                <button
+                                    class="btn btn-primary mx-1" id="alphanumpad-x" type="button">X</button><button class="btn btn-primary" id="alphanumpad-y" type="button">Y</button><button class="btn btn-primary mx-1" id="alphanumpad-z" type="button">Z</button></div>
+                        <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="alphanumpad-space" type="button">Space</button></div>
+                    </div>
+                    <div class="col">
+                        <div style="width: 200px;">
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="alphanumpad-1" type="button">1</button><button class="btn btn-primary mx-1" id="alphanumpad-2" type="button">2</button><button class="btn btn-primary" id="alphanumpad-3" type="button">3</button></div>
+                            <div
+                                class="btn-group btn-block" role="group"><button class="btn btn-primary" id="alphanumpad-4" type="button">4</button><button class="btn btn-primary mx-1" id="alphanumpad-5" type="button">5</button><button class="btn btn-primary" id="alphanumpad-6" type="button">6</button></div>
+                        <div
+                            class="btn-group btn-block" role="group"><button class="btn btn-primary" id="alphanumpad-7" type="button">7</button><button class="btn btn-primary mx-1" id="alphanumpad-8" type="button">8</button><button class="btn btn-primary" id="alphanumpad-9" type="button">9</button></div>
+                    <div
+                        class="btn-group btn-block" role="group"><button class="btn btn-primary" id="alphanumpad-dot" type="button" style="width: 96.9375px;">.</button><button class="btn btn-primary mx-1" id="alphanumpad-0" type="button" style="width: 96.9375px;">0</button><button class="btn btn-primary"
+                            type="button" style="width: 96.9375px;" disabled="">Bksp</button></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"><label>Possible matches</label>
+            <ul class="list-group" style="max-height:450px; overflow:scroll">
+                <li class="list-group-item list-group-item-action"><span>Magareta Mndeta - male - 7 years</span></li>
+                <li class="list-group-item list-group-item-action active"><span>Magaleta Ndeta - female - 14 years</span></li>
+                <li class="list-group-item list-group-item-action"><span>Margareta Mdeta - female - 39 years</span></li>
+                <li class="list-group-item list-group-item-action"><span>Magagreta Mndeta - female - 22 years</span></li>
+                <li class="list-group-item list-group-item-action"><span>Magaletah Mdeta - male - 59 years</span></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <footer class="text-center fixed-bottom">
+        <div>
+            <hr class="mb-auto">
+            <div class="row">
+                <div class="col mx-5"><input class="form-control-plaintext" type="text" id="footer-area" readonly="" value="Patient Registration - Demographics - Birthdate"></div>
+                <div class="btn-group btn-block col mx-5"><button class="btn btn-primary btn-danger" id="navigation-back" type="button">Back</button><button class="btn btn-primary mx-1 btn-warning" id="navigation-clear" type="button">Clear</button><button class="btn btn-primary active btn-success"
+                        id="navigation-next" type="button">Next</button></div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/library.js"></script>
+    <script src="assets/js/nodered.js"></script>
+</body>
+
+</html>
