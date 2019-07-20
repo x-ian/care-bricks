@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('next-appointment',{
+        category: 'Workflow POC EMR',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Next Appointment";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="workflow-poc-emr-next-appointment">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="workflow-poc-emr-next-appointment">
+    <p>workflow-poc-emr screen for next appointment</p>
+</script>
