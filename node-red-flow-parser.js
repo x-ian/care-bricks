@@ -8,7 +8,7 @@ class Graph {
     if (!this.AdjList.has(vertex)) {
       this.AdjList.set(vertex, []);
     } else {
-      throw 'Already Exist!!!';
+      throw vertex + ' already Exist!!!';
     }
   }
 
@@ -20,7 +20,7 @@ class Graph {
           arr.push(node);
         }
       }else {
-        throw `Can't add non-existing vertex ->'${node}'`;
+        throw `Can't add non-existing '${vertex}' ->'${node}'`;
       }
     } else {
       throw `You should add '${vertex}' first`;
@@ -64,7 +64,7 @@ function buildNodeRedGraph(jsonData) {
   for (const node of jsonData){
     if (node.type == "tab") {
       // g.addVertex(node.type);
-    } else if (node.type == "function") {
+    } else if (node.type == "condition") {
       g.addVertex(node.name);
     } else if (node.type.startsWith("subflow:")) {
       // g.addVertex(node.type);
@@ -100,6 +100,9 @@ function buildNodeRedGraph(jsonData) {
           let transitionSourceId = node.id;
           // console.log("transitionSourceId: " + transitionSourceId);
           let transitionSourceName = node.type;
+          if (node.type == "condition") {
+            transitionSourceName = node.name;
+          }
           // console.log("transitionSourceName: " + transitionSourceName);
           let transitionDestinationId = wire[0];
           // console.log("transitionDestinationId: " + transitionDestinationId);
@@ -112,6 +115,9 @@ function buildNodeRedGraph(jsonData) {
             transitionDestination = getNodeById(jsonData, subflowDefinition.in[0].wires[0].id);
             let transitionDestinationName = transitionDestination.type;
             g.addEdge(transitionSourceName, transitionDestinationName);
+          } else if (transitionDestination.type == "condition") {
+              transitionDestinationName = transitionDestination.name;
+              g.addEdge(transitionSourceName, transitionDestinationName);
           } else {
             let transitionDestinationName = transitionDestination.type;
             // console.log("transitionDestinationName: " + transitionDestinationName);
