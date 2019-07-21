@@ -116,6 +116,13 @@ function buildNodeRedGraph(jsonData) {
             let transitionDestinationName = transitionDestination.type;
             g.addEdge(transitionSourceName, transitionDestinationName);
           } else if (transitionDestination.type == "condition") {
+
+            for (const conditionWire of transitionDestination.wires) {
+              // console.log("\n" + wire[0] + " - " + node.id);
+
+              if (conditionWire.length == 0) {
+              }
+            }
               transitionDestinationName = transitionDestination.name;
               g.addEdge(transitionSourceName, transitionDestinationName);
           } else {
