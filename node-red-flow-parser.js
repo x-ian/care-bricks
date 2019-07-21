@@ -101,7 +101,7 @@ function buildNodeRedGraph(jsonData) {
           // console.log("transitionSourceId: " + transitionSourceId);
           let transitionSourceName = node.type;
           if (node.type == "condition") {
-            transitionSourceName = node.name;
+            transitionSourceName = node.name.replace('/ /g', '-').replace('/?/g', '');
           }
           // console.log("transitionSourceName: " + transitionSourceName);
           let transitionDestinationId = wire[0];
@@ -116,14 +116,7 @@ function buildNodeRedGraph(jsonData) {
             let transitionDestinationName = transitionDestination.type;
             g.addEdge(transitionSourceName, transitionDestinationName);
           } else if (transitionDestination.type == "condition") {
-
-            for (const conditionWire of transitionDestination.wires) {
-              // console.log("\n" + wire[0] + " - " + node.id);
-
-              if (conditionWire.length == 0) {
-              }
-            }
-              transitionDestinationName = transitionDestination.name;
+              transitionDestinationName = transitionDestination.name.replace('/ /g', '-').replace('/?/g', '');;
               g.addEdge(transitionSourceName, transitionDestinationName);
           } else {
             let transitionDestinationName = transitionDestination.type;
