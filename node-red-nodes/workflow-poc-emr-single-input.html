@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('checked-in-patients-list',{
+    RED.nodes.registerType('single-input',{
         category: 'Workflow POC EMR',
         color: '#C7E9C0',
         defaults: {
@@ -14,14 +14,14 @@
     });
 </script>
 
-<script type="text/x-red" data-template-name="checked-in-patients-list">
+<script type="text/x-red" data-template-name="single-input">
     <div class="form-row">
         <label for="node-input-filter"><i class="icon-tag"></i> Filter</label>
         <textarea id="node-input-filter">
         </textarea>
 </script>
 
-<script type="text/x-red" data-help-name="checked-in-patients-list">
+<script type="text/x-red" data-help-name="single-input">
    <p>Generates the list of patients given a filter.</p>
    <h3>Input</h3>
     <dl class="message-properties">
