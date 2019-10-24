@@ -1,273 +1,150 @@
 [
     {
-        "id": "a0b464d6.270658",
-        "type": "subflow",
-        "name": "Checked-in patients list",
-        "info": "",
-        "category": "ClinicFlow - Choose Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "icon": "node-red/watch.png"
-    },
-    {
-        "id": "6c6c2e96.a3096",
-        "type": "subflow",
-        "name": "End station",
-        "info": "",
-        "category": "ClinicFlow - Mark flow end",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [],
-        "env": [],
-        "icon": "font-awesome/fa-stop-circle-o"
-    },
-    {
-        "id": "382e54d.1ebbcac",
-        "type": "subflow",
-        "name": "Next Appointment",
-        "info": "",
-        "category": "ClinicFlow - Modify Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "icon": "font-awesome/fa-user-o"
-    },
-    {
-        "id": "562747d3.16f728",
-        "type": "subflow",
-        "name": "Lab Order: Sputum",
-        "info": "",
-        "category": "ClinicFlow - Modify Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "icon": "font-awesome/fa-user-o"
-    },
-    {
-        "id": "8279021a.e7a1",
-        "type": "subflow",
-        "name": "Lab Order: Pregnancy Test",
-        "info": "",
-        "category": "ClinicFlow - Modify Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "icon": "font-awesome/fa-user-o"
-    },
-    {
-        "id": "8478e961.187628",
-        "type": "subflow",
-        "name": "TB Screening",
-        "info": "",
-        "category": "ClinicFlow - Modify Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            },
-            {
-                "x": 215,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "outputLabels": [
-            "positive",
-            "negative"
-        ],
-        "icon": "font-awesome/fa-user-o"
-    },
-    {
-        "id": "9b44cbd3.7e4788",
-        "type": "subflow",
-        "name": "Vitals: Blood Pressure",
-        "info": "",
-        "category": "ClinicFlow - Modify Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "icon": "font-awesome/fa-user-o"
-    },
-    {
-        "id": "8eb7b1ae.2ce08",
-        "type": "subflow",
-        "name": "Vitals: Height & Weight",
-        "info": "",
-        "category": "ClinicFlow - Modify Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "icon": "font-awesome/fa-user-o"
-    },
-    {
-        "id": "a311dda2.7c3c6",
+        "id": "c6ed8ab5.661998",
         "type": "tab",
-        "label": "ClinicFlow: Vitals & Screening",
+        "label": "Vitals & Screening",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "906fef09.aab4b",
-        "type": "subflow:8eb7b1ae.2ce08",
-        "z": "a311dda2.7c3c6",
+        "id": "4faf5c6d.6e8f74",
+        "type": "checked-in-patients-list",
+        "z": "c6ed8ab5.661998",
         "name": "",
-        "env": [],
-        "x": 415.3068542480469,
-        "y": 37.00000190734863,
+        "x": 137,
+        "y": 43.41193199157715,
         "wires": [
             [
-                "ce72cb0c.6fb848"
+                "f0606804.f12318"
             ]
         ]
     },
     {
-        "id": "ce6718e2.a03dc8",
-        "type": "subflow:9b44cbd3.7e4788",
-        "z": "a311dda2.7c3c6",
+        "id": "f0606804.f12318",
+        "type": "height-weight",
+        "z": "c6ed8ab5.661998",
         "name": "",
-        "env": [],
-        "x": 636.1902618408203,
-        "y": 96.80956506729126,
+        "x": 381.1903610229492,
+        "y": 43.88919162750244,
         "wires": [
             [
-                "6836e9bb.4ce3c8"
+                "6e1c3941.da97f8"
             ]
         ]
     },
     {
-        "id": "fb2c158c.900ed8",
-        "type": "subflow:8478e961.187628",
-        "z": "a311dda2.7c3c6",
+        "id": "cfe9d4e0.7d94c8",
+        "type": "blood-pressure",
+        "z": "c6ed8ab5.661998",
         "name": "",
-        "env": [],
-        "x": 392.0085983276367,
-        "y": 236.79831314086914,
+        "x": 618.1930694580078,
+        "y": 101.61362552642822,
         "wires": [
             [
-                "6153b9c3.dcca58"
-            ],
-            [
-                "679c61e9.7b6ed"
+                "ee5165b.aeb4198"
             ]
         ]
     },
     {
-        "id": "a8d5b4f.87e4848",
-        "type": "subflow:8279021a.e7a1",
-        "z": "a311dda2.7c3c6",
+        "id": "c38523f8.557cb",
+        "type": "lab-order-pregnancy",
+        "z": "c6ed8ab5.661998",
         "name": "",
-        "env": [],
-        "x": 661.0000228881836,
-        "y": 165.87221717834473,
+        "x": 648.0142288208008,
+        "y": 165.76988124847412,
         "wires": [
             [
-                "fb2c158c.900ed8"
+                "1e85d0c9.3b406f"
             ]
         ]
     },
     {
-        "id": "6836e9bb.4ce3c8",
-        "type": "function",
-        "z": "a311dda2.7c3c6",
-        "name": "female && >= 15 yrs",
+        "id": "b92c2d6a.c88cb",
+        "type": "lab-order-sputum",
+        "z": "c6ed8ab5.661998",
+        "name": "",
+        "x": 793.0170555114746,
+        "y": 223.75563144683838,
+        "wires": [
+            [
+                "208b626f.caf81e"
+            ]
+        ]
+    },
+    {
+        "id": "1e85d0c9.3b406f",
+        "type": "tb-screening",
+        "z": "c6ed8ab5.661998",
+        "name": "",
+        "x": 391.01988220214844,
+        "y": 229.67607879638672,
+        "wires": [
+            [
+                "e96fe56.2157c18"
+            ]
+        ]
+    },
+    {
+        "id": "208b626f.caf81e",
+        "type": "next-appointment",
+        "z": "c6ed8ab5.661998",
+        "name": "",
+        "x": 393.00853729248047,
+        "y": 294.411865234375,
+        "wires": [
+            [
+                "c828628f.a968d"
+            ]
+        ]
+    },
+    {
+        "id": "c828628f.a968d",
+        "type": "end-flow",
+        "z": "c6ed8ab5.661998",
+        "name": "",
+        "x": 593.0141830444336,
+        "y": 374.40904808044434,
+        "wires": []
+    },
+    {
+        "id": "6e1c3941.da97f8",
+        "type": "condition",
+        "z": "c6ed8ab5.661998",
+        "name": "under 5?",
         "func": "\nreturn msg;",
         "outputs": 2,
         "noerr": 0,
-        "x": 411.81824493408203,
-        "y": 170.99722862243652,
+        "x": 375.19600677490234,
+        "y": 107.51419258117676,
         "wires": [
             [
-                "a8d5b4f.87e4848"
+                "cfe9d4e0.7d94c8"
             ],
             [
-                "fb2c158c.900ed8"
+                "ee5165b.aeb4198"
+            ]
+        ],
+        "outputLabels": [
+            "age >= 5 yrs",
+            "age < 5 yrs"
+        ]
+    },
+    {
+        "id": "ee5165b.aeb4198",
+        "type": "condition",
+        "z": "c6ed8ab5.661998",
+        "name": "female && >= 15 yrs?",
+        "func": "return msg;",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 390.196044921875,
+        "y": 167.5170373916626,
+        "wires": [
+            [
+                "c38523f8.557cb"
+            ],
+            [
+                "1e85d0c9.3b406f"
             ]
         ],
         "outputLabels": [
@@ -276,77 +153,26 @@
         ]
     },
     {
-        "id": "6153b9c3.dcca58",
-        "type": "subflow:562747d3.16f728",
-        "z": "a311dda2.7c3c6",
-        "name": "",
-        "env": [],
-        "x": 634.0085525512695,
-        "y": 232.5000524520874,
-        "wires": [
-            [
-                "679c61e9.7b6ed"
-            ]
-        ]
-    },
-    {
-        "id": "679c61e9.7b6ed",
-        "type": "subflow:382e54d.1ebbcac",
-        "z": "a311dda2.7c3c6",
-        "name": "",
-        "env": [],
-        "x": 401.00569915771484,
-        "y": 304.48294830322266,
-        "wires": [
-            [
-                "ca7ed339.1b399"
-            ]
-        ]
-    },
-    {
-        "id": "ca7ed339.1b399",
-        "type": "subflow:6c6c2e96.a3096",
-        "z": "a311dda2.7c3c6",
-        "name": "",
-        "x": 628.7357769012451,
-        "y": 380.46876335144043,
-        "wires": []
-    },
-    {
-        "id": "ce72cb0c.6fb848",
-        "type": "function",
-        "z": "a311dda2.7c3c6",
-        "name": "under 5",
+        "id": "e96fe56.2157c18",
+        "type": "condition",
+        "z": "c6ed8ab5.661998",
+        "name": "TB Suspect?",
         "func": "\nreturn msg;",
         "outputs": 2,
         "noerr": 0,
-        "x": 375.5483512878418,
-        "y": 104.90341472625732,
+        "x": 594.1932067871094,
+        "y": 230.50562477111816,
         "wires": [
             [
-                "ce6718e2.a03dc8"
+                "b92c2d6a.c88cb"
             ],
             [
-                "6836e9bb.4ce3c8"
+                "208b626f.caf81e"
             ]
         ],
         "outputLabels": [
-            ">= 5 yrs",
-            "all others"
-        ]
-    },
-    {
-        "id": "8f15a31d.f6604",
-        "type": "subflow:a0b464d6.270658",
-        "z": "a311dda2.7c3c6",
-        "name": "",
-        "env": [],
-        "x": 134,
-        "y": 37.69892501831055,
-        "wires": [
-            [
-                "906fef09.aab4b"
-            ]
+            "suspect",
+            "no suspect"
         ]
     }
 ]

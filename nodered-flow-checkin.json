@@ -1,219 +1,178 @@
 [
     {
-        "id": "d9593dc5.7633a",
+        "id": "d62906f9.4ccc38",
         "type": "subflow",
-        "name": "Register patient",
+        "name": "Patient Demographics",
         "info": "",
-        "category": "ClinicFlow - Choose Patient",
+        "category": "Workflow POC EMR",
         "in": [
             {
                 "x": 50,
                 "y": 30,
-                "wires": []
+                "wires": [
+                    {
+                        "id": "f7f709.3abd58f8"
+                    }
+                ]
             }
         ],
         "out": [
             {
-                "x": 160,
-                "y": 30,
-                "wires": []
+                "x": 550.0000076293945,
+                "y": 37.999999046325684,
+                "wires": [
+                    {
+                        "id": "a9955b2.cda11a8",
+                        "port": 0
+                    }
+                ]
             }
         ],
-        "env": [],
-        "outputLabels": [
-            "patient created"
-        ],
-        "icon": "node-red/watch.png"
+        "env": []
     },
     {
-        "id": "edec0f38.4d529",
-        "type": "subflow",
-        "name": "Find patient",
-        "info": "sdfsdf",
-        "category": "ClinicFlow - Choose Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            },
-            {
-                "x": 215,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "inputLabels": [
-            "in"
-        ],
-        "outputLabels": [
-            "patient found",
-            "patient not found"
-        ],
-        "icon": "node-red/watch.png"
+        "id": "30276bf7.e2a344",
+        "type": "lastname",
+        "z": "d62906f9.4ccc38",
+        "name": "",
+        "x": 357.00288009643555,
+        "y": 29.87788963317871,
+        "wires": [
+            [
+                "78530626.a59798"
+            ]
+        ]
     },
     {
-        "id": "335187a0.9eb888",
-        "type": "subflow",
-        "name": "Scheduled patients list",
-        "info": "",
-        "category": "ClinicFlow - Choose Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            },
-            {
-                "x": 215,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "outputLabels": [
-            "select scheduled patient",
-            "patient not found"
-        ],
-        "icon": "node-red/watch.png"
+        "id": "a9955b2.cda11a8",
+        "type": "home-address",
+        "z": "d62906f9.4ccc38",
+        "name": "",
+        "x": 410.00284576416016,
+        "y": 171.93192291259766,
+        "wires": [
+            []
+        ]
     },
     {
-        "id": "707b8ca3.1e8a04",
-        "type": "subflow",
-        "name": "Check in",
-        "info": "",
-        "category": "ClinicFlow - Modify Patient",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [
-            {
-                "x": 160,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "env": [],
-        "icon": "font-awesome/fa-user-o"
+        "id": "f7f709.3abd58f8",
+        "type": "firstname",
+        "z": "d62906f9.4ccc38",
+        "name": "",
+        "x": 176.99999237060547,
+        "y": 30.957387924194336,
+        "wires": [
+            [
+                "30276bf7.e2a344"
+            ]
+        ]
     },
     {
-        "id": "6c6c2e96.a3096",
-        "type": "subflow",
-        "name": "End station",
-        "info": "",
-        "category": "ClinicFlow - Mark flow end",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": []
-            }
-        ],
-        "out": [],
-        "env": [],
-        "icon": "font-awesome/fa-stop-circle-o"
+        "id": "a69e2ca7.54e65",
+        "type": "current-address",
+        "z": "d62906f9.4ccc38",
+        "name": "",
+        "x": 210.99715423583984,
+        "y": 174.99999809265137,
+        "wires": [
+            [
+                "a9955b2.cda11a8"
+            ]
+        ]
     },
     {
-        "id": "c72640eb.19d2e",
+        "id": "78530626.a59798",
+        "type": "birthdate",
+        "z": "d62906f9.4ccc38",
+        "name": "",
+        "x": 185.9999885559082,
+        "y": 100.05964851379395,
+        "wires": [
+            [
+                "a69e2ca7.54e65"
+            ]
+        ]
+    },
+    {
+        "id": "df67d84c.8d6f08",
         "type": "tab",
-        "label": "ClinicFlow: Check In",
+        "label": "Check in",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "5afdea16.4c92f4",
-        "type": "subflow:6c6c2e96.a3096",
-        "z": "c72640eb.19d2e",
+        "id": "5c2da2b9.cd99fc",
+        "type": "scheduled-patients-list",
+        "z": "df67d84c.8d6f08",
         "name": "",
-        "env": [],
-        "x": 663.7044563293457,
-        "y": 97.37502098083496,
-        "wires": [],
-        "info": "end station"
-    },
-    {
-        "id": "26e87a87.1d83b6",
-        "type": "subflow:707b8ca3.1e8a04",
-        "z": "c72640eb.19d2e",
-        "name": "",
-        "env": [],
-        "x": 400.01422119140625,
-        "y": 97.0000057220459,
+        "x": 112.19883728027344,
+        "y": 46.809600830078125,
         "wires": [
             [
-                "5afdea16.4c92f4"
+                "b9b6e9d0.66b138"
             ]
-        ],
-        "info": "check in patient"
+        ]
     },
     {
-        "id": "58974c75.9ac284",
-        "type": "subflow:335187a0.9eb888",
-        "z": "c72640eb.19d2e",
+        "id": "61f9a5df.9865fc",
+        "type": "find-patient",
+        "z": "df67d84c.8d6f08",
         "name": "",
-        "env": [],
-        "x": 134.01409912109375,
-        "y": 51,
+        "x": 137.1903076171875,
+        "y": 86.9317569732666,
         "wires": [
             [
-                "26e87a87.1d83b6"
-            ],
-            [
-                "4f74cc62.c816a4"
+                "b9b6e9d0.66b138"
             ]
-        ],
-        "info": "scheduled patient list"
+        ]
     },
     {
-        "id": "4f74cc62.c816a4",
-        "type": "subflow:edec0f38.4d529",
-        "z": "c72640eb.19d2e",
+        "id": "941a31ea.948d1",
+        "type": "end-flow",
+        "z": "df67d84c.8d6f08",
         "name": "",
-        "env": [],
-        "x": 167.0141372680664,
-        "y": 101.99999237060547,
-        "wires": [
-            [
-                "26e87a87.1d83b6"
-            ],
-            [
-                "1f5ac612.5340fa"
-            ]
-        ],
-        "info": "find patient"
+        "x": 563.1960067749023,
+        "y": 87.95166015625,
+        "wires": []
     },
     {
-        "id": "1f5ac612.5340fa",
-        "type": "subflow:d9593dc5.7633a",
-        "z": "c72640eb.19d2e",
+        "id": "b9b6e9d0.66b138",
+        "type": "check-in",
+        "z": "df67d84c.8d6f08",
         "name": "",
-        "env": [],
-        "x": 162.01412200927734,
-        "y": 152.9999713897705,
+        "x": 388.1902961730957,
+        "y": 87.99714088439941,
         "wires": [
             [
-                "26e87a87.1d83b6"
+                "941a31ea.948d1"
             ]
-        ],
-        "info": "register patient"
+        ]
+    },
+    {
+        "id": "a295544b.d32758",
+        "type": "register-patient",
+        "z": "df67d84c.8d6f08",
+        "name": "",
+        "x": 128.20169067382812,
+        "y": 124.82951545715332,
+        "wires": [
+            [
+                "21440d1f.5b7182"
+            ]
+        ]
+    },
+    {
+        "id": "21440d1f.5b7182",
+        "type": "subflow:d62906f9.4ccc38",
+        "z": "df67d84c.8d6f08",
+        "name": "",
+        "env": [],
+        "x": 288.1931686401367,
+        "y": 193.44731330871582,
+        "wires": [
+            [
+                "b9b6e9d0.66b138"
+            ]
+        ]
     }
 ]
