@@ -24,8 +24,8 @@ function getParameterByName(name) {
 }
 
 function basename(str) {
-   var base = new String(str).substring(str.lastIndexOf('/') + 1); 
-    if(base.lastIndexOf(".") != -1)       
+   var base = new String(str).substring(str.lastIndexOf('/') + 1);
+    if(base.lastIndexOf(".") != -1)
         base = base.substring(0, base.lastIndexOf("."));
    return base;
 }
@@ -91,18 +91,18 @@ $(function(){
 
 	// change active class based on selection in all list-groups; currently prevents multiselect
 	$('.list-group li').click(function(e) {
-		e.preventDefault();     
-		$that = $(this);      
-		$that.toggleClass('active'); 
+		e.preventDefault();
+		$that = $(this);
+		$that.toggleClass('active');
 	});
-	
+
 	// change active class based on selection in all list-groups; currently prevents multiselect
 	$('.list-group:not(.multiple) li').click(function(e) {
-		e.preventDefault();     
-		$that = $(this);      
+		e.preventDefault();
+		$that = $(this);
 		$that.parent().find('li').removeClass('active');
-		$that.addClass('active'); 
-		
+		$that.addClass('active');
+
 		switch(basename(window.location.pathname)) {
 			case "firstname":
 			case "lastname":
@@ -111,16 +111,16 @@ $(function(){
 			case "home-address":
 			case "current-address":
 				switch($that.parent()[0].id) {
-					case "list-region":				
+					case "list-region":
 						document.getElementById('input-region').value = e.currentTarget.childNodes[0].innerText;
 						break;
-					case "list-district":				
+					case "list-district":
 						document.getElementById('input-district').value = e.currentTarget.childNodes[0].innerText;
 						break;
-					case "list-ta":				
+					case "list-ta":
 						document.getElementById('input-ta').value = e.currentTarget.childNodes[0].innerText;
 						break;
-					case "list-village":				
+					case "list-village":
 						document.getElementById('input-village').value = e.currentTarget.childNodes[0].innerText;
 						break;
 				}
@@ -145,27 +145,27 @@ $(function(){
 				location.reload();
 				break;
 		}
-		
+
 		// buttons on each screen
 		switch(basename(window.location.pathname)) {
 			case "birthdate":
 				if (e.target.id.startsWith("keypad-bksp")) {
-					document.getElementById('year').value = document.getElementById('year').value.substring(0, document.getElementById('year').value.length-1);					
+					document.getElementById('year').value = document.getElementById('year').value.substring(0, document.getElementById('year').value.length-1);
 				} else if (e.target.id.startsWith("keypad-")) {
-					document.getElementById('year').value += e.target.id.substring(7);					
+					document.getElementById('year').value += e.target.id.substring(7);
 				} else if (e.target.id.startsWith("monthpad-")) {
-					document.getElementById('month').value = e.target.id.substring(9);					
+					document.getElementById('month').value = e.target.id.substring(9);
 				} else if (e.target.id.startsWith("day-")) {
-					document.getElementById('day').value = e.target.id.substring(4);					
+					document.getElementById('day').value = e.target.id.substring(4);
 				} else if (e.target.id.startsWith("age-in-years-")) {
-					document.getElementById('age-in-years').value = e.target.id.substring(13);					
+					document.getElementById('age-in-years').value = e.target.id.substring(13);
 				}
 				break;
 
 			case "firstname":
 			case "lastname":
 				if (e.target.id.startsWith("alphapad-bksp")) {
-					document.getElementById('input').value = document.getElementById('input').value.substring(0, document.getElementById('input').value.length-1);					
+					document.getElementById('input').value = document.getElementById('input').value.substring(0, document.getElementById('input').value.length-1);
 				} else if (e.target.id.startsWith("alphapad-dash")) {
 					document.getElementById('input').value += '-';
 				} else if (e.target.id.startsWith("alphapad-quote")) {
@@ -177,7 +177,7 @@ $(function(){
 
 			case "find-patient":
 				if (e.target.id.startsWith("alphanumpad-bksp")) {
-					document.getElementById('input').value = document.getElementById('input').value.substring(0, document.getElementById('input').value.length-1);					
+					document.getElementById('input').value = document.getElementById('input').value.substring(0, document.getElementById('input').value.length-1);
 				} else if (e.target.id.startsWith("alphanumpad-dot")) {
 					document.getElementById('input').value += '.';
 				} else if (e.target.id.startsWith("alphanumpad-space")) {
@@ -210,7 +210,7 @@ $(function(){
 
 $(window).on('load', function() {
 	document.getElementById('footer-area').value = basename(window.location.pathname);
-	
+
 	if (g.transitionsForNode(getPathname(window.location.pathname)).length == 0) {
 		// $("#navigation-next").addClass('d-none');
 		$("#navigation-next").text('Finish');
@@ -224,7 +224,7 @@ $(window).on('load', function() {
 	} else {
 		$("#navigation-back").prop('disabled', false);
 	}
-	
-	
+
+
 });
 
