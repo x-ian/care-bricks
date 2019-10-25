@@ -1,0 +1,63 @@
+<script type="text/x-red" data-template-name="generic-inject">
+    <div class="form-row">
+        <label for="node-input-name">
+            <i class="fa fa-tag"></i>
+            <span data-i18n="common.label.name">Label</span>
+        </label>
+
+        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-question">
+            <i class="fa fa-question"></i>
+            <span data-i18n="common.label.question">Question</span>
+        </label>
+
+        <input type="text" id="node-input-question">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-key">
+            <i class="fa fa-key"></i>
+            <span data-i18n="common.label.key">Key</span>
+        </label>
+
+        <input type="text" id="node-input-key">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-datatype">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.datatype">Datatype</span>
+        </label>
+
+        <select id="node-input-datatype-select">
+                <option value="integer" data-i18n="inject.integer">Integer</option>
+                <option value="date" data-i18n="inject.date">Date</option>
+                <option value="string" data-i18n="inject.string">String</option>
+                <option value="double" data-i18n="inject.double">Double</option>
+        </select>
+
+        <input type="hidden" id="node-input-datatype">
+    </div>
+
+    <div class="form-tips" data-i18n="[html]inject.tip"></div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('generic-inject', {
+        category: 'common',
+        color: "#6d70d0",
+        defaults: {
+            name: { value: "" },
+            question: { value: "" },
+            key: { value: "" },
+            datatype: { value: "" }
+        },
+
+        inputs: 1,
+        outputs: 1,
+        icon: "inject.svg"
+    });
+</script>
