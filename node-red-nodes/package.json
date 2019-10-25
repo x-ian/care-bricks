@@ -5,6 +5,7 @@
 
   "node-red" : {
     "nodes": {
+      "generic-inject": "generic-inject.js",
       "scheduled-patients-list": "workflow-poc-emr-scheduled-patients-list.js",
       "find-patient": "workflow-poc-emr-find-patient.js",
       "register-patient": "workflow-poc-emr-register-patient.js",
