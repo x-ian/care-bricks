@@ -3,30 +3,35 @@
         category: 'Workflow POC EMR',
         color: '#C7E9C0',
         defaults: {
-            filter: {value: ""}
+            key: {value: ""},
+            value: {value: ""}
         },
-        inputs:0,
+        inputs:1,
         outputs:1,
         icon: "inject.png",
         label: function() {
-            return this.name||"Checked In Patients List";
+            return this.name||"GRöße";
         }
     });
 </script>
 
 <script type="text/x-red" data-template-name="single-input">
     <div class="form-row">
-        <label for="node-input-filter"><i class="icon-tag"></i> Filter</label>
-        <textarea id="node-input-filter">
+        <label for="node-input-key"><i class="icon-tag"></i> Key</label>
+        <input id="node-input-key" type="text" />
+        <label for="node-input-key"><i class="icon-tag"></i> Value</label>
+        <input id="node-input-value" type="text" />
         </textarea>
 </script>
 
 <script type="text/x-red" data-help-name="single-input">
-   <p>Generates the list of patients given a filter.</p>
+   <p>A single input.</p>
    <h3>Input</h3>
     <dl class="message-properties">
-    <dt>filter
-        <span class="property-type">text</span>
+    <dt>key
+        <span class="property-type">string</span>
+    <dt>value
+        <span class="property-type">value</span>
     </dt>
 </script>
 

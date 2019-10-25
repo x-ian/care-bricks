@@ -6,6 +6,7 @@
   "node-red" : {
     "nodes": {
       "my-switch": "patient-list.js",
+      "single-input": "workflow-poc-emr-single-input.js",
       "scheduled-patients-list": "workflow-poc-emr-scheduled-patients-list.js",
       "find-patient": "workflow-poc-emr-find-patient.js",
       "register-patient": "workflow-poc-emr-register-patient.js",

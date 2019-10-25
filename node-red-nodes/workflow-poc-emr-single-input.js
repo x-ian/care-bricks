@@ -3,9 +3,11 @@ module.exports = function(RED) {
       RED.nodes.createNode(this,config);
       var node = this;
       node.on('input', function(msg) {
-          msg.payload = msg.payload;
+          // Store message here
+          msg.payload.key = config.key;
+          msg.payload.value = config.value;
           node.send(msg);
       });
   }
-  RED.nodes.registerType("single-input",WorkflowPocEmrScreenCheckedInPatientsListNode);
+  RED.nodes.registerType("single-input",WorkflowPocEmrScreenSingleInputNode);
 }
