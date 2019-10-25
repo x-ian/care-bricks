@@ -216,6 +216,12 @@ $(function(){
 })
 
 $(window).on('load', function() {
+    $.get("http://localhost:1880/flows",
+          {},
+          function(data) {
+             console.log(data);
+          }
+    );
 	document.getElementById('footer-area').value = basename(window.location.pathname);
 
 	if (g.transitionsForNode(getPathname(window.location.pathname)).length == 0) {
