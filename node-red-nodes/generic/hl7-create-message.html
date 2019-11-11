@@ -1,26 +1,26 @@
 <script type="text/javascript">
-    RED.nodes.registerType('register-patient',{
-        category: 'Workflow POC EMR',
-        color: '#C7E9C0',
+    RED.nodes.registerType('hl7-create-message',{
+        category: 'EMR To be done',
+        color: '#a6bbcf',
         defaults: {
             name: {value:""}
         },
-        inputs:0,
+        inputs:1,
         outputs:1,
-        icon: "inject.png",
+        icon: "debug.png",
         label: function() {
-            return this.name||"Register Patient";
+            return this.name||"HL7 Create Message";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="register-patient">
+<script type="text/x-red" data-template-name="hl7-create-message">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="register-patient">
+<script type="text/x-red" data-help-name="hl7-create-message">
     <p>workflow-poc-emr screen for </p>
 </script>

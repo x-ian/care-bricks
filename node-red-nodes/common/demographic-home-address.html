@@ -1,7 +1,7 @@
 <script type="text/javascript">
-    RED.nodes.registerType('lab-order-sputum',{
-        category: 'Workflow POC EMR',
-        color: '#a6bbcf',
+    RED.nodes.registerType('demographic-home-address',{
+        category: 'EMR Common',
+        color: '#6d70d0',
         defaults: {
             name: {value:""}
         },
@@ -9,18 +9,18 @@
         outputs:1,
         icon: "debug.png",
         label: function() {
-            return this.name||"Lab Order Sputum";
+            return this.name||"Home Address";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="lab-order-sputum">
+<script type="text/x-red" data-template-name="demographic-home-address">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="lab-order-sputum">
-    <p>workflow-poc-emr screen for lab order sputum</p>
+<script type="text/x-red" data-help-name="demographic-home-address">
+    <p>workflow-poc-emr screen for check in</p>
 </script>

@@ -1,0 +1,44 @@
+<script type="text/x-red" data-template-name="patients-queue">
+    <div class="form-row">
+        <label for="node-input-name">
+            <i class="fa fa-tag"></i>
+            <span data-i18n="common.label.name">Label</span>
+        </label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-expression">
+            <i class="fa fa-expression"></i>
+            <span data-i18n="common.label.key">Filter expression</span>
+        </label>
+        <input type="text" id="node-input-expression">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('patients-queue',{
+        category: 'EMR Generic',
+        color: '#C7E9C0',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "inject.png",
+        label: function() {
+            return this.name||"Patients Queue";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="patients">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="patients">
+    <p>workflow-poc-emr screen for </p>
+</script>

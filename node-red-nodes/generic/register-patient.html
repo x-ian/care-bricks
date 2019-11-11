@@ -1,26 +1,26 @@
 <script type="text/javascript">
-    RED.nodes.registerType('height-weight',{
-        category: 'Workflow POC EMR',
-        color: '#a6bbcf',
+    RED.nodes.registerType('register-patient',{
+        category: 'EMR Generic',
+        color: '#C7E9C0',
         defaults: {
             name: {value:""}
         },
-        inputs:1,
+        inputs:0,
         outputs:1,
-        icon: "debug.png",
+        icon: "inject.png",
         label: function() {
-            return this.name||"Height Weight";
+            return this.name||"Register Patient";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="height-weight">
+<script type="text/x-red" data-template-name="register-patient">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="height-weight">
+<script type="text/x-red" data-help-name="register-patient">
     <p>workflow-poc-emr screen for </p>
 </script>

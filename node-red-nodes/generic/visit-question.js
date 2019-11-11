@@ -1,5 +1,5 @@
 module.exports = function(RED) {
-    function SingleQuestionNode(properties) {
+    function VisitQuestionNode(properties) {
         RED.nodes.createNode(this,properties);
 
         this.label = properties.label;
@@ -19,5 +19,5 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("single-question",SingleQuestionNode);
+    RED.nodes.registerType("visit-question",VisitQuestionNode);
 }

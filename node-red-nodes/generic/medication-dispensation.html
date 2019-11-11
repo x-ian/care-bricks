@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('tb-screening',{
-        category: 'Workflow POC EMR',
+    RED.nodes.registerType('medication-dispensation',{
+        category: 'EMR To be done',
         color: '#a6bbcf',
         defaults: {
             name: {value:""}
@@ -9,18 +9,18 @@
         outputs:1,
         icon: "debug.png",
         label: function() {
-            return this.name||"TB Screening";
+            return this.name||"Medication Dispensation";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="tb-screening">
+<script type="text/x-red" data-template-name="medication-dispensation">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="tb-screening">
+<script type="text/x-red" data-help-name="medication-dispensation">
     <p>workflow-poc-emr screen for </p>
 </script>

@@ -1,26 +1,26 @@
 <script type="text/javascript">
-    RED.nodes.registerType('next-appointment',{
-        category: 'Workflow POC EMR',
-        color: '#a6bbcf',
+    RED.nodes.registerType('hl7-receive-message',{
+        category: 'EMR To be done',
+        color: '#C7E9C0',
         defaults: {
             name: {value:""}
         },
-        inputs:1,
+        inputs:0,
         outputs:1,
         icon: "debug.png",
         label: function() {
-            return this.name||"Next Appointment";
+            return this.name||"HL7 Receive Message";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="next-appointment">
+<script type="text/x-red" data-template-name="hl7-receive-message">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="next-appointment">
-    <p>workflow-poc-emr screen for next appointment</p>
+<script type="text/x-red" data-help-name="hl7-receive-message">
+    <p>workflow-poc-emr screen for </p>
 </script>

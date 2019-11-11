@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('lab-order-pregnancy',{
-        category: 'Workflow POC EMR',
+    RED.nodes.registerType('summary',{
+        category: 'EMR Generic',
         color: '#a6bbcf',
         defaults: {
             name: {value:""}
@@ -9,18 +9,18 @@
         outputs:1,
         icon: "debug.png",
         label: function() {
-            return this.name||"Lab Order Pregnancy";
+            return this.name||"Summary";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="lab-order-pregnancy">
+<script type="text/x-red" data-template-name="summary">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="lab-order-pregnancy">
-    <p>workflow-poc-emr screen for lab order pregnancy</p>
+<script type="text/x-red" data-help-name="referral">
+    <p>workflow-poc-emr screen for </p>
 </script>

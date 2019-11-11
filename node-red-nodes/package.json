@@ -1,22 +1,11 @@
 {
-  "name": "node-red-nodes",
+  "name": "node-red-contrib-emr",
   "version": "1.0.0",
   "description": "",
 
   "node-red" : {
     "nodes": {
-      "single-question": "single-question.js",
-      "scheduled-patients-list": "scheduled-patients-list.js",
-      "find-patient": "find-patient.js",
-      "register-patient": "register-patient.js",
-      "blood-pressure": "blood-pressure.js",
-      "check-in": "check-in.js",
-      "height-weight": "height-weight.js",
-      "lab-order-pregnancy": "lab-order-pregnancy.js",
-      "lab-order-sputum": "lab-order-sputum.js",
-      "next-appointment": "next-appointment.js",
-      "tb-screening": "tb-screening.js",
-      "end-station": "end-station.js"
+      "end-flow": "generic/end-flow.js"
     }
   }
 }

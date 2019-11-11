@@ -1,0 +1,51 @@
+<script type="text/x-red" data-template-name="lab-order-entry">
+    <div class="form-row">
+        <label for="node-input-name">
+            <i class="fa fa-tag"></i>
+            <span data-i18n="common.label.name">Label</span>
+        </label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-datatype">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.datatype">Available panel</span>
+        </label>
+        <select id="node-input-datatype">
+                <option value="text" data-i18n="single-question.string">Test Panel A</option>
+                <option value="text" data-i18n="single-question.string">Test Panel B</option>
+                <option value="text" data-i18n="single-question.string">Test Panel C</option>
+                <option value="text" data-i18n="single-question.string">Test Panel D</option>
+                <option value="text" data-i18n="single-question.string">Test Panel E</option>
+                <option value="text" data-i18n="single-question.string">Test Panel F</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('lab-order-entry',{
+        category: 'EMR Generic',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Lab Order Entry";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="lab-order-entry">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="lab-order-entry">
+    <p>workflow-poc-emr screen for </p>
+</script>

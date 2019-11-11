@@ -1,0 +1,71 @@
+<script type="text/x-red" data-template-name="find-patient">
+    <div class="form-row">
+        <label for="node-input-name">
+            <i class="fa fa-tag"></i>
+            <span data-i18n="common.label.name">Label</span>
+        </label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+    </div>
+
+    <div class="form-row">
+        <label>Search Fields</label>
+        <input type="checkbox" id="node-input-name" placeholder="" style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-name" style="width:70%;">Include Name</label>
+    </div>
+
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-join" placeholder="" style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-join" style="width:70%;">Include Identifier</label>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-datatype">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.datatype">Program</span>
+        </label>
+        <select id="node-input-datatype">
+                <option value="text" data-i18n="single-question.string">All</option>
+                <option value="text" data-i18n="single-question.string">HIV</option>
+                <option value="text" data-i18n="single-question.string">TB</option>
+                <option value="text" data-i18n="single-question.string">Antenal Care</option>
+                <option value="text" data-i18n="single-question.string">Chronic Care</option>
+                <option value="text" data-i18n="single-question.string">Mental Health</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-expression">
+            <i class="fa fa-expression"></i>
+            <span data-i18n="common.label.key">Filter expression</span>
+        </label>
+        <input type="text" id="node-input-expression">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('find-patient',{
+        category: 'EMR Generic',
+        color: '#C7E9C0',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "inject.png",
+        label: function() {
+            return this.name||"Find Patient";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="find-patient">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="find-patient">
+    <p>workflow-poc-emr screen for </p>
+</script>

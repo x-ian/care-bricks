@@ -1,28 +1,25 @@
-<script type="text/x-red" data-template-name="single-question">
+<script type="text/x-red" data-template-name="demographic-attribute">
     <div class="form-row">
         <label for="node-input-name">
             <i class="fa fa-tag"></i>
             <span data-i18n="common.label.name">Label</span>
         </label>
-
         <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
     </div>
 
     <div class="form-row">
-        <label for="node-input-question">
-            <i class="fa fa-question"></i>
-            <span data-i18n="common.label.question">Question</span>
+        <label for="node-input-label">
+            <i class="fa fa-label"></i>
+            <span data-i18n="common.label.question">Label</span>
         </label>
-
-        <input type="text" id="node-input-question">
+        <input type="text" id="node-input-label">
     </div>
 
     <div class="form-row">
         <label for="node-input-key">
             <i class="fa fa-key"></i>
-            <span data-i18n="common.label.key">Key</span>
+            <span data-i18n="common.label.key">FHIR Key</span>
         </label>
-
         <input type="text" id="node-input-key">
     </div>
 
@@ -40,26 +37,31 @@
                 <option value="multiselect" data-i18n="single-question.string">Multi Select</option>
         </select>
     </div>
-
-    <div class="form-tips" data-i18n="[html]single-question.tip"></div>
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('single-question', {
-        category: 'Workflow POC EMR',
-        color: "#6d70d0",
+    RED.nodes.registerType('demographic-attribute',{
+        category: 'EMR Generic',
+        color: '#a6bbcf',
         defaults: {
-            name: { value: "" },
-            question: { value: "" },
-            key: { value: "" },
-            datatype: { value: "" }
+            name: {value:""}
         },
-
-        inputs: 1,
-        outputs: 1,
-        icon: "inject.svg",
-	label: function() {
-		return this.name||"Single Question";
-	}	
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Demographic Attribute";
+        }
     });
+</script>
+
+<script type="text/x-red" data-template-name="demographic-attribute">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="demographic-attribute">
+    <p>workflow-poc-emr screen for </p>
 </script>
