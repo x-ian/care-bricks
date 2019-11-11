@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('home-address',{
+        category: 'Workflow POC EMR',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Home Address";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="home-address">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="home-address">
+    <p>workflow-poc-emr screen for check in</p>
+</script>
