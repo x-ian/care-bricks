@@ -18,6 +18,11 @@ var config = {
 	"endflow": { "context": "Patient Registration - End Current Station Flow", "next": "", "back": "vitals-heightweight.html" }
 };
 
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
 function basename(str) {
    var base = new String(str).substring(str.lastIndexOf('/') + 1); 
     if(base.lastIndexOf(".") != -1)       

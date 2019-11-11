@@ -1,22 +1,22 @@
 {
-  "name": "workflow-poc-emr-node-red-nodes",
+  "name": "node-red-nodes",
   "version": "1.0.0",
   "description": "",
 
   "node-red" : {
     "nodes": {
-      "generic-inject": "generic-inject.js",
-      "scheduled-patients-list": "workflow-poc-emr-scheduled-patients-list.js",
-      "find-patient": "workflow-poc-emr-find-patient.js",
-      "register-patient": "workflow-poc-emr-register-patient.js",
-      "blood-pressure": "workflow-poc-emr-blood-pressure.js",
-      "check-in": "workflow-poc-emr-check-in.js",
-      "height-weight": "workflow-poc-emr-height-weight.js",
-      "lab-order-pregnancy": "workflow-poc-emr-lab-order-pregnancy.js",
-      "lab-order-sputum": "workflow-poc-emr-lab-order-sputum.js",
-      "next-appointment": "workflow-poc-emr-next-appointment.js",
-      "tb-screening": "workflow-poc-emr-tb-screening.js",
-      "end-station": "workflow-poc-emr-end-station.js"
+      "single-question": "single-question.js",
+      "scheduled-patients-list": "scheduled-patients-list.js",
+      "find-patient": "find-patient.js",
+      "register-patient": "register-patient.js",
+      "blood-pressure": "blood-pressure.js",
+      "check-in": "check-in.js",
+      "height-weight": "height-weight.js",
+      "lab-order-pregnancy": "lab-order-pregnancy.js",
+      "lab-order-sputum": "lab-order-sputum.js",
+      "next-appointment": "next-appointment.js",
+      "tb-screening": "tb-screening.js",
+      "end-station": "end-station.js"
     }
   }
 }
