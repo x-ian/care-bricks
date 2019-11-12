@@ -1,5 +1,5 @@
 module.exports = function(RED) {
-  function ScreenCurrentAddressNode(config) {
+  function ScreenDemographicCurrentAddressNode(config) {
       RED.nodes.createNode(this,config);
       var node = this;
       node.on('input', function(msg) {
@@ -7,5 +7,5 @@ module.exports = function(RED) {
           node.send(msg);
       });
   }
-  RED.nodes.registerType("current-address",ScreenCurrentAddressNode);
+  RED.nodes.registerType("demographic-current-address",ScreenDemographicCurrentAddressNode);
 }

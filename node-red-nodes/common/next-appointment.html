@@ -1,29 +1,3 @@
-<script type="text/x-red" data-template-name="next-appointment'">
-    <div class="form-row">
-        <label for="node-input-name">
-            <i class="fa fa-tag"></i>
-            <span data-i18n="common.label.name">Label</span>
-        </label>
-        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
-    </div>
-
-    <div class="form-row">
-        <label for="node-input-datatype">
-            <i class="fa fa-envelope"></i>
-            <span data-i18n="common.label.datatype">Default period</span>
-        </label>
-        <select id="node-input-datatype">
-                <option value="text" data-i18n="single-question.string">None</option>
-                <option value="text" data-i18n="single-question.string">Tomorrow</option>
-                <option value="text" data-i18n="single-question.string">Next week</option>
-                <option value="text" data-i18n="single-question.string">In 2 weeks</option>
-                <option value="text" data-i18n="single-question.string">Next Month</option>
-                <option value="text" data-i18n="single-question.string">In 2 months</option>
-                <option value="text" data-i18n="single-question.string">In 3 months</option>
-        </select>
-    </div>
-</script>
-
 <script type="text/javascript">
     RED.nodes.registerType('next-appointment',{
         category: 'EMR Common',
@@ -44,6 +18,22 @@
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-datatype">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.datatype">Default period</span>
+        </label>
+        <select id="node-input-datatype">
+                <option value="text" data-i18n="single-question.string">None</option>
+                <option value="text" data-i18n="single-question.string">Tomorrow</option>
+                <option value="text" data-i18n="single-question.string">Next week</option>
+                <option value="text" data-i18n="single-question.string">In 2 weeks</option>
+                <option value="text" data-i18n="single-question.string">Next Month</option>
+                <option value="text" data-i18n="single-question.string">In 2 months</option>
+                <option value="text" data-i18n="single-question.string">In 3 months</option>
+        </select>
     </div>
 </script>
 

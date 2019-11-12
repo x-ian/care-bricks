@@ -1,177 +1,178 @@
 [
     {
-        "id": "d62906f9.4ccc38",
+        "id": "1e1f387c.9e87d8",
         "type": "subflow",
         "name": "Patient Demographics",
         "info": "",
-        "category": "Workflow POC EMR",
+        "category": "subflows",
         "in": [
             {
-                "x": 50,
-                "y": 30,
+                "x": 40,
+                "y": 40,
                 "wires": [
                     {
-                        "id": "f7f709.3abd58f8"
+                        "id": "32f2e0ed.2508f"
                     }
                 ]
             }
         ],
         "out": [
             {
-                "x": 550.0000076293945,
-                "y": 37.999999046325684,
+                "x": 540,
+                "y": 40,
                 "wires": [
                     {
-                        "id": "a9955b2.cda11a8",
+                        "id": "a0d1f855.52a3e8",
                         "port": 0
                     }
                 ]
             }
         ],
-        "env": []
+        "env": [],
+        "color": "#DDAA99"
     },
     {
-        "id": "30276bf7.e2a344",
-        "type": "lastname",
-        "z": "d62906f9.4ccc38",
-        "name": "",
-        "x": 357.00288009643555,
-        "y": 29.87788963317871,
+        "id": "32f2e0ed.2508f",
+        "type": "demographic-attribute",
+        "z": "1e1f387c.9e87d8",
+        "name": "firstname",
+        "x": 200,
+        "y": 40,
         "wires": [
             [
-                "78530626.a59798"
+                "cd1e9934.dbd818"
             ]
         ]
     },
     {
-        "id": "a9955b2.cda11a8",
-        "type": "home-address",
-        "z": "d62906f9.4ccc38",
+        "id": "cd1e9934.dbd818",
+        "type": "demographic-attribute",
+        "z": "1e1f387c.9e87d8",
+        "name": "lastname",
+        "x": 360,
+        "y": 40,
+        "wires": [
+            [
+                "6d233ad6.07b044"
+            ]
+        ]
+    },
+    {
+        "id": "6d233ad6.07b044",
+        "type": "demographic-birthdate",
+        "z": "1e1f387c.9e87d8",
         "name": "",
-        "x": 410.00284576416016,
-        "y": 171.93192291259766,
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "95ccb3cf.803b9"
+            ]
+        ]
+    },
+    {
+        "id": "95ccb3cf.803b9",
+        "type": "demographic-current-address",
+        "z": "1e1f387c.9e87d8",
+        "name": "",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "a0d1f855.52a3e8"
+            ]
+        ]
+    },
+    {
+        "id": "a0d1f855.52a3e8",
+        "type": "demographic-home-address",
+        "z": "1e1f387c.9e87d8",
+        "name": "",
+        "x": 420,
+        "y": 160,
         "wires": [
             []
         ]
     },
     {
-        "id": "f7f709.3abd58f8",
-        "type": "firstname",
-        "z": "d62906f9.4ccc38",
-        "name": "",
-        "x": 176.99999237060547,
-        "y": 30.957387924194336,
-        "wires": [
-            [
-                "30276bf7.e2a344"
-            ]
-        ]
-    },
-    {
-        "id": "a69e2ca7.54e65",
-        "type": "current-address",
-        "z": "d62906f9.4ccc38",
-        "name": "",
-        "x": 210.99715423583984,
-        "y": 174.99999809265137,
-        "wires": [
-            [
-                "a9955b2.cda11a8"
-            ]
-        ]
-    },
-    {
-        "id": "78530626.a59798",
-        "type": "birthdate",
-        "z": "d62906f9.4ccc38",
-        "name": "",
-        "x": 185.9999885559082,
-        "y": 100.05964851379395,
-        "wires": [
-            [
-                "a69e2ca7.54e65"
-            ]
-        ]
-    },
-    {
-        "id": "df67d84c.8d6f08",
+        "id": "cefa7e58.6ac17",
         "type": "tab",
-        "label": "Check in",
+        "label": "Registration & Check in",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "5c2da2b9.cd99fc",
+        "id": "f8b7b874.95c868",
         "type": "scheduled-patients-list",
-        "z": "df67d84c.8d6f08",
+        "z": "cefa7e58.6ac17",
         "name": "",
         "x": 112.19883728027344,
         "y": 46.809600830078125,
         "wires": [
             [
-                "b9b6e9d0.66b138"
+                "83628edb.d375e"
             ]
         ]
     },
     {
-        "id": "61f9a5df.9865fc",
+        "id": "f24d39af.0205b8",
         "type": "find-patient",
-        "z": "df67d84c.8d6f08",
+        "z": "cefa7e58.6ac17",
         "name": "",
         "x": 137.1903076171875,
         "y": 86.9317569732666,
         "wires": [
             [
-                "b9b6e9d0.66b138"
+                "83628edb.d375e"
             ]
         ]
     },
     {
-        "id": "941a31ea.948d1",
+        "id": "1c84ac2d.dfccb4",
         "type": "end-flow",
-        "z": "df67d84c.8d6f08",
+        "z": "cefa7e58.6ac17",
         "name": "",
         "x": 563.1960067749023,
         "y": 87.95166015625,
         "wires": []
     },
     {
-        "id": "b9b6e9d0.66b138",
+        "id": "83628edb.d375e",
         "type": "check-in",
-        "z": "df67d84c.8d6f08",
+        "z": "cefa7e58.6ac17",
         "name": "",
         "x": 388.1902961730957,
         "y": 87.99714088439941,
         "wires": [
             [
-                "941a31ea.948d1"
+                "1c84ac2d.dfccb4"
             ]
         ]
     },
     {
-        "id": "a295544b.d32758",
+        "id": "2e0af164.ab2d8e",
         "type": "register-patient",
-        "z": "df67d84c.8d6f08",
+        "z": "cefa7e58.6ac17",
         "name": "",
         "x": 128.20169067382812,
         "y": 124.82951545715332,
         "wires": [
             [
-                "21440d1f.5b7182"
+                "e56b0690.20f418"
             ]
         ]
     },
     {
-        "id": "21440d1f.5b7182",
-        "type": "subflow:d62906f9.4ccc38",
-        "z": "df67d84c.8d6f08",
+        "id": "e56b0690.20f418",
+        "type": "subflow:1e1f387c.9e87d8",
+        "z": "cefa7e58.6ac17",
         "name": "",
         "env": [],
         "x": 288.1931686401367,
         "y": 193.44731330871582,
         "wires": [
             [
-                "b9b6e9d0.66b138"
+                "83628edb.d375e"
             ]
         ]
     }

@@ -1,3 +1,23 @@
+<script type="text/javascript">
+    RED.nodes.registerType('visit-question', {
+        category: 'EMR Generic',
+        color: "#a6bbcf",
+        defaults: {
+            name: { value: "" },
+            question: { value: "" },
+            key: { value: "" },
+            datatype: { value: "" }
+        },
+
+        inputs: 1,
+        outputs: 1,
+        icon: "debug.png",
+	label: function() {
+		return this.name||"Visit Question";
+	}	
+    });
+</script>
+
 <script type="text/x-red" data-template-name="visit-question">
     <div class="form-row">
         <label for="node-input-name">
@@ -39,24 +59,4 @@
     </div>
 
     <div class="form-tips" data-i18n="[html]single-question.tip"></div>
-</script>
-
-<script type="text/javascript">
-    RED.nodes.registerType('visit-question', {
-        category: 'EMR Generic',
-        color: "#a6bbcf",
-        defaults: {
-            name: { value: "" },
-            question: { value: "" },
-            key: { value: "" },
-            datatype: { value: "" }
-        },
-
-        inputs: 1,
-        outputs: 1,
-        icon: "debug.png",
-	label: function() {
-		return this.name||"Visit Question";
-	}	
-    });
 </script>

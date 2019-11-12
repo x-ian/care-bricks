@@ -1,12 +1,24 @@
+<script type="text/javascript">
+    RED.nodes.registerType('demographic-attribute',{
+        category: 'EMR Generic',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Demographic Attribute";
+        }
+    });
+</script>
+
 <script type="text/x-red" data-template-name="demographic-attribute">
     <div class="form-row">
-        <label for="node-input-name">
-            <i class="fa fa-tag"></i>
-            <span data-i18n="common.label.name">Label</span>
-        </label>
-        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
     </div>
-
     <div class="form-row">
         <label for="node-input-label">
             <i class="fa fa-label"></i>
@@ -36,29 +48,6 @@
                 <option value="singleselect" data-i18n="single-question.string">Single Select</option>
                 <option value="multiselect" data-i18n="single-question.string">Multi Select</option>
         </select>
-    </div>
-</script>
-
-<script type="text/javascript">
-    RED.nodes.registerType('demographic-attribute',{
-        category: 'EMR Generic',
-        color: '#a6bbcf',
-        defaults: {
-            name: {value:""}
-        },
-        inputs:1,
-        outputs:1,
-        icon: "debug.png",
-        label: function() {
-            return this.name||"Demographic Attribute";
-        }
-    });
-</script>
-
-<script type="text/x-red" data-template-name="demographic-attribute">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 

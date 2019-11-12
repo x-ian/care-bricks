@@ -1,178 +1,194 @@
 [
     {
-        "id": "c6ed8ab5.661998",
+        "id": "bb2b2ee9.e9e57",
         "type": "tab",
         "label": "Vitals & Screening",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "4faf5c6d.6e8f74",
+        "id": "405ae71f.4802d8",
         "type": "checked-in-patients-list",
-        "z": "c6ed8ab5.661998",
+        "z": "bb2b2ee9.e9e57",
         "name": "",
-        "x": 137,
-        "y": 43.41193199157715,
+        "x": 130,
+        "y": 40,
         "wires": [
             [
-                "f0606804.f12318"
+                "18919f6.efd2361"
             ]
         ]
     },
     {
-        "id": "f0606804.f12318",
+        "id": "18919f6.efd2361",
         "type": "height-weight",
-        "z": "c6ed8ab5.661998",
+        "z": "bb2b2ee9.e9e57",
         "name": "",
-        "x": 381.1903610229492,
-        "y": 43.88919162750244,
+        "x": 374.1903610229492,
+        "y": 40.47725963592529,
         "wires": [
             [
-                "6e1c3941.da97f8"
+                "a39f4865.859c18"
             ]
         ]
     },
     {
-        "id": "cfe9d4e0.7d94c8",
+        "id": "25b8fec9.b08892",
         "type": "blood-pressure",
-        "z": "c6ed8ab5.661998",
+        "z": "bb2b2ee9.e9e57",
         "name": "",
-        "x": 618.1930694580078,
-        "y": 101.61362552642822,
+        "x": 533,
+        "y": 96.58806800842285,
         "wires": [
             [
-                "ee5165b.aeb4198"
+                "89c05a6a.23da08"
             ]
         ]
     },
     {
-        "id": "c38523f8.557cb",
-        "type": "lab-order-pregnancy",
-        "z": "c6ed8ab5.661998",
-        "name": "",
-        "x": 648.0142288208008,
-        "y": 165.76988124847412,
-        "wires": [
-            [
-                "1e85d0c9.3b406f"
-            ]
-        ]
-    },
-    {
-        "id": "b92c2d6a.c88cb",
-        "type": "lab-order-sputum",
-        "z": "c6ed8ab5.661998",
-        "name": "",
-        "x": 793.0170555114746,
-        "y": 223.75563144683838,
-        "wires": [
-            [
-                "208b626f.caf81e"
-            ]
-        ]
-    },
-    {
-        "id": "1e85d0c9.3b406f",
+        "id": "c997da51.664fa8",
         "type": "tb-screening",
-        "z": "c6ed8ab5.661998",
+        "z": "bb2b2ee9.e9e57",
         "name": "",
-        "x": 391.01988220214844,
-        "y": 229.67607879638672,
+        "x": 373,
+        "y": 216.58806800842285,
         "wires": [
             [
-                "e96fe56.2157c18"
+                "bc89b7d8.34cf58"
             ]
         ]
     },
     {
-        "id": "208b626f.caf81e",
+        "id": "c004ff20.726c8",
         "type": "next-appointment",
-        "z": "c6ed8ab5.661998",
+        "z": "bb2b2ee9.e9e57",
         "name": "",
-        "x": 393.00853729248047,
-        "y": 294.411865234375,
+        "x": 383,
+        "y": 276.58806800842285,
         "wires": [
             [
-                "c828628f.a968d"
+                "af81174c.74ec68"
             ]
         ]
     },
     {
-        "id": "c828628f.a968d",
+        "id": "af81174c.74ec68",
         "type": "end-flow",
-        "z": "c6ed8ab5.661998",
+        "z": "bb2b2ee9.e9e57",
         "name": "",
-        "x": 593.0141830444336,
-        "y": 374.40904808044434,
+        "x": 553,
+        "y": 276.58806800842285,
         "wires": []
     },
     {
-        "id": "6e1c3941.da97f8",
-        "type": "condition",
-        "z": "c6ed8ab5.661998",
-        "name": "under 5?",
-        "func": "\nreturn msg;",
-        "outputs": 2,
-        "noerr": 0,
-        "x": 375.19600677490234,
-        "y": 107.51419258117676,
+        "id": "1f5269ab.6ef366",
+        "type": "lab-order-entry",
+        "z": "bb2b2ee9.e9e57",
+        "name": "Lab Order Pregnancy Test",
+        "x": 683,
+        "y": 156.58806800842285,
         "wires": [
             [
-                "cfe9d4e0.7d94c8"
-            ],
-            [
-                "ee5165b.aeb4198"
+                "c997da51.664fa8"
             ]
-        ],
-        "outputLabels": [
-            "age >= 5 yrs",
-            "age < 5 yrs"
         ]
     },
     {
-        "id": "ee5165b.aeb4198",
-        "type": "condition",
-        "z": "c6ed8ab5.661998",
-        "name": "female && >= 15 yrs?",
-        "func": "return msg;",
-        "outputs": 2,
-        "noerr": 0,
-        "x": 390.196044921875,
-        "y": 167.5170373916626,
+        "id": "4362f17a.159cd",
+        "type": "lab-order-entry",
+        "z": "bb2b2ee9.e9e57",
+        "name": "Lab Order Sputum",
+        "x": 763,
+        "y": 216.58806800842285,
         "wires": [
             [
-                "c38523f8.557cb"
-            ],
-            [
-                "1e85d0c9.3b406f"
+                "c004ff20.726c8"
             ]
-        ],
-        "outputLabels": [
-            "female && >= 15 yrs",
-            "all others"
         ]
     },
     {
-        "id": "e96fe56.2157c18",
-        "type": "condition",
-        "z": "c6ed8ab5.661998",
-        "name": "TB Suspect?",
+        "id": "a39f4865.859c18",
+        "type": "switch",
+        "z": "bb2b2ee9.e9e57",
+        "name": "Under 5?",
+        "property": "age",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "lt",
+                "v": "5",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 353,
+        "y": 96.58806800842285,
+        "wires": [
+            [
+                "25b8fec9.b08892"
+            ],
+            [
+                "89c05a6a.23da08"
+            ]
+        ]
+    },
+    {
+        "id": "bc89b7d8.34cf58",
+        "type": "switch",
+        "z": "bb2b2ee9.e9e57",
+        "name": "TB  Suspect?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "false",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 563,
+        "y": 216.58806800842285,
+        "wires": [
+            [
+                "4362f17a.159cd"
+            ],
+            [
+                "c004ff20.726c8"
+            ]
+        ]
+    },
+    {
+        "id": "89c05a6a.23da08",
+        "type": "function",
+        "z": "bb2b2ee9.e9e57",
+        "name": "Female && >= 15 years",
         "func": "\nreturn msg;",
         "outputs": 2,
         "noerr": 0,
-        "x": 594.1932067871094,
-        "y": 230.50562477111816,
+        "x": 403,
+        "y": 156.58806800842285,
         "wires": [
             [
-                "b92c2d6a.c88cb"
+                "1f5269ab.6ef366"
             ],
             [
-                "208b626f.caf81e"
+                "c997da51.664fa8"
             ]
-        ],
-        "outputLabels": [
-            "suspect",
-            "no suspect"
         ]
     }
 ]

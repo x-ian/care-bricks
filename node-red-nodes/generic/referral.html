@@ -1,21 +1,3 @@
-<script type="text/x-red" data-template-name="demographic-attribute">
-    <div class="form-row">
-        <label for="node-input-name">
-            <i class="fa fa-tag"></i>
-            <span data-i18n="common.label.name">Label</span>
-        </label>
-        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
-    </div>
-
-    <div class="form-row">
-        <label for="node-input-key">
-            <i class="fa fa-key"></i>
-            <span data-i18n="common.label.key">Referral Facility</span>
-        </label>
-        <input type="text" id="node-input-key">
-    </div>
-</script>
-
 <script type="text/javascript">
     RED.nodes.registerType('referral',{
         category: 'EMR Generic',
@@ -36,6 +18,14 @@
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-key">
+            <i class="fa fa-key"></i>
+            <span data-i18n="common.label.key">Referral Facility</span>
+        </label>
+        <input type="text" id="node-input-key">
     </div>
 </script>
 

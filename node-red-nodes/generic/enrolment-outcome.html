@@ -1,10 +1,23 @@
+<script type="text/javascript">
+    RED.nodes.registerType('enrolment-outcome',{
+        category: 'EMR Generic',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Enrolment & Outcome";
+        }
+    });
+</script>
+
 <script type="text/x-red" data-template-name="enrolment-outcome">
     <div class="form-row">
-        <label for="node-input-name">
-            <i class="fa fa-tag"></i>
-            <span data-i18n="common.label.name">Label</span>
-        </label>
-        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
     </div>
 
     <div class="form-row">
@@ -34,29 +47,6 @@
                 <option value="text" data-i18n="single-question.string">Discharged</option>
                 <option value="text" data-i18n="single-question.string">Died</option>
         </select>
-    </div>
-</script>
-
-<script type="text/javascript">
-    RED.nodes.registerType('enrolment-outcome',{
-        category: 'EMR Generic',
-        color: '#a6bbcf',
-        defaults: {
-            name: {value:""}
-        },
-        inputs:1,
-        outputs:1,
-        icon: "debug.png",
-        label: function() {
-            return this.name||"Enrolment & Outcome";
-        }
-    });
-</script>
-
-<script type="text/x-red" data-template-name="enrolment-outcome">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 

@@ -1,28 +1,3 @@
-<script type="text/x-red" data-template-name="scheduled-patients-list">
-    <div class="form-row">
-        <label for="node-input-name">
-            <i class="fa fa-tag"></i>
-            <span data-i18n="common.label.name">Label</span>
-        </label>
-        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
-    </div>
-
-    <div class="form-row">
-        <label for="node-input-datatype">
-            <i class="fa fa-envelope"></i>
-            <span data-i18n="common.label.datatype">Filter for Program</span>
-        </label>
-        <select id="node-input-datatype">
-	        <option value="text" data-i18n="single-question.string">Unspecific</option>
-	        <option value="text" data-i18n="single-question.string">HIV</option>
-	        <option value="text" data-i18n="single-question.string">TB</option>
-	        <option value="text" data-i18n="single-question.string">Antenal Care</option>
-	        <option value="text" data-i18n="single-question.string">Chronic Care</option>
-	        <option value="text" data-i18n="single-question.string">Mental Health</option>
-        </select>
-    </div>
-</script>
-
 <script type="text/javascript">
     RED.nodes.registerType('scheduled-patients-list',{
         category: 'EMR Common',
@@ -43,6 +18,21 @@
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-datatype">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.datatype">Filter for Program</span>
+        </label>
+        <select id="node-input-datatype">
+	        <option value="text" data-i18n="single-question.string">Unspecific</option>
+	        <option value="text" data-i18n="single-question.string">HIV</option>
+	        <option value="text" data-i18n="single-question.string">TB</option>
+	        <option value="text" data-i18n="single-question.string">Antenal Care</option>
+	        <option value="text" data-i18n="single-question.string">Chronic Care</option>
+	        <option value="text" data-i18n="single-question.string">Mental Health</option>
+        </select>
     </div>
 </script>
 
