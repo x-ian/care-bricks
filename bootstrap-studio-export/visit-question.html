@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html id="page-visit-question">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>UI-Scratches-redesign</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body>
+    <header class="emr-header">
+        <div class="emr-header-element emr-header-element__name"><span>&lt;patient name&gt;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female"></i><i class="fa fa-male"></i></div>
+        <div class="emr-header-element">
+            <div><span>&lt;birthdate&gt; / &lt;age&gt;</span></div>
+        </div>
+        <div class="emr-header-element"><span>&lt;current address&gt;</span></div>
+        <div class="emr-header-element"><span>&lt;ID&gt;</span></div>
+    </header>
+    <div class="container">
+        <h4 id="input-label" style="margin: 10px 0px 0px;">&lt;placeholder&gt;</h4>
+        <hr><input type="text" id="input">
+        <hr>
+        <div id="alphapad" style="width: 600px;">
+            <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-a" type="button">A</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-b" type="button">B</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="alphapad-c" type="button">C</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-d" type="button">D</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-e" type="button">E</button>
+                <button
+                    class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-f" type="button">F</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-g" type="button">G</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-h" type="button">H</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                        id="alphapad-bksp" type="button">Bksp</button></div>
+            <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-i" type="button">I</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-j" type="button">J</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="alphapad-k" type="button">K</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-l" type="button">L</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-m" type="button">M</button>
+                <button
+                    class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-n" type="button">N</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-o" type="button">O</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-p" type="button">P</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                        id="alphapad-quote" type="button">'</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-dash" type="button">-</button></div>
+            <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-q" type="button">Q</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-r" type="button">R</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="alphapad-s" type="button">S</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-t" type="button">T</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-u" type="button">U</button>
+                <button
+                    class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-v" type="button">V</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-w" type="button">W</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-x" type="button">X</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                        id="alphapad-y" type="button">Y</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-z" type="button">Z</button></div>
+        </div>
+    </div>
+    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+        <button
+            class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://localhost:8000/node-red-flow-parser.js"></script>
+    <script src="http://localhost:8000/pages-event-handlers.js"></script>
+    <script src="http://localhost:8000/workflow.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>UI-Scratches-redesign</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body>
+    <header class="emr-header">
+        <div class="emr-header-element emr-header-element__name"><span>&lt;patient name&gt;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female"></i><i class="fa fa-male"></i></div>
+        <div class="emr-header-element">
+            <div><span>&lt;birthdate&gt; / &lt;age&gt;</span></div>
+        </div>
+        <div class="emr-header-element"><span>&lt;current address&gt;</span></div>
+        <div class="emr-header-element"><span>&lt;ID&gt;</span></div>
+    </header>
+    <div class="container">
+        <h4>Current Address</h4>
+        <div>
+            <div class="row">
+                <div class="col"><input class="form-control-plaintext" type="text" value="Region" readonly=""><input type="text" id="input-region">
+                    <ul class="list-group" id="list-region" style="max-height:450px; overflow:scroll">
+                        <li class="list-group-item list-group-item-action"><span>Northern</span></li>
+                        <li class="list-group-item list-group-item-action active"><span>Central</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Southern</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Not In Malawi</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Unknown</span></li>
+                    </ul>
+                </div>
+                <div class="col"><input class="form-control-plaintext" type="text" value="District" readonly=""><input type="text" id="input-district">
+                    <ul class="list-group" id="list-district" style="max-height:450px; overflow:scroll">
+                        <li class="list-group-item list-group-item-action"><span>Dedza</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Dowa</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Kasungu</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Lilongwe</span></li>
+                        <li class="list-group-item list-group-item-action active"><span>Lilongwe City</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Mchinji</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Nkhotakota</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Ntcheu</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Ntchisi</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Salima</span></li>
+                    </ul>
+                </div>
+                <div class="col"><input class="form-control-plaintext" type="text" value="Traditional Authority" readonly=""><input type="text" id="input-ta">
+                    <ul class="list-group" id="list-ta" style="max-height:450px; overflow:scroll">
+                        <li class="list-group-item list-group-item-action"><span>Kaphiri</span></li>
+                        <li class="list-group-item list-group-item-action active"><span>Kauma</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Kawale I (A4)</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Kawale II (A4)</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Likuni</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Lumbadzi</span></li>
+                    </ul>
+                </div>
+                <div class="col"><input class="form-control-plaintext" type="text" value="Village" readonly=""><input type="text" id="input-village">
+                    <ul class="list-group" id="list-village" style="max-height:450px; overflow:scroll">
+                        <li class="list-group-item list-group-item-action"><span>Kaphiri</span></li>
+                        <li class="list-group-item list-group-item-action active"><span>Kauma</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Kawale I (A4)</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Kawale II (A4)</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Likuni</span></li>
+                        <li class="list-group-item list-group-item-action"><span>Lumbadzi</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+        <button
+            class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://localhost:8000/node-red-flow-parser.js"></script>
+    <script src="http://localhost:8000/pages-event-handlers.js"></script>
+    <script src="http://localhost:8000/workflow.js"></script>
+</body>
+
+</html>
