@@ -1,0 +1,169 @@
+[
+    {
+        "id": "44f39023.b9aa5",
+        "type": "subflow",
+        "name": "Patient Demographics",
+        "info": "",
+        "category": "subflows",
+        "in": [
+            {
+                "x": 40,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "4a47058f.1419cc"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 540,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "84b36bb7.0f7a88",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "4a47058f.1419cc",
+        "type": "demographic-attribute",
+        "z": "44f39023.b9aa5",
+        "name": "firstname",
+        "x": 200,
+        "y": 40,
+        "wires": [
+            [
+                "afa5710c.59722"
+            ]
+        ]
+    },
+    {
+        "id": "afa5710c.59722",
+        "type": "demographic-attribute",
+        "z": "44f39023.b9aa5",
+        "name": "lastname",
+        "x": 360,
+        "y": 40,
+        "wires": [
+            [
+                "fc497db6.60d148"
+            ]
+        ]
+    },
+    {
+        "id": "fc497db6.60d148",
+        "type": "demographic-birthdate",
+        "z": "44f39023.b9aa5",
+        "name": "",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "95d781f0.d999a8"
+            ]
+        ]
+    },
+    {
+        "id": "95d781f0.d999a8",
+        "type": "demographic-current-address",
+        "z": "44f39023.b9aa5",
+        "name": "",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "84b36bb7.0f7a88"
+            ]
+        ]
+    },
+    {
+        "id": "84b36bb7.0f7a88",
+        "type": "demographic-home-address",
+        "z": "44f39023.b9aa5",
+        "name": "",
+        "x": 420,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6180139e.0055ac",
+        "type": "tab",
+        "label": "Flexible Data Sources",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "68d31aef.454e04",
+        "type": "find-patient",
+        "z": "6180139e.0055ac",
+        "name": "",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "18d5953b.74652b"
+            ]
+        ]
+    },
+    {
+        "id": "6c76beec.0b215",
+        "type": "visit-question",
+        "z": "6180139e.0055ac",
+        "name": "Weight",
+        "question": "",
+        "key": "",
+        "datatype": "",
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "51894e39.a89c"
+            ]
+        ]
+    },
+    {
+        "id": "51894e39.a89c",
+        "type": "end-flow",
+        "z": "6180139e.0055ac",
+        "name": "",
+        "x": 240,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "18d5953b.74652b",
+        "type": "check-in",
+        "z": "6180139e.0055ac",
+        "name": "Blood pressure",
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "679a866e.0a5ca8"
+            ]
+        ]
+    },
+    {
+        "id": "679a866e.0a5ca8",
+        "type": "subflow:44f39023.b9aa5",
+        "z": "6180139e.0055ac",
+        "name": "HL7 Create Lab Order",
+        "env": [],
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "6c76beec.0b215"
+            ]
+        ]
+    }
+]
