@@ -63,6 +63,20 @@ function processPageFlowSelect() {
   }
 }
 
+function processPageSwitch() {
+
+	let nodeid = getUrlParam('nodeid');
+	let next = nextNodes(jsonFlow, nodeById(jsonFlow, nodeid));
+	let newUrl = next.type + ".html?nodeid=" + next.id;
+
+	let div = $('#all-transitions');
+
+	$.each(next, function (key, entry) {
+		div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id  + '>' + entry.type + ' ' + entry.name + '</a></div></div>');
+		div.append('<div class=row><div class="col text-center"><hr/></div></div>');
+	});
+}
+
 function processPageFlowStartNodes() {
   var flows = allFlows2(jsonFlow);
 
@@ -132,6 +146,19 @@ function defaultButtonKeypad(e) {
 	}
 
 }
+
+function processPageCheckedInPatientsList() {
+	var jsonExampleCheckedInPatientsList = [
+		{ "name": "Christian Neumann - male - 19 years", "value": "1"}
+		, { "name": "Beth Dunbar - female - 17 years", "value": "2"}
+	];
+	let dropdown = $('#checked-in-patients');
+
+  $.each(jsonExampleCheckedInPatientsList, function (key, entry) {
+    dropdown.append('<option class=emr-select-option value=' + entry.value + '>' + entry.name + '</option>');
+  });
+}
+
 $(function(){
   if($('html').is('#page-flow-select')){
     processPageFlowSelect();
@@ -141,6 +168,12 @@ $(function(){
 	}
 	if($('html').is('#page-demographic-attribute')){
     processPageDemographicAttribute();
+	}
+	if($('html').is('#page-checked-in-patients-list')){
+    processPageCheckedInPatientsList();
+	}
+	if($('html').is('#page-switch')){
+    processPageSwitch();
 	}
 });
 

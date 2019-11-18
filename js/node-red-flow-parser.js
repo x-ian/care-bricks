@@ -52,6 +52,10 @@ function isStartNodeType(node) {
 }
 
 function nextNode(jsonFlow, node) {
+  return nextNodes(jsonFlow, node);
+}
+
+function nextNodes(jsonFlow, node) {
   // todo, possibly wrong data structure, maybe a map instead?
   var nodes = [];
 

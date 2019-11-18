@@ -3,7 +3,9 @@
         category: 'EMR Generic',
         color: '#a6bbcf',
         defaults: {
-            name: {value:""}
+          name: {value:""}
+          ,program: {value:""}
+          ,programoutcome: {value:""}
         },
         inputs:1,
         outputs:1,
@@ -21,31 +23,31 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-datatype">
+        <label for="node-input-program">
             <i class="fa fa-envelope"></i>
-            <span data-i18n="common.label.datatype">Program</span>
+            <span data-i18n="common.label.node-input-program">Program</span>
         </label>
-        <select id="node-input-datatype">
-                <option value="text" data-i18n="single-question.string">HIV</option>
-                <option value="text" data-i18n="single-question.string">TB</option>
-                <option value="text" data-i18n="single-question.string">Antenal Care</option>
-                <option value="text" data-i18n="single-question.string">Chronic Care</option>
-                <option value="text" data-i18n="single-question.string">Mental Health</option>
+        <select id="node-input-program">
+                <option value="hiv" data-i18n="single-question.string">HIV</option>
+                <option value="tb" data-i18n="single-question.string">TB</option>
+                <option value="antenatalcare" data-i18n="single-question.string">Antenatal Care</option>
+                <option value="chroniccare" data-i18n="single-question.string">Chronic Care</option>
+                <option value="mentalhealth" data-i18n="single-question.string">Mental Health</option>
         </select>
     </div>
 
     <div class="form-row">
-        <label for="node-input-datatype">
+        <label for="node-input-programoutcome">
             <i class="fa fa-envelope"></i>
-            <span data-i18n="common.label.datatype">Program Outcome</span>
+            <span data-i18n="common.label.node-input-programoutcome">Program Outcome</span>
         </label>
-        <select id="node-input-datatype">
-                <option value="text" data-i18n="single-question.string">On Treatment</option>
-                <option value="text" data-i18n="single-question.string">Transferred out</option>
-                <option value="text" data-i18n="single-question.string">Stopped</option>
-                <option value="text" data-i18n="single-question.string">Defaulted (verified)</option>
-                <option value="text" data-i18n="single-question.string">Discharged</option>
-                <option value="text" data-i18n="single-question.string">Died</option>
+        <select id="node-input-programoutcome">
+                <option value="ontreatment" data-i18n="single-question.string">On Treatment</option>
+                <option value="transferredout" data-i18n="single-question.string">Transferred out</option>
+                <option value="stopped" data-i18n="single-question.string">Stopped</option>
+                <option value="defaulted" data-i18n="single-question.string">Defaulted (verified)</option>
+                <option value="discharged" data-i18n="single-question.string">Discharged</option>
+                <option value="died" data-i18n="single-question.string">Died</option>
         </select>
     </div>
 </script>

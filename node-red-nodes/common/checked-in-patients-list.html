@@ -4,6 +4,7 @@
         color: '#339900',
         defaults: {
             name: {value:""}
+            ,program: {value: ""}
         },
         inputs:0,
         outputs:1,
@@ -21,16 +22,16 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-datatype">
-            <span data-i18n="common.label.datatype">Program</span>
+        <label for="node-input-program">
+            <span data-i18n="common.label.program">Program</span>
         </label>
-        <select id="node-input-datatype">
-                <option value="text" data-i18n="single-question.string">All</option>
-                <option value="text" data-i18n="single-question.string">HIV</option>
-                <option value="text" data-i18n="single-question.string">TB</option>
-                <option value="text" data-i18n="single-question.string">Antenal Care</option>
-                <option value="text" data-i18n="single-question.string">Chronic Care</option>
-                <option value="text" data-i18n="single-question.string">Mental Health</option>
+        <select id="node-input-program">
+                <option value="all" data-i18n="single-question.string">All</option>
+                <option value="hiv" data-i18n="single-question.string">HIV</option>
+                <option value="tb" data-i18n="single-question.string">TB</option>
+                <option value="antenatalcare" data-i18n="single-question.string">Antenatal Care</option>
+                <option value="chroniccare" data-i18n="single-question.string">Chronic Care</option>
+                <option value="mentalhealth" data-i18n="single-question.string">Mental Health</option>
         </select>
     </div>
 </script>

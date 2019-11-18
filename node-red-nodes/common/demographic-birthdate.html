@@ -4,6 +4,8 @@
         color: '#6d70d0',
         defaults: {
             name: {value:""}
+            ,entrybyage: {value: ""}
+            ,partialdate: {value: ""}
         },
         inputs:1,
         outputs:1,
@@ -21,9 +23,15 @@
     </div>
 
     <div class="form-row">
-        <label>Age entry</label>
-        <input type="checkbox" id="node-input-age" placeholder="" style="display:inline-block; width:auto; vertical-align:top;">
-        <label for="node-input-age" style="width:70%;">Allow</label>
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-entrybyage" placeholder="" style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-entrybyage" style="width:70%;">Entry by Age</label>
+    </div>
+
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-partialdate" placeholder="" style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-partialdate" style="width:70%;">Partial date</label>
     </div>
 </script>
 

@@ -4,22 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>UI-Scratches</title>
+    <title>UI-Scratches-redesign</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
 <body>
-    <header class="mx-1 btn-block">
-        <div class="container">
-            <div class="row">
-                <div class="col"><input class="form-control-plaintext" type="text" value="Chimwemwe Mkandawire" readonly=""></div>
-                <div class="col-1"><input class="form-control-plaintext" type="text" value="Male" readonly=""></div>
-                <div class="col"><input class="form-control-plaintext" type="text" value="21 March 1998 / 21 yrs" readonly=""></div>
-                <div class="col"><input class="form-control-plaintext" type="text" value="Nkhata-Bay / Malanda" readonly=""></div>
-                <div class="col"><input class="form-control-plaintext" type="text" value="Lilongwe City / Kawale II (A4)" readonly=""></div>
-            </div>
+    <header class="emr-header">
+        <div class="emr-header-element emr-header-element__name"><span>&lt;patient name&gt;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female"></i><i class="fa fa-male"></i></div>
+        <div class="emr-header-element">
+            <div><span>&lt;birthdate&gt; / &lt;age&gt;</span></div>
         </div>
+        <div class="emr-header-element"><span>&lt;current address&gt;</span></div>
+        <div class="emr-header-element"><span>&lt;ID&gt;</span></div>
     </header>
     <hr class="mt-auto">
     <div class="container">
@@ -74,20 +73,15 @@
         </div>
         </div>
         </div>
-        <footer class="text-center fixed-bottom">
-            <div>
-                <hr class="mb-auto">
-                <div class="row">
-                    <div class="col mx-5"><input class="form-control-plaintext" type="text" id="footer-area" readonly="" value="Patient Registration - Demographics - Birthdate"></div>
-                    <div class="btn-group btn-block col mx-5"><button class="btn btn-primary btn-danger" id="navigation-back" type="button">Back</button><button class="btn btn-primary mx-1 btn-warning" id="navigation-clear" type="button">Clear</button><button class="btn btn-primary active btn-success"
-                            id="navigation-next" type="button">Next</button></div>
-                </div>
-            </div>
-        </footer>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="http://marsgeneral.com:8000/node-red-flow-parser.js"></script>
-        <script src="assets/js/library.js"></script>
+        <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+            <button
+                class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
+        <script
+            src="assets/js/jquery.min.js"></script>
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="http://localhost:8000/node-red-flow-parser.js"></script>
+            <script src="http://localhost:8000/pages-event-handlers.js"></script>
+            <script src="http://localhost:8000/workflow.js"></script>
 </body>
 
 </html>
