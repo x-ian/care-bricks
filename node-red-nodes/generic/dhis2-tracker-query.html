@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('hl7-receive-message',{
+    RED.nodes.registerType('dhis2-tracker-query',{
         category: 'EMR Generic',
         color: '#C7E9C0',
         defaults: {
@@ -9,18 +9,18 @@
         outputs:1,
         icon: "debug.png",
         label: function() {
-            return this.name||"HL7 Receive Message";
+            return this.name||"DHIS2 Tracker Query";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="hl7-receive-message">
+<script type="text/x-red" data-template-name="dhis2-tracker-query">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="hl7-receive-message">
+<script type="text/x-red" data-help-name="dhis2-tracker-query">
     <p>workflow-poc-emr screen for </p>
 </script>
