@@ -1,0 +1,79 @@
+.btn.btn-primary.mx-1 {
+}
+
+body {
+  margin-bottom: 45px;
+}
+
+.btn.btn-primary {
+}
+
+.emr-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.7rem 0 0.25rem 1.25rem;
+  background: #EBF8FF;
+  color: #2B6CB0;
+  z-index: 100;
+}
+
+.emr-header .emr-header-element {
+  flex: 1 1 auto;
+  padding-right: 1rem;
+}
+
+.emr-header .emr-header-element__name {
+  font-weight: 700;
+}
+
+.emr-footer {
+  display: flex;
+  /*position: sticky;*/
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #EDF2F7;
+  margin-top: 0.5rem;
+  background: #EBF8FF;
+  z-index: 100;
+}
+
+.btn-light {
+  color: #1A202C;
+  background-color: #BEE3F8;
+  border-color: #BEE3F8;
+}
+
+.emr-icon {
+  padding-right: 0.5rem;
+}
+
+.emr-keyboard-row {
+  margin: -0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.emr-keyboard-key {
+  padding: 1rem 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2B6CB0;
+  border-color: #2B6CB0;
+}
+
+.emr-select {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.emr-select-option {
+  padding: 1rem 2rem;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #E2E8F0;
+}
+

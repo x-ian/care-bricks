@@ -29,6 +29,27 @@ function getUrlParam(param) {
 }
 
 function processPageDemographicAttribute() {
+	$('#alphapad').addClass('d-none');
+	$('#keypad').addClass('d-none');
+	$('#datepad').addClass('d-none');
+	let nodeid = getUrlParam('nodeid');
+  var node = nodeById(jsonFlow, nodeid);
+	$('#input-label').contents().last().replaceWith(node.label);
+	switch (node.datatype) {
+		case 'decimal':
+		case 'integer':
+			$('#keypad').removeClass('d-none');
+			break;
+		case 'text':
+			$('#alphapad').removeClass('d-none');
+			break;
+		case 'date':
+			$('#datepad').removeClass('d-none');
+			break;
+	}
+}
+
+function processPageVisitQuestion() {
 	let nodeid = getUrlParam('nodeid');
   var node = nodeById(jsonFlow, nodeid);
 	$('#input-label').contents().last().replaceWith(node.label);
@@ -61,6 +82,10 @@ function processPageFlowSelect() {
     divRow.appendChild(divHr);
     allFlows.appendChild(divRow);
   }
+}
+
+function processPageFunction() {
+	processPageSwitch();
 }
 
 function processPageSwitch() {
@@ -113,6 +138,10 @@ function processPageFlowStartNodes() {
 }
 
 function processButtonDemographicAttribute(e) {
+	defaultButtonAlphapad(e);
+}
+
+function processButtonVisitQuestion(e) {
 	defaultButtonAlphapad(e);
 }
 
@@ -175,6 +204,12 @@ $(function(){
 	if($('html').is('#page-switch')){
     processPageSwitch();
 	}
+	if($('html').is('#page-function')){
+    processPageFunction();
+	}
+	if($('html').is('#page-visit-question')){
+    processPageVisitQuestion();
+	}
 });
 
 $('.btn').click(function(e) {
@@ -205,6 +240,9 @@ $('.btn').click(function(e) {
 	switch($("html")[0].id) {
 		case 'page-demographic-attribute':
 			processButtonDemographicAttribute(e);
+			break;
+		case 'page-visit-question':
+			processButtonVisitQuestion(e);
 			break;
 		case 'page-find-patient':
 			processButtonFindPatient(e);
