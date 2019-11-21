@@ -28,6 +28,14 @@ function getUrlParam(param) {
 	return searchParams.get(param);
 }
 
+function formatDate(date) {
+	const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	return ("0" + date.getDate()).slice(-2) + "-" + monthNames[date.getMonth()] + "-" + date.getFullYear();
+}
+
+// ---------------------------------------------------------
+// all page onload stuff
+
 function processPageDemographicAttribute() {
 	$('#alphapad').addClass('d-none');
 	$('#keypad').addClass('d-none');
@@ -47,12 +55,6 @@ function processPageDemographicAttribute() {
 			$('#datepad').removeClass('d-none');
 			break;
 	}
-}
-
-function processPageVisitQuestion() {
-	let nodeid = getUrlParam('nodeid');
-  var node = nodeById(jsonFlow, nodeid);
-	$('#input-label').contents().last().replaceWith(node.label);
 }
 
 function processPageFlowSelect() {
@@ -82,24 +84,6 @@ function processPageFlowSelect() {
     divRow.appendChild(divHr);
     allFlows.appendChild(divRow);
   }
-}
-
-function processPageFunction() {
-	processPageSwitch();
-}
-
-function processPageSwitch() {
-
-	let nodeid = getUrlParam('nodeid');
-	let next = nextNodes(jsonFlow, nodeById(jsonFlow, nodeid));
-	let newUrl = next.type + ".html?nodeid=" + next.id;
-
-	let div = $('#all-transitions');
-
-	$.each(next, function (key, entry) {
-		div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id  + '>' + entry.type + ' ' + entry.name + '</a></div></div>');
-		div.append('<div class=row><div class="col text-center"><hr/></div></div>');
-	});
 }
 
 function processPageFlowStartNodes() {
@@ -137,17 +121,131 @@ function processPageFlowStartNodes() {
   }
 }
 
+function processPageFunction() {
+	processPageSwitch();
+}
+
+function processPageHeightWeight(e) {
+	// get values rom height and weight sliders
+	if (document.getElementById('input-weight-range') != null) {
+		document.getElementById('input-weight-range').oninput = function() {
+			document.getElementById('input-weight').value = document.getElementById('input-weight-range').value;
+		};
+	}
+	if (document.getElementById('input-height-range') != null) {
+		document.getElementById('input-height-range').oninput = function() {
+			document.getElementById('input-height').value = document.getElementById('input-height-range').value;
+		};
+	}
+}
+
+function processPageSwitch() {
+	let nodeid = getUrlParam('nodeid');
+	let next = nextNodes(jsonFlow, nodeById(jsonFlow, nodeid));
+	let newUrl = next.type + ".html?nodeid=" + next.id;
+
+	let div = $('#all-transitions');
+
+	$.each(next, function (key, entry) {
+		div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id  + '>' + entry.type + ' ' + entry.name + '</a></div></div>');
+		div.append('<div class=row><div class="col text-center"><hr/></div></div>');
+	});
+}
+
+function processPageVisitQuestion() {
+	let nodeid = getUrlParam('nodeid');
+  var node = nodeById(jsonFlow, nodeid);
+	$('#input-label').contents().last().replaceWith(node.label);
+}
+
+// ---------------------------------------------------------
+// all page-specific button handlers
+
+function processButtonBloodPressure(e) {
+	if (e.target.id.startsWith("bppad-sys-")) {
+		document.getElementById('input-bp-sys').value = e.target.id.substring(10);
+	}
+	if (e.target.id.startsWith("bppad-dia-")) {
+		document.getElementById('input-bp-dia').value = e.target.id.substring(10);
+	}
+}
+
+function processPageCheckedInPatientsList() {
+	var jsonExampleCheckedInPatientsList = [
+		{ "name": "Christian Neumann - male - 19 years", "value": "1"}
+		, { "name": "Beth Dunbar - female - 17 years", "value": "2"}
+	];
+	let dropdown = $('#checked-in-patients');
+
+  $.each(jsonExampleCheckedInPatientsList, function (key, entry) {
+    dropdown.append('<option class=emr-select-option value=' + entry.value + '>' + entry.name + '</option>');
+  });
+}
+
 function processButtonDemographicAttribute(e) {
 	defaultButtonAlphapad(e);
 }
 
-function processButtonVisitQuestion(e) {
-	defaultButtonAlphapad(e);
+function processButtonDemographicBirthdate(e) {
+	if (e.target.id.startsWith("keypad-bksp")) {
+		document.getElementById('year').value = document.getElementById('year').value.substring(0, document.getElementById('year').value.length-1);
+	} else if (e.target.id.startsWith("keypad-dot")) {
+		document.getElementById('year').value += '.';
+	} else if (e.target.id.startsWith("keypad-")) {
+		document.getElementById('year').value += e.target.id.substring(7);
+	} else if (e.target.id.startsWith("monthpad-")) {
+	  document.getElementById('month').value = e.target.id.substring(9);
+  } else if (e.target.id.startsWith("day-")) {
+	  document.getElementById('day').value = e.target.id.substring(4);
+  } else if (e.target.id.startsWith("age-in-years-")) {
+		document.getElementById('age-in-years').value = e.target.id.substring(13);
+	}
 }
 
 function processButtonFindPatient(e) {
 	defaultButtonAlphapad(e);
 	defaultButtonKeypad(e);
+}
+
+function processButtonNextAppointment(e) {
+	switch (e.target.id) {
+		case 'tomorrow':
+			document.getElementById('return').value = formatDate(new Date(Date.now() + 86400000));
+			break;
+		case 'next-week':
+			document.getElementById('return').value = formatDate(new Date(Date.now() + 604800000));
+			break;
+		case 'in-two-weeks':
+			document.getElementById('return').value = formatDate(new Date(Date.now() + 12096e5));
+			break;
+		case 'next-month':
+			document.getElementById('return').value = formatDate(new Date(Date.now() + (12096e5*2)));
+			break;
+		case 'in-three-months':
+			document.getElementById('return').value = formatDate(new Date(Date.now() + (12096e5*6)));
+			break;
+	}
+	if (e.target.id.startsWith("keypad-bksp")) {
+		document.getElementById('year').value = document.getElementById('year').value.substring(0, document.getElementById('year').value.length-1);
+	} else if (e.target.id.startsWith("keypad-dot")) {
+		document.getElementById('year').value += '.';
+	} else if (e.target.id.startsWith("keypad-")) {
+		document.getElementById('year').value += e.target.id.substring(7);
+	} else if (e.target.id.startsWith("monthpad-")) {
+		document.getElementById('month').value = e.target.id.substring(9);
+	} else if (e.target.id.startsWith("day-")) {
+		document.getElementById('day').value = e.target.id.substring(4);
+	}
+	if (e.target.id.startsWith("month-")) {
+		document.getElementById('month').value = e.target.id.substring(6);
+	}
+	if (e.target.id.startsWith("day-")) {
+		document.getElementById('day').value = e.target.id.substring(4);
+	}
+}
+
+function processButtonVisitQuestion(e) {
+	defaultButtonAlphapad(e);
 }
 
 function defaultButtonAlphapad(e) {
@@ -176,30 +274,54 @@ function defaultButtonKeypad(e) {
 
 }
 
-function processPageCheckedInPatientsList() {
-	var jsonExampleCheckedInPatientsList = [
-		{ "name": "Christian Neumann - male - 19 years", "value": "1"}
-		, { "name": "Beth Dunbar - female - 17 years", "value": "2"}
-	];
-	let dropdown = $('#checked-in-patients');
-
-  $.each(jsonExampleCheckedInPatientsList, function (key, entry) {
-    dropdown.append('<option class=emr-select-option value=' + entry.value + '>' + entry.name + '</option>');
-  });
-}
+// ---------------------------------------------------------
+// register event handlers
 
 $(function(){
-  if($('html').is('#page-flow-select')){
+	// change active class based on selection in all list-groups; currently prevents multiselect
+	$('.list-group li').click(function(e) {
+		e.preventDefault();
+		$that = $(this);
+		$that.toggleClass('active');
+	});
+	$('.list-group:not(.multiple) li').click(function(e) {
+		e.preventDefault();
+		$that = $(this);
+		$that.parent().find('li').removeClass('active');
+		$that.addClass('active');
+		if($('html').is('#page-current-address') || $('html').is('#page-home-address')){
+	    processPageCheckedInPatientsList();
+			switch($that.parent()[0].id) {
+				case "list-region":
+					document.getElementById('input-region').value = e.currentTarget.childNodes[0].innerText;
+					break;
+				case "list-district":
+					document.getElementById('input-district').value = e.currentTarget.childNodes[0].innerText;
+					break;
+				case "list-ta":
+					document.getElementById('input-ta').value = e.currentTarget.childNodes[0].innerText;
+					break;
+				case "list-village":
+					document.getElementById('input-village').value = e.currentTarget.childNodes[0].innerText;
+					break;
+			}
+		}
+	});
+
+	if($('html').is('#page-checked-in-patients-list')){
+    processPageCheckedInPatientsList();
+	}
+	if($('html').is('#page-demographic-attribute')){
+    processPageDemographicAttribute();
+	}
+	if($('html').is('#page-flow-select')){
     processPageFlowSelect();
 	}
 	if($('html').is('#page-flow-start-nodes')){
     processPageFlowStartNodes();
 	}
-	if($('html').is('#page-demographic-attribute')){
-    processPageDemographicAttribute();
-	}
-	if($('html').is('#page-checked-in-patients-list')){
-    processPageCheckedInPatientsList();
+	if($('html').is('#page-height-weight')){
+    processPageHeightWeight();
 	}
 	if($('html').is('#page-switch')){
     processPageSwitch();
@@ -237,21 +359,25 @@ $('.btn').click(function(e) {
 			break;
 	}
 
+	console.log($("html")[0].id);
 	switch($("html")[0].id) {
+		case 'page-blood-pressure':
+			processButtonBloodPressure(e);
+			break;
 		case 'page-demographic-attribute':
 			processButtonDemographicAttribute(e);
 			break;
-		case 'page-visit-question':
-			processButtonVisitQuestion(e);
+		case 'page-demographic-birthdate':
+			processButtonDemographicBirthdate(e);
 			break;
 		case 'page-find-patient':
 			processButtonFindPatient(e);
 			break;
-		case 'page-flow-select':
-    	processButtonFlowSelect();
+		case 'page-next-appointment':
+			processButtonNextAppointment(e);
 			break;
-		case 'page-flow-start-nodes':
-    	processButtonFlowStartNodes();
+		case 'page-visit-question':
+			processButtonVisitQuestion(e);
 			break;
 	}
 });
