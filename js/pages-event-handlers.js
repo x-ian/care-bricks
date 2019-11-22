@@ -184,20 +184,13 @@ function processPageCheckedInPatientsList() {
 
 function processButtonDemographicAttribute(e) {
 	defaultButtonAlphapad(e);
+	defaultButtonKeypad(e);
+	defaultButtonDatepad(e);
 }
 
 function processButtonDemographicBirthdate(e) {
-	if (e.target.id.startsWith("keypad-bksp")) {
-		document.getElementById('year').value = document.getElementById('year').value.substring(0, document.getElementById('year').value.length-1);
-	} else if (e.target.id.startsWith("keypad-dot")) {
-		document.getElementById('year').value += '.';
-	} else if (e.target.id.startsWith("keypad-")) {
-		document.getElementById('year').value += e.target.id.substring(7);
-	} else if (e.target.id.startsWith("monthpad-")) {
-	  document.getElementById('month').value = e.target.id.substring(9);
-  } else if (e.target.id.startsWith("day-")) {
-	  document.getElementById('day').value = e.target.id.substring(4);
-  } else if (e.target.id.startsWith("age-in-years-")) {
+	defaultButtonDatepad(e);
+  if (e.target.id.startsWith("age-in-years-")) {
 		document.getElementById('age-in-years').value = e.target.id.substring(13);
 	}
 }
@@ -246,6 +239,8 @@ function processButtonNextAppointment(e) {
 
 function processButtonVisitQuestion(e) {
 	defaultButtonAlphapad(e);
+	defaultButtonKeypad(e);
+	defaultButtonDatepad(e);
 }
 
 function defaultButtonAlphapad(e) {
@@ -271,13 +266,30 @@ function defaultButtonKeypad(e) {
 	} else if (e.target.id.startsWith("keypad-")) {
 		document.getElementById('input').value += e.target.id.substring(7);
 	}
+}
 
+function defaultButtonDatepad(e) {
+	if (e.target.id.startsWith("keypad-bksp")) {
+		document.getElementById('year').value = document.getElementById('year').value.substring(0, document.getElementById('year').value.length-1);
+	} else if (e.target.id.startsWith("keypad-dot")) {
+		document.getElementById('year').value += '.';
+	} else if (e.target.id.startsWith("keypad-")) {
+		document.getElementById('year').value += e.target.id.substring(7);
+	} else if (e.target.id.startsWith("monthpad-")) {
+		document.getElementById('month').value = e.target.id.substring(9);
+	} else if (e.target.id.startsWith("day-")) {
+		document.getElementById('day').value = e.target.id.substring(4);
+	}
 }
 
 // ---------------------------------------------------------
 // register event handlers
 
 $(function(){
+
+	// try to load page specific stuff from dedicated JS files
+	// https://api.jquery.com/jQuery.getScript/
+
 	// change active class based on selection in all list-groups; currently prevents multiselect
 	$('.list-group li').click(function(e) {
 		e.preventDefault();
