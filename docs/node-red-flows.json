@@ -1,1 +1,1405 @@
-[{"id":"899e571e.0bda48","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"d1f91274.6e9cc","type":"end-flow","z":"899e571e.0bda48","name":"","x":220,"y":160,"wires":[]},{"id":"3c4b5d20.ae8e82","type":"find-patient","z":"899e571e.0bda48","name":"","x":100,"y":80,"wires":[["58845b6b.144144"]]},{"id":"58845b6b.144144","type":"demographic-attribute","z":"899e571e.0bda48","name":"","x":300,"y":80,"wires":[["d1f91274.6e9cc"]]}]
+[
+    {
+        "id": "7da4db8d.618e54",
+        "type": "tab",
+        "label": "Registration & Check in",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a1923816.15b1c8",
+        "type": "tab",
+        "label": "Redemption OPD",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d905ba4.401bb48",
+        "type": "tab",
+        "label": "Redemption MCH",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "59fe27ec.9e2688",
+        "type": "tab",
+        "label": "Redemption Chest Clinic",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "93a0cbb.9f7b938",
+        "type": "tab",
+        "label": "Redemption Counselling & Testing",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "660ac66e.377fe8",
+        "type": "tab",
+        "label": "Vitals & Screening",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "bc4cefa7.3bd8f",
+        "type": "tab",
+        "label": "Flexible Data Sources",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7f44ff4a.86321",
+        "type": "tab",
+        "label": "Test all Nodes",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7e23809d.16b11",
+        "type": "tab",
+        "label": "Test Demographic Attribute",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d008da26.314dc8",
+        "type": "subflow",
+        "name": "Patient Demographics",
+        "info": "",
+        "category": "subflows",
+        "in": [
+            {
+                "x": 40,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "46abc152.0ab1d"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 540,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "e4a86519.22f158",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "a49982dc.73b4a",
+        "type": "find-patient",
+        "z": "7e23809d.16b11",
+        "name": "",
+        "includename": "",
+        "includeidentifier": "",
+        "program": "",
+        "expression": "",
+        "x": 80,
+        "y": 140,
+        "wires": [
+            [
+                "cd01394f.9f3798"
+            ]
+        ]
+    },
+    {
+        "id": "5fbe1230.aab01c",
+        "type": "demographic-attribute",
+        "z": "7e23809d.16b11",
+        "name": "integer",
+        "label": "integer",
+        "key": "",
+        "datatype": "integer",
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [
+                "4ecec85b.d70198"
+            ]
+        ]
+    },
+    {
+        "id": "1e00047f.d0ef0c",
+        "type": "demographic-attribute",
+        "z": "7e23809d.16b11",
+        "name": "decimal",
+        "label": "decimal",
+        "key": "",
+        "datatype": "decimal",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "4ecec85b.d70198"
+            ]
+        ]
+    },
+    {
+        "id": "c8895312.a641b",
+        "type": "demographic-attribute",
+        "z": "7e23809d.16b11",
+        "name": "date",
+        "label": "date",
+        "key": "",
+        "datatype": "date",
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "4ecec85b.d70198"
+            ]
+        ]
+    },
+    {
+        "id": "4ecec85b.d70198",
+        "type": "end-flow",
+        "z": "7e23809d.16b11",
+        "name": "",
+        "x": 600,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "eed9f817.952658",
+        "type": "demographic-attribute",
+        "z": "7e23809d.16b11",
+        "name": "text",
+        "label": "text",
+        "key": "",
+        "datatype": "text",
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "4ecec85b.d70198"
+            ]
+        ]
+    },
+    {
+        "id": "cd01394f.9f3798",
+        "type": "switch",
+        "z": "7e23809d.16b11",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "eed9f817.952658"
+            ],
+            [
+                "5fbe1230.aab01c"
+            ],
+            [
+                "1e00047f.d0ef0c"
+            ],
+            [
+                "c8895312.a641b"
+            ]
+        ]
+    },
+    {
+        "id": "46abc152.0ab1d",
+        "type": "demographic-attribute",
+        "z": "d008da26.314dc8",
+        "name": "firstname",
+        "label": "Firstname",
+        "key": "",
+        "datatype": "text",
+        "x": 200,
+        "y": 40,
+        "wires": [
+            [
+                "296652b5.3b81ee"
+            ]
+        ]
+    },
+    {
+        "id": "296652b5.3b81ee",
+        "type": "demographic-attribute",
+        "z": "d008da26.314dc8",
+        "name": "lastname",
+        "label": "Lastname",
+        "key": "",
+        "datatype": "text",
+        "x": 360,
+        "y": 40,
+        "wires": [
+            [
+                "2aa76db.ccfb292"
+            ]
+        ]
+    },
+    {
+        "id": "2aa76db.ccfb292",
+        "type": "demographic-birthdate",
+        "z": "d008da26.314dc8",
+        "name": "",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "72d80782.da3518"
+            ]
+        ]
+    },
+    {
+        "id": "72d80782.da3518",
+        "type": "demographic-current-address",
+        "z": "d008da26.314dc8",
+        "name": "",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "e4a86519.22f158"
+            ]
+        ]
+    },
+    {
+        "id": "e4a86519.22f158",
+        "type": "demographic-home-address",
+        "z": "d008da26.314dc8",
+        "name": "",
+        "x": 420,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c8049d6.644048",
+        "type": "scheduled-patients-list",
+        "z": "7da4db8d.618e54",
+        "name": "",
+        "x": 112.19883728027344,
+        "y": 46.809600830078125,
+        "wires": [
+            [
+                "4f279b8a.5632a4"
+            ]
+        ]
+    },
+    {
+        "id": "ce5ef4ad.1ec9d8",
+        "type": "find-patient",
+        "z": "7da4db8d.618e54",
+        "name": "",
+        "x": 137.1903076171875,
+        "y": 86.9317569732666,
+        "wires": [
+            [
+                "4f279b8a.5632a4"
+            ]
+        ]
+    },
+    {
+        "id": "45ab87ef.a51c08",
+        "type": "end-flow",
+        "z": "7da4db8d.618e54",
+        "name": "",
+        "x": 563.1960067749023,
+        "y": 87.95166015625,
+        "wires": []
+    },
+    {
+        "id": "4f279b8a.5632a4",
+        "type": "check-in",
+        "z": "7da4db8d.618e54",
+        "name": "",
+        "x": 388.1902961730957,
+        "y": 87.99714088439941,
+        "wires": [
+            [
+                "45ab87ef.a51c08"
+            ]
+        ]
+    },
+    {
+        "id": "fa7a80b.47bac8",
+        "type": "register-patient",
+        "z": "7da4db8d.618e54",
+        "name": "",
+        "x": 128.20169067382812,
+        "y": 124.82951545715332,
+        "wires": [
+            [
+                "2e2d4ade.2c84e6"
+            ]
+        ]
+    },
+    {
+        "id": "2e2d4ade.2c84e6",
+        "type": "subflow:d008da26.314dc8",
+        "z": "7da4db8d.618e54",
+        "name": "",
+        "env": [],
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "4f279b8a.5632a4"
+            ]
+        ]
+    },
+    {
+        "id": "ad9bf518.747208",
+        "type": "checked-in-patients-list",
+        "z": "660ac66e.377fe8",
+        "name": "",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "6ae593d3.3bf62c"
+            ]
+        ]
+    },
+    {
+        "id": "6ae593d3.3bf62c",
+        "type": "height-weight",
+        "z": "660ac66e.377fe8",
+        "name": "",
+        "x": 374.1903610229492,
+        "y": 40.47725963592529,
+        "wires": [
+            [
+                "4880249d.f2f4cc"
+            ]
+        ]
+    },
+    {
+        "id": "d926063c.d6e098",
+        "type": "blood-pressure",
+        "z": "660ac66e.377fe8",
+        "name": "",
+        "x": 533,
+        "y": 96.58806800842285,
+        "wires": [
+            [
+                "2f3715ed.eff18a"
+            ]
+        ]
+    },
+    {
+        "id": "a1d82c24.95e8",
+        "type": "tb-screening",
+        "z": "660ac66e.377fe8",
+        "name": "",
+        "x": 373,
+        "y": 216.58806800842285,
+        "wires": [
+            [
+                "9138c9e0.0f7a98"
+            ]
+        ]
+    },
+    {
+        "id": "c51da37c.024cc",
+        "type": "next-appointment",
+        "z": "660ac66e.377fe8",
+        "name": "",
+        "x": 383,
+        "y": 276.58806800842285,
+        "wires": [
+            [
+                "ccbc5f51.27085"
+            ]
+        ]
+    },
+    {
+        "id": "ccbc5f51.27085",
+        "type": "end-flow",
+        "z": "660ac66e.377fe8",
+        "name": "",
+        "x": 580,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "30751674.79685a",
+        "type": "lab-order-entry",
+        "z": "660ac66e.377fe8",
+        "name": "Lab Order Pregnancy Test",
+        "panel": "testpanela",
+        "x": 683,
+        "y": 156.58806800842285,
+        "wires": [
+            [
+                "a1d82c24.95e8"
+            ]
+        ]
+    },
+    {
+        "id": "36688b96.0d1124",
+        "type": "lab-order-entry",
+        "z": "660ac66e.377fe8",
+        "name": "Lab Order Sputum",
+        "panel": "testpanelb",
+        "x": 763,
+        "y": 216.58806800842285,
+        "wires": [
+            [
+                "c51da37c.024cc"
+            ]
+        ]
+    },
+    {
+        "id": "4880249d.f2f4cc",
+        "type": "switch",
+        "z": "660ac66e.377fe8",
+        "name": "Under 5?",
+        "property": "age",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "lt",
+                "v": "5",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 353,
+        "y": 96.58806800842285,
+        "wires": [
+            [
+                "d926063c.d6e098"
+            ],
+            [
+                "2f3715ed.eff18a"
+            ]
+        ]
+    },
+    {
+        "id": "9138c9e0.0f7a98",
+        "type": "switch",
+        "z": "660ac66e.377fe8",
+        "name": "TB  Suspect?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "false",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 563,
+        "y": 216.58806800842285,
+        "wires": [
+            [
+                "36688b96.0d1124"
+            ],
+            [
+                "c51da37c.024cc"
+            ]
+        ]
+    },
+    {
+        "id": "2f3715ed.eff18a",
+        "type": "function",
+        "z": "660ac66e.377fe8",
+        "name": "Female && >= 15 years",
+        "func": "\nreturn msg;",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 403,
+        "y": 156.58806800842285,
+        "wires": [
+            [
+                "30751674.79685a"
+            ],
+            [
+                "a1d82c24.95e8"
+            ]
+        ]
+    },
+    {
+        "id": "5ae2e3ca.7fdefc",
+        "type": "find-patient",
+        "z": "a1923816.15b1c8",
+        "name": "",
+        "includename": false,
+        "includeidentifier": false,
+        "expression": "",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "aef16794.df0d08"
+            ]
+        ]
+    },
+    {
+        "id": "6613d228.262a1c",
+        "type": "blood-pressure",
+        "z": "a1923816.15b1c8",
+        "name": "",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "919569d2.eae8d8"
+            ]
+        ]
+    },
+    {
+        "id": "35adc813.842168",
+        "type": "end-flow",
+        "z": "a1923816.15b1c8",
+        "name": "",
+        "x": 260,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "78adca56.af4594",
+        "type": "find-patient",
+        "z": "d905ba4.401bb48",
+        "name": "",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "c79bf515.700798"
+            ]
+        ]
+    },
+    {
+        "id": "c79bf515.700798",
+        "type": "blood-pressure",
+        "z": "d905ba4.401bb48",
+        "name": "",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "191a0a88.302345"
+            ]
+        ]
+    },
+    {
+        "id": "9d254c44.8934",
+        "type": "end-flow",
+        "z": "d905ba4.401bb48",
+        "name": "",
+        "x": 260,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "191a0a88.302345",
+        "type": "height-weight",
+        "z": "d905ba4.401bb48",
+        "name": "",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "d65a0d1f.2149d"
+            ]
+        ]
+    },
+    {
+        "id": "15b28124.05596f",
+        "type": "find-patient",
+        "z": "59fe27ec.9e2688",
+        "name": "",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "e0dd3bd9.0a8f18"
+            ]
+        ]
+    },
+    {
+        "id": "e0dd3bd9.0a8f18",
+        "type": "blood-pressure",
+        "z": "59fe27ec.9e2688",
+        "name": "",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "f3dec21e.11be3"
+            ]
+        ]
+    },
+    {
+        "id": "1c0149d3.c111f6",
+        "type": "end-flow",
+        "z": "59fe27ec.9e2688",
+        "name": "",
+        "x": 220,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f3dec21e.11be3",
+        "type": "height-weight",
+        "z": "59fe27ec.9e2688",
+        "name": "",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "1c0149d3.c111f6"
+            ]
+        ]
+    },
+    {
+        "id": "d616e473.bc19e8",
+        "type": "find-patient",
+        "z": "93a0cbb.9f7b938",
+        "name": "",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "58feece.b6c4414"
+            ]
+        ]
+    },
+    {
+        "id": "b5471121.69042",
+        "type": "end-flow",
+        "z": "93a0cbb.9f7b938",
+        "name": "",
+        "x": 220,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "58feece.b6c4414",
+        "type": "height-weight",
+        "z": "93a0cbb.9f7b938",
+        "name": "",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "b2eda7dc.b51b08"
+            ]
+        ]
+    },
+    {
+        "id": "6954b7b3.cecbb8",
+        "type": "find-patient",
+        "z": "bc4cefa7.3bd8f",
+        "name": "",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "45d5d031.b0509"
+            ]
+        ]
+    },
+    {
+        "id": "af94c186.efc85",
+        "type": "visit-question",
+        "z": "bc4cefa7.3bd8f",
+        "name": "Weight",
+        "label": "Weight",
+        "key": "",
+        "datatype": "decimal",
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "f23a2c6a.0237f"
+            ]
+        ]
+    },
+    {
+        "id": "f23a2c6a.0237f",
+        "type": "end-flow",
+        "z": "bc4cefa7.3bd8f",
+        "name": "",
+        "x": 240,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "45d5d031.b0509",
+        "type": "check-in",
+        "z": "bc4cefa7.3bd8f",
+        "name": "Blood pressure",
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "ebcc5789.7169b8"
+            ]
+        ]
+    },
+    {
+        "id": "8e4a1873.bd3578",
+        "type": "end-flow",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 860,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "183869a8.374fa6",
+        "type": "find-patient",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "includename": true,
+        "includeidentifier": true,
+        "program": "tb",
+        "expression": "filter",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "44f5a88f.ac7828"
+            ]
+        ]
+    },
+    {
+        "id": "f952b6de.47c5a8",
+        "type": "demographic-attribute",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "label": "Firstname",
+        "key": "myKey",
+        "datatype": "singleselect",
+        "x": 580,
+        "y": 40,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "2ac0cd98.2a03f2",
+        "type": "enrolment-outcome",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "program": "chroniccare",
+        "programoutcome": "transferredout",
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "322387c4.310708",
+        "type": "lab-order-entry",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "panel": "testpaneld",
+        "x": 560,
+        "y": 120,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "c5934bbb.1a87d8",
+        "type": "medication-prescription",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "drugs": "tb",
+        "x": 590,
+        "y": 160,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "fedc2212.da4ee",
+        "type": "patients-queue",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "expression": "filter",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "44f5a88f.ac7828"
+            ]
+        ]
+    },
+    {
+        "id": "c30646f.f1f04b8",
+        "type": "referral",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "referralfacility": "facility",
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "f85cf415.693938",
+        "type": "register-patient",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "44f5a88f.ac7828"
+            ]
+        ]
+    },
+    {
+        "id": "523df34d.4ff47c",
+        "type": "summary",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 540,
+        "y": 240,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "d60214e.f5863e8",
+        "type": "visit-question",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "label": "label",
+        "key": "key",
+        "datatype": "decimal",
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "7aa3f84c.8167c8",
+        "type": "blood-pressure",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "b14cd58d.6d2208",
+        "type": "check-in",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "76be677b.2ba058",
+        "type": "checked-in-patients-list",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "program": "antenatalcare",
+        "x": 150,
+        "y": 360,
+        "wires": [
+            [
+                "44f5a88f.ac7828"
+            ]
+        ]
+    },
+    {
+        "id": "5e864133.8a9a",
+        "type": "demographic-birthdate",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "entrybyage": true,
+        "partialdate": true,
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "c78415df.b0cb18",
+        "type": "demographic-current-address",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 560,
+        "y": 440,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "9b4ffa05.0074b8",
+        "type": "demographic-home-address",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 560,
+        "y": 480,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "c84b1d29.396e4",
+        "type": "height-weight",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 560,
+        "y": 520,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "686f4ab.fded6b4",
+        "type": "next-appointment",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "defaultperiod": "nextmonth",
+        "x": 570,
+        "y": 560,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "19314fb0.e0514",
+        "type": "scheduled-patients-list",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "program": "hiv",
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "44f5a88f.ac7828"
+            ]
+        ]
+    },
+    {
+        "id": "1abc500a.fd0d5",
+        "type": "tb-screening",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 560,
+        "y": 600,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "44f5a88f.ac7828",
+        "type": "switch",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 19,
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "f952b6de.47c5a8"
+            ],
+            [
+                "2ac0cd98.2a03f2"
+            ],
+            [
+                "322387c4.310708"
+            ],
+            [
+                "c5934bbb.1a87d8"
+            ],
+            [
+                "c30646f.f1f04b8"
+            ],
+            [
+                "523df34d.4ff47c"
+            ],
+            [
+                "d60214e.f5863e8"
+            ],
+            [
+                "7aa3f84c.8167c8"
+            ],
+            [
+                "b14cd58d.6d2208"
+            ],
+            [
+                "5e864133.8a9a"
+            ],
+            [
+                "c78415df.b0cb18"
+            ],
+            [
+                "9b4ffa05.0074b8"
+            ],
+            [
+                "c84b1d29.396e4"
+            ],
+            [
+                "686f4ab.fded6b4"
+            ],
+            [
+                "1abc500a.fd0d5"
+            ],
+            [
+                "4c8ae2.48c0f52"
+            ],
+            [
+                "e9ad97bc.0f89a8"
+            ],
+            [
+                "e5d5e218.83413"
+            ],
+            [
+                "3244767d.45c73a"
+            ]
+        ]
+    },
+    {
+        "id": "341d9cd5.747924",
+        "type": "hl7-receive-message",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "44f5a88f.ac7828"
+            ]
+        ]
+    },
+    {
+        "id": "4c8ae2.48c0f52",
+        "type": "hl7-create-message",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 580,
+        "y": 640,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "e9ad97bc.0f89a8",
+        "type": "lab-test-result",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 560,
+        "y": 680,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "e5d5e218.83413",
+        "type": "medication-dispensation",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "x": 590,
+        "y": 720,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "3244767d.45c73a",
+        "type": "function",
+        "z": "7f44ff4a.86321",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 760,
+        "wires": [
+            [
+                "8e4a1873.bd3578"
+            ]
+        ]
+    },
+    {
+        "id": "ebcc5789.7169b8",
+        "type": "lab-order-entry",
+        "z": "bc4cefa7.3bd8f",
+        "name": "",
+        "panel": "testpanelb",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "af94c186.efc85"
+            ]
+        ]
+    },
+    {
+        "id": "b2eda7dc.b51b08",
+        "type": "demographic-attribute",
+        "z": "93a0cbb.9f7b938",
+        "name": "muac",
+        "label": "MUAC",
+        "key": "",
+        "datatype": "integer",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "b5471121.69042"
+            ]
+        ]
+    },
+    {
+        "id": "d65a0d1f.2149d",
+        "type": "demographic-attribute",
+        "z": "d905ba4.401bb48",
+        "name": "temperatur",
+        "label": "Temperatur",
+        "key": "",
+        "datatype": "decimal",
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [
+                "9d254c44.8934"
+            ]
+        ]
+    },
+    {
+        "id": "aef16794.df0d08",
+        "type": "demographic-attribute",
+        "z": "a1923816.15b1c8",
+        "name": "temperature",
+        "label": "Temperature",
+        "key": "",
+        "datatype": "decimal",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "6613d228.262a1c"
+            ]
+        ]
+    },
+    {
+        "id": "919569d2.eae8d8",
+        "type": "demographic-attribute",
+        "z": "a1923816.15b1c8",
+        "name": "weight",
+        "label": "Weight",
+        "key": "",
+        "datatype": "integer",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "35adc813.842168",
+                "56a748d4.300ab8"
+            ]
+        ]
+    },
+    {
+        "id": "56a748d4.300ab8",
+        "type": "next-appointment",
+        "z": "a1923816.15b1c8",
+        "name": "",
+        "defaultperiod": "",
+        "x": 440,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    }
+]
