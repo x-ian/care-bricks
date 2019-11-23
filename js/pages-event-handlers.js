@@ -45,7 +45,11 @@ function processPageDemographicAttribute() {
 	$('#input-label').contents().last().replaceWith(node.label);
 	switch (node.datatype) {
 		case 'decimal':
+			$('#keypad-dot').prop('disabled', false);
+			$('#keypad').removeClass('d-none');
+			break;
 		case 'integer':
+		$('#keypad-dot').prop('disabled', true);
 			$('#keypad').removeClass('d-none');
 			break;
 		case 'text':
