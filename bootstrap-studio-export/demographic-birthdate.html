@@ -14,6 +14,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.hotel-africa.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
 </head>
 
 <body>
@@ -38,7 +53,7 @@
                     <div class="btn-group btn-block"
                         role="group"><button class="btn btn-primary" id="keypad-7" type="button">7</button><button class="btn btn-primary mx-1" id="keypad-8" type="button">8</button><button class="btn btn-primary" id="keypad-9" type="button">9</button></div>
                     <div class="btn-group btn-block"
-                        role="group"><button class="btn btn-primary" id="keypad-dot" type="button" style="width: 96.9375px;">.</button><button class="btn btn-primary mx-1" id="keypad-0" type="button" style="width: 96.9375px;">0</button><button class="btn btn-primary"
+                        role="group"><button class="btn btn-primary" id="keypad-dot" type="button" style="width: 96.9375px;" disabled="true">.</button><button class="btn btn-primary mx-1" id="keypad-0" type="button" style="width: 96.9375px;">0</button><button class="btn btn-primary"
                             id="keypad-bksp" type="button" style="width: 96.9375px;">Bksp</button></div>
                 </div>
             </div>
