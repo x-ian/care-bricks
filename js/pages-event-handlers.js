@@ -157,6 +157,8 @@ function processPageSwitch() {
 }
 
 function processPageVisitQuestion() {
+	processPageDemographicAttribute();
+	
 	let nodeid = getUrlParam('nodeid');
   var node = nodeById(jsonFlow, nodeid);
 	$('#input-label').contents().last().replaceWith(node.label);
