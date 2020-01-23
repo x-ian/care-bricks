@@ -1,0 +1,698 @@
+[
+    {
+        "id": "ccc8e317.ff8cd",
+        "type": "tab",
+        "label": "Liberia: ART visit",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2699ecc2.a7b384",
+        "type": "find-patient",
+        "z": "ccc8e317.ff8cd",
+        "name": "",
+        "includename": "",
+        "includeidentifier": "",
+        "program": "",
+        "expression": "",
+        "x": 390,
+        "y": 40,
+        "wires": [
+            [
+                "ec0b5be.8ccb6a8"
+            ]
+        ]
+    },
+    {
+        "id": "8c21b6cd.5576b8",
+        "type": "end-flow",
+        "z": "ccc8e317.ff8cd",
+        "name": "",
+        "x": 380,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "e7ea90a6.1e866",
+        "type": "visit-question",
+        "z": "ccc8e317.ff8cd",
+        "name": "weight",
+        "label": "Weight",
+        "key": "",
+        "datatype": "decimal",
+        "x": 370,
+        "y": 400,
+        "wires": [
+            [
+                "9cb53e9c.b68a4"
+            ]
+        ]
+    },
+    {
+        "id": "ec0b5be.8ccb6a8",
+        "type": "visit-select",
+        "z": "ccc8e317.ff8cd",
+        "name": "scheduled",
+        "label": "scheduled visit",
+        "key": "",
+        "style": "",
+        "devices": [
+            {
+                "sid": "Yes"
+            },
+            {
+                "sid": "No"
+            }
+        ],
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "44be35ba.b39a7c"
+            ]
+        ]
+    },
+    {
+        "id": "44be35ba.b39a7c",
+        "type": "visit-select",
+        "z": "ccc8e317.ff8cd",
+        "name": "reason",
+        "label": "reason",
+        "key": "",
+        "style": "",
+        "devices": [
+            {
+                "sid": "0: Follow up/Refill"
+            },
+            {
+                "sid": "1: Nausea"
+            },
+            {
+                "sid": "2: Diarrhea"
+            },
+            {
+                "sid": "3: Fatigue"
+            },
+            {
+                "sid": "4: Headache"
+            },
+            {
+                "sid": "5: Rash"
+            },
+            {
+                "sid": "6: Anaemia"
+            },
+            {
+                "sid": "7: Burning, Numbing, Tingling"
+            },
+            {
+                "sid": "8: Dizziness, Sleeplessness, Nightmare, Depression"
+            },
+            {
+                "sid": "9: Abdominal Pain"
+            },
+            {
+                "sid": "10: Fat Changes"
+            },
+            {
+                "sid": "11: Jaundice"
+            },
+            {
+                "sid": "12: Fever"
+            },
+            {
+                "sid": "13: Wt. Loss"
+            },
+            {
+                "sid": "14: Cough"
+            },
+            {
+                "sid": "15: Poor Appetite"
+            },
+            {
+                "sid": "16: Other"
+            }
+        ],
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "dea827b0.ea4f08"
+            ]
+        ]
+    },
+    {
+        "id": "dea827b0.ea4f08",
+        "type": "visit-select",
+        "z": "ccc8e317.ff8cd",
+        "name": "adherence",
+        "label": "Adherence",
+        "key": "",
+        "style": "",
+        "devices": [
+            {
+                "sid": "1: Good (Missed less than 3 doses / month)"
+            },
+            {
+                "sid": "2: Fair (Missed 5-8 doses / month)"
+            },
+            {
+                "sid": "3: Poor (Missed more than 9 doses / month)"
+            }
+        ],
+        "x": 390,
+        "y": 220,
+        "wires": [
+            [
+                "9f4ab454.f80ed8"
+            ]
+        ]
+    },
+    {
+        "id": "b77a512e.b9c84",
+        "type": "visit-question",
+        "z": "ccc8e317.ff8cd",
+        "name": "height",
+        "label": "Height",
+        "key": "",
+        "datatype": "integer",
+        "x": 370,
+        "y": 340,
+        "wires": [
+            [
+                "e7ea90a6.1e866"
+            ]
+        ]
+    },
+    {
+        "id": "7249e75f.a6a0f8",
+        "type": "visit-question",
+        "z": "ccc8e317.ff8cd",
+        "name": "muac",
+        "label": "MUAC",
+        "key": "",
+        "datatype": "decimal",
+        "x": 530,
+        "y": 280,
+        "wires": [
+            [
+                "e7ea90a6.1e866"
+            ]
+        ]
+    },
+    {
+        "id": "9f4ab454.f80ed8",
+        "type": "switch",
+        "z": "ccc8e317.ff8cd",
+        "name": "child",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "child",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "adult",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "7249e75f.a6a0f8"
+            ],
+            [
+                "b77a512e.b9c84"
+            ]
+        ]
+    },
+    {
+        "id": "49074b2b.b94504",
+        "type": "visit-question",
+        "z": "ccc8e317.ff8cd",
+        "name": "lmp or edd",
+        "label": "LMP or EDD",
+        "key": "",
+        "datatype": "integer",
+        "x": 550,
+        "y": 460,
+        "wires": [
+            [
+                "68d3019d.8015c"
+            ]
+        ]
+    },
+    {
+        "id": "9cb53e9c.b68a4",
+        "type": "switch",
+        "z": "ccc8e317.ff8cd",
+        "name": "pregnant",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "pregnant",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "not pregnant",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "49074b2b.b94504"
+            ],
+            [
+                "68d3019d.8015c"
+            ]
+        ]
+    },
+    {
+        "id": "68d3019d.8015c",
+        "type": "visit-select",
+        "z": "ccc8e317.ff8cd",
+        "name": "tb status",
+        "label": "TB Status",
+        "key": "",
+        "style": "",
+        "devices": [
+            {
+                "sid": "1: No Signs (Cough, Fever, wt lose)"
+            },
+            {
+                "sid": "2: Suspected"
+            },
+            {
+                "sid": "3: Confirmed, but not on treatment yet"
+            },
+            {
+                "sid": "4: Currently on treatment"
+            },
+            {
+                "sid": "5: Past treatment"
+            }
+        ],
+        "x": 380,
+        "y": 520,
+        "wires": [
+            [
+                "c12215a8.e949c8"
+            ]
+        ]
+    },
+    {
+        "id": "c12215a8.e949c8",
+        "type": "visit-select",
+        "z": "ccc8e317.ff8cd",
+        "name": "conditions",
+        "label": "AIDS Associated Conditions",
+        "key": "",
+        "style": "multi",
+        "devices": [
+            {
+                "sid": "1: Herpes Zoster"
+            },
+            {
+                "sid": "2: Oral Candidiasis"
+            },
+            {
+                "sid": "3: Pulmonary TB"
+            },
+            {
+                "sid": "4: ???"
+            },
+            {
+                "sid": "5: Anemia"
+            },
+            {
+                "sid": "6: Giardia"
+            },
+            {
+                "sid": "7: PCP"
+            },
+            {
+                "sid": "8: Cryptococcal Meningitis"
+            },
+            {
+                "sid": "9: Esophageal Candidiasis"
+            },
+            {
+                "sid": "10: Kaposi Sarcoma"
+            },
+            {
+                "sid": "11: Herpes Simplex"
+            },
+            {
+                "sid": "12: Chronic Diarrhea"
+            },
+            {
+                "sid": "13: Toxoplasmosis"
+            },
+            {
+                "sid": "14: Other"
+            },
+            {
+                "sid": "15: None"
+            },
+            {
+                "sid": "16: Extra Pulmonary TB"
+            }
+        ],
+        "x": 390,
+        "y": 580,
+        "wires": [
+            [
+                "d0e4d7e3.a8da28"
+            ]
+        ]
+    },
+    {
+        "id": "d0e4d7e3.a8da28",
+        "type": "visit-select",
+        "z": "ccc8e317.ff8cd",
+        "name": "functional status",
+        "label": "Functional Status",
+        "key": "",
+        "style": "",
+        "devices": [
+            {
+                "sid": "1: Normal"
+            },
+            {
+                "sid": "2: Ambulatory"
+            },
+            {
+                "sid": "3: Bedridden"
+            }
+        ],
+        "x": 400,
+        "y": 640,
+        "wires": [
+            [
+                "871a99e2.571888"
+            ]
+        ]
+    },
+    {
+        "id": "871a99e2.571888",
+        "type": "visit-question",
+        "z": "ccc8e317.ff8cd",
+        "name": "stage",
+        "label": "WHO Stage",
+        "key": "",
+        "datatype": "integer",
+        "x": 370,
+        "y": 700,
+        "wires": [
+            [
+                "5cda3a3f.2896d4"
+            ]
+        ]
+    },
+    {
+        "id": "5cda3a3f.2896d4",
+        "type": "lab-test-result",
+        "z": "ccc8e317.ff8cd",
+        "name": "Lab: CD4 Count",
+        "x": 400,
+        "y": 760,
+        "wires": [
+            [
+                "836cff34.c5a37"
+            ]
+        ]
+    },
+    {
+        "id": "836cff34.c5a37",
+        "type": "lab-test-result",
+        "z": "ccc8e317.ff8cd",
+        "name": "Lab: ALT",
+        "x": 560,
+        "y": 760,
+        "wires": [
+            [
+                "862d5874.4a23e8"
+            ]
+        ]
+    },
+    {
+        "id": "862d5874.4a23e8",
+        "type": "lab-test-result",
+        "z": "ccc8e317.ff8cd",
+        "name": "Lab: HB",
+        "x": 700,
+        "y": 760,
+        "wires": [
+            [
+                "74780cb2.c70b54"
+            ]
+        ]
+    },
+    {
+        "id": "74780cb2.c70b54",
+        "type": "lab-test-result",
+        "z": "ccc8e317.ff8cd",
+        "name": "Lab: Creatinine",
+        "x": 860,
+        "y": 760,
+        "wires": [
+            [
+                "4e3d62eb.d4284c"
+            ]
+        ]
+    },
+    {
+        "id": "4e3d62eb.d4284c",
+        "type": "visit-question",
+        "z": "ccc8e317.ff8cd",
+        "name": "ctx",
+        "label": "CTX Dose",
+        "key": "",
+        "datatype": "integer",
+        "x": 370,
+        "y": 820,
+        "wires": [
+            [
+                "887881e4.d47da"
+            ]
+        ]
+    },
+    {
+        "id": "b90f4832.e8dbe8",
+        "type": "visit-select",
+        "z": "ccc8e317.ff8cd",
+        "name": "regimen (adult)",
+        "label": "ART Regimen",
+        "key": "",
+        "style": "single",
+        "devices": [
+            {
+                "sid": "1a"
+            },
+            {
+                "sid": "1b"
+            },
+            {
+                "sid": "1c"
+            },
+            {
+                "sid": "1d"
+            },
+            {
+                "sid": "1e"
+            },
+            {
+                "sid": "1f"
+            },
+            {
+                "sid": "1g"
+            },
+            {
+                "sid": "1h"
+            },
+            {
+                "sid": "1i"
+            },
+            {
+                "sid": "1j"
+            },
+            {
+                "sid": "1k"
+            },
+            {
+                "sid": "1l"
+            },
+            {
+                "sid": "1m"
+            },
+            {
+                "sid": "2a"
+            },
+            {
+                "sid": "2b"
+            },
+            {
+                "sid": "2c"
+            },
+            {
+                "sid": "2d"
+            },
+            {
+                "sid": "2e"
+            }
+        ],
+        "x": 400,
+        "y": 940,
+        "wires": [
+            [
+                "a83d4166.b858e"
+            ]
+        ]
+    },
+    {
+        "id": "d49c937a.316c2",
+        "type": "visit-select",
+        "z": "ccc8e317.ff8cd",
+        "name": "regimen (child)",
+        "label": "ART Regimen",
+        "key": "",
+        "style": "single",
+        "devices": [
+            {
+                "sid": "3a"
+            },
+            {
+                "sid": "3b"
+            },
+            {
+                "sid": "3c"
+            },
+            {
+                "sid": "3d"
+            },
+            {
+                "sid": "3e"
+            },
+            {
+                "sid": "3f"
+            },
+            {
+                "sid": "3g"
+            },
+            {
+                "sid": "3h"
+            },
+            {
+                "sid": "3i"
+            },
+            {
+                "sid": "5a"
+            },
+            {
+                "sid": "5b"
+            },
+            {
+                "sid": "5c"
+            }
+        ],
+        "x": 560,
+        "y": 880,
+        "wires": [
+            [
+                "a83d4166.b858e"
+            ]
+        ]
+    },
+    {
+        "id": "887881e4.d47da",
+        "type": "switch",
+        "z": "ccc8e317.ff8cd",
+        "name": "child",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "child",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "adult",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 880,
+        "wires": [
+            [
+                "d49c937a.316c2"
+            ],
+            [
+                "b90f4832.e8dbe8"
+            ]
+        ]
+    },
+    {
+        "id": "a83d4166.b858e",
+        "type": "next-appointment",
+        "z": "ccc8e317.ff8cd",
+        "name": "",
+        "defaultperiod": "",
+        "x": 410,
+        "y": 1000,
+        "wires": [
+            [
+                "2bbbea18.d0b946"
+            ]
+        ]
+    },
+    {
+        "id": "2bbbea18.d0b946",
+        "type": "visit-question",
+        "z": "ccc8e317.ff8cd",
+        "name": "comments",
+        "label": "Comments",
+        "key": "",
+        "datatype": "text",
+        "x": 390,
+        "y": 1060,
+        "wires": [
+            [
+                "8c21b6cd.5576b8"
+            ]
+        ]
+    },
+    {
+        "id": "af194149.aafb5",
+        "type": "scheduled-patients-list",
+        "z": "ccc8e317.ff8cd",
+        "name": "",
+        "program": "",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "44be35ba.b39a7c"
+            ]
+        ]
+    }
+]

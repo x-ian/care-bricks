@@ -1,0 +1,118 @@
+<script type="text/javascript">
+    RED.nodes.registerType('visit-select', {
+        category: 'EMR Generic',
+        color: "#a6bbcf",
+        defaults: {
+            name: { value: "" },
+            label: { value: "" },
+            key: { value: "" },
+            behavior: { value: "" },
+            devices: {value:[{ sid:"", desc:"", model:""}]}
+        },
+
+        inputs: 1,
+        outputs: 1,
+        icon: "debug.png",
+		oneditprepare: function() {
+		            var node = this;
+		            console.log("config window openend: " + node.devices);
+		            $("#node-config-input-devices").css('min-height','250px').css('min-width','450px').editableList({
+		                addItem: function(container, i, device) {
+		                    var row = $('<div/>').appendTo(container);
+		                    $('<label/>',{for:"node-config-input-sid-"+i}).text("Entry").appendTo(row);
+		                    var sid = $('<input/>',{id:"node-config-input-sid-"+i,type:"text"}).appendTo(row);
+
+		                    // $('<label/>',{for:"node-config-input-desc-"+i, style:"margin-left: 7px; width: 35px;vertical-align:middle"}).text("desc.").appendTo(row);
+		                    // var desc = $('<input/>',{id:"node-config-input-desc-"+i, type:"text", style:"width:auto;vertical-align:top"}).appendTo(row);
+		                    // var model = $('<select/>',{id:"node-config-input-model-"+i},{style:"width:120px; margin-left: 5px; text-align: center;"}).appendTo(row);
+		                    // model.append($("<option></option>").val("sensor_ht").text("sensor_ht"));
+		                    // model.append($("<option></option>").val("magnet").text("magnet"));
+		                    // model.append($("<option></option>").val("plug").text("plug"));
+		                    // model.append($("<option></option>").val("gateway").text("gateway"));
+		                    // model.append($("<option></option>").val("switch").text("switch"));
+		                    sid.val(device.sid);
+		                    // desc.val(device.desc);
+		                    // model.val(device.model);
+		                },
+		                removeItem: function(opt) {
+		                },
+		                sortItems: function(rules) {
+		                },
+		                sortable: true,
+		                removable: true
+		            });
+
+		            console.log("Devices: " + JSON.stringify(node.devices));
+		            for (var i=0;i<this.devices.length;i++) {
+		                var device = this.devices[i];
+		                $("#node-config-input-devices").editableList('addItem', device);
+		            }
+		        },
+				oneditsave: function() {
+				            var devices = $("#node-config-input-devices").editableList('items');
+				            var node = this;
+				            var devicesArray = [];
+				            devices.each(function(i) {
+				                var deviceElement = $(this);
+				                var sid = deviceElement.find("#node-config-input-sid-"+i).val();
+				                // var desc = deviceElement.find("#node-config-input-desc-"+i).val();
+				                // var model = deviceElement.find("#node-config-input-model-"+i).val();
+				                // console.log(desc, model, sid);
+				                var d = {};
+				                d['sid']=sid;
+				                // d['desc']=desc;
+				                // d['model']=model;
+				                console.log(d);
+				                devicesArray.push(d);
+				            });
+				            node.devices = devicesArray;
+				            console.log("devices-list: " + JSON.stringify(node.devices));
+				        },
+	label: function() {
+		return this.name||"Visit Select";
+	}
+    });
+</script>
+
+<script type="text/x-red" data-template-name="visit-select">
+    <div class="form-row">
+        <label for="node-input-name">
+            <i class="fa fa-tag"></i>
+            <span data-i18n="common.label.name">Name</span>
+        </label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-label">
+            <i class="fa fa-label"></i>
+            <span data-i18n="common.label.label">Label</span>
+        </label>
+        <input type="text" id="node-input-label">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-key">
+            <i class="fa fa-key"></i>
+            <span data-i18n="common.label.key">FHIR Key</span>
+        </label>
+        <input type="text" id="node-input-key">
+    </div>
+
+    <div class="form-row node-input-rule-container-row">
+        <ol id="node-config-input-devices"></ol>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-behavior">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.datatype">Behavior</span>
+        </label>
+        <select id="node-input-behavior">
+                <option value="single" data-i18n="visit-select.string">Single select</option>
+                <option value="multi" data-i18n="visit-select.integer">Multi select</option>
+        </select>
+    </div>
+
+    <div class="form-tips" data-i18n="[html]visit-select.tip"></div>
+</script>
