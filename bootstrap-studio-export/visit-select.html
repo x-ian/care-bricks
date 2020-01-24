@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html id="page-visit-select">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Workflow EMR</title>
+    <meta name="description" content="Workflow-driven, touchscreen-based point-of-care EMR">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/favicon180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon512x512.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.hotel-africa.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+
+<body>
+    <header class="emr-header">
+        <div class="emr-header-element emr-header-element__name"><span>&lt;patient name&gt;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female"></i><i class="fa fa-male"></i></div>
+        <div class="emr-header-element">
+            <div><span>&lt;birthdate&gt; / &lt;age&gt;</span></div>
+        </div>
+        <div class="emr-header-element"><span>&lt;current address&gt;</span></div>
+        <div class="emr-header-element"><span>&lt;ID&gt;</span></div>
+    </header>
+    <div class="container">
+        <h4 id="input-label" style="margin: 10px 0px 0px;">&lt;placeholder&gt;</h4>
+        <hr>
+        <div class="row">
+            <div class="col"><label>Please select one or more entries</label>
+                <ul class="list-group multiple" id="select-entries" style="max-height:450px; overflow:scroll"></ul>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+        <button
+            class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="http://localhost:8000/node-red-flow-parser.js"></script>
+    <script src="http://localhost:8000/pages-event-handlers.js"></script>
+</body>
+
+</html>

@@ -40,8 +40,9 @@ function processPageDemographicAttribute() {
 	$('#alphapad').addClass('d-none');
 	$('#keypad').addClass('d-none');
 	$('#datepad').addClass('d-none');
+	$('#booleanpad').addClass('d-none');
 	let nodeid = getUrlParam('nodeid');
-  var node = nodeById(jsonFlow, nodeid);
+ 	var node = nodeById(jsonFlow, nodeid);
 	$('#input-label').contents().last().replaceWith(node.label);
 	switch (node.datatype) {
 		case 'decimal':
@@ -49,7 +50,7 @@ function processPageDemographicAttribute() {
 			$('#keypad').removeClass('d-none');
 			break;
 		case 'integer':
-		$('#keypad-dot').prop('disabled', true);
+			$('#keypad-dot').prop('disabled', true);
 			$('#keypad').removeClass('d-none');
 			break;
 		case 'text':
@@ -57,6 +58,9 @@ function processPageDemographicAttribute() {
 			break;
 		case 'date':
 			$('#datepad').removeClass('d-none');
+			break;
+		case 'boolean':
+			$('#booleanpad').removeClass('d-none');
 			break;
 	}
 }
@@ -263,6 +267,7 @@ function processButtonVisitQuestion(e) {
 	defaultButtonAlphapad(e);
 	defaultButtonKeypad(e);
 	defaultButtonDatepad(e);
+	// defaultButtonBooleanpad(e);
 }
 
 function defaultButtonAlphapad(e) {
@@ -376,8 +381,15 @@ $('.btn').click(function(e) {
 	switch (e.currentTarget.id) {
 		case "navigation-next":
 			let nodeid = getUrlParam('nodeid');
+			console.log(nodeid);
 			let next = nextNode(jsonFlow, nodeById(jsonFlow, nodeid))[0];
+			console.log(next);
+			if (typeof next === 'undefined') {
+				alert('Missing outgoing connection in workflow definition!');
+			}
+			
 			let newUrl = next.type + ".html?nodeid=" + next.id;
+			console.log(newUrl);
 			location= newUrl;
 			break;
 		case "navigation-back":
