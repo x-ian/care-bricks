@@ -110,7 +110,14 @@ function defaultButtonDatepad(e) {
 // ---------------------------------------------------------
 // register event handlers
 
+var db;
+db = new Dexie("flows_database");
+db.version(1).stores({
+	flow_sessions: 'flowsessionid'
+});
+
 $(function(){
+
 
 	// change active class based on selection in all list-groups; currently prevents multiselect
 	$('.list-group li').click(function(e) {
