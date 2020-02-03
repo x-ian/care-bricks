@@ -10,7 +10,7 @@ $(function(){
 	jsonFlow = $.parseJSON(
     $.ajax(
         {
-           url: "http://localhost:8000/node-red-flows.json",
+           url: "http://localhost:8000/assets/js/node-red-flows.json",
            async: false,
 					 cache: false,
            dataType: 'json'
@@ -34,7 +34,7 @@ function formatDate(date) {
 }
 
 // ---------------------------------------------------------
-// all page onload stuff
+// common onload stuff for pages
 
 function processPageDemographicAttribute() {
 	$('#alphapad').addClass('d-none');
@@ -65,210 +65,8 @@ function processPageDemographicAttribute() {
 	}
 }
 
-function processPageFlowSelect() {
-  var flows = allFlows2(jsonFlow);
-
-  for (const flow of flows) {
-    // todo, dynamic element creation better done via jquery
-    var allFlows = document.getElementById('all-flows');
-    var divRow = document.createElement("div");
-    divRow.className="row";
-    var divButton = document.createElement("div");
-    divButton.className="col text-center"
-    var button = document.createElement("a");
-    button.className="btn btn-primary text-center";
-    button.appendChild(document.createTextNode(flow.label));
-    button.href="flow-start-nodes.html?flowid=" + flow.id;
-    button.role="button";
-    divButton.appendChild(button);
-    divRow.appendChild(divButton);
-    allFlows.appendChild(divRow);
-
-    divRow = document.createElement("div");
-    divRow.className="row";
-    var divHr = document.createElement("div");
-    divHr.className="col text-center"
-    divHr.appendChild(document.createElement("hr"));
-    divRow.appendChild(divHr);
-    allFlows.appendChild(divRow);
-  }
-}
-
-function processPageFlowStartNodes() {
-  var flows = allFlows2(jsonFlow);
-
-  let flowid = getUrlParam('flowid');
-
-  for (const flow of flows) {
-    if (flow.id === flowid) {
-      for (const node of allStartNodes(jsonFlow, flow)) {
-        // todo, dynamic element creation better done via jquery
-        var allFlows = document.getElementById('all-flows');
-        var divRow = document.createElement("div");
-        divRow.className="row";
-        var divButton = document.createElement("div");
-        divButton.className="col text-center"
-        var button = document.createElement("a");
-        button.className="btn btn-primary text-center";
-        button.appendChild(document.createTextNode(node.type));
-        button.href=node.type + ".html?nodeid=" + node.id;
-        button.role="button";
-        divButton.appendChild(button);
-        divRow.appendChild(divButton);
-        allFlows.appendChild(divRow);
-
-        divRow = document.createElement("div");
-        divRow.className="row";
-        var divHr = document.createElement("div");
-        divHr.className="col text-center"
-        divHr.appendChild(document.createElement("hr"));
-        divRow.appendChild(divHr);
-        allFlows.appendChild(divRow);
-      }
-    }
-  }
-}
-
-function processPageFunction() {
-	processPageSwitch();
-}
-
-function processPageHeightWeight(e) {
-	// get values rom height and weight sliders
-	if (document.getElementById('input-weight-range') != null) {
-		document.getElementById('input-weight-range').oninput = function() {
-			document.getElementById('input-weight').value = document.getElementById('input-weight-range').value;
-		};
-	}
-	if (document.getElementById('input-height-range') != null) {
-		document.getElementById('input-height-range').oninput = function() {
-			document.getElementById('input-height').value = document.getElementById('input-height-range').value;
-		};
-	}
-}
-
-function processPageSwitch() {
-	let nodeid = getUrlParam('nodeid');
-	let next = nextNodes(jsonFlow, nodeById(jsonFlow, nodeid));
-	let newUrl = next.type + ".html?nodeid=" + next.id;
-
-	let div = $('#all-transitions');
-
-	$.each(next, function (key, entry) {
-		div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id  + '>' + entry.type + ' ' + entry.name + '</a></div></div>');
-		div.append('<div class=row><div class="col text-center"><hr/></div></div>');
-	});
-}
-
-function processPageVisitQuestion() {
-	processPageDemographicAttribute();
-	
-	let nodeid = getUrlParam('nodeid');
-  var node = nodeById(jsonFlow, nodeid);
-	$('#input-label').contents().last().replaceWith(node.label);
-}
-
-function processPageVisitSelect() {
-	processPageDemographicAttribute();
-	
-	let nodeid = getUrlParam('nodeid');
-  var node = nodeById(jsonFlow, nodeid);
-	$('#input-label').contents().last().replaceWith(node.label);
-	
-	let div = $('#select-entries');
-
-	$.each(node.devices, function (key, entry) {		
-		div.append('<li class="list-group-item list-group-item-action"><span>' + entry.sid + '</span></li>');
-	});
-	
-	
-}
-
 // ---------------------------------------------------------
-// all page-specific button handlers
-
-function processButtonBloodPressure(e) {
-	if (e.target.id.startsWith("bppad-sys-")) {
-		document.getElementById('input-bp-sys').value = e.target.id.substring(10);
-	}
-	if (e.target.id.startsWith("bppad-dia-")) {
-		document.getElementById('input-bp-dia').value = e.target.id.substring(10);
-	}
-}
-
-function processPageCheckedInPatientsList() {
-	var jsonExampleCheckedInPatientsList = [
-		{ "name": "Christian Neumann - male - 19 years", "value": "1"}
-		, { "name": "Beth Dunbar - female - 17 years", "value": "2"}
-	];
-	let dropdown = $('#checked-in-patients');
-
-  $.each(jsonExampleCheckedInPatientsList, function (key, entry) {
-    dropdown.append('<option class=emr-select-option value=' + entry.value + '>' + entry.name + '</option>');
-  });
-}
-
-function processButtonDemographicAttribute(e) {
-	defaultButtonAlphapad(e);
-	defaultButtonKeypad(e);
-	defaultButtonDatepad(e);
-}
-
-function processButtonDemographicBirthdate(e) {
-	defaultButtonDatepad(e);
-  if (e.target.id.startsWith("age-in-years-")) {
-		document.getElementById('age-in-years').value = e.target.id.substring(13);
-	}
-}
-
-function processButtonFindPatient(e) {
-	defaultButtonAlphapad(e);
-	defaultButtonKeypad(e);
-}
-
-function processButtonNextAppointment(e) {
-	switch (e.target.id) {
-		case 'tomorrow':
-			document.getElementById('return').value = formatDate(new Date(Date.now() + 86400000));
-			break;
-		case 'next-week':
-			document.getElementById('return').value = formatDate(new Date(Date.now() + 604800000));
-			break;
-		case 'in-two-weeks':
-			document.getElementById('return').value = formatDate(new Date(Date.now() + 12096e5));
-			break;
-		case 'next-month':
-			document.getElementById('return').value = formatDate(new Date(Date.now() + (12096e5*2)));
-			break;
-		case 'in-three-months':
-			document.getElementById('return').value = formatDate(new Date(Date.now() + (12096e5*6)));
-			break;
-	}
-	if (e.target.id.startsWith("keypad-bksp")) {
-		document.getElementById('year').value = document.getElementById('year').value.substring(0, document.getElementById('year').value.length-1);
-	} else if (e.target.id.startsWith("keypad-dot")) {
-		document.getElementById('year').value += '.';
-	} else if (e.target.id.startsWith("keypad-")) {
-		document.getElementById('year').value += e.target.id.substring(7);
-	} else if (e.target.id.startsWith("monthpad-")) {
-		document.getElementById('month').value = e.target.id.substring(9);
-	} else if (e.target.id.startsWith("day-")) {
-		document.getElementById('day').value = e.target.id.substring(4);
-	}
-	if (e.target.id.startsWith("month-")) {
-		document.getElementById('month').value = e.target.id.substring(6);
-	}
-	if (e.target.id.startsWith("day-")) {
-		document.getElementById('day').value = e.target.id.substring(4);
-	}
-}
-
-function processButtonVisitQuestion(e) {
-	defaultButtonAlphapad(e);
-	defaultButtonKeypad(e);
-	defaultButtonDatepad(e);
-	// defaultButtonBooleanpad(e);
-}
+// common button handlers
 
 function defaultButtonAlphapad(e) {
 	if (e.target.id.startsWith("alphapad-bksp")) {
@@ -314,9 +112,6 @@ function defaultButtonDatepad(e) {
 
 $(function(){
 
-	// try to load page specific stuff from dedicated JS files
-	// https://api.jquery.com/jQuery.getScript/
-
 	// change active class based on selection in all list-groups; currently prevents multiselect
 	$('.list-group li').click(function(e) {
 		e.preventDefault();
@@ -347,49 +142,71 @@ $(function(){
 		}
 	});
 
-	if($('html').is('#page-checked-in-patients-list')){
-    processPageCheckedInPatientsList();
+	// load onload functions if page provides them
+	// https://api.jquery.com/jQuery.getScript/
+	pageId = $('html').attr('id');
+	if (pageId.startsWith('page-')) {
+		pageName = pageId.substring(5, pageId.length);
+		$.getScript( "assets/js/" + pageName + ".js" )
+		  .done(function( script, textStatus ) {
+		    console.log("Loading page-specific script file: " + pageName );
+				// processPageFindPatient();
+				onLoadFunctionName = pageName.replace( /-([a-z])/ig, function( all, letter ) {
+						return letter.toUpperCase();
+				});
+				onLoadFunctionName = onLoadFunctionName[0].toUpperCase() + onLoadFunctionName.slice(1);
+				if (eval("typeof " + 'onLoad' + onLoadFunctionName) === 'function') {
+					console.log('calling ' + 'onLoad' + onLoadFunctionName);
+					self['onLoad' + onLoadFunctionName]();
+				} else {
+					console.log("No onLoad function provided by module " + onLoadFunctionName);
+				}
+		  })
+		  .fail(function( jqxhr, settings, exception ) {
+		    // console.log( "Loading FAILED for page-specific script file: " + pageName" );
+				console.log("Loading FAILED for page-specific script file: " + pageName );
+		});
+
 	}
-	if($('html').is('#page-demographic-attribute')){
-    processPageDemographicAttribute();
-	}
-	if($('html').is('#page-flow-select')){
-    processPageFlowSelect();
-	}
-	if($('html').is('#page-flow-start-nodes')){
-    processPageFlowStartNodes();
-	}
-	if($('html').is('#page-height-weight')){
-    processPageHeightWeight();
-	}
-	if($('html').is('#page-switch')){
-    processPageSwitch();
-	}
-	if($('html').is('#page-function')){
-    processPageFunction();
-	}
-	if($('html').is('#page-visit-question')){
-    processPageVisitQuestion();
-	}
-	if($('html').is('#page-visit-select')){
-    processPageVisitSelect();
-	}
+
 });
 
 $('.btn').click(function(e) {
+
+	// prepare module specific button handlers
+	pageId = $("html")[0].id;
+	moduleName = "";
+	if (pageId.startsWith('page-')) {
+		pageName = pageId.substring(5, pageId.length);
+		moduleName = pageName.replace( /-([a-z])/ig, function( all, letter ) {
+					return letter.toUpperCase();
+		});
+		moduleName = moduleName[0].toUpperCase() + moduleName.slice(1);
+	}
+
 	// navigation buttons in footer
 	switch (e.currentTarget.id) {
 		case "navigation-next":
 			let nodeid = getUrlParam('nodeid');
+			let stepid = getUrlParam('stepid');
+			stepid++;
 			console.log(nodeid);
 			let next = nextNode(jsonFlow, nodeById(jsonFlow, nodeid))[0];
 			console.log(next);
 			if (typeof next === 'undefined') {
 				alert('Missing outgoing connection in workflow definition!');
 			}
-			
-			let newUrl = next.type + ".html?nodeid=" + next.id;
+			// store
+			let newUrl = next.type + ".html?stepid=" + stepid + "&nodeid=" + next.id;
 			console.log(newUrl);
+
+			if (eval("typeof " + 'hookNext' + moduleName) === 'function') {
+				console.log('calling ' + 'hookNext' + moduleName);
+    		self['hookNext' + moduleName](e);
+			} else {
+				console.log("No hookNext function provided by module " + moduleName);
+			}
+
 			location= newUrl;
 			break;
 		case "navigation-back":
@@ -408,25 +225,10 @@ $('.btn').click(function(e) {
 			break;
 	}
 
-	console.log($("html")[0].id);
-	switch($("html")[0].id) {
-		case 'page-blood-pressure':
-			processButtonBloodPressure(e);
-			break;
-		case 'page-demographic-attribute':
-			processButtonDemographicAttribute(e);
-			break;
-		case 'page-demographic-birthdate':
-			processButtonDemographicBirthdate(e);
-			break;
-		case 'page-find-patient':
-			processButtonFindPatient(e);
-			break;
-		case 'page-next-appointment':
-			processButtonNextAppointment(e);
-			break;
-		case 'page-visit-question':
-			processButtonVisitQuestion(e);
-			break;
+	// delegate to module handlers
+	if (!eval("typeof " + 'buttonClick' + moduleName) === 'undefined') {
+		self['buttonClick' + moduleName](e);
+	} else {
+		console.log("No buttonClick functions provided by module " + moduleName);
 	}
 });
