@@ -117,8 +117,6 @@ db.version(1).stores({
 });
 
 $(function(){
-
-
 	// change active class based on selection in all list-groups; currently prevents multiselect
 	$('.list-group li').click(function(e) {
 		e.preventDefault();
@@ -154,26 +152,30 @@ $(function(){
 	pageId = $('html').attr('id');
 	if (pageId.startsWith('page-')) {
 		pageName = pageId.substring(5, pageId.length);
-		$.getScript( "assets/js/" + pageName + ".js" )
-		  .done(function( script, textStatus ) {
-		    console.log("Loading page-specific script file: " + pageName );
-				// processPageFindPatient();
-				onLoadFunctionName = pageName.replace( /-([a-z])/ig, function( all, letter ) {
-						return letter.toUpperCase();
-				});
-				onLoadFunctionName = onLoadFunctionName[0].toUpperCase() + onLoadFunctionName.slice(1);
-				if (eval("typeof " + 'onLoad' + onLoadFunctionName) === 'function') {
-					console.log('calling ' + 'onLoad' + onLoadFunctionName);
-					self['onLoad' + onLoadFunctionName]();
-				} else {
-					console.log("No onLoad function provided by module " + onLoadFunctionName);
-				}
-		  })
-		  .fail(function( jqxhr, settings, exception ) {
-		    // console.log( "Loading FAILED for page-specific script file: " + pageName" );
-				console.log("Loading FAILED for page-specific script file: " + pageName );
-		});
-
+		$.get("assets/js/" + pageName + ".js")
+			.done(function() { 
+				$.getScript( "assets/js/" + pageName + ".js" )
+					.done(function( script, textStatus ) {
+						console.log("Loading page-specific script file: " + pageName );
+						// processPageFindPatient();
+						onLoadFunctionName = pageName.replace( /-([a-z])/ig, function( all, letter ) {
+							return letter.toUpperCase();
+						});
+						onLoadFunctionName = onLoadFunctionName[0].toUpperCase() + onLoadFunctionName.slice(1);
+						if (eval("typeof " + 'onLoad' + onLoadFunctionName) === 'function') {
+							console.log('calling ' + 'onLoad' + onLoadFunctionName);
+							self['onLoad' + onLoadFunctionName]();
+						} else {
+							console.log("No onLoad function provided by module " + onLoadFunctionName);
+						}
+					})
+					.fail(function( jqxhr, settings, exception ) {
+						console.log("Loading FAILED for page-specific script file: " + pageName );
+					});
+				})
+			.fail(function() { 
+				console.log("No page-specific script file found: " + pageName );
+			})
 	}
 
 });
@@ -186,7 +188,7 @@ $('.btn').click(function(e) {
 	if (pageId.startsWith('page-')) {
 		pageName = pageId.substring(5, pageId.length);
 		moduleName = pageName.replace( /-([a-z])/ig, function( all, letter ) {
-					return letter.toUpperCase();
+			return letter.toUpperCase();
 		});
 		moduleName = moduleName[0].toUpperCase() + moduleName.slice(1);
 	}
@@ -233,9 +235,9 @@ $('.btn').click(function(e) {
 	}
 
 	// delegate to module handlers
-	if (!eval("typeof " + 'buttonClick' + moduleName) === 'undefined') {
+	if (eval("typeof " + 'buttonClick' + moduleName) === 'function') {
 		self['buttonClick' + moduleName](e);
 	} else {
-		console.log("No buttonClick functions provided by module " + moduleName);
+		console.log("No buttonClick function provided by module " + moduleName);
 	}
 });
