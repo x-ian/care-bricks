@@ -20,7 +20,7 @@
   ],
   "gender": "male",
   "birthDate": "1974-12-25",
-  "mothersGivenName": "Eliza"
+  "mothersGivenName": "Eliza",
   "address": [
     {
       "use": "home",

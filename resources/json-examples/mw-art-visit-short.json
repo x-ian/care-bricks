@@ -1,0 +1,40 @@
+[
+	{
+		"id": ""
+		,"type": ""
+		,"meta": {
+			"workflow": ""
+			,"workflowVersion": ""
+			,"schemaVersion": ""
+			,"revision": ""
+			,"guidelinesRevision": ""
+			,"contributingStations": [ ]
+
+			,"createdAt": ""
+			,"createdBy": ""
+			,"updatedAt": ""
+			,"updatedBy": ""
+		}
+
+		,"patientId": ""
+		,"clinicId": ""
+		,"visitDate": ""
+		,"sideEffects": ""
+		,"tbStatus": ""
+		,"height": ""
+		,"weight": ""
+		,"dosesMissed": ""
+		,"pillCount": ""
+		,"viralLoadBled": ""
+		,"viralLoadResult": ""
+		,"regimen": ""
+		,"givenArv": ""
+		,"givenCpt": ""
+		,"GivenInh": ""
+		,"givenDepo": ""
+		,"givenCondoms": ""
+		,"advOutcome": ""
+		,"outcomeDate": ""
+		,"nextAppointment": ""
+	}
+]

@@ -1,0 +1,48 @@
+{
+	"id": ""
+	,"type": ""
+	,"meta": {
+		"workflow": ""
+		,"workflowVersion": ""
+		,"schemaVersion": ""
+		,"revision": ""
+		,"guidelinesRevision": ""
+		,"contributingStations": [ ]
+
+		,"createdAt": ""
+		,"createdBy": ""
+		,"updatedAt": ""
+		,"updatedBy": ""
+	}
+
+	,"givenname": ""
+	,"lastname": ""
+	,"birthdate": ""
+	,"sex": ""
+
+	,"phone": ""
+	,"mobile": ""
+	,"email": ""
+
+	,"facilityId": ""
+	,"nationalId": ""
+	,"hivId": ""
+
+	,"guardianName": ""
+	,"guardianPhone": ""
+
+	,"birthAddress": {
+		"line": [ "" ]
+		,"city": ""
+		,"district": ""
+		,"state": ""
+		,"country": ""
+	}
+	,"currentAddress": {
+		"line": [ "" ]
+		,"city": ""
+		,"district": ""
+		,"state": ""
+		,"country": ""
+	}
+}

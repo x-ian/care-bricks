@@ -1,0 +1,15 @@
+{
+	"id": ""
+	,"timestamp": ""
+	,"savedBy": ""
+	,"savedTimestamp": ""
+	,"savedLocation": ""
+	,"savedDevice": ""
+	,"recordType": ""
+	,"recordId": ""
+	,"oldRevision": ""
+	,"newRevision": ""
+	,"changes": [ 
+		{ "field": "", "old": "", "new": "" }
+	]
+}
