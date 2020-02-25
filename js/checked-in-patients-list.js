@@ -1,85 +1,126 @@
 
-var patient1Json = {
-  identifier: {
-  	type: "internal", value: "1", location: "",
-	  processor: "", readonly: "true"
-  },
-  additionalIdentifiers: [],
-  name: {
-    givenName: "John", familyName: "Doe", middleName: "", degree: ""
-  },
-  additionalNames: [],
-  gender: "M",
-  birthdate: "1990-01-01", deathdate: "",
-  homeAddress: {
-    address: "", address2: "", cityVillage: "Harper City",
-    countyDistrict: "Harper", stateProvince: "Maryland",
-    country: "Liberia", postalCode: "",
-    startDate: "", endDate: "",
-    latitude: "", longitude: ""
-  },
-  currentAddress: {
-    address: "", address2: "", cityVillage: "Harper City",
-    countyDistrict: "Harper", stateProvince: "Maryland",
-    country: "Liberia", postalCode: "",
-    startDate: "", endDate: "",
-    latitude: "", longitude: ""
-  },
-  additionalAddresses: [],
-  contactMobile: "+231 8888 88888", contactMail: "",
-  additionalContacts: []
-};
+var patient1Json = `{
+	"id": "1"
+	,"type": ""
+	,"meta": {
+		"workflow": ""
+		,"workflowVersion": ""
+		,"schemaVersion": ""
+		,"revision": ""
+		,"guidelinesRevision": ""
+		,"contributingStations": [ ]
 
-var patient2Json = {
-  identifier: {
-  	type: "internal", value: "2", location: "",
-	  processor: "", readonly: "true"
-  },
-  additionalIdentifiers: [],
-  name: {
-    givenName: "Mary", familyName: "Ellen", middleName: "", degree: ""
-  },
-  additionalNames: [],
-  gender: "F",
-  birthdate: "1995-01-01", deathdate: "",
-  homeAddress: {
-    address: "", address2: "", cityVillage: "Harper City",
-    countyDistrict: "Harper", stateProvince: "Maryland",
-    country: "Liberia", postalCode: "",
-    startDate: "", endDate: "",
-    latitude: "", longitude: ""
-  },
-  currentAddress: {
-    address: "", address2: "", cityVillage: "Harper City",
-    countyDistrict: "Harper", stateProvince: "Maryland",
-    country: "Liberia", postalCode: "",
-    startDate: "", endDate: "",
-    latitude: "", longitude: ""
-  },
-  additionalAddresses: [],
-  contactMobile: "+231 8888 88888", contactMail: "",
-  additionalContacts: []
-};
+		,"createdAt": ""
+		,"createdBy": ""
+		,"updatedAt": ""
+		,"updatedBy": ""
+	}
+
+	,"givenname": "John"
+	,"familyname": "Doe"
+	,"birthdate": "1990-01-01"
+	,"deathdate": ""
+	,"gender": "M"
+
+	,"phone": ""
+	,"mobile": "+231888888888"
+	,"email": ""
+
+	,"facilityId": ""
+	,"nationalId": ""
+	,"hivId": ""
+
+	,"guardianName": ""
+	,"guardianPhone": ""
+
+	,"birthAddress": {
+		"line": [ "" ]
+		,"city": "Harper City"
+		,"district": "Harper"
+		,"state": "Maryland"
+		,"country": "Liberia"
+	}
+	,"currentAddress": {
+		"line": [ "" ]
+		,"city": "Harper City"
+		,"district": "Harper"
+		,"state": "Maryland"
+		,"country": "Liberia"
+	}
+	,"currentEncounter": {
+	}
+}`;
+
+var patient2Json = `{
+	"id": "2"
+	,"type": ""
+	,"meta": {
+		"workflow": ""
+		,"workflowVersion": ""
+		,"schemaVersion": ""
+		,"revision": ""
+		,"guidelinesRevision": ""
+		,"contributingStations": [ ]
+
+		,"createdAt": ""
+		,"createdBy": ""
+		,"updatedAt": ""
+		,"updatedBy": ""
+	}
+
+	,"givenname": "Mary"
+	,"familyname": "Ellen"
+	,"birthdate": "1995-01-01"
+	,"deathdate": ""
+	,"gender": "F"
+
+	,"phone": ""
+	,"mobile": "+231999999999"
+	,"email": ""
+
+	,"facilityId": ""
+	,"nationalId": ""
+	,"hivId": ""
+
+	,"guardianName": ""
+	,"guardianPhone": ""
+
+	,"birthAddress": {
+		"line": [ "" ]
+		,"city": "Harper City"
+		,"district": "Harper"
+		,"state": "Maryland"
+		,"country": "Liberia"
+	}
+	,"currentAddress": {
+		"line": [ "" ]
+		,"city": "Harper City"
+		,"district": "Harper"
+		,"state": "Maryland"
+		,"country": "Liberia"
+	}
+	,"currentEncounter": {
+	}
+}`;
+
+var p1 = JSON.parse(patient1Json);
+var p2 = JSON.parse(patient2Json);
+var checkedInPatients = new Map([
+  [p1.id, p1],
+  [p2.id, p2]
+]);
 
 function onLoadCheckedInPatientsList() {
-  	// var jsonExampleCheckedInPatientsList = [
-  	// 	{ "name": "Christian Neumann - male - 19 years", "value": "1"}
-  	// 	, { "name": "Beth Dunbar - female - 17 years", "value": "2"}
-  	// ];
-
-    var j11 = JSON.stringify(patient1Json);
-    var j22 = JSON.stringify(patient2Json);
-    var jsonExampleCheckedInPatientsList = [ JSON.parse(j11), JSON.parse(j22) ];
-
+	$('#navigation-next').prop('disabled', true);
   	let dropdown = $('#checked-in-patients');
-
-    var i = 1;
-    $.each(jsonExampleCheckedInPatientsList, function (key, entry) {
-      dropdown.append('<option class=emr-select-option value=' + i++ + '>' + entry.identifier.value + " - " + entry.name.givenName + " " + entry.name.familyName + " - " + entry.gender + " - " + entry.birthdate + '</option>');
+    checkedInPatients.forEach((entry, key, map) => {
+      dropdown.append('<option class=emr-select-option value=' + key + '>' + entry.id + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
     });
-
+	dropdown.change (function () {
+		$('#navigation-next').prop('disabled', false);
+	});
 }
 
 function hookNextCheckedInPatientsList(e) {
-    db.flow_sessions.put({flowsessionid: 1, patient: patient1Json});
+	updateCurrentPatient(checkedInPatients.get($('#checked-in-patients :selected').val()));
 }

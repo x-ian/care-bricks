@@ -109,13 +109,6 @@ function defaultButtonDatepad(e) {
 
 // ---------------------------------------------------------
 // register event handlers
-
-var db;
-db = new Dexie("flows_database");
-db.version(1).stores({
-	flow_sessions: 'flowsessionid'
-});
-
 $(function(){
 	// change active class based on selection in all list-groups; currently prevents multiselect
 	$('.list-group li').click(function(e) {
@@ -199,9 +192,7 @@ $('.btn').click(function(e) {
 			let nodeid = getUrlParam('nodeid');
 			let stepid = getUrlParam('stepid');
 			stepid++;
-			console.log(nodeid);
 			let next = nextNode(jsonFlow, nodeById(jsonFlow, nodeid))[0];
-			console.log(next);
 			if (typeof next === 'undefined') {
 				alert('Missing outgoing connection in workflow definition!');
 			}
@@ -211,7 +202,7 @@ $('.btn').click(function(e) {
 
 			if (eval("typeof " + 'hookNext' + moduleName) === 'function') {
 				console.log('calling ' + 'hookNext' + moduleName);
-    		self['hookNext' + moduleName](e);
+				self['hookNext' + moduleName](e);
 			} else {
 				console.log("No hookNext function provided by module " + moduleName);
 			}
@@ -224,7 +215,8 @@ $('.btn').click(function(e) {
 			window.history.back();
 			break;
 		case "navigation-clear":
-			location = 'flow-select.html';
+			// loadCurrentPatient from previous step
+			location.reload();
 			break;
 		case "navigation-finish":
 			location = 'flow-select.html';
