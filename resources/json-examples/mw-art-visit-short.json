@@ -2,6 +2,9 @@
 	{
 		"id": ""
 		,"type": ""
+		,"patientId": ""
+		,"clinicId": ""
+		,"visitDate": ""
 		,"meta": {
 			"workflow": ""
 			,"workflowVersion": ""
@@ -16,9 +19,6 @@
 			,"updatedBy": ""
 		}
 
-		,"patientId": ""
-		,"clinicId": ""
-		,"visitDate": ""
 		,"sideEffects": ""
 		,"tbStatus": ""
 		,"height": ""
@@ -30,7 +30,7 @@
 		,"regimen": ""
 		,"givenArv": ""
 		,"givenCpt": ""
-		,"GivenInh": ""
+		,"givenInh": ""
 		,"givenDepo": ""
 		,"givenCondoms": ""
 		,"advOutcome": ""

@@ -16,9 +16,10 @@
 	}
 
 	,"givenname": ""
-	,"lastname": ""
+	,"familyname": ""
 	,"birthdate": ""
-	,"sex": ""
+	,"deathdate":""
+	,"gender": ""
 
 	,"phone": ""
 	,"mobile": ""
@@ -37,6 +38,10 @@
 		,"district": ""
 		,"state": ""
 		,"country": ""
+		,"latitude": ""
+		,"longitude": ""
+		,"validFrom": ""
+		,"validUntil": ""
 	}
 	,"currentAddress": {
 		"line": [ "" ]
@@ -44,5 +49,9 @@
 		,"district": ""
 		,"state": ""
 		,"country": ""
+		,"latitude": ""
+		,"longitude": ""
+		,"validFrom": ""
+		,"validUntil": ""
 	}
 }

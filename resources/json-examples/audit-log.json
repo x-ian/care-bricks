@@ -1,14 +1,16 @@
 {
 	"id": ""
 	,"timestamp": ""
-	,"savedBy": ""
-	,"savedTimestamp": ""
-	,"savedLocation": ""
-	,"savedDevice": ""
-	,"recordType": ""
-	,"recordId": ""
-	,"oldRevision": ""
-	,"newRevision": ""
+	,"startTime": ""
+	,"endTime": ""
+	,"patientId": ""
+	,"encounterId": ""
+	,"providerId": ""
+	,"flowId": ""
+	,"stationId": ""
+	,"deviceId": ""
+	,"revisionOld": ""
+	,"revisionNew": ""
 	,"changes": [ 
 		{ "field": "", "old": "", "new": "" }
 	]
