@@ -145,9 +145,9 @@ $(function(){
 	pageId = $('html').attr('id');
 	if (pageId.startsWith('page-')) {
 		pageName = pageId.substring(5, pageId.length);
-		$.get("assets/js/" + pageName + ".js")
+		$.get("assets/js/bricks/" + pageName + ".js")
 			.done(function() { 
-				$.getScript( "assets/js/" + pageName + ".js" )
+				$.getScript( "assets/js/bricks/" + pageName + ".js" )
 					.done(function( script, textStatus ) {
 						console.log("Loading page-specific script file: " + pageName );
 						// processPageFindPatient();
