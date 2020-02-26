@@ -1,4 +1,6 @@
 function onLoadFunction() {
+	$('#navigation-next').prop('disabled', true);
+
 	let nodeid = getUrlParam('nodeid');
 	let next = nextNodes(jsonFlow, nodeById(jsonFlow, nodeid));
 	let newUrl = next.type + ".html?nodeid=" + next.id;

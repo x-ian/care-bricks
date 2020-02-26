@@ -1,9 +1,5 @@
 function statusOfNextButton() {
-	if ($('#input-bp-dia').val().length == 0 || $('#input-bp-sys').val().length == 0) {
-		$('#navigation-next').prop('disabled', true);
-	} else {
-		$('#navigation-next').prop('disabled', false);
-	}	
+	$('#navigation-next').prop('disabled', ($('#input-bp-dia').val().length == 0 || $('#input-bp-sys').val().length == 0));
 }
 
 function onLoadBloodPressure() {
@@ -20,17 +16,16 @@ function onLoadBloodPressure() {
 		$('#input-bp-dia').val(currentPatient.currentEncounter.bpDia);
 	});
 	
-}
-
-function buttonClickBloodPressure(e) {
-	if (e.target.id.startsWith("bppad-sys-")) {
-		document.getElementById('input-bp-sys').value = e.target.id.substring(10);
-		statusOfNextButton();
-	}
-	if (e.target.id.startsWith("bppad-dia-")) {
-		document.getElementById('input-bp-dia').value = e.target.id.substring(10);
-		statusOfNextButton();
-	}
+	$('.btn').click(function(e) {
+		if (e.target.id.startsWith("bppad-sys-")) {
+			$('#input-bp-sys').val(e.target.id.substring(10));
+			statusOfNextButton();
+		}
+		if (e.target.id.startsWith("bppad-dia-")) {
+			$('#input-bp-dia').val(e.target.id.substring(10));
+			statusOfNextButton();
+		}
+	});
 }
 
 function hookNextBloodPressure(e) {

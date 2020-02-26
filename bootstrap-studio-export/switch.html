@@ -37,13 +37,13 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
 
 <body>
     <header class="emr-header">
-        <div class="emr-header-element emr-header-element__name"><span>&lt;patient name&gt;</span></div>
-        <div class="emr-header-element"><i class="fa fa-female"></i><i class="fa fa-male"></i></div>
+        <div class="emr-header-element emr-header-element__name"><span id="header-name">&nbsp;&nbsp;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female d-none" id="header-female"></i><i class="fa fa-male d-none" id="header-male"></i></div>
         <div class="emr-header-element">
-            <div><span>&lt;birthdate&gt; / &lt;age&gt;</span></div>
+            <div><span id="header-birthdate"></span></div>
         </div>
-        <div class="emr-header-element"><span>&lt;current address&gt;</span></div>
-        <div class="emr-header-element"><span>&lt;ID&gt;</span></div>
+        <div class="emr-header-element"><span id="header-currentAddress"></span></div>
+        <div class="emr-header-element"><span id="header-id"></span></div>
     </header>
     <div class="container">
         <h4 id="input-label" style="margin: 10px 0px 0px;">Switch node</h4>

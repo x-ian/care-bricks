@@ -200,6 +200,7 @@ $('.btn').click(function(e) {
 			let newUrl = next.type + ".html?stepid=" + stepid + "&nodeid=" + next.id;
 			console.log(newUrl);
 
+			console.log(eval("typeof " + 'hookNext' + moduleName));
 			if (eval("typeof " + 'hookNext' + moduleName) === 'function') {
 				console.log('calling ' + 'hookNext' + moduleName);
 				self['hookNext' + moduleName](e);
@@ -224,12 +225,5 @@ $('.btn').click(function(e) {
 		case "navigation-cancel":
 			location = 'flow-select.html';
 			break;
-	}
-
-	// delegate to module handlers
-	if (eval("typeof " + 'buttonClick' + moduleName) === 'function') {
-		self['buttonClick' + moduleName](e);
-	} else {
-		console.log("No buttonClick function provided by module " + moduleName);
 	}
 });

@@ -1,108 +1,3 @@
-
-var patient1Json = `{
-	"id": "1"
-	,"type": ""
-	,"meta": {
-		"workflow": ""
-		,"workflowVersion": ""
-		,"schemaVersion": ""
-		,"revision": ""
-		,"guidelinesRevision": ""
-		,"contributingStations": [ ]
-
-		,"createdAt": ""
-		,"createdBy": ""
-		,"updatedAt": ""
-		,"updatedBy": ""
-	}
-
-	,"givenname": "John"
-	,"familyname": "Doe"
-	,"birthdate": "1990-01-01"
-	,"deathdate": ""
-	,"gender": "M"
-
-	,"phone": ""
-	,"mobile": "+231888888888"
-	,"email": ""
-
-	,"facilityId": ""
-	,"nationalId": ""
-	,"hivId": ""
-
-	,"guardianName": ""
-	,"guardianPhone": ""
-
-	,"birthAddress": {
-		"line": [ "" ]
-		,"city": "Harper City"
-		,"district": "Harper"
-		,"state": "Maryland"
-		,"country": "Liberia"
-	}
-	,"currentAddress": {
-		"line": [ "" ]
-		,"city": "Harper City"
-		,"district": "Harper"
-		,"state": "Maryland"
-		,"country": "Liberia"
-	}
-	,"currentEncounter": {
-	}
-}`;
-
-var patient2Json = `{
-	"id": "2"
-	,"type": ""
-	,"meta": {
-		"workflow": ""
-		,"workflowVersion": ""
-		,"schemaVersion": ""
-		,"revision": ""
-		,"guidelinesRevision": ""
-		,"contributingStations": [ ]
-
-		,"createdAt": ""
-		,"createdBy": ""
-		,"updatedAt": ""
-		,"updatedBy": ""
-	}
-
-	,"givenname": "Mary"
-	,"familyname": "Ellen"
-	,"birthdate": "1995-01-01"
-	,"deathdate": ""
-	,"gender": "F"
-
-	,"phone": ""
-	,"mobile": "+231999999999"
-	,"email": ""
-
-	,"facilityId": ""
-	,"nationalId": ""
-	,"hivId": ""
-
-	,"guardianName": ""
-	,"guardianPhone": ""
-
-	,"birthAddress": {
-		"line": [ "" ]
-		,"city": "Harper City"
-		,"district": "Harper"
-		,"state": "Maryland"
-		,"country": "Liberia"
-	}
-	,"currentAddress": {
-		"line": [ "" ]
-		,"city": "Harper City"
-		,"district": "Harper"
-		,"state": "Maryland"
-		,"country": "Liberia"
-	}
-	,"currentEncounter": {
-	}
-}`;
-
 var p1 = JSON.parse(patient1Json);
 var p2 = JSON.parse(patient2Json);
 var checkedInPatients = new Map([
@@ -122,5 +17,7 @@ function onLoadCheckedInPatientsList() {
 }
 
 function hookNextCheckedInPatientsList(e) {
+	console.log(checkedInPatients);
+	console.log(checkedInPatients.get($('#checked-in-patients :selected').val()));
 	updateCurrentPatient(checkedInPatients.get($('#checked-in-patients :selected').val()));
 }

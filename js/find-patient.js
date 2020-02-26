@@ -1,7 +1,16 @@
-function onLoadFindPatient() {
+function statusOfNextButton() {
+	$('#navigation-next').prop('disabled', ($('#input').val().length == 0));
 }
 
-function buttonClickFindPatient(e) {
-	defaultButtonAlphapad(e);
-	defaultButtonKeypad(e);
+function onLoadFindPatient() {
+	statusOfNextButton();
+	$('.btn').click(function(e) {
+		defaultButtonAlphapad(e);
+		defaultButtonKeypad(e);
+		statusOfNextButton();
+	});
+}
+
+function hookNextFindPatient(e) {
+	updateCurrentPatient(JSON.parse(patient1Json));
 }

@@ -37,13 +37,13 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
 
 <body>
     <header class="emr-header">
-        <div class="emr-header-element emr-header-element__name"><span>&lt;patient name&gt;</span></div>
-        <div class="emr-header-element"><i class="fa fa-female"></i><i class="fa fa-male"></i></div>
+        <div class="emr-header-element emr-header-element__name"><span id="header-name">&nbsp;&nbsp;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female d-none" id="header-female"></i><i class="fa fa-male d-none" id="header-male"></i></div>
         <div class="emr-header-element">
-            <div><span>&lt;birthdate&gt; / &lt;age&gt;</span></div>
+            <div><span id="header-birthdate"></span></div>
         </div>
-        <div class="emr-header-element"><span>&lt;current address&gt;</span></div>
-        <div class="emr-header-element"><span>&lt;ID&gt;</span></div>
+        <div class="emr-header-element"><span id="header-currentAddress"></span></div>
+        <div class="emr-header-element"><span id="header-id"></span></div>
     </header>
     <div class="container">
         <h4>Height &amp; Weight</h4>
@@ -53,13 +53,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
             </div>
         </div>
         <div class="row">
-            <div class="col"><label>Height (cm):&nbsp;</label><input type="text" id="input-height" maxlength="3"><input class="custom-range" type="range" id="input-height-range" min="45" max="210" step="1" list="stepListHeight"><datalist id="stepListHeight">
-    <option>0</option>
-    <option>25</option>
-    <option>50</option>
-    <option>75</option>
-    <option>100</option>
-</datalist></div>
+            <div class="col"><label>Height (cm):&nbsp;</label><input type="text" id="input-height" maxlength="3"><input class="custom-range" type="range" id="input-height-range" min="45" max="210" step="1"></div>
         </div>
         <div class="row">
             <div class="col">
