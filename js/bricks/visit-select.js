@@ -1,13 +1,31 @@
+var name = "";
+
 function onLoadVisitSelect() {
+	$('#navigation-next').prop('disabled', true);
 	processPageDemographicAttribute();
 
 	let nodeid = getUrlParam('nodeid');
-  var node = nodeById(jsonFlow, nodeid);
+	var node = nodeById(jsonFlow, nodeid);
 	$('#input-label').contents().last().replaceWith(node.label);
+	name = node.name;
 
-	let div = $('#select-entries');
-
-	$.each(node.devices, function (key, entry) {
-		div.append('<li class="list-group-item list-group-item-action"><span>' + entry.sid + '</span></li>');
+	let dropdown = $('#select-entries');
+	$.each(node.devices, function(key, entry) {
+		dropdown.append('<option class=emr-select-option value=' + key + '>' + entry.sid + '</option>');
 	});
+	dropdown.change(function() {
+		$('#navigation-next').prop('disabled', false);
+	});
+
+	loadCurrentPatient(function() {
+		// select element from encounter
+		// $('#select-entries :selected').val()
+		// $('#input').val(currentPatient.currentEncounter[name]);
+	});
+}
+
+function hookNextVisitSelect(e) {
+	currentPatient.currentEncounter[name + "-val"] = $('#select-entries :selected').val();
+	currentPatient.currentEncounter[name + "-text"] = $('#select-entries :selected').text();
+	updateCurrentPatient(currentPatient);
 }

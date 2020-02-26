@@ -47,13 +47,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     </header>
     <div class="container">
         <h4 id="input-label" style="margin: 10px 0px 0px;">&lt;placeholder&gt;</h4>
-        <hr>
-        <div class="row">
-            <div class="col"><label>Please select one or more entries</label>
-                <ul class="list-group multiple" id="select-entries" style="max-height:450px; overflow:scroll"></ul>
-            </div>
-        </div>
-    </div>
+        <hr><label>Please select one entry (multi-select not yet working)</label><select id="select-entries" class="emr-select" size="8"></select></div>
     <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
         <button
             class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>

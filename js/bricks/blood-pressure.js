@@ -10,12 +10,12 @@ function onLoadBloodPressure() {
 	$('#input-bp-dia').on('change', function() {
 		statusOfNextButton();
 	});
-	
+
 	loadCurrentPatient(function() {
 		$('#input-bp-sys').val(currentPatient.currentEncounter.bpSys);
 		$('#input-bp-dia').val(currentPatient.currentEncounter.bpDia);
 	});
-	
+
 	$('.btn').click(function(e) {
 		if (e.target.id.startsWith("bppad-sys-")) {
 			$('#input-bp-sys').val(e.target.id.substring(10));
