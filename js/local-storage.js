@@ -7,6 +7,21 @@ db.open();
 
 var currentPatient = null;
 
+var patientStorage = null;
+$(function(){
+	// this appears to be evil - sync call in main worker
+	patientStorage = $.parseJSON(
+    $.ajax(
+        {
+           url: "http://localhost:8000/assets/js/patient-storage.json",
+           async: false,
+					 cache: false,
+           dataType: 'json'
+        }
+    ).responseText
+	);
+});
+
 function loadCurrentPatient(callback) {
 	db.currentPatient.get({
 		"sessionId": 1,
