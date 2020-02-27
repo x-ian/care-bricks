@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="page-hl7-create-message">
+<html id="page-scheduled-patients-list">
 
 <head>
     <meta charset="utf-8">
@@ -37,17 +37,33 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
 
 <body>
     <header class="emr-header">
-        <div class="emr-header-element emr-header-element__name"><span id="header-name">&nbsp;&nbsp;</span></div>
-        <div class="emr-header-element"><i class="fa fa-female d-none" id="header-female"></i><i class="fa fa-male d-none" id="header-male"></i></div>
+        <div class="emr-header-element emr-header-element__name"></div>
+        <div class="emr-header-element"></div>
         <div class="emr-header-element">
-            <div><span id="header-birthdate"></span></div>
+            <div></div>
         </div>
-        <div class="emr-header-element"><span id="header-currentAddress"></span></div>
-        <div class="emr-header-element"><span id="header-id"></span></div>
+        <div class="emr-header-element"><span>&nbsp;</span></div>
     </header>
+    <hr class="mt-auto">
     <div class="container">
-        <h4 id="input-label" style="margin: 10px 0px 0px;">&lt;hl7-create-message&gt;</h4>
-        <hr><label>(Next to continue)&nbsp;</label></div>
+        <h4>Scheduled patients for today</h4>
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><label>Expected patients</label>
+                <ul class="list-group" style="max-height:450px; overflow:scroll">
+                    <li class="list-group-item list-group-item-action"><span>Magareta Mndeta - male - 7 years</span></li>
+                    <li class="list-group-item list-group-item-action active"><span>Magaleta Ndeta - female - 14 years</span></li>
+                    <li class="list-group-item list-group-item-action"><span>Margareta Mdeta - female - 39 years</span></li>
+                    <li class="list-group-item list-group-item-action"><span>Magagreta Mndeta - female - 22 years</span></li>
+                    <li class="list-group-item list-group-item-action"><span>Magaletah Mdeta - male - 59 years</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
         <button
             class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>

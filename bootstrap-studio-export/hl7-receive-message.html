@@ -36,15 +36,16 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
 </head>
 
 <body>
+    <header class="emr-header">
+        <div class="emr-header-element emr-header-element__name"><span id="header-name">&nbsp;&nbsp;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female d-none" id="header-female"></i><i class="fa fa-male d-none" id="header-male"></i></div>
+        <div class="emr-header-element">
+            <div><span id="header-birthdate"></span></div>
+        </div>
+        <div class="emr-header-element"><span id="header-currentAddress"></span></div>
+        <div class="emr-header-element"><span id="header-id"></span></div>
+    </header>
     <div class="container">
-        <header class="emr-header">
-            <div class="emr-header-element emr-header-element__name"></div>
-            <div class="emr-header-element"></div>
-            <div class="emr-header-element">
-                <div></div>
-            </div>
-            <div class="emr-header-element"><span>&nbsp;</span></div>
-        </header>
         <h4 id="input-label" style="margin: 10px 0px 0px;">HL7 Receive Message</h4>
         <hr><label>(Todo; Next to continue)&nbsp;</label></div>
     <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
