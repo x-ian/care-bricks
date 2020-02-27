@@ -25,7 +25,7 @@ function onLoadVisitSelect() {
 }
 
 function hookNextVisitSelect(e) {
-	currentPatient.currentEncounter[name + "-val"] = $('#select-entries :selected').val();
-	currentPatient.currentEncounter[name + "-text"] = $('#select-entries :selected').text();
+	currentPatient.currentEncounter[name + "_val"] = $('#select-entries :selected').val();
+	currentPatient.currentEncounter[name + "_text"] = $('#select-entries :selected').text();
 	updateCurrentPatient(currentPatient);
 }
