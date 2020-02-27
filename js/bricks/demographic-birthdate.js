@@ -2,7 +2,10 @@ function statusOfNextButton() {
 	$('#navigation-next').prop('disabled', ($('#birthdate').val().length == 0) || ($('#birthdate').val().match(/-/g) || []).length !== 2);
 
 	var ageDifMs = Date.now() - new Date(year, month, day).getTime();
+	console.log(year + " " + month + " " + day);
 	var ageDate = new Date(ageDifMs); // miliseconds from epoch
+	console.log(ageDate.getUTCFullYear());
+	console.log("AGE: " + Math.abs(ageDate.getUTCFullYear() - 1970));
 	$('#age-in-years').val(Math.abs(ageDate.getUTCFullYear() - 1970));
 }
 
@@ -68,10 +71,20 @@ function onLoadDemographicBirthdate() {
 	$('#birthdate-day button').attr('disabled', 'disabled');
 	statusOfNextButton();
 	$('#birthdate').on('change', function() {
+		if (($('#birthdate').val().match(/-/g) || []).length !== 2) {
+			year = month = day = "";
+		} else {
+			var d = new Date ($('#birthdate').val());
+// 			year = d.getFullYear();
+// 			month = d.getMonth() + 1;
+// 			day = d.getDay();
+		}
+		console.log("on");
 		statusOfNextButton();
 	});
 
 	loadCurrentPatient(function() {
-		$('#birthdate').val(currentPatient.birthdate);
+		$('#birthdate').val(currentPatient.birthdate).change();
+		statusOfNextButton();
 	});
 }

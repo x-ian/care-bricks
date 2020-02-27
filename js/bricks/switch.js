@@ -1,4 +1,5 @@
 function onLoadSwitch() {
+	loadCurrentPatient(function() {});
 	$('#navigation-next').prop('disabled', true);
 	
 	let nodeid = getUrlParam('nodeid');

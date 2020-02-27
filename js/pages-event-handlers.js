@@ -159,6 +159,8 @@ $(function(){
 							console.log('calling ' + 'onLoad' + onLoadFunctionName);
 							self['onLoad' + onLoadFunctionName]();
 						} else {
+							// make sure that at least the header is set
+							loadCurrentPatient(function() {});
 							console.log("No onLoad function provided by module " + onLoadFunctionName);
 						}
 					})
@@ -167,6 +169,8 @@ $(function(){
 					});
 				})
 			.fail(function() { 
+				// make sure that at least the header is set
+				loadCurrentPatient(function() {});
 				console.log("No page-specific script file found: " + pageName );
 			})
 	}

@@ -11,19 +11,19 @@ function onLoadHeightWeight() {
 		statusOfNextButton();
 	});
 	$('#input-weight-range').on('input', function() {
-		$('#input-weight').val($('#input-weight-range').val());
+		$('#input-weight').val($('#input-weight-range').val()).change();
 		statusOfNextButton();
 	});
 	$('#input-height-range').on('input', function() {
-		$('#input-height').val($('#input-height-range').val());
+		$('#input-height').val($('#input-height-range').val()).change();
 		statusOfNextButton();
 	});
 
 	loadCurrentPatient(function() {
-		$('#input-height').val(currentPatient.currentEncounter.height);
-		$('#input-height-range').val(currentPatient.currentEncounter.height);
-		$('#input-weight').val(currentPatient.currentEncounter.weight);
-		$('#input-weight-range').val(currentPatient.currentEncounter.weight);
+		$('#input-height').val(currentPatient.currentEncounter.height).change();
+		$('#input-height-range').val(currentPatient.currentEncounter.height).change();
+		$('#input-weight').val(currentPatient.currentEncounter.weight).change();
+		$('#input-weight-range').val(currentPatient.currentEncounter.weight).change();
 	});
 }
 
