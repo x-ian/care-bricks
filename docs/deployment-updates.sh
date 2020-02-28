@@ -14,6 +14,7 @@ nohup node-red &
 
 cd /home/neumann/workflow-poc-emr/bootstrap-studio-export
 cp ../js/*.js assets/js/
-sed -i 's/http:\/\/localhost:8000\//assets\/js\//g' *.html
-sed -i 's/http:\/\/localhost:8000\//assets\/js\//g' assets/js/pages-event-handlers.js 
+sed -i 's/http:\/\/localhost:8000\///g' *.html
+sed -i 's/http:\/\/localhost:8000\///g' assets/js/pages-event-handlers.js 
+sed -i 's/http:\/\/localhost:8000\///g' assets/js/local-storage.js
 #ln -s /home/neumann/.node-red/flows_s17974030.onlinehome-server.info.json /home/neumann/workflow-poc-emr/bootstrap-studio-export/assets/js/node-red-flows.json
