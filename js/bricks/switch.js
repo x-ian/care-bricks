@@ -8,17 +8,21 @@ function onLoadSwitch() {
 	let node = nodeById(jsonFlow, nodeid);
 	loadCurrentPatient(function() {
 		var i = 0;
-		$.each(next, function (key, entry) {
+		$.each(next, function(key, entry) {
 			try {
-			    eval(node.rules[i].v)
-				div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id  + '>' + entry.type + ' ' + entry.name + '</a> ' + node.rules[i].v + ' (' + eval(node.rules[i].v) + ')' + '</div></div>');
+				if ((node.rules[i].v) == '') {
+					div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id + '>' + entry.type + ' ' + entry.name + '</a> (no rule specified in workflow)' + '</div></div>');	
+				} else {
+					eval(node.rules[i].v)
+					div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id + '>' + entry.type + ' ' + entry.name + '</a> ' + node.rules[i].v + ' (' + eval(node.rules[i].v) + ')' + '</div></div>');
+				}
 			} catch (e) {
-				div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id  + '>' + entry.type + ' ' + entry.name + '</a> Error in rule: ' + node.rules[i].v + ' (' + e.message + ')' + '</div></div>');
+				div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id + '>' + entry.type + ' ' + entry.name + '</a> Error in rule: ' + node.rules[i].v + ' (' + e.message + ')' + '</div></div>');
 			}
 			div.append('<div class=row><div class="col text-center"><hr/></div></div>');
 			i++;
 		});
-		
+
 	});
 	$('#navigation-next').prop('disabled', true);
 	$('#input-label').text('Switch node for node: ' + node.name);
