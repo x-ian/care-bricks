@@ -6,7 +6,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "John", "familyname": "Doe","gender": "M"
-		,"birthdate": "1990-01-01", "deathdate": ""
+		,"birthdate": "1990-01-01", "age": 29, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -21,7 +21,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Mary", "familyname": "Ellen", "gender": "F"
-		,"birthdate": "1995-01-01", "deathdate": ""
+		,"birthdate": "1995-01-01", "age": 34, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -36,7 +36,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Christian", "familyname": "Neumann", "gender": "M"
-		,"birthdate": "1965-03-14", "deathdate": ""
+		,"birthdate": "1965-03-14", "age": 54, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -51,7 +51,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Beth", "familyname": "Dunbar", "gender": "F"
-		,"birthdate": "1999-01-01", "deathdate": ""
+		,"birthdate": "1999-01-01", "age":20, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -66,7 +66,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Lisa", "familyname": "Simpson", "gender": "F"
-		,"birthdate": "1999-01-01", "deathdate": ""
+		,"birthdate": "1999-01-01", "age": 20, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -81,7 +81,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Peter", "familyname": "Griffin", "gender": "M"
-		,"birthdate": "1999-01-01", "deathdate": ""
+		,"birthdate": "1999-01-01", "age":20, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -96,7 +96,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "David", "familyname": "Spade", "gender": "M"
-		,"birthdate": "1999-01-01", "deathdate": ""
+		,"birthdate": "1999-01-01", "age": 20, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -111,7 +111,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Mrs", "familyname": "President", "gender": "M"
-		,"birthdate": "1999-01-01", "deathdate": ""
+		,"birthdate": "1999-01-01", "age": 20, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -126,7 +126,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Mphatso", "familyname": "Gondwe", "gender": "M"
-		,"birthdate": "1999-01-01", "deathdate": ""
+		,"birthdate": "1999-01-01", "age": 20, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -141,7 +141,7 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Malia", "familyname": "Peterson", "gender": "F"
-		,"birthdate": "1999-01-01", "deathdate": ""
+		,"birthdate": "1999-01-01", "age": 20, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
@@ -156,7 +156,22 @@
 			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
 		}
 		,"givenname": "Beth", "familyname": "Dunbar 2.0", "gender": "F"
-		,"birthdate": "1999-01-01", "deathdate": ""
+		,"birthdate": "1999-01-01", "age": 20, "deathdate": ""
+		,"phone": "", "mobile": "+231999999999", "email": ""
+		,"facilityId": "", "nationalId": "", "hivId": ""
+		,"guardianName": "", "guardianPhone": ""
+		,"birthAddress": { "line": [ "" ],"city": "Minneapolis","district": "","state": "","country": "USA"}
+		,"currentAddress": {"line": [ "" ],"city": "Seattle","district": "","state": "WA","country": "USA"}
+		,"currentEncounter": {}
+	}
+	,{
+		"id": 12, "type": "demographics"
+		,"meta": {
+			"workflow": "", "workflowVersion": "", "schemaVersion": "", "revision": "", "guidelinesRevision": "", "contributingStations": [ ]
+			,"createdAt": "", "createdBy": "", "updatedAt": "", "updatedBy": ""
+		}
+		,"givenname": "Little", "familyname": "Boy", "gender": "M"
+		,"birthdate": "2015-01-01", "age": 4, "deathdate": ""
 		,"phone": "", "mobile": "+231999999999", "email": ""
 		,"facilityId": "", "nationalId": "", "hivId": ""
 		,"guardianName": "", "guardianPhone": ""
