@@ -1,31 +1,36 @@
 <script type="text/javascript">
-    RED.nodes.registerType('demographic-attribute',{
-        category: 'EMR Generic',
-        color: '#a6bbcf',
+    RED.nodes.registerType('visit-question', {
+        category: 'cfCommon',
+        color: "#a6bbcf",
         defaults: {
-            name: {value:""}
-            ,label: {value:""}
-            ,key: {value:""}
-            ,datatype: {value:""}
+            name: { value: "" },
+            label: { value: "" },
+            key: { value: "" },
+            datatype: { value: "" }
         },
-        inputs:1,
-        outputs:1,
+
+        inputs: 1,
+        outputs: 1,
         icon: "debug.png",
-        label: function() {
-            return this.name||"Demographic Attribute";
-        }
+	label: function() {
+		return this.name||"Visit Question";
+	}
     });
 </script>
 
-<script type="text/x-red" data-template-name="demographic-attribute">
+<script type="text/x-red" data-template-name="visit-question">
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
+        <label for="node-input-name">
+            <i class="fa fa-tag"></i>
+            <span data-i18n="common.label.name">Name</span>
+        </label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
     </div>
+
     <div class="form-row">
         <label for="node-input-label">
             <i class="fa fa-label"></i>
-            <span data-i18n="common.label.question">Label</span>
+            <span data-i18n="common.label.label">Label</span>
         </label>
         <input type="text" id="node-input-label">
     </div>
@@ -53,8 +58,6 @@
                 <option value="multiselect" data-i18n="single-question.string">Multi Select</option>
         </select>
     </div>
-</script>
 
-<script type="text/x-red" data-help-name="demographic-attribute">
-    <p>workflow-poc-emr screen for </p>
+    <div class="form-tips" data-i18n="[html]single-question.tip"></div>
 </script>

@@ -1,5 +1,9 @@
 # workflow-poc-emr
 
+### Runtime env
+
+* python3 -m http.server
+
 ### Node-RED Custom Nodes
 
 * https://nodered.org/docs/creating-nodes/

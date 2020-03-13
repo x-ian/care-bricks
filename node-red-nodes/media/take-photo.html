@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('summary',{
-        category: 'EMR Generic',
+    RED.nodes.registerType('take-photo',{
+        category: 'cfMedia',
         color: '#a6bbcf',
         defaults: {
             name: {value:""}
@@ -9,18 +9,18 @@
         outputs:1,
         icon: "debug.png",
         label: function() {
-            return this.name||"Summary";
+            return this.name||"Take Photo";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="summary">
+<script type="text/x-red" data-template-name="take-photo">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="referral">
+<script type="text/x-red" data-help-name="take-photo">
     <p>workflow-poc-emr screen for </p>
 </script>

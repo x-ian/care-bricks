@@ -1,27 +1,26 @@
 <script type="text/javascript">
-    RED.nodes.registerType('tb-screening',{
-        category: 'cfCommon',
-        color: '#6d70d0',
+    RED.nodes.registerType('show-video',{
+        category: 'cfMedia',
+        color: '#a6bbcf',
         defaults: {
             name: {value:""}
         },
         inputs:1,
-        outputs:2,
-        outputLabels: ["suspect","no suspect"],
+        outputs:1,
         icon: "debug.png",
         label: function() {
-            return this.name||"TB Screening";
+            return this.name||"Show Video";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="tb-screening">
+<script type="text/x-red" data-template-name="show-video">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="tb-screening">
+<script type="text/x-red" data-help-name="show-video">
     <p>workflow-poc-emr screen for </p>
 </script>
