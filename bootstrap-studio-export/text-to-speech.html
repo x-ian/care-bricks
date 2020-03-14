@@ -47,16 +47,96 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     </header>
     <div class="container">
         <h4 id="input-label" style="margin: 10px 0px 0px;">&lt;Text to Speech&gt;</h4>
-        <hr><label>(Next to continue)&nbsp;</label></div>
-    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+        <hr><label>(Next to continue)&nbsp;</label>    <main>
+      <form class="input" id="voice-form">
+        <div class="field">
+          <label for="speech">Type something</label>
+					<input type="text" name="speech" id="speech" value="A first simple test"/>
+        </div>
+        <div class="field">
+          <label for="voices">Choose a voice</label>
+          <select name="voices" id="voices"></select>
+        </div>
+        <button>Say it!</button>
+      </form>
+    </main>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('voice-form');
+        const input = document.getElementById('speech');
+        const main = document.getElementsByTagName('main')[0];
+        const voiceSelect = document.getElementById('voices');
+        let voices;
+        let currentVoice;
+
+        const populateVoices = () => {
+          const availableVoices = speechSynthesis.getVoices();
+          voiceSelect.innerHTML = '';
+
+          availableVoices.forEach(voice => {
+            const option = document.createElement('option');
+            let optionText = `${voice.name} (${voice.lang})`;
+            if (voice.default) {
+              optionText += ' [default]';
+              if (typeof currentVoice === 'undefined') {
+                currentVoice = voice;
+                option.selected = true;
+              }
+            }
+            if (currentVoice === voice) {
+              option.selected = true;
+            }
+            option.textContent = optionText;
+            voiceSelect.appendChild(option);
+          });
+          voices = availableVoices;
+        };
+
+        populateVoices();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoices;
+        }
+
+        voiceSelect.addEventListener('change', event => {
+          const selectedIndex = event.target.selectedIndex;
+          currentVoice = voices[selectedIndex];
+        });
+
+        form.addEventListener('submit', event => {
+          event.preventDefault();
+          const toSay = input.value.trim();
+          const utterance = new SpeechSynthesisUtterance(toSay);
+          utterance.voice = currentVoice;
+          utterance.addEventListener('start', event => {
+            main.classList.add('speaking');
+          });
+          utterance.addEventListener('end', event => {
+            main.addEventListener(
+              'animationiteration',
+              event => {
+                main.classList.remove('speaking');
+              },
+              {
+                once: true
+              }
+            );
+          });
+          speechSynthesis.speak(utterance);
+          input.value = '';
+        });
+      });
+    </script>
+<label>(<a href="https://www.twilio.com/blog/speech-to-text-browser-web-speech-api">https://www.twilio.com/blog/speech-to-text-browser-web-speech-api</a>)&nbsp;</label></div>
+    <footer
+        class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
         <button
             class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="http://localhost:8000/assets/js/node-red-flow-parser.js"></script>
-    <script src="http://localhost:8000/assets/js/dexie.min.js"></script>
-    <script src="http://localhost:8000/assets/js/local-storage.js"></script>
-    <script src="http://localhost:8000/assets/js/pages-event-handlers.js"></script>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="http://localhost:8000/assets/js/node-red-flow-parser.js"></script>
+            <script src="http://localhost:8000/assets/js/dexie.min.js"></script>
+            <script src="http://localhost:8000/assets/js/local-storage.js"></script>
+            <script src="http://localhost:8000/assets/js/pages-event-handlers.js"></script>
 </body>
 
 </html>
