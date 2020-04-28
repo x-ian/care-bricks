@@ -12,11 +12,11 @@
    1. Start node-red
    
 * Runtime environment
-1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export
+   1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export
 
-   (note that 'python3 -m http.server' had sometimes high delays between some calls; version problem?)
+      (note that 'python3 -m http.server' had sometimes high delays between some calls; version problem?)
 
-1. Patch HTML and js sources to match web server environment per per workflow-poc-emr/docs/deployment-updates.sh
+   1. Patch HTML and js sources to match web server environment per per workflow-poc-emr/docs/deployment-updates.sh
 
 ### Runtime env
 
