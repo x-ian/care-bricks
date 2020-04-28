@@ -2,14 +2,20 @@
 
 ### Install
 
-1. Install NodeRed
-1. clone GitHub repo workflow-poc-emr
-1. Run Nodered once with node-red and quit
-1. Link (or copy) ~/.node-red/nodes from workflow-poc-emr/node-red-nodes
-1. Link (or copy) ~/.node-red/settings from workflow-poc-emr/node-red-nodes/node-red_settings.js
-1. Link (or copy) ~/.node-red/flows_HOSTNAME.json from workflow-poc-emr/js/node-red-flows.json
-1. Start node-red
-1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export (note that python simple http server had sometimes high delays between some calls; version problem? /usr/bin/python -m SimpleHTTPServer)
+* Node-red / design environment
+   1. Install NodeRed
+   1. clone GitHub repo workflow-poc-emr
+   1. Run Nodered once with node-red and quit
+   1. Link (or copy) ~/.node-red/nodes from workflow-poc-emr/node-red-nodes
+   1. Link (or copy) ~/.node-red/settings from workflow-poc-emr/node-red-nodes/node-red_settings.js
+   1. Link (or copy) ~/.node-red/flows_HOSTNAME.json from workflow-poc-emr/js/node-red-flows.json
+   1. Start node-red
+   
+* Runtime environment
+1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export
+
+   (note that 'python3 -m http.server' had sometimes high delays between some calls; version problem?)
+
 1. Patch HTML and js sources to match web server environment per per workflow-poc-emr/docs/deployment-updates.sh
 
 ### Runtime env
