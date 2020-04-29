@@ -1,0 +1,423 @@
+[
+    {
+        "id": "76dcd25e.6f66fc",
+        "type": "tab",
+        "label": "Diagnosing Childhood Malaria",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "388156e5.75f73a",
+        "type": "register-patient",
+        "z": "76dcd25e.6f66fc",
+        "name": "",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "9843c387.b825b"
+            ]
+        ]
+    },
+    {
+        "id": "9843c387.b825b",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "PI: Age",
+        "label": "Age",
+        "key": "",
+        "behavior": "single",
+        "devices": [
+            {
+                "sid": "Less than 2 months"
+            },
+            {
+                "sid": "2-12 months"
+            },
+            {
+                "sid": "13-24 months"
+            },
+            {
+                "sid": "25-60 months"
+            },
+            {
+                "sid": "Over 60 months"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "26650c60.3466c4"
+            ]
+        ]
+    },
+    {
+        "id": "766d81e7.727e3",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "PI: Duration of Illness",
+        "label": "Duration of Illness",
+        "key": "",
+        "behavior": "single",
+        "devices": [
+            {
+                "sid": "Less than or equal to 2 days"
+            },
+            {
+                "sid": "2-15 days"
+            },
+            {
+                "sid": "16-30 days"
+            },
+            {
+                "sid": "Over 30 days"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "31fe08de.e0be28"
+            ]
+        ]
+    },
+    {
+        "id": "678f589d.e6abc8",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Conscious",
+        "label": "Conscious",
+        "key": "",
+        "behavior": "single",
+        "devices": [
+            {
+                "sid": "Yes"
+            },
+            {
+                "sid": "No"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "81e11172.d52ae"
+            ]
+        ]
+    },
+    {
+        "id": "81e11172.d52ae",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Anemia",
+        "label": "Anemia",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "21b91ff8.487c7"
+            ]
+        ]
+    },
+    {
+        "id": "26650c60.3466c4",
+        "type": "summary",
+        "z": "76dcd25e.6f66fc",
+        "name": "Show calculated birthdate",
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "766d81e7.727e3"
+            ]
+        ]
+    },
+    {
+        "id": "31fe08de.e0be28",
+        "type": "summary",
+        "z": "76dcd25e.6f66fc",
+        "name": "Show calculated start date",
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "678f589d.e6abc8"
+            ]
+        ]
+    },
+    {
+        "id": "de287fd5.777bd",
+        "type": "end-flow",
+        "z": "76dcd25e.6f66fc",
+        "name": "",
+        "x": 120,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "21b91ff8.487c7",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Convulsions",
+        "label": "Convulsions",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 310,
+        "y": 360,
+        "wires": [
+            [
+                "ae8bb047.c5c44"
+            ]
+        ]
+    },
+    {
+        "id": "ae8bb047.c5c44",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Cough or Difficulty Breathing (CDB)",
+        "label": "Cough or Difficulty Breathing (CDB)",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "73996536.460fec"
+            ]
+        ]
+    },
+    {
+        "id": "73996536.460fec",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Diarrhea",
+        "label": "Diarrhea",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "f975f8a8.fa34a8"
+            ]
+        ]
+    },
+    {
+        "id": "f975f8a8.fa34a8",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "History of Fever",
+        "label": "History of Fever",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 320,
+        "y": 420,
+        "wires": [
+            [
+                "bca39c67.463e9"
+            ]
+        ]
+    },
+    {
+        "id": "bca39c67.463e9",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Fever (>37.5 C)",
+        "label": "Fever (>37.5 C)",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "3e507c16.604984"
+            ]
+        ]
+    },
+    {
+        "id": "3e507c16.604984",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Lethargie",
+        "label": "Lethargie",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 160,
+        "y": 480,
+        "wires": [
+            [
+                "db25a835.8a12b8"
+            ]
+        ]
+    },
+    {
+        "id": "db25a835.8a12b8",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Malnutrition",
+        "label": "Malnutrition",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "1506207e.e4ede"
+            ]
+        ]
+    },
+    {
+        "id": "1506207e.e4ede",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Unable to feed",
+        "label": "Unable to feed",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "185a33f6.dbaf7c"
+            ]
+        ]
+    },
+    {
+        "id": "185a33f6.dbaf7c",
+        "type": "visit-select",
+        "z": "76dcd25e.6f66fc",
+        "name": "Vomiting",
+        "label": "Vomiting",
+        "key": "",
+        "behavior": "",
+        "devices": [
+            {
+                "sid": "Present"
+            },
+            {
+                "sid": "Absent"
+            },
+            {
+                "sid": "Unknown"
+            }
+        ],
+        "x": 640,
+        "y": 480,
+        "wires": [
+            [
+                "de287fd5.777bd"
+            ]
+        ]
+    }
+]
