@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    RED.nodes.registerType('config-runtime', {
+        category: 'cfCommon',
+        color: "#a6bbcf",
+        defaults: {
+            flowpath: { value: "" },
+        },
+
+        inputs: 0,
+        outputs: 0,
+        icon: "debug.png",
+	label: function() {
+		return this.name||"Config Runtime";
+	}
+    });
+</script>
+
+<script type="text/x-red" data-template-name="config-runtime">
+    <div class="form-row">
+        <label for="node-input-flowpath">
+            <span data-i18n="common.label.flowpath">Path to JSON Flows</span>
+        </label>
+        <input type="text" id="node-input-flowpath">
+    </div>
+</script>
