@@ -4,17 +4,9 @@
 
 #### Node-red / design environment
 
-Setup
-
 1. Install NodeRed (avoid registering as a daemon / service)
 1. clone GitHub repo workflow-poc-emr
-1. Start NodeRed with ```node-red --userDir workflow-poc-emr/node-red-userdir``` and deploy a simple test flow
-1. Stop NodeRed
-1. Link workflow-poc-emr/node-red-userdir/flows_HOSTNAME.json to workflow-poc-emr/js/node-red-flows.json
-
-Running
-
-1. Start NodeRed with ```node-red --userDir workflow-poc-emr/node-red-userdir```
+1. Start NodeRed with ```node-red --userDir workflow-poc-emr/node-red-userdir node-red-userdir/example-flows.json```
    
 #### Runtime environment
 
