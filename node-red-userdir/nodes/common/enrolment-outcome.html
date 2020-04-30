@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    RED.nodes.registerType('enrolment-outcome',{
+        category: 'cfCommon',
+        color: '#a6bbcf',
+        defaults: {
+          name: {value:""}
+          ,program: {value:""}
+          ,programoutcome: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Enrolment & Outcome";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="enrolment-outcome">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-program">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.node-input-program">Program</span>
+        </label>
+        <select id="node-input-program">
+                <option value="hiv" data-i18n="single-question.string">HIV</option>
+                <option value="tb" data-i18n="single-question.string">TB</option>
+                <option value="antenatalcare" data-i18n="single-question.string">Antenatal Care</option>
+                <option value="chroniccare" data-i18n="single-question.string">Chronic Care</option>
+                <option value="mentalhealth" data-i18n="single-question.string">Mental Health</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-programoutcome">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.node-input-programoutcome">Program Outcome</span>
+        </label>
+        <select id="node-input-programoutcome">
+                <option value="ontreatment" data-i18n="single-question.string">On Treatment</option>
+                <option value="transferredout" data-i18n="single-question.string">Transferred out</option>
+                <option value="stopped" data-i18n="single-question.string">Stopped</option>
+                <option value="defaulted" data-i18n="single-question.string">Defaulted (verified)</option>
+                <option value="discharged" data-i18n="single-question.string">Discharged</option>
+                <option value="died" data-i18n="single-question.string">Died</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="enrolment-outcome">
+    <p>workflow-poc-emr screen for </p>
+</script>

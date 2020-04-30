@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('dhis2-tracker-store',{
+        category: 'cfExternal',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"DHIS2 Tracker Store";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="dhis2-tracker-store">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="hl7-create-message">
+    <p>workflow-poc-emr screen for </p>
+</script>

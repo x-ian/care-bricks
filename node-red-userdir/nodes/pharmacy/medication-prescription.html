@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    RED.nodes.registerType('medication-prescription',{
+        category: 'cfPharmacy',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+            ,drugs: {value: ""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Medication Prescription";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="medication-prescription">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-drugs">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.drugs">Program-specific Drugs/Regimen</span>
+        </label>
+        <select id="node-input-drugs">
+                <option value="all" data-i18n="single-question.string">All</option>
+                <option value="common" data-i18n="single-question.string">Common</option>
+                <option value="hiv" data-i18n="single-question.string">HIV</option>
+                <option value="tb" data-i18n="single-question.string">TB</option>
+                <option value="antenatalcare" data-i18n="single-question.string">Antenatal Care</option>
+                <option value="chroniccare" data-i18n="single-question.string">Chronic Care</option>
+                <option value="mentalhealth" data-i18n="single-question.string">Mental Health</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="medication-prescription">
+    <p>workflow-poc-emr screen for </p>
+</script>

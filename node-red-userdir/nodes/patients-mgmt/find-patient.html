@@ -1,0 +1,64 @@
+<script type="text/javascript">
+    RED.nodes.registerType('find-patient',{
+        category: 'cfPatientsMgmt',
+        color: '#C7E9C0',
+        defaults: {
+          name: {value:""}
+          ,includename: {value:""}
+          ,includeidentifier: {value:""}
+          ,program: {value:""}
+          ,expression: {value:""}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "inject.png",
+        label: function() {
+            return this.name||"Find Patient";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="find-patient">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label>Search Fields</label>
+        <input type="checkbox" id="node-input-includename" placeholder="" style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-includename" style="width:70%;">Include Name</label>
+    </div>
+
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-includeidentifier" placeholder="" style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-includeidentifier" style="width:70%;">Include Identifier</label>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-program">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.program">Program</span>
+        </label>
+        <select id="node-input-program">
+                <option value="all" data-i18n="single-question.string">All</option>
+                <option value="hiv" data-i18n="single-question.string">HIV</option>
+                <option value="tb" data-i18n="single-question.string">TB</option>
+                <option value="antenatalcare" data-i18n="single-question.string">Antenatal Care</option>
+                <option value="chroniccare" data-i18n="single-question.string">Chronic Care</option>
+                <option value="mentalhealth" data-i18n="single-question.string">Mental Health</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-expression">
+            <i class="fa fa-expression"></i>
+            <span data-i18n="common.label.node-input-expression">Filter expression</span>
+        </label>
+        <input type="text" id="node-input-expression">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="find-patient">
+    <p>workflow-poc-emr screen for </p>
+</script>

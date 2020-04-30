@@ -1,0 +1,45 @@
+{
+  "name": "node-red-contrib-emr",
+  "version": "1.0.0",
+  "description": "",
+
+  "node-red" : {
+    "nodes": {
+	  "medication-prescription": "pharmacy/medication-prescription.js",
+	  "medication-dispensation": "pharmacy/medication-dispensation.js",
+	  "demographic-attribute": "demographics/demographic-attribute.js",
+	  "demographics/demographic-birthdate": "demographics/demographic-birthdate.js",
+	  "demographics/demographic-current-address": "demographics/demographic-current-address.js",
+	  "demographics/demographic-home-address": "demographics/demographic-home-address.js",
+	  "hl7-receive-message": "external-systems/hl7-receive-message.js",
+	  "hl7-create-message": "external-systems/hl7-create-message.js",
+	  "dhis2-tracker-query": "external-systems/dhis2-tracker-query.js",
+	  "dhis2-tracker-store": "external-systems/dhis2-tracker-store.js",
+	  "lab-order-entry": "lab/lab-order-entry.js",
+	  "lab-test-result": "lab/lab-test-result.js",
+	  "blood-pressure": "common/blood-pressure.js",
+	  "visit-question": "common/visit-question.js",
+	  "referral": "common/referral.js",
+	  "height-weight": "common/height-weight.js",
+	  "end-flow": "common/end-flow.js",
+	  "summary": "common/summary.js",
+	  "check-in": "common/check-in.js",
+	  "visit-select": "common/visit-select.js",
+	  "next-appointment": "common/next-appointment.js",
+	  "tb-screening": "common/tb-screening.js",
+	  "enrolment-outcome": "common/enrolment-outcome.js",
+	  "find-patient": "patients-mgmt/find-patient.js",
+	  "patients-queue": "patients-mgmt/patients-queue.js",
+	  "scheduled-patients-list": "patients-mgmt/scheduled-patients-list.js",
+	  "checked-in-patients-list": "patients-mgmt/checked-in-patients-list.js",
+	  "register-patient": "patients-mgmt/register-patient.js",
+	  "text-to-speech": "media/text-to-speech.js",
+	  "show-video": "media/show-video.js",
+	  "print-barcode": "media/print-barcode.js",
+	  "take-photo": "media/take-photo.js",
+	  "play-audio": "media/play-audio.js",
+	  "device-coordinates": "media/device-coordinates.js",
+	  "scan-barcode": "media/scan-barcode.js"
+    }
+  }
+}
