@@ -7,6 +7,7 @@
 1. Install NodeRed (avoid registering as a daemon / service)
 1. clone GitHub repo workflow-poc-emr
 1. Start NodeRed with ```node-red --userDir workflow-poc-emr/node-red-userdir node-red-userdir/example-flows.json```
+1. Find (or add) one (and really only just one for all flows) node 'config runtime' and set flowpath to the absolute filename of the JSON flow file as used by the runtime environment (realpath of workflow-poc-emr/js/node-red-flows.json). This file will be updated with every NodeRed deploy.
    
 #### Runtime environment
 
