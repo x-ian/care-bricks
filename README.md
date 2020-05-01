@@ -12,12 +12,8 @@
    
 #### Runtime environment
 
-1. Run ```workflow-poc/emr/docs/bootstrap-studio-export-script.sh bootstrap-studio-export```
-1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export, e.g. with 'python3 -m http.server' 
-
-### Runtime env
-
-* python3 -m http.server
+1. Run ```workflow-poc/emr/docs/bootstrap-studio-export-script.sh bootstrap-studio-export``` (or manually invoke commands from there)
+1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export, e.g. with ```cd workflow-poc-emr/bootstrap-studio-export; python3 -m http.server```
 
 ### Node-RED Custom Nodes
 
