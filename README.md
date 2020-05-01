@@ -7,15 +7,13 @@
 1. Install NodeRed (avoid registering as a daemon / service)
 1. clone GitHub repo workflow-poc-emr
 1. Start NodeRed with ```node-red --userDir workflow-poc-emr/node-red-userdir node-red-userdir/example-flows.json```
-1. Find (or add) one (and really only just one for all flows) node 'config runtime' and set flowpath to the absolute filename of the JSON flow file as used by the runtime environment (realpath of workflow-poc-emr/js/node-red-flows.json). This file will be updated with every NodeRed deploy.
+1. Open http://localhost:1880
+1. Find (or add) one (and really only just one for all flows) node 'config runtime' and set flowpath to the absolute filename of the JSON flow file as used by the runtime environment (realpath of workflow-poc-emr/resources/node-red-flows.json). This file will be updated with every NodeRed deploy and therefore update the runtime env with the most recent flow definition.
    
 #### Runtime environment
 
-1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export
-
-   (note that 'python3 -m http.server' had sometimes high delays between some calls; version problem?)
-
-1. Patch HTML and js sources to match web server environment per per workflow-poc-emr/docs/deployment-updates.sh
+1. Run ```workflow-poc/emr/docs/bootstrap-studio-export-script.sh bootstrap-studio-export```
+1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export, e.g. with 'python3 -m http.server' 
 
 ### Runtime env
 

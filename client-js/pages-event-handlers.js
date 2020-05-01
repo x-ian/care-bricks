@@ -6,16 +6,22 @@
 // better not done every page reload, but so it be for now...
 var jsonFlow = null;
 $(function(){
+	
+	// var jqxhr = $.getJSON( "http://localhost:8000/assets/resources/node-red-flows.json", function() {
+	//   console.log( "success" );
+	// });
+	
+	
 	// this appears to be evil - sync call in main worker
 	jsonFlow = $.parseJSON(
-    $.ajax(
-        {
-           url: "http://localhost:8000/assets/js/node-red-flows.json",
-           async: false,
+	    $.ajax(
+	        {
+	           url: "assets/resources/node-red-flows.json",
+	           async: false,
 					 cache: false,
-           dataType: 'json'
-        }
-    ).responseText
+	           dataType: 'json'
+	        }
+	    ).responseText
 	);
 });
 
@@ -145,9 +151,9 @@ $(function(){
 	pageId = $('html').attr('id');
 	if (pageId.startsWith('page-')) {
 		pageName = pageId.substring(5, pageId.length);
-		$.get("assets/js/bricks/" + pageName + ".js")
+		$.get("assets/client-js/bricks/" + pageName + ".js")
 			.done(function() { 
-				$.getScript( "assets/js/bricks/" + pageName + ".js" )
+				$.getScript( "assets/client-js/bricks/" + pageName + ".js" )
 					.done(function( script, textStatus ) {
 						console.log("Loading page-specific script file: " + pageName );
 						// processPageFindPatient();

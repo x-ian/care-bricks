@@ -9,16 +9,21 @@ var currentPatient = null;
 
 var patientStorage = null;
 $(function(){
+
+	// var jqxhr = $.getJSON( "assets/resources/patient-storage.json", function() {
+	//   console.log( "success" );
+	// });
+
 	// this appears to be evil - sync call in main worker
 	patientStorage = $.parseJSON(
-    $.ajax(
-        {
-           url: "http://localhost:8000/assets/js/patient-storage.json",
-           async: false,
+	    $.ajax(
+	        {
+	           url: "assets/resources/patient-storage.json",
+	           async: false,
 					 cache: false,
-           dataType: 'json'
-        }
-    ).responseText
+	           dataType: 'json'
+	        }
+	    ).responseText
 	);
 });
 
