@@ -83,3 +83,24 @@ find checked-in patients
 * comm is line by line, but requires lexically sorted files. can then show lines which are only present in one or the other. (https://stackoverflow.com/questions/4544709/compare-two-files-line-by-line-and-generate-the-difference-in-another-file)
 * to be assessed: will it be easier to keep each visit in its own dedicated JSON file? (might not scale well in file systems)
 * to be assessed: maybe explicit line numbering also helps? (https://unix.stackexchange.com/questions/136380/compare-two-files-strictly-line-by-line-without-insertions-or-deletions)
+
+### Node.JS on Android
+
+* https://stackoverflow.com/questions/36632649/running-node-js-on-android
+
+Termux
+
+* https://www.freecodecamp.org/news/building-a-node-js-application-on-android-part-1-termux-vim-and-node-js-dfa90c28958f/
+* https://wiki.termux.com/wiki/Remote_Access
+
+Node on Android
+
+* https://github.com/Manoj-Roy/node-on-android
+
+J2V8
+
+* https://github.com/eclipsesource/J2V8
+
+Dory
+
+* https://play.google.com/store/apps/details?id=io.tempage.dorynode&hl=en
