@@ -1,4 +1,5 @@
 bootstrap-studio-export/assets/client-js
 bootstrap-studio-export/assets/resources
 js/node-red-flows.json
+node_modules
 **/.DS_Store
