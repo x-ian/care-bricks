@@ -1,0 +1,15 @@
+{
+  "name": "careflow-android",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "../cli/bin.js . -o ../build/app.apk -b ~/Library/Android/sdk/build-tools/29.0.3"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-static": "^5.0.0"
+  }
+}
