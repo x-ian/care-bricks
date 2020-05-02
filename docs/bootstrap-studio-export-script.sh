@@ -1,7 +1,9 @@
 #!/bin/bash
 
+# $1 is bootstrap export dir
+
 cd $1
-sed -i 's/http:\/\/localhost:8000\///g' *.html
+sed -i '' 's/http:\/\/localhost:8000\///g' *.html
 
 cd $1/assets
 
