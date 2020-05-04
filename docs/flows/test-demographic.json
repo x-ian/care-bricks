@@ -1,0 +1,148 @@
+[
+    {
+        "id": "82832dea.1c5dd",
+        "type": "tab",
+        "label": "Test Demographic Attribute",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c9555769.aec608",
+        "type": "find-patient",
+        "z": "82832dea.1c5dd",
+        "name": "",
+        "includename": "",
+        "includeidentifier": "",
+        "program": "",
+        "expression": "",
+        "x": 80,
+        "y": 140,
+        "wires": [
+            [
+                "6b21b15a.38589"
+            ]
+        ]
+    },
+    {
+        "id": "9b9fc3ae.e3d07",
+        "type": "demographic-attribute",
+        "z": "82832dea.1c5dd",
+        "name": "integer",
+        "label": "integer",
+        "key": "",
+        "datatype": "integer",
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [
+                "e9b97ecf.74db8"
+            ]
+        ]
+    },
+    {
+        "id": "eb239173.e7365",
+        "type": "demographic-attribute",
+        "z": "82832dea.1c5dd",
+        "name": "decimal",
+        "label": "decimal",
+        "key": "",
+        "datatype": "decimal",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "e9b97ecf.74db8"
+            ]
+        ]
+    },
+    {
+        "id": "6535e22b.addb3c",
+        "type": "demographic-attribute",
+        "z": "82832dea.1c5dd",
+        "name": "date",
+        "label": "date",
+        "key": "",
+        "datatype": "date",
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "e9b97ecf.74db8"
+            ]
+        ]
+    },
+    {
+        "id": "e9b97ecf.74db8",
+        "type": "end-flow",
+        "z": "82832dea.1c5dd",
+        "name": "",
+        "x": 600,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2e491146.5d4e9e",
+        "type": "demographic-attribute",
+        "z": "82832dea.1c5dd",
+        "name": "text",
+        "label": "text",
+        "key": "",
+        "datatype": "text",
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "e9b97ecf.74db8"
+            ]
+        ]
+    },
+    {
+        "id": "6b21b15a.38589",
+        "type": "switch",
+        "z": "82832dea.1c5dd",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "2e491146.5d4e9e"
+            ],
+            [
+                "9b9fc3ae.e3d07"
+            ],
+            [
+                "eb239173.e7365"
+            ],
+            [
+                "6535e22b.addb3c"
+            ]
+        ]
+    }
+]
