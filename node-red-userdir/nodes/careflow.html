@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    RED.nodes.registerType('careflow',{
+        category: 'cfCommon',
+		defaults: {
+		   careflow_runtime: {value:"", type:"careflow-config"},
+		},
+        inputs:0,
+        outputs:0,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"Careflow";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="careflow">
+    <div class="form-row">
+        <label for="node-input-careflow_runtime"><i class="icon-tag"></i>CareFLOW runtime</label>
+        <input type="text" id="node-input-careflow_runtime" placeholder="">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="careflow">
+    <p>workflow-poc-emr screen for careflow</p>
+</script>
