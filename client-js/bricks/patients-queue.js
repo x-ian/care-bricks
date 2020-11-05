@@ -1,6 +1,18 @@
 var patients = new Map([]);
 
 function onLoadPatientsQueue() {
+	patientStorage = $.parseJSON(
+	    $.ajax(
+	        {
+	           // url: "http://localhost:8000/users",
+	           url: "assets/resources/patient-storage.json",
+	           async: false,
+				cache: false,
+	           dataType: 'json'
+	        }
+	    ).responseText
+	);
+
 	patientStorage.forEach(p => {
 		patients.set(""+p.id, p);
 	});
