@@ -1,0 +1,55 @@
+<script type="text/javascript">
+    RED.nodes.registerType('visit-question-primitive', {
+        category: 'cfCommon',
+        color: "#a6bbcf",
+        defaults: {
+            name: { value: "" },
+            label: { value: "" },
+            key: { value: "" },
+            datatype: { value: "" }
+        },
+
+        inputs: 1,
+        outputs: 1,
+        icon: "debug.png",
+	label: function() {
+		return this.name||"Visit Question Primitive";
+	}
+    });
+</script>
+
+<script type="text/x-red" data-template-name="visit-question-primitive">
+    <div class="form-row">
+        <label for="node-input-name">
+            <i class="fa fa-tag"></i>
+            <span data-i18n="common.label.name">Name</span>
+        </label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-label">
+            <i class="fa fa-label"></i>
+            <span data-i18n="common.label.label">Label</span>
+        </label>
+        <input type="text" id="node-input-label">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-datatype">
+            <i class="fa fa-envelope"></i>
+            <span data-i18n="common.label.datatype">FHIR Primitive Datatype</span>
+        </label>
+        <select id="node-input-datatype">
+		        <option value="decimal" data-i18n="single-question-primitive.decimal">Decimal</option>
+		        <option value="integer" data-i18n="single-question-primitive.integer">Integer</option>
+		        <option value="string" data-i18n="single-question-primitive.string">String</option>
+		        <option value="boolean" data-i18n="single-question-primitive.boolean">Boolean</option>
+		        <option value="date" data-i18n="single-question-primitive.date">Date</option>
+		        <option value="time" data-i18n="single-question-primitive.time">Time</option>
+		        <option value="dateTime" data-i18n="single-question-primitive.dateTime">DateTime</option>
+        </select>
+    </div>
+
+    <div class="form-tips" data-i18n="[html]single-question-primitive.tip"></div>
+</script>
