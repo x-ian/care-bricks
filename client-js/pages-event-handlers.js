@@ -60,9 +60,12 @@ function processPageDemographicAttribute() {
 			$('#keypad').removeClass('d-none');
 			break;
 		case 'text':
+		case 'string':
 			$('#alphapad').removeClass('d-none');
 			break;
 		case 'date':
+		case 'time':
+		case 'dateTime':
 			$('#datepad').removeClass('d-none');
 			break;
 		case 'boolean':
@@ -110,6 +113,14 @@ function defaultButtonDatepad(e) {
 		document.getElementById('month').value = e.target.id.substring(9);
 	} else if (e.target.id.startsWith("day-")) {
 		document.getElementById('day').value = e.target.id.substring(4);
+	}
+}
+
+function defaultButtonBooleanpad(e) {
+	if (e.target.id.startsWith("booleanpad-yes")) {
+		document.getElementById('input').value = 'Yes';
+	} else if (e.target.id.startsWith("booleanpad-no")) {
+		document.getElementById('input').value = 'No';
 	}
 }
 

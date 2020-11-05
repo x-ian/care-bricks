@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.11.0",
-    "koa-static": "^5.0.0"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "glob": "^7.1.6"
   }
 }

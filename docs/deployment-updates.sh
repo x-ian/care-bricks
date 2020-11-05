@@ -15,7 +15,7 @@ nohup node-red &
 cd /home/neumann/workflow-poc-emr/bootstrap-studio-export
 
 #cp ../js/*.js assets/js/
-rm assets/js
+rm -rf assets/js
 ln -s /home/neumann/workflow-poc-emr/js/ assets/js
 
 sed -i 's/http:\/\/localhost:8000\///g' *.html

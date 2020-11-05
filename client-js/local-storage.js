@@ -7,7 +7,7 @@ db.open();
 
 var currentPatient = null;
 
-var patientStorage = null;
+// var patientStorage = null;
 $(function(){
 
 	// var jqxhr = $.getJSON( "assets/resources/patient-storage.json", function() {
@@ -15,16 +15,17 @@ $(function(){
 	// });
 
 	// this appears to be evil - sync call in main worker
-	patientStorage = $.parseJSON(
-	    $.ajax(
-	        {
-	           url: "assets/resources/patient-storage.json",
-	           async: false,
-					 cache: false,
-	           dataType: 'json'
-	        }
-	    ).responseText
-	);
+	// patientStorage = $.parseJSON(
+	//     $.ajax(
+	//         {
+	//            url: "http://localhost:3001/users",
+	//            // url: "assets/resources/patient-storage.json",
+	//            async: false,
+	// 				 cache: false,
+	//            dataType: 'json'
+	//         }
+	//     ).responseText
+	// );
 });
 
 function loadCurrentPatient(callback) {
@@ -35,8 +36,10 @@ function loadCurrentPatient(callback) {
 	}, function(f) {
 		currentPatient = f.currentPatient;
 		updateHeader(currentPatient);
-		if (typeof callback == "function")
+		if (typeof callback == "function") {
+			console.log(callback);
 			callback();
+		}
 	});
 }
 
