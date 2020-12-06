@@ -21,6 +21,7 @@
 	  "visit-question": "common/visit-question.js",
 	  "referral": "common/referral.js",
 	  "height-weight": "common/height-weight.js",
+	  "invoke-flow": "common/invoke-flow.js",
 	  "end-flow": "common/end-flow.js",
 	  "summary": "common/summary.js",
 	  "check-in": "common/check-in.js",
