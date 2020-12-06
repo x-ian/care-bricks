@@ -63,8 +63,9 @@ var fs = require('fs');
 // 	console.log(position + ': ' + param);
 // });
 
-var data = fs.readFileSync('openmrs_kch-concepts.tsv')
+var data = fs.readFileSync('liberia-hiv.tsv')
     .toString() // convert Buffer to string
+	.replace(/\"/g, '') // remove all " from Excel
     .split('\n') // split string to lines
     .map(e => e.trim()) // remove white spaces for each line
     .map(e => e.split("\t").map(e => e.trim())); // split each line to array
@@ -77,8 +78,12 @@ var flow_string = "";
 var flows_string="[";
 var element_position = 0;
 
+var flows = [];
+
 for (const line of data){
 	var header;
+	var headerComment;
+	var previousNode;
 	var current_encounter_type = line[1];
 	// console.log(current_encounter_type)
 	flows_string+=flow_string
@@ -88,21 +93,26 @@ for (const line of data){
 	} else {
 		// console.log("new ET " + current_encounter_type);
 		// console.log(flow_string);
-		element_position = 0;
+		element_position = 1;
 		header = createFlowHeader(current_encounter_type);
-		flow_string += ", "+ JSON.stringify(header, '', 2);
+		flows.push(header);
+		headerComment = createFlowComment(current_encounter_type, header["id"]);
+		flows.push(headerComment);
 	}
-	flow_string += ", " + JSON.stringify(createNodeInstance(line, header["id"], element_position), '', 2);
-	
+	var node = createNodeInstance(line, header["id"], element_position, previousNode);
+	previousNode = node; // keep track of previous node to possibly add a wire to it
+	flow_string += ", " + JSON.stringify(node, '', 2);
+	flows.push(node);
 	element_position++;
 	last_encounter_type = current_encounter_type;
     // console.log(line[0]);
 }
 flows_string+="]";
 
-console.log(flows_string);
+// console.log(flows_string);
+console.log(JSON.stringify(flows, '', 2))
 
-function createNodeInstance(line, flow_id, element_position) {
+function createNodeInstance(line, flow_id, element_position, previous_node) {
     // {
     //     "id": "d9a8b53f.fac988",
     //     "type": "function",
@@ -147,7 +157,12 @@ function createNodeInstance(line, flow_id, element_position) {
 	instance["datatype"]=datatype; // make this based on concept datatype
 	instance["x"]="200";
 	instance["y"]=element_position * 40 + 100; // position everything underneath each each with 40 px distance
-	instance["wires"]=[[]]; // no wires / links for now
+	if (line[16] === "y") {
+		flows[flows.length - 1]["wires"]=[[ instance["id"] ]]; 
+		// instance["wires"]=[[ previous_node.id ]]; // no wires / links for now
+	} else {
+		instance["wires"]=[[]]; // no wires / links for now
+	}
 	
 	if (type==="visit-select") {
 		delete instance.datatype;
@@ -188,6 +203,30 @@ function createFlowHeader(flow_name) {
 	header["label"]=flow_name;
 	header["disabled"]=false;
 	header["info"]="";
+	return header;
+}
+
+function createFlowComment(flow_name, flow_id) {
+    // {
+    //     "id": "64f46cd0.cb8b84",
+    //     "type": "comment",
+    //     "z": "ae0c7a39.7841a8",
+    //     "name": "Exp Infant Chart - HIV Testing",
+    //     "info": "",
+    //     "x": 810,
+    //     "y": 80,
+    //     "wires": []
+    // }
+	
+	var header = {};
+	header["id"]=(1 + Math.random () * 4294967295) .toString (16);
+	header["type"]="comment";
+	header["z"]=flow_id;
+	header["name"]=flow_name;
+	header["info"]="";
+	header["x"]=200;
+	header["y"]=100;
+	header["wires"]=[[]]; // no wires / links for now
 	return header;
 }
 //
