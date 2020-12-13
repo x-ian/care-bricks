@@ -9,8 +9,8 @@ function onLoadCheckedInPatientsList() {
 	patientStorage = $.parseJSON(
 	    $.ajax(
 	        {
-	           url: "http://localhost:3001/users",
-	           // url: "assets/resources/patient-storage.json",
+	           // url: "http://localhost:8000/users",
+	           url: "assets/resources/patient-storage.json",
 	           async: false,
 				cache: false,
 	           dataType: 'json'

@@ -17,7 +17,7 @@ function onLoadSwitch() {
 					div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id + '>' + entry.type + ' ' + entry.name + '</a> ' + node.rules[i].v + ' (' + eval(node.rules[i].v) + ')' + '</div></div>');
 				}
 			} catch (e) {
-				div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id + '>' + entry.type + ' ' + entry.name + '</a> Error in rule: ' + node.rules[i].v + ' (' + e.message + ')' + '</div></div>');
+				div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id + '>' + node.rules[i].v + '</a> Next: ' + entry.name + ' (Error: ' + e.message + ')</div></div>');
 			}
 			div.append('<div class=row><div class="col text-center"><hr/></div></div>');
 			i++;
@@ -25,5 +25,5 @@ function onLoadSwitch() {
 
 	});
 	$('#navigation-next').prop('disabled', true);
-	$('#input-label').text('Switch node for node: ' + node.name);
+	$('#input-label').text(node.name);
 }
