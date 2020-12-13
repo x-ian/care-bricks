@@ -194,42 +194,24 @@ $(function(){
 
 });
 
-$('.btn').click(function(e) {
+// respond to keys pressed
+$(document).keypress(function(e) {
+	if ($('#navigation-next').prop('disabled') === false) {
+		if(e.which == 13) {
+		// enter pressed
+			nextPressed(e);
+		}
+		
+	};
+});
 
-	// prepare module specific button handlers
-	pageId = $("html")[0].id;
-	moduleName = "";
-	if (pageId.startsWith('page-')) {
-		pageName = pageId.substring(5, pageId.length);
-		moduleName = pageName.replace( /-([a-z])/ig, function( all, letter ) {
-			return letter.toUpperCase();
-		});
-		moduleName = moduleName[0].toUpperCase() + moduleName.slice(1);
-	}
+// repsond to buttons clicked
+$('.btn').click(function(e) {
 
 	// navigation buttons in footer
 	switch (e.currentTarget.id) {
 		case "navigation-next":
-			let nodeid = getUrlParam('nodeid');
-			let stepid = getUrlParam('stepid');
-			stepid++;
-			let next = nextNode(jsonFlow, nodeById(jsonFlow, nodeid))[0];
-			if (typeof next === 'undefined') {
-				alert('Missing outgoing connection in workflow definition!');
-			}
-			// store
-			let newUrl = next.type + ".html?stepid=" + stepid + "&nodeid=" + next.id;
-			console.log(newUrl);
-
-			console.log(eval("typeof " + 'hookNext' + moduleName));
-			if (eval("typeof " + 'hookNext' + moduleName) === 'function') {
-				console.log('calling ' + 'hookNext' + moduleName);
-				self['hookNext' + moduleName](e);
-			} else {
-				console.log("No hookNext function provided by module " + moduleName);
-			}
-
-			location= newUrl;
+			nextPressed(e);
 			break;
 		case "navigation-back":
 			// console.log("previous brick: " + window.location.pathname);
@@ -248,3 +230,37 @@ $('.btn').click(function(e) {
 			break;
 	}
 });
+
+function nextPressed(e) {
+	// prepare module specific button handlers
+	pageId = $("html")[0].id;
+	moduleName = "";
+	if (pageId.startsWith('page-')) {
+		pageName = pageId.substring(5, pageId.length);
+		moduleName = pageName.replace( /-([a-z])/ig, function( all, letter ) {
+			return letter.toUpperCase();
+		});
+		moduleName = moduleName[0].toUpperCase() + moduleName.slice(1);
+	}
+
+	let nodeid = getUrlParam('nodeid');
+	let stepid = getUrlParam('stepid');
+	stepid++;
+	let next = nextNode(jsonFlow, nodeById(jsonFlow, nodeid))[0];
+	if (typeof next === 'undefined') {
+		alert('Missing outgoing connection in workflow definition!');
+	}
+	// store
+	let newUrl = next.type + ".html?stepid=" + stepid + "&nodeid=" + next.id;
+	console.log(newUrl);
+
+	console.log(eval("typeof " + 'hookNext' + moduleName));
+	if (eval("typeof " + 'hookNext' + moduleName) === 'function') {
+		console.log('calling ' + 'hookNext' + moduleName);
+		self['hookNext' + moduleName](e);
+	} else {
+		console.log("No hookNext function provided by module " + moduleName);
+	}
+
+	location= newUrl;
+}
