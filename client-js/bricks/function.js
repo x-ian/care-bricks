@@ -1,6 +1,6 @@
 function onLoadFunction() {
 	loadCurrentPatient(function() {});
-	$('#navigation-next').prop('disabled', true);
+	$('#navigation-next').prop('disabled', false);
 
 	let nodeid = getUrlParam('nodeid');
 	let next = nextNodes(jsonFlow, nodeById(jsonFlow, nodeid));
