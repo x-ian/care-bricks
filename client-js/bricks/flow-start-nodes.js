@@ -14,7 +14,8 @@ function onLoadFlowStartNodes() {
 				divButton.className = "col text-center"
 				var button = document.createElement("a");
 				button.className = "btn btn-primary text-center";
-				button.appendChild(document.createTextNode(node.type));
+				button.appendChild(document.createTextNode(node.name + " (" + node.type + ")"));
+//				button.appendChild(document.createTextNode(node.type));
 				button.href = node.type + ".html?stepid=1&nodeid=" + node.id;
 				button.role = "button";
 				divButton.appendChild(button);
