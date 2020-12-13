@@ -87,6 +87,7 @@ find checked-in patients
 ### Node.JS on Android
 
 * https://stackoverflow.com/questions/36632649/running-node-js-on-android
+* example of enhanced/fixed version https://github.com/inu1255/node-on-android/commit/3c48931bf303f2e9dd7f6011fe7684a711b6041f, https://github.com/simoarpe/node-on-android/commit/d198350f8346b94f9562e6ee540441b50fdc49d8, https://techgaun.github.io/active-forks/index.html#node-on-mobile/node-on-android
 
 Termux
 
@@ -97,6 +98,16 @@ Node on Android
 
 * https://github.com/Manoj-Roy/node-on-android
 
+```
+PATH=$PATH:/Users/xian/Library/Android/sdk//platform-tools/adb
+cd ~/projects/data-first-emr/nodejs-mobile/node-on-android/careflow
+npm run build ; adb install -r build/app.apk 
+adb shell am start -n com.mafintosh.nodeonandroid/com.mafintosh.nodeonandroid.MainActivity
+```
+
+* Logging to file (for easier access via web?): https://stackoverflow.com/questions/8393636/node-log-in-a-file-instead-of-the-console
+
+
 J2V8
 
 * https://github.com/eclipsesource/J2V8
@@ -104,3 +115,9 @@ J2V8
 Dory
 
 * https://play.google.com/store/apps/details?id=io.tempage.dorynode&hl=en
+
+### Service worker for Offline first
+
+* https://serviceworke.rs/
+* https://developers.google.com/web/fundamentals/primers/service-workers
+* https://medium.com/@bhargavshah2011/overview-of-web-worker-service-worker-56082720dcd0

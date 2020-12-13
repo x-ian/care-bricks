@@ -1,11 +1,23 @@
-var p1 = JSON.parse(patient1Json);
-var p2 = JSON.parse(patient2Json);
+// var p1 = JSON.parse(patient1Json);
+// var p2 = JSON.parse(patient2Json);
 var checkedInPatients = new Map([
 	// [p1.id, p1],
 	// [p2.id, p2]
 ]);
 
 function onLoadCheckedInPatientsList() {
+	patientStorage = $.parseJSON(
+	    $.ajax(
+	        {
+	           url: "http://localhost:3001/users",
+	           // url: "assets/resources/patient-storage.json",
+	           async: false,
+				cache: false,
+	           dataType: 'json'
+	        }
+	    ).responseText
+	);
+
 	patientStorage.forEach(p => {
 		checkedInPatients.set(""+p.id, p);
 	});

@@ -1,0 +1,30 @@
+<script type="text/javascript">
+    RED.nodes.registerType('case-start',{
+        category: 'cfCaseMgmt',
+        color: '#C7E9C0',
+        defaults: {
+          name: {value:""}
+          ,includename: {value:""}
+          ,includeidentifier: {value:""}
+          ,program: {value:""}
+          ,expression: {value:""}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "inject.png",
+        label: function() {
+            return this.name||"Start new case";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="case-start">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="case-start">
+    <p>workflow-poc-emr screen for </p>
+</script>

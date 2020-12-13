@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    RED.nodes.registerType('invoke-flow',{
+        category: 'cfCommon',
+        color: '#d1d1d1',
+        defaults: {
+            name: {value:""}
+            ,invokeflow: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "fa-mail-forward.png",
+        label: function() {
+            return this.name||"Invoke Flow";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="invoke-flow">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-invokeflow">
+            <i class="fa fa-key"></i>
+            <span data-i18n="common.label.node-input-invokeflow">Flow to invoke</span>
+        </label>
+        <input type="text" id="node-input-invokeflow">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="invoke-flow">
+    <p>workflow-poc-emr screen for </p>
+</script>

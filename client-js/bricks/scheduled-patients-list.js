@@ -1,9 +1,23 @@
 var patients = new Map([]);
 
 function onLoadScheduledPatientsList() {
+
+	patientStorage = $.parseJSON(
+	    $.ajax(
+	        {
+	           // url: "http://localhost:3001/users",
+	           url: "assets/resources/patient-storage.json",
+	           async: false,
+				cache: false,
+	           dataType: 'json'
+	        }
+	    ).responseText
+	);
+
 	patientStorage.forEach(p => {
 		patients.set(""+p.id, p);
 	});
+
 	
 	$('#navigation-next').prop('disabled', true);
 	let dropdown = $('#scheduled-patients');

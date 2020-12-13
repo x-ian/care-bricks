@@ -1,0 +1,100 @@
+concept_id	Xencounter_type/s	Xconcept_name_first	concept_names_all	Xdatatype	class	value_boolean	value_coded	Xvalue_coded_name_first	value_coded_names_all	value_drug	value_Datetime	value_numeric	value_modifier	value_text	value_complex	link_to_previous
+-	ART Chart - Patient	Unique Code	-	Text	-	-	-	-	-	-	-	-	-	-	-	
+-	ART Chart - Patient	Transfer-In Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Facility Client #	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Cohort #	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Patient Name	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Sex	-	Coded	-	-	-	"M,F"	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	BirthDate	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Detailed Physical Address	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Guardian Name	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Phone Patient	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Phone Guardian	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Agreed to FUP	-	Coded	-	-	-	"N,Y"	-	-	-	-	-	-	-	y
+-	ART Chart - Patient	Guardian Relation	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	HIV related diseases	-	Text	-	-	-	-	-	-	-	-	-	-	-	
+-	ART Chart - Status At Initiation	Urine LAM/CrAg Result	-	Coded	-	-	-	"RPR,HgB,ALT,HBV,HCV,M/S,CrAG"	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	Urine LAM/CrAg Result/Other	-	Coded	-	-	-	"RPR,HgB,ALT,HBV,HCV,M/S,CrAG"	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	WHO Stage	-	Coded	-	-	-	"1,2,3,4"	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	TB Status at initiation	-	Coded	-	-	-	"Never,Last >2yrs,Last 2yrs,Curr"	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	CD4	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	KS	-	Coded	-	-	-	"N,Y"	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	CD4 Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	Pregnant/Breastfeeding	-	Coded	-	-	-	"N,Preg,Bf"	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	Height	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	Weight	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	Ever taken ARVs	-	Coded	-	-	-	"N,Y"	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	Age at Initiation	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	"Last ARVs (drug, Date)"	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Status At Initiation	Location of ART initiation	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	"Site, HTS Serial No."	-	Text	-	-	-	-	-	-	-	-	-	-	-	
+-	ART Chart - Confirmatory HIV Test	Test Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	Test type	-	Coded	-	-	-	"Rapid,PCR"	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	ART education done	-	Coded	-	-	-	"N,Y"	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	ART education Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	TB Treatment Reg No.	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	TB Treatment Start Date	-	Coded	-	-	-	"No,Yes"	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	ART Regimens #1	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	ART Regimens #1 Start Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	ART Regimens #2	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	ART Regimens #2 Start Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	Blood Pressure sys	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart - Confirmatory HIV Test	Blood Pressure dias	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	Visit Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	
+-	ART Chart	Age (curr)	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	Height	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	Weight	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	
+-	ART Chart	Pregnant/Breastfeed	-	Coded	-	-	-	"Preg,Bf"	-	-	-	-	-	-	-	
+-	ART Chart	Pregnant/Breastfeed Child HCC No	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	TB Status (Current)	-	Coded	-	-	-	"N - TB Not suspected,Y - TB Suspected,C - TB confirmed NOT on TB treatment,Rx - TB confirmed on TB Rx"	-	-	-	-	-	-	-	y
+-	ART Chart	Side Effects	-	Coded	-	-	-	"N,Y"	-	-	-	-	-	-	-	y
+-	ART Chart	Side Effects Notes	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	AIDS Assoc. Conditions	-	Text	-	-	-	-	-	-	-	-	-	-	-	
+-	ART Chart	Pill count	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	Doses Missed	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	
+-	ART Chart	ART Regimen Code	-	Coded	-	-	-	"A1a - TDF + 3TC + DTG (1st Line),A1b - TDF + 3TC + EFV (1st Line),A1c - ABC + 3TC + DTG (1st Line),A1d - AZT + 3TC + EFV (1st Line),A2a -  AZT + 3TC + DTG (2nd Line),A2b - AZT + 3TC + LPV/r (2nd Line),A2c - AZT + 3TC + ATV/r (2nd Line),A2d - TDF + 3TC + LPV/r (2nd Line),A2e - TDF + 3TC + DRV/r (2nd Line)"	-	-	-	-	-	-	-	y
+-	ART Chart	ARVs Given No of tablets	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	ARVs Given To	-	Coded	-	-	-	"P,G"	-	-	-	-	-	-	-	y
+-	ART Chart	CPT/TPT Given	-	Coded	-	-	-	"C - CPT only,I - TPT only,CI - CPT + TPT"	-	-	-	-	-	-	-	y
+-	ART Chart	CPT/TPT No. of Tablets	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	Stable?	-	Coded	-	-	-	"Y,N"	-	-	-	-	-	-	-	y
+-	ART Chart	Stable? DSD Model	-	Coded	-	-	-	"1 - HIV clinic-based ART,2 - Fast-track ART,3 - Facility-based adherence club,4 - Community ART Distribution point,5 - Peer-led community ART group,6 - Patient-led community ART group"	-	-	-	-	-	-	-	y
+-	ART Chart	Viral Load Sample taken	-	Coded	-	-	-	Bled	-	-	-	-	-	-	-	y
+-	ART Chart	Viral Load Result	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	Next Appointment/Outcome Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	ART Chart	Outcome	-	Coded	-	-	-	"Died,Defaulted/LTFU,Client stopped medication,Transferred out"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Unique Code	-	Text	-	-	-	-	-	-	-	-	-	-	-	-
+-	Exp Infant Chart - Child	Facility Client #	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Transfer-In Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Birth Cohort	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Child Name	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Sex	-	Coded	-	-	-	"M,F"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Guardian Name	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Physical Address	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Agree to FUP	-	Coded	-	-	-	"N,Y"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Guardian Relation	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Child	Guardian Phone	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Status	ART Reg No	-	Text	-	-	-	-	-	-	-	-	-	-	-	-
+-	Exp Infant Chart - Status	ART Start Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Status	Child Age - At enrolment	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Status	Child age - When starting NVP	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - Status	NVP duration	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - HIV Testing	Sample Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	-
+-	Exp Infant Chart - HIV Testing	Type	-	Coded	-	-	-	"DBS,RT"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - HIV Testing	Sample ID/HCT	-	Date	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - HIV Testing	Result	-	Coded	-	-	-	"Neg,Pos,Inc"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - HIV Testing	From lab	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart - HIV Testing	tests	-	Text	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	Visit Date	-	Date	-	-	-	-	-	-	-	-	-	-	-	-
+-	Exp Infant Chart	Height	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	Weight	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	MUAC	-	Numeric	-	-	-	-	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	Wasting/Malnutrition (based on Wt/Hgt or MUAC)	-	Coded	-	-	-	"No,Mod,Sev"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	Breast feeding	-	Coded	-	-	-	"Ongoing - Exclusive,Ongoing - Mixed/Complementary,Stopped - In last 6 weeks,Stopped - Over 6 weeks age"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	Mother Status	-	Coded	-	-	-	"Not On ART,ART Adherent,Died,Unknown"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	Clinical Monitoring	-	Coded	-	-	-	"No Abnorm. Det,Any sickness"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	HIV Testing	-	Coded	-	-	-	"Not done,DBS taken (PCR),Rapid test done"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	HIV Infection	-	Coded	-	-	-	"Confirmed - Not infected,Confirmed - Infected ART,Not confirmed - Not ART eligible,Not confirmed - PSHD"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	CPT given (ml/tabs)	-	Numeric	-	-	-		-	-	-	-	-	-	-	y
+-	Exp Infant Chart	Follow-Up Outcome	-	Coded	-	-	-	"Continnue FUP,Discharge Uninfected,Started ART,Transfer out,Defaulted,Died"	-	-	-	-	-	-	-	y
+-	Exp Infant Chart	Next appointment/Outcome Date	-	Date	-	-	-		-	-	-	-	-	-	-	y

@@ -48,7 +48,7 @@ function nodesByType(jsonFlow, nodetype) {
 function isStartNodeType(node) {
   // todo find a better way instead of hardcoding the list
   // maybe by looking up our node types to filter for all with no input
-  return node.type.match(/^(find-patient|patients-queue|register-patient|checked-in-patients-list|scheduled-patients-list|hl7-receive-message)$/);
+  return node.type.match(/^(find-patient|patients-queue|register-patient|checked-in-patients-list|scheduled-patients-list|hl7-receive-message|case-start)$/);
 }
 
 function nextNode(jsonFlow, node) {
