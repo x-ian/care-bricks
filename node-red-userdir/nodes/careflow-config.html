@@ -2,19 +2,19 @@
     RED.nodes.registerType('careflow-config',{
         category: 'config',
         defaults: {
-            name: {value:"CareFLOW config",required:true},
+            environment: {value:"CareFLOW server",required:true},
             runtime_flow_path: {value:"/Users/xian/projects/data-first-emr/workflow-poc-emr/resources/node-red-flows.json",required:true},
         },
         label: function() {
-            return this.name||"Careflow Config";
+            return this.environment||"Careflow Config";
         }
     });
 </script>
 
 <script type="text/html" data-template-name="careflow-config">
     <div class="form-row">
-        <label for="node-config-input-name"><i class="fa fa-bookmark"></i> Name</label>
-        <input type="text" id="node-config-input-name">
+        <label for="node-config-input-environment"><i class="fa fa-bookmark"></i> Environment</label>
+        <input type="text" id="node-config-input-environment">
     </div>
     <div class="form-row">
         <label for="node-config-input-runtime_flow_path"><i class="fa fa-bookmark"></i> Runtime Flow path</label>
