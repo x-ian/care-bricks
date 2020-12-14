@@ -1,5 +1,71 @@
 # workflow-poc-emr
 
+### Stuff
+
+#### Webcam for photos
+
+Needs to be added as JS lib for take-photo.html
+```
+<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+```
+
+#### Chart.js on summary Nodes
+
+Needs to be added as JS lib for summary-interactive.html
+```
+    <script src="assets/client-js/Chart.min.js"></script>
+    <script src="assets/client-js/Chart.utils.js"></script>
+```
+
+Needs to go into the description of a summary node.
+```
+<h1>Viral Load</h1>
+<div style="height: 400px; width: 800px">
+<canvas id="myChart" width="800" height="400"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: 'Viral Load',
+            data: [12345, 25001, 30000, 22394, 17934, 9878],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+</div>
+```
+
 ### Install
 
 #### Node-red / design environment
