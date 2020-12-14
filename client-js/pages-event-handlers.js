@@ -196,12 +196,12 @@ $(function(){
 
 // respond to keys pressed
 $(document).keypress(function(e) {
+	event.preventDefault();
 	if ($('#navigation-next').prop('disabled') === false) {
 		if(e.which == 13) {
 		// enter pressed
 			nextPressed(e);
 		}
-		
 	};
 });
 
