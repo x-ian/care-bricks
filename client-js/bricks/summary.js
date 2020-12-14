@@ -14,7 +14,8 @@ function onLoadSummary() {
 		
 			$('#summary').append('<pre>' + JSON.stringify(currentPatient, null, 2) + '</pre>');
 		} else {
-			$('#summary').append('<pre>' + node.info + '</pre>');
+			$('#summary').append(node.info);
+			// $('#summary').append('<pre>' + node.info + '</pre>');
 		}
 		
 	});
