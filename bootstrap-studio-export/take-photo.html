@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+
 <!-- Matomo -->
 <script type="text/javascript">
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
@@ -47,7 +49,29 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     </header>
     <div class="container">
         <h4 id="input-label" style="margin: 10px 0px 0px;">&lt;take-photo&gt;</h4>
-        <hr><label>(Next to continue)&nbsp;</label></div>
+        <hr><label>(Next to continue)&nbsp;</label><video id="webcam" autoplay playsinline width="640" height="480"></video>
+<canvas id="canvas" class="d-none"></canvas>
+<audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
+
+<script>
+	const webcamElement = document.getElementById('webcam');
+	const canvasElement = document.getElementById('canvas');
+	const snapSoundElement = document.getElementById('snapSound');
+	const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
+	
+ webcam.start()
+    .then(result =>{
+       console.log("webcam started");
+    })
+    .catch(err => {
+        console.log(err);
+    });
+	
+	// var picture = webcam.snap();
+</script>
+	
+	<a href="" onclick="webcam.snap();">Take photo</a>
+</div>
     <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
         <button
             class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
