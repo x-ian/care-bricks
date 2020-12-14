@@ -26,7 +26,7 @@ function onLoadVisitQuestionPrimitive() {
 	});
 }
 
-function hookNextVisitQuestion(e) {
+function hookNextVisitQuestionPrimitive(e) {
 	currentPatient.currentEncounter[name] = $('#input').val();
 	updateCurrentPatient(currentPatient);
 }
