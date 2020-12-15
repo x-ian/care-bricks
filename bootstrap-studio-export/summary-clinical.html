@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html id="page-summary-clinical">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CareFlow EMR</title>
+    <meta name="description" content="Workflow-driven, touchscreen-based point-of-care EMR">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/favicon180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon512x512.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+<!-- Matomo -->
+<script type="text/javascript">
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
+    console.log("It's a local server- no matomo tracking!");
+} else {
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.hotel-africa.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+}
+</script>
+<!-- End Matomo Code -->
+</head>
+
+<body>
+    <header class="emr-header">
+        <div class="emr-header-element emr-header-element__name"><span id="header-name">&nbsp;&nbsp;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female d-none" id="header-female"></i><i class="fa fa-male d-none" id="header-male"></i></div>
+        <div class="emr-header-element">
+            <div><span id="header-birthdate"></span></div>
+        </div>
+        <div class="emr-header-element"><span id="header-currentAddress"></span></div>
+        <div class="emr-header-element"><span id="header-id"></span></div>
+    </header>
+    <div class="container" style="width: 690px;">
+        <h4 style="margin: 10px 0px 0px;">Clinical Summary</h4>
+        <hr>
+        <div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-1">Overview</a></li>
+                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-2">Personal</a></li>
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">History</a></li>
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">Programs</a></li>
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-5">Treatment</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" role="tabpanel" id="tab-1">
+                    <div class="row">
+                        <div class="col"><label>HIV summary</label><select id="select-entries-2" class="emr-select" size="4"><option value="" class="emr-select-option">On ART since 2020-06-01</option><option value="" class="emr-select-option">Currently taking T30 1 tab OD</option></select><label>Graphs</label>
+                            <div><canvas data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Revenue&quot;,&quot;backgroundColor&quot;:&quot;#4e73df&quot;,&quot;borderColor&quot;:&quot;#4e73df&quot;,&quot;data&quot;:[&quot;4500&quot;,&quot;5300&quot;,&quot;6250&quot;,&quot;7800&quot;,&quot;9800&quot;,&quot;15000&quot;],&quot;fill&quot;:true}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col"><label>Alerts</label><select id="select-entries-4" class="emr-select" size="2"><option value="" class="emr-select-option">Missed appointment on 2020-12-01</option><option value="" class="emr-select-option">HIV drug expiry on 2020-12-16</option></select></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label>Today's visit</label><select id="select-entries-1" class="emr-select" size="4"><option value="" class="emr-select-option">HIV Registration at 9:20</option><option value="" class="emr-select-option">ART Unit at 9:50</option></select></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane active" role="tabpanel" id="tab-2">
+                    <div class="row">
+                        <div class="col"><div>Demographic</div>
+<pre>
+Firstname Lastname
+Birthdate
+Female</pre>
+<br/>
+<div>Contact details</div>
+<pre>1234 5678
+42309 12324 (Guardian)
+</pre>
+<br/>
+<div>Addresses</div>
+<pre>
+Streetname 1
+Village 1
+County 1
+</pre>
+<br/>
+<div>Guardian Info</div>
+<pre>Mister X</pre></div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col"><label>Identifiers</label><select id="select-entries-2" class="emr-select" size="3"><option value="" class="emr-select-option">HIV ID: RDH-001-00001</option><option value="" class="emr-select-option">Facility ID: ABC123</option></select></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label>Programs</label><select id="select-entries-1" class="emr-select" size="3"><option value="" class="emr-select-option">HIV: enrolled 2020-02-02</option><option value="" class="emr-select-option">TB: 2020-02-02 - 2020-08-02</option></select></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="tab-3">
+                    <div class="row">
+                        <div class="col"><label>Visits</label><select id="select-entries-3" class="emr-select" size="7"><option value="" class="emr-select-option">2020-02-02</option><option value="" class="emr-select-option">2020-04-02</option><option value="" class="emr-select-option">2020-08-13</option><option value="" class="emr-select-option">2020-12-24</option></select></div>
+                        <div
+                            class="col"><label>Encounters</label><select id="select-entries-2" class="emr-select" size="7"><option value="" class="emr-select-option">HIV Registration</option><option value="" class="emr-select-option">ART Unit</option><option value="" class="emr-select-option">Micro Lab</option><option value="" class="emr-select-option">Dispensary</option></select></div>
+                </div>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="tab-4">
+                <div class="row">
+                    <div class="col"><label>Program</label><select id="select-entries-3" class="emr-select" size="7"><option value="" class="emr-select-option">HIV Program</option><option value="" class="emr-select-option">TB</option><option value="" class="emr-select-option">TB</option></select></div>
+                    <div
+                        class="col">
+                        <div class="row">
+                            <div class="col"><label>State</label><select id="select-entries-2" class="emr-select" size="7"><option value="" class="emr-select-option">HIV negative: 2020-02-02</option><option value="" class="emr-select-option">HIV positive: 2020-06-02</option><option value="" class="emr-select-option">ART enrolled: 2020-06-08</option><option value="" class="emr-select-option">Transferred Out: 2020-12-12</option></select></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" role="tabpanel" id="tab-5">
+            <div class="row">
+                <div class="col"><label>Current treatment</label><select id="select-entries-2" class="emr-select" size="3"><option value="" class="emr-select-option">Triomuni 30 1tab OD for 30 days, dispensed 60 tablets on 2020-12-10</option><option value="" class="emr-select-option">Ibuprofen 400mg TDS for 5 days, prescribed on 2020-12-08</option></select></div>
+            </div>
+            <div class="row">
+                <div class="col"><label>Completed treatment</label><select id="select-entries-2" class="emr-select" size="3"><option value="" class="emr-select-option">Paracetamol 1000mg OD for 5 days, dispensed 5000mg on 2020-04-06</option></select></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+        <button
+            class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/client-js/node-red-flow-parser.js"></script>
+    <script src="assets/client-js/Chart.min.js"></script>
+    <script src="assets/client-js/Chart.utils.js"></script>
+    <script src="assets/client-js/lib/dexie.min.js"></script>
+    <script src="assets/client-js/local-storage.js"></script>
+    <script src="assets/client-js/pages-event-handlers.js"></script>
+    <script src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+</body>
+
+</html>
