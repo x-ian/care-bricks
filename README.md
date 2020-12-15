@@ -4,6 +4,8 @@
 
 #### Webcam for photos
 
+https://www.npmjs.com/package/webcam-easy
+
 Needs to be added as JS lib for take-photo.html
 ```
 <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
