@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html id="page-summary-chart-art">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CareFlow EMR</title>
+    <meta name="description" content="Workflow-driven, touchscreen-based point-of-care EMR">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/favicon180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon512x512.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+<!-- Matomo -->
+<script type="text/javascript">
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
+    console.log("It's a local server- no matomo tracking!");
+} else {
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.hotel-africa.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+}
+</script>
+<!-- End Matomo Code -->
+</head>
+
+<body>
+    <header class="emr-header">
+        <div class="emr-header-element emr-header-element__name"><span id="header-name">&nbsp;&nbsp;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female d-none" id="header-female"></i><i class="fa fa-male d-none" id="header-male"></i></div>
+        <div class="emr-header-element">
+            <div><span id="header-birthdate"></span></div>
+        </div>
+        <div class="emr-header-element"><span id="header-currentAddress"></span></div>
+        <div class="emr-header-element"><span id="header-id"></span></div>
+    </header>
+    <div class="container" style="width: 1024;">
+        <h4 style="margin: 10px 0px 0px;">ART Chart</h4>
+        <hr>
+        <div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-1">Visits</a></li>
+                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-2">Header</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" role="tabpanel" id="tab-1">
+                    <div class="row">
+                        <div class="col"><label class="col-form-label">Visit</label></div>
+                        <div class="col"><label class="col-form-label">Weight</label></div>
+                        <div class="col"><label class="col-form-label">Preg/Bf</label></div>
+                        <div class="col"><label class="col-form-label">TB Status</label></div>
+                        <div class="col"><label class="col-form-label">Sid effects</label></div>
+                        <div class="col"><label class="col-form-label">AIDS Assoc Cond</label></div>
+                        <div class="col"><label class="col-form-label">Doses Missed</label></div>
+                        <div class="col"><label class="col-form-label">ART Regimen</label></div>
+                        <div class="col"><label class="col-form-label">ARVs Given</label></div>
+                        <div class="col"><label class="col-form-label">CPT/TPT Given</label></div>
+                        <div class="col"><label class="col-form-label">Stable? / DSD</label></div>
+                        <div class="col"><label class="col-form-label">VL</label></div>
+                        <div class="col"><label class="col-form-label">Next appt</label></div>
+                        <div class="col"><label class="col-form-label">Outcome</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">01-Jan-2020</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">85</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Preg</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">N</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">N</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">10</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">5a</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">90-P</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">C-90</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Y</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">01-Mar-2020</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">01-Mar-2020</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">85</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Preg</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">N</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">N</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">10</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">5a</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">90-P</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">C-90</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Y</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Bled</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">01-Mar-2020</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">01-Jul-2020</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">85</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Preg</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">N</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">N</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">10</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">5a</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">90-P</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">C-90</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Y</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">01-Mar-2020</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">01-Aug-2020</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">85</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Bf</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">N</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">N</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">10</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">5a</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">90-P</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">C-90</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">Y</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;">01-Mar-2020</label></div>
+                        <div class="col"><label class="col-form-label text-monospace" style="font-size: 12px;"></label></div>
+                    </div>
+                </div>
+                <div class="tab-pane active" role="tabpanel" id="tab-2">
+                    <div class="row">
+                        <div class="col"><label>Patient / Guardian</label>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Name</label></div>
+                                <div class="col"><label class="col-form-label">Firstname Lastname</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Sex, Birthdate</label></div>
+                                <div class="col"><label class="col-form-label">M, 01-Jan-2020</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Address</label></div>
+                                <div class="col"><label class="col-form-label">Monrovia</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Guardian Name</label></div>
+                                <div class="col"><label class="col-form-label">Abc Xyz</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Phone</label></div>
+                                <div class="col"><label class="col-form-label">12345</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Agrees to FUP</label></div>
+                                <div class="col"><label class="col-form-label">N</label></div>
+                            </div>
+                        </div>
+                        <div class="col"><label>Status art ART initiation</label>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">HIV related diseases</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Test</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">WHO Stage</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">CD4</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">CD4 Date</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Height / Weight</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Age at initiation</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                        </div>
+                        <div class="col"><label>Confirmatory Test before ART Start</label>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Site HTS</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Test date</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">ART Edu done</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">TB Treatment</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">ART Regimen</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label"></label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Blood Pressure</label></div>
+                                <div class="col"><label class="col-form-label"></label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+        <button
+            class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/client-js/node-red-flow-parser.js"></script>
+    <script src="assets/client-js/lib/Chart.min.js"></script>
+    <script src="assets/client-js/lib/Chart.utils.js"></script>
+    <script src="assets/client-js/lib/dexie.min.js"></script>
+    <script src="assets/client-js/local-storage.js"></script>
+    <script src="assets/client-js/pages-event-handlers.js"></script>
+    <script src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+</body>
+
+</html>
