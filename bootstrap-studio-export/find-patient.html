@@ -47,36 +47,55 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     <hr class="mt-auto">
     <div class="container">
         <h4 id="input-label" style="margin: 10px 0px 0px;">Find Patient</h4>
-        <hr><label>Scan or search (ID or name)&nbsp;</label><input type="text" id="input">
         <hr>
-        <div id="alphanumpad" class="row">
-            <div style="width: 600px;">
-                <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-a" type="button">A</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-b" type="button">B</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                        id="alphapad-c" type="button">C</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-d" type="button">D</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-e" type="button">E</button>
-                    <button
-                        class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-f" type="button">F</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-g" type="button">G</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-h" type="button">H</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                            id="alphapad-bksp" type="button">Bksp</button></div>
-                <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-i" type="button">I</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-j" type="button">J</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                        id="alphapad-k" type="button">K</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-l" type="button">L</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-m" type="button">M</button>
-                    <button
-                        class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-n" type="button">N</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-o" type="button">O</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-p" type="button">P</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                            id="alphapad-quote" type="button">'</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-dash" type="button">-</button></div>
-                <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-q" type="button">Q</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-r" type="button">R</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                        id="alphapad-s" type="button">S</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-t" type="button">T</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-u" type="button">U</button>
-                    <button
-                        class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-v" type="button">V</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-w" type="button">W</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-x" type="button">X</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                            id="alphapad-y" type="button">Y</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-z" type="button">Z</button></div>
-                <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-space" type="button">Space</button></div>
-            </div>
-            <div style="width: 250px;">
-                <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-1" type="button">1</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-2" type="button">2</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                        id="keypad-3" type="button">3</button></div>
-                <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-4" type="button">4</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-5" type="button">5</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                        id="keypad-6">6</button></div>
-                <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-7" type="button">7</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-8" type="button">8</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                        id="keypad-9">9</button></div>
-                <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-dot" type="button">.</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-0" type="button">0</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
-                        id="keypad-bksp" type="button">Bksp</button></div>
+        <div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Search</a></li>
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="tab-2-link" href="#tab-2">Result</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" role="tabpanel" id="tab-1">
+                    <div><label>Scan or search (ID or name)&nbsp;</label><input type="text" id="input"><button class="btn btn-primary active btn-success" id="button-find" type="button" onclick="$(&#39;#tab-2-link&#39;).trigger(&#39;click&#39;);">Find</button>
+                        <hr>
+                        <div id="alphanumpad" class="row">
+                            <div style="width: 600px;">
+                                <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-a" type="button">A</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-b" type="button">B</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                                        id="alphapad-c" type="button">C</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-d" type="button">D</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-e" type="button">E</button>
+                                    <button
+                                        class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-f" type="button">F</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-g" type="button">G</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-h" type="button">H</button>
+                                        <button
+                                            class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-bksp" type="button">Bksp</button>
+                                </div>
+                                <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-i" type="button">I</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-j" type="button">J</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                                        id="alphapad-k" type="button">K</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-l" type="button">L</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-m" type="button">M</button>
+                                    <button
+                                        class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-n" type="button">N</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-o" type="button">O</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-p" type="button">P</button>
+                                        <button
+                                            class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-quote" type="button">'</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-dash" type="button">-</button></div>
+                                <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-q" type="button">Q</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-r" type="button">R</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                                        id="alphapad-s" type="button">S</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-t" type="button">T</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-u" type="button">U</button>
+                                    <button
+                                        class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-v" type="button">V</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-w" type="button">W</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-x" type="button">X</button>
+                                        <button
+                                            class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-y" type="button">Y</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-z" type="button">Z</button></div>
+                                <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-space" type="button">Space</button></div>
+                            </div>
+                            <div style="width: 250px;">
+                                <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-1" type="button">1</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-2" type="button">2</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                                        id="keypad-3" type="button">3</button></div>
+                                <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-4" type="button">4</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-5" type="button">5</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                                        id="keypad-6">6</button></div>
+                                <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-7" type="button">7</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-8" type="button">8</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                                        id="keypad-9">9</button></div>
+                                <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-dot" type="button">.</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-0" type="button">0</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                                        id="keypad-bksp" type="button">Bksp</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="tab-2">
+                    <div><select id="patient-list" class="emr-select" size="8"></select></div>
+                </div>
             </div>
         </div>
     </div>
@@ -88,8 +107,8 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     <script src="assets/js/chart.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/client-js/node-red-flow-parser.js"></script>
-    <script src="assets/client-js/Chart.min.js"></script>
-    <script src="assets/client-js/Chart.utils.js"></script>
+    <script src="assets/client-js/lib/Chart.min.js"></script>
+    <script src="assets/client-js/lib/Chart.utils.js"></script>
     <script src="assets/client-js/lib/dexie.min.js"></script>
     <script src="assets/client-js/local-storage.js"></script>
     <script src="assets/client-js/pages-event-handlers.js"></script>
