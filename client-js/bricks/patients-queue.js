@@ -4,8 +4,8 @@ function onLoadPatientsQueue() {
 	patientStorage = $.parseJSON(
 	    $.ajax(
 	        {
-	           // url: "http://localhost:8000/users",
-	           url: "assets/resources/patient-storage.json",
+	           url: "/patients",
+	           // url: "assets/resources/patient-storage.json",
 	           async: false,
 				cache: false,
 	           dataType: 'json'
