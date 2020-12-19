@@ -51,6 +51,8 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
 <canvas id="canvas" class="d-none"></canvas>
 <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
 
+    <script src="assets/client-js/lib/webcam-easy.min.js"></script>
+
 <script>
 	const webcamElement = document.getElementById('webcam');
 	const canvasElement = document.getElementById('canvas');
@@ -83,7 +85,6 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     <script src="assets/client-js/lib/dexie.min.js"></script>
     <script src="assets/client-js/local-storage.js"></script>
     <script src="assets/client-js/pages-event-handlers.js"></script>
-    <script src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
 </body>
 
 </html>
