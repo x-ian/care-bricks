@@ -13,8 +13,9 @@ function onLoadVisitQuestion() {
 	$('#input-label').contents().last().replaceWith(node.label);
 	name = node.name;
 
-	loadCurrentPatient(function() {
-		$('#input').val(currentPatient.currentEncounter[name]);
+	loadCurrentPatient();
+	loadCurrentEncounter(function() {
+		$('#input').val(currentEncounter[name]);
 	});
 
 	$('.btn').click(function(e) {
@@ -27,6 +28,6 @@ function onLoadVisitQuestion() {
 }
 
 function hookNextVisitQuestion(e) {
-	currentPatient.currentEncounter[name] = $('#input').val();
-	updateCurrentPatient(currentPatient);
+	currentEncounter[name] = $('#input').val();
+	updateCurrentEncounter(currentEncounter);
 }

@@ -28,8 +28,13 @@ function onLoadPatientsQueue() {
 }
 
 function hookNextPatientsQueue(e) {
-	console.log($('#patients :selected').val());
-	console.log(patients.get($('#patients :selected').val()));
+	// console.log($('#patients :selected').val());
+	// console.log(patients.get($('#patients :selected').val()));
 	
 	updateCurrentPatient(patients.get($('#patients :selected').val()));
+	
+	let encounter_type = flowLabelFromSubnode(jsonFlow, getUrlParam('nodeid'));
+	currentEncounter["type"] = encounter_type;
+	updateCurrentEncounter(currentEncounter);
+	
 }

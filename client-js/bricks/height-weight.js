@@ -19,16 +19,17 @@ function onLoadHeightWeight() {
 		statusOfNextButton();
 	});
 
-	loadCurrentPatient(function() {
-		$('#input-height').val(currentPatient.currentEncounter.height).change();
-		$('#input-height-range').val(currentPatient.currentEncounter.height).change();
-		$('#input-weight').val(currentPatient.currentEncounter.weight).change();
-		$('#input-weight-range').val(currentPatient.currentEncounter.weight).change();
+	loadCurrentPatient();
+	loadCurrentEncounter(function() {
+		$('#input-height').val(currentEncounter.height).change();
+		$('#input-height-range').val(currentEncounter.height).change();
+		$('#input-weight').val(currentEncounter.weight).change();
+		$('#input-weight-range').val(currentEncounter.weight).change();
 	});
 }
 
 function hookNextHeightWeight(e) {
-	currentPatient.currentEncounter.height = $('#input-height').val();
-	currentPatient.currentEncounter.weight = $('#input-weight').val();
-	updateCurrentPatient(currentPatient);
+	currentEncounter.height = $('#input-height').val();
+	currentEncounter.weight = $('#input-weight').val();
+	updateCurrentEncounter(currentEncounter);
 }

@@ -45,4 +45,8 @@ function onLoadFindPatient() {
 
 function hookNextFindPatient(e) {
 	updateCurrentPatient(patientList.get($('#patient-list :selected').val()));
+	
+	let encounter_type = flowLabelFromSubnode(jsonFlow, getUrlParam('nodeid'));
+	currentEncounter["type"] = encounter_type;
+	updateCurrentEncounter(currentEncounter);	
 }

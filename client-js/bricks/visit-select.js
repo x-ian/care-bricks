@@ -17,15 +17,18 @@ function onLoadVisitSelect() {
 		$('#navigation-next').prop('disabled', false);
 	});
 
-	loadCurrentPatient(function() {
+	loadCurrentPatient();
+	loadCurrentEncounter();
+	// loadCurrentPatient(function() {
 		// select element from encounter
 		// $('#select-entries :selected').val()
 		// $('#input').val(currentPatient.currentEncounter[name]);
-	});
+	// });
 }
 
 function hookNextVisitSelect(e) {
-	currentPatient.currentEncounter[name + "_val"] = $('#select-entries :selected').val();
-	currentPatient.currentEncounter[name + "_text"] = $('#select-entries :selected').text();
-	updateCurrentPatient(currentPatient);
+	currentEncounter[name + "_val"] = $('#select-entries :selected').val();
+	currentEncounter[name + "_text"] = $('#select-entries :selected').text();
+	updateCurrentEncounter(currentEncounter);
+	// updateCurrentPatient(currentPatient);
 }

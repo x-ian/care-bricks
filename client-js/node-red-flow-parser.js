@@ -3,6 +3,11 @@ function randomArrayElement(array) {
    return array[Math.floor(Math.random() * array.length)];
 }
 
+function flowLabelFromSubnode(jsonFlow, nodeid) {
+	var node = nodeById(jsonFlow, nodeid);
+	return nodeById(jsonFlow, node.z).label;
+}
+
 function allFlows(jsonFlow) {
   var tabs = jsonFlow.filter(function(i) {
     // console.log(i);
@@ -76,20 +81,20 @@ function nextNodes(jsonFlow, node) {
       }
       // do nothing
     } else if (node.type.startsWith("subflow:")) {
-      console.log('subflow');
+      // console.log('subflow');
       // get last node of subflow subflowDefinition
       let subflowDefinition = nodeById(jsonFlow, node.type.split(':')[1]);
       let transitionSourceId = subflowDefinition.out[0].wires[0].id;
-      console.log("transitionSourceId: " + transitionSourceId);
+      // console.log("transitionSourceId: " + transitionSourceId);
       let transitionSourceName = nodeById(jsonFlow, transitionSourceId).type;
-      console.log("transitionSourceName: " + transitionSourceName);
+      // console.log("transitionSourceName: " + transitionSourceName);
       let transitionDestination = nodeById(jsonFlow, wire[0]);
-      console.log("transitionDestination: " + transitionDestination);
+      // console.log("transitionDestination: " + transitionDestination);
       let transitionDestinationName = transitionDestination.type;
-      console.log("transitionDestinationName: " + transitionDestinationName);
+      // console.log("transitionDestinationName: " + transitionDestinationName);
       nodes.push(transitionDestination);
     } else {
-      console.log('else');
+      // console.log('else');
       let transitionSourceId = node.id;
       // console.log("transitionSourceId: " + transitionSourceId);
       let transitionSourceName = node.type;

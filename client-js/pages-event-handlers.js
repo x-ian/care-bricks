@@ -174,6 +174,8 @@ $(function(){
 						onLoadFunctionName = onLoadFunctionName[0].toUpperCase() + onLoadFunctionName.slice(1);
 						if (eval("typeof " + 'onLoad' + onLoadFunctionName) === 'function') {
 							console.log('calling ' + 'onLoad' + onLoadFunctionName);
+							// loadCurrentPatient(function() {});
+							// loadCurrentEncounter(function() {});
 							self['onLoad' + onLoadFunctionName]();
 						} else {
 							// make sure that at least the header is set
@@ -252,12 +254,14 @@ function nextPressed(e) {
 	}
 	// store
 	let newUrl = next.type + ".html?stepid=" + stepid + "&nodeid=" + next.id;
-	console.log(newUrl);
+	// console.log(newUrl);
 
-	console.log(eval("typeof " + 'hookNext' + moduleName));
+	console.log(newUrl + ' ' + eval("typeof " + 'hookNext' + moduleName));
 	if (eval("typeof " + 'hookNext' + moduleName) === 'function') {
 		console.log('calling ' + 'hookNext' + moduleName);
 		self['hookNext' + moduleName](e);
+		updateCurrentEncounter(currentEncounter);
+		updateCurrentPatient(currentPatient);
 	} else {
 		console.log("No hookNext function provided by module " + moduleName);
 	}

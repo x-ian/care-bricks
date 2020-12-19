@@ -4,8 +4,8 @@ function statusOfNextButton() {
 }
 
 function hookNextNextAppointment(e) {
-	currentPatient.currentEncounter.nextAppointment = $('#return').val();
-	updateCurrentPatient(currentPatient);
+	currentEncounter.nextAppointment = $('#return').val();
+	updateCurrentEncounter(currentEncounter);
 }
 
 var year = "";
@@ -20,8 +20,9 @@ function onLoadNextAppointment() {
 		statusOfNextButton();
 	});
 
-	loadCurrentPatient(function() {
-		$('#return').val(currentPatient.currentEncounter.nextAppointment);
+	loadCurrentPatient();
+	loadCurrentEncounter(function() {
+		$('#return').val(currentEncounter.nextAppointment);
 	});
 	
 	$('.btn').click(function(e) {

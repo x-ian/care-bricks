@@ -34,4 +34,7 @@ function onLoadCheckedInPatientsList() {
 
 function hookNextCheckedInPatientsList(e) {
 	updateCurrentPatient(checkedInPatients.get($('#checked-in-patients :selected').val()));
+	let encounter_type = flowLabelFromSubnode(jsonFlow, getUrlParam('nodeid'));
+	currentEncounter["type"] = encounter_type;
+	updateCurrentEncounter(currentEncounter);	
 }

@@ -6,7 +6,9 @@ function onLoadSwitch() {
 	let div = $('#all-transitions');
 
 	let node = nodeById(jsonFlow, nodeid);
-	loadCurrentPatient(function() {
+	loadCurrentPatient();
+	loadCurrentEncounter();
+	
 		var i = 0;
 		$.each(next, function(key, entry) {
 			try {
@@ -23,7 +25,6 @@ function onLoadSwitch() {
 			i++;
 		});
 
-	});
-	$('#navigation-next').prop('disabled', true);
+		$('#navigation-next').prop('disabled', true);
 	$('#input-label').text(node.name);
 }

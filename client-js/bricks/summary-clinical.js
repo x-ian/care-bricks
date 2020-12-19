@@ -1,5 +1,6 @@
 function onLoadSummaryClinical() {
-	loadCurrentPatient(function() {
+	loadCurrentPatient();
+	loadCurrentEncounter(function() {
 		$('#input-label').contents().last().replaceWith("Clinical summary for " + currentPatient.givenname + " " + currentPatient.familyname);
 		
 		let nodeid = getUrlParam('nodeid');

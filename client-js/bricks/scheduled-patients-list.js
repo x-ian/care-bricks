@@ -30,8 +30,12 @@ function onLoadScheduledPatientsList() {
 }
 
 function hookNextScheduledPatientsList(e) {
-	console.log($('#scheduled-patients :selected').val());
-	console.log(patients.get($('#scheduled-patients :selected').val()));
+	// console.log($('#scheduled-patients :selected').val());
+	// console.log(patients.get($('#scheduled-patients :selected').val()));
 	
 	updateCurrentPatient(patients.get($('#scheduled-patients :selected').val()));
+
+	let encounter_type = flowLabelFromSubnode(jsonFlow, getUrlParam('nodeid'));
+	currentEncounter["type"] = encounter_type;
+	updateCurrentEncounter(currentEncounter);
 }

@@ -1,5 +1,6 @@
 function onLoadSummaryInteractive() {
-	loadCurrentPatient(function() {
+	loadCurrentPatient();
+	loadCurrentEncounter(function() {
 		$('#input-label').contents().last().replaceWith("Interactive Data summary for " + currentPatient.givenname + " " + currentPatient.familyname);
 		
 		let nodeid = getUrlParam('nodeid');
@@ -12,6 +13,7 @@ function onLoadSummaryInteractive() {
 		
 		if (node.info === undefined) {
 		
+			$('#summary').append('<pre>' + JSON.stringify(currentEncounter, null, 2) + '</pre>');
 			$('#summary').append('<pre>' + JSON.stringify(currentPatient, null, 2) + '</pre>');
 		} else {
 			$('#summary').append(node.info);
@@ -23,7 +25,5 @@ function onLoadSummaryInteractive() {
 			let buttonHtml = '<button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">' + button.name + '</span><i class="fa fa-angle-right"></i></button><br/>';
 			$('#buttons').append(buttonHtml);
 		}
-
-		
 	});
 }

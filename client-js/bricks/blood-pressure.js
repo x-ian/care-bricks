@@ -11,9 +11,10 @@ function onLoadBloodPressure() {
 		statusOfNextButton();
 	});
 
-	loadCurrentPatient(function() {
-		$('#input-bp-sys').val(currentPatient.currentEncounter.bpSys);
-		$('#input-bp-dia').val(currentPatient.currentEncounter.bpDia);
+	loadCurrentPatient();
+	loadCurrentEncounter(function() {
+		$('#input-bp-sys').val(currentEncounter.bpSys);
+		$('#input-bp-dia').val(currentEncounter.bpDia);
 	});
 
 	$('.btn').click(function(e) {
@@ -29,7 +30,7 @@ function onLoadBloodPressure() {
 }
 
 function hookNextBloodPressure(e) {
-	currentPatient.currentEncounter.bpSys = $('#input-bp-sys').val();
-	currentPatient.currentEncounter.bpDia = $('#input-bp-dia').val();
-	updateCurrentPatient(currentPatient);
+	currentEncounter.bpSys = $('#input-bp-sys').val();
+	currentEncounter.bpDia = $('#input-bp-dia').val();
+	updateCurrentEncounter(currentEncounter);
 }
