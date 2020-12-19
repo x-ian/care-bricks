@@ -1,4 +1,4 @@
-function onLoadSummaryInteractive() {
+function onLoadSummaryClinical() {
 	loadCurrentPatient(function() {
 		$('#input-label').contents().last().replaceWith("Clinical summary for " + currentPatient.givenname + " " + currentPatient.familyname);
 		
