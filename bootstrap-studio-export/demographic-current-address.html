@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="page-current-address">
+<html id="page-demographic-current-address">
 
 <head>
     <meta charset="utf-8">
@@ -47,67 +47,30 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     </header>
     <div class="container">
         <h4>Current Address</h4>
-        <div>
-            <div class="row">
-                <div class="col"><input class="form-control-plaintext" type="text" value="Region" readonly=""><input type="text" id="input-region">
-                    <ul class="list-group" id="list-region" style="max-height:450px; overflow:scroll">
-                        <li class="list-group-item list-group-item-action"><span>Northern</span></li>
-                        <li class="list-group-item list-group-item-action active"><span>Central</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Southern</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Not In Malawi</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Unknown</span></li>
-                    </ul>
-                </div>
-                <div class="col"><input class="form-control-plaintext" type="text" value="District" readonly=""><input type="text" id="input-district">
-                    <ul class="list-group" id="list-district" style="max-height:450px; overflow:scroll">
-                        <li class="list-group-item list-group-item-action"><span>Dedza</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Dowa</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Kasungu</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Lilongwe</span></li>
-                        <li class="list-group-item list-group-item-action active"><span>Lilongwe City</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Mchinji</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Nkhotakota</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Ntcheu</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Ntchisi</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Salima</span></li>
-                    </ul>
-                </div>
-                <div class="col"><input class="form-control-plaintext" type="text" value="Traditional Authority" readonly=""><input type="text" id="input-ta">
-                    <ul class="list-group" id="list-ta" style="max-height:450px; overflow:scroll">
-                        <li class="list-group-item list-group-item-action"><span>Kaphiri</span></li>
-                        <li class="list-group-item list-group-item-action active"><span>Kauma</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Kawale I (A4)</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Kawale II (A4)</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Likuni</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Lumbadzi</span></li>
-                    </ul>
-                </div>
-                <div class="col"><input class="form-control-plaintext" type="text" value="Village" readonly=""><input type="text" id="input-village">
-                    <ul class="list-group" id="list-village" style="max-height:450px; overflow:scroll">
-                        <li class="list-group-item list-group-item-action"><span>Kaphiri</span></li>
-                        <li class="list-group-item list-group-item-action active"><span>Kauma</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Kawale I (A4)</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Kawale II (A4)</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Likuni</span></li>
-                        <li class="list-group-item list-group-item-action"><span>Lumbadzi</span></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="row">
+            <div class="col"><input class="form-control-plaintext" type="text" value="Region" readonly=""><input type="text" id="input-region"><select id="list-region" class="emr-select" size="8"><option value="northern" class="emr-select-option">Northern</option><option value="central" class="emr-select-option">Central</option><option value="southern" class="emr-select-option">Southern</option><option value="notInMalawi" class="emr-select-option">Not in Malawi</option></select></div>
+            <div
+                class="col"><input class="form-control-plaintext" type="text" value="District" readonly=""><input type="text" id="input-district"><select id="list-district" class="emr-select" size="8"><option value="dedza" class="emr-select-option">Dedza</option><option value="dowa" class="emr-select-option">Dowa</option><option value="kasungu" class="emr-select-option">Kasungu</option><option value="lilongwe" class="emr-select-option">Lilongwe</option><option value="lilongweCity" class="emr-select-option">Lilongwe City</option><option value="mchinji" class="emr-select-option">Mchinji</option><option value="nkhotakota" class="emr-select-option">Nkhotakota</option></select></div>
+        <div
+            class="col"><input class="form-control-plaintext" type="text" value="Traditional Authority" readonly=""><input type="text" id="input-ta"><select id="list-ta" class="emr-select" size="8"><option value="kaphiri" class="emr-select-option">Kaphiri</option><option value="kauma" class="emr-select-option">Kauma</option><option value="kawale1a4" class="emr-select-option">Kawale I (A4)</option><option value="kawale2a4" class="emr-select-option">Kawale II (A4)</option><option value="likuni" class="emr-select-option">Likuni</option><option value="mchinji" class="emr-select-option">Lumbadzi</option></select></div>
+    <div
+        class="col"><input class="form-control-plaintext" type="text" value="Village" readonly=""><input type="text" id="input-village"><select id="list-village" class="emr-select" size="8"><option value="kaphiri" class="emr-select-option">Kaphiri</option><option value="kauma" class="emr-select-option">Kauma</option><option value="kawale1a4" class="emr-select-option">Kawale I (A4)</option><option value="kawale2a4" class="emr-select-option">Kawale II (A4)</option><option value="likuni" class="emr-select-option">Likuni</option><option value="mchinji" class="emr-select-option">Lumbadzi</option><option value="nkhotakota" class="emr-select-option">Neno</option></select></div>
         </div>
-    </div>
-    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
-        <button
-            class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/client-js/node-red-flow-parser.js"></script>
-    <script src="assets/client-js/lib/Chart.min.js"></script>
-    <script src="assets/client-js/lib/Chart.utils.js"></script>
-    <script src="assets/client-js/lib/dexie.min.js"></script>
-    <script src="assets/client-js/local-storage.js"></script>
-    <script src="assets/client-js/pages-event-handlers.js"></script>
+        </div>
+        <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+            <button
+                class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
+        <script
+            src="assets/js/jquery.min.js"></script>
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="assets/js/chart.min.js"></script>
+            <script src="assets/js/bs-init.js"></script>
+            <script src="assets/client-js/node-red-flow-parser.js"></script>
+            <script src="assets/client-js/lib/Chart.min.js"></script>
+            <script src="assets/client-js/lib/Chart.utils.js"></script>
+            <script src="assets/client-js/lib/dexie.min.js"></script>
+            <script src="assets/client-js/local-storage.js"></script>
+            <script src="assets/client-js/pages-event-handlers.js"></script>
 </body>
 
 </html>
