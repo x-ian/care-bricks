@@ -22,7 +22,7 @@ function onLoadScheduledPatientsList() {
 	$('#navigation-next').prop('disabled', true);
 	let dropdown = $('#scheduled-patients');
 	patients.forEach((entry, key, map) => {
-		dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.id + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
+		dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.hivId + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
 	});
 	dropdown.change(function() {
 		$('#navigation-next').prop('disabled', false);

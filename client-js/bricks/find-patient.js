@@ -34,7 +34,7 @@ function onLoadFindPatient() {
 		let dropdown = $('#patient-list ');
 		dropdown.empty();
 		patientList.forEach((entry, key, map) => {
-			dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.id + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
+			dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.hivId + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
 		});
 		dropdown.change(function() {
 			$('#navigation-next').prop('disabled', false);

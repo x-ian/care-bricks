@@ -225,7 +225,7 @@ $('.btn').click(function(e) {
 			location.reload();
 			break;
 		case "navigation-finish":
-			location = 'flow-select.html';
+			finishPressed(e)
 			break;
 		case "navigation-cancel":
 			location = 'flow-select.html';
@@ -267,4 +267,24 @@ function nextPressed(e) {
 	}
 
 	location= newUrl;
+}
+
+function finishPressed(e) {
+	$.ajax({
+	    type: "POST",
+	    url: "/patients/" + currentPatient.id + "/encounters/",
+	    // The key needs to match your method's input parameter (case-sensitive).
+	    data: JSON.stringify(currentEncounter),
+	    contentType: "application/json; charset=utf-8",
+	    dataType: "json",
+	    success: function(data){
+			// alert('Data saved');
+			location = 'flow-select.html';
+		},
+	    error: function(errMsg) {
+			console.log("errMsg");
+			console.log(JSON.stringify(errMsg));
+	        alert(errMsg);
+	    }
+	});
 }

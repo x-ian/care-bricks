@@ -32,7 +32,7 @@ function loadCurrentEncounter(callback) {
 
 function updateHeader(patient) {
 	$('#header-name').text(patient.givenname + " " + patient.familyname);
-	$('#header-id').text("ID: " + patient.id);
+	$('#header-id').text("ID: " + patient.hivId);
 	if (patient.gender == 'F') {
 		$('#header-male').addClass('d-none');
 		$('#header-female').removeClass('d-none');		

@@ -1,11 +1,15 @@
 
+function slugify(string) {
+	return string.replace(/[^a-zA-Z0-9 \-]/g, "").replace(/[ ]/g, "-").toLowerCase();	
+}
+
 function randomArrayElement(array) {
    return array[Math.floor(Math.random() * array.length)];
 }
 
 function flowLabelFromSubnode(jsonFlow, nodeid) {
 	var node = nodeById(jsonFlow, nodeid);
-	return nodeById(jsonFlow, node.z).label;
+	return slugify(nodeById(jsonFlow, node.z).label);
 }
 
 function allFlows(jsonFlow) {
