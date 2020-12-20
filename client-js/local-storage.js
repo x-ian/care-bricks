@@ -31,17 +31,27 @@ function loadCurrentEncounter(callback) {
 }
 
 function updateHeader(patient) {
-	$('#header-name').text(patient.givenname + " " + patient.familyname);
-	$('#header-id').text("ID: " + patient.hivId);
-	if (patient.gender == 'F') {
+	try {
+		$('#header-name').text(patient.givenname + " " + patient.familyname);
+		$('#header-id').text("ID: " + patient.hivId);
+		if (patient.gender == 'F') {
+			$('#header-male').addClass('d-none');
+			$('#header-female').removeClass('d-none');		
+		} else {
+			$('#header-female').addClass('d-none');
+			$('#header-male').removeClass('d-none');
+		}
+		$('#header-birthdate').text(patient.birthdate + " / " + calculateAge(new Date(patient.birthdate)) + " yrs");
+		$('#header-currentAddress').text(patient.currentAddress.city + " / " + patient.currentAddress.district+ " / " + patient.currentAddress.state);
+	} catch (e) {
+		// console.error(e);
+		$('#header-name').text("");
+		$('#header-id').text("");
 		$('#header-male').addClass('d-none');
-		$('#header-female').removeClass('d-none');		
-	} else {
 		$('#header-female').addClass('d-none');
-		$('#header-male').removeClass('d-none');
+		$('#header-birthdate').text("");
+		$('#header-currentAddress').text("");
 	}
-	$('#header-birthdate').text(patient.birthdate + " / " + calculateAge(new Date(patient.birthdate)) + " yrs");
-	$('#header-currentAddress').text(patient.currentAddress.city + " / " + patient.currentAddress.district+ " / " + patient.currentAddress.state);
 }
 
 function calculateAge(birthday) { // birthday is a date

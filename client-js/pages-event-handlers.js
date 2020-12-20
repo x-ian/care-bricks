@@ -13,6 +13,7 @@ $(function(){
 	
 	
 	// this appears to be evil - sync call in main worker
+	/*
 	jsonFlow = $.parseJSON(
 	    $.ajax(
 	        {
@@ -22,7 +23,18 @@ $(function(){
 	           dataType: 'json'
 	        }
 	    ).responseText
-	);
+	);*/
+	var abc = $.ajax(
+	        {
+	           url: "assets/resources/node-red-flows.json",
+	           async: false,
+					 cache: false,
+	           dataType: 'json'
+	        }
+	    ).responseText;
+
+		// console.log('abc ' + abc);
+		jsonFlow = $.parseJSON(abc);
 });
 
 function toUpperCaseFirstLetter(string)  {
@@ -139,7 +151,7 @@ $(function(){
 		$that.parent().find('li').removeClass('active');
 		$that.addClass('active');
 		if($('html').is('#page-current-address') || $('html').is('#page-home-address')){
-	    processPageCheckedInPatientsList();
+	    // processPageCheckedInPatientsList();
 			switch($that.parent()[0].id) {
 				case "list-region":
 					document.getElementById('input-region').value = e.currentTarget.childNodes[0].innerText;
@@ -179,7 +191,7 @@ $(function(){
 							self['onLoad' + onLoadFunctionName]();
 						} else {
 							// make sure that at least the header is set
-							loadCurrentPatient(function() {});
+							// loadCurrentPatient(function() {});
 							console.log("No onLoad function provided by module " + onLoadFunctionName);
 						}
 					})
@@ -189,7 +201,7 @@ $(function(){
 				})
 			.fail(function() { 
 				// make sure that at least the header is set
-				loadCurrentPatient(function() {});
+				// loadCurrentPatient(function() {});
 				console.log("No page-specific script file found: " + pageName );
 			})
 	}
@@ -225,7 +237,7 @@ $('.btn').click(function(e) {
 			location.reload();
 			break;
 		case "navigation-finish":
-			finishPressed(e)
+			finishPressed(e);
 			break;
 		case "navigation-cancel":
 			location = 'flow-select.html';
@@ -270,21 +282,50 @@ function nextPressed(e) {
 }
 
 function finishPressed(e) {
-	$.ajax({
-	    type: "POST",
-	    url: "/patients/" + currentPatient.id + "/encounters/",
-	    // The key needs to match your method's input parameter (case-sensitive).
-	    data: JSON.stringify(currentEncounter),
-	    contentType: "application/json; charset=utf-8",
-	    dataType: "json",
-	    success: function(data){
-			// alert('Data saved');
-			location = 'flow-select.html';
-		},
-	    error: function(errMsg) {
-			console.log("errMsg");
-			console.log(JSON.stringify(errMsg));
-	        alert(errMsg);
-	    }
-	});
+	pageId = $("html")[0].id;
+	moduleName = "";
+	if (pageId.startsWith('page-')) {
+		pageName = pageId.substring(5, pageId.length);
+		moduleName = pageName.replace( /-([a-z])/ig, function( all, letter ) {
+			return letter.toUpperCase();
+		});
+		moduleName = moduleName[0].toUpperCase() + moduleName.slice(1);
+	}
+	
+	console.log(eval("typeof " + 'hookFinish' + moduleName));
+	if (eval("typeof " + 'hookFinish' + moduleName) === 'function') {
+		console.log('calling ' + 'hookFinish' + moduleName);
+		self['hookFinish' + moduleName](e);
+		// updateCurrentEncounter(currentEncounter);
+		// updateCurrentPatient(currentPatient);
+	} else {
+		console.log("No hookFinish function provided by module " + moduleName);
+	}
+	// location = '/';
+	// location = 'flow-select.html';
+
+	/*
+	// TODO this should move somewhere more appropriate
+	if (!jQuery.isEmptyObject(currentEncounter)) { 
+		// 'normal encounter'
+		$.ajax({
+		    type: "POST",
+		    url: "/patients/" + currentPatient.id + "/encounters/",
+		    // The key needs to match your method's input parameter (case-sensitive).
+		    data: JSON.stringify(currentEncounter),
+		    contentType: "application/json; charset=utf-8",
+		    dataType: "json",
+		    success: function(data){
+				// alert('Data saved');
+				location = 'flow-select.html';
+			},
+		    error: function(errMsg) {
+				console.log("errMsg");
+				console.log(JSON.stringify(errMsg));
+		        alert(errMsg);
+		    }
+		});
+	}
+	location = 'flow-select.html';
+	*/
 }

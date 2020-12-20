@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('create-patient-end',{
+        category: 'cfCommon',
+        color: '#E9967A',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:0,
+        icon: "db.png",
+        label: function() {
+            return this.name||"Create Patient & End";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="create-patient-end">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="create-patient-end">
+    <p>workflow-poc-emr screen for </p>
+</script>

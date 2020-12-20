@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    RED.nodes.registerType('set-encountertype',{
+        category: 'cfCommon',
+        color: '#E9967A',
+        defaults: {
+            name: {value:""},
+            encounterType: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "db.png",
+        label: function() {
+            return this.name||"Set Encounter Type";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="set-encountertype">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-encounterType"><i class="icon-tag"></i>Encounter Type</label>
+        <input type="text" id="node-input-encounterType" placeholder="Encounter type">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="set-encountertype">
+    <p>workflow-poc-emr screen for </p>
+</script>
+
