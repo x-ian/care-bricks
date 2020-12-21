@@ -1,0 +1,289 @@
+{
+  "aggregate": {
+    "timestamp": "2020-12-21T20:19:57.278Z",
+    "scenariosCreated": 30,
+    "scenariosCompleted": 30,
+    "requestsCompleted": 70,
+    "latency": {
+      "min": 8.2,
+      "max": 2923.4,
+      "median": 21.2,
+      "p95": 1030.1,
+      "p99": 2729.6
+    },
+    "rps": {
+      "count": 70,
+      "mean": 2.38
+    },
+    "scenarioDuration": {
+      "min": 29.8,
+      "max": 3115.9,
+      "median": 231,
+      "p95": 2071.4,
+      "p99": 3115.9
+    },
+    "scenarioCounts": {
+      "register patient": 8,
+      "list encounters of one patient": 6,
+      "find patient and add short encounter": 4,
+      "find patient and add long encounter": 6,
+      "home": 6
+    },
+    "errors": {},
+    "codes": {
+      "200": 64,
+      "302": 6
+    },
+    "matches": 0,
+    "customStats": {},
+    "counters": {},
+    "scenariosAvoided": 0,
+    "phases": [
+      {
+        "duration": 30,
+        "arrivalRate": 1
+      }
+    ]
+  },
+  "intermediate": [
+    {
+      "timestamp": "2020-12-21T20:19:36.763Z",
+      "scenariosCreated": 9,
+      "scenariosCompleted": 9,
+      "requestsCompleted": 21,
+      "latency": {
+        "min": 8.2,
+        "max": 2923.4,
+        "median": 76,
+        "p95": 2390.3,
+        "p99": 2923.4
+      },
+      "rps": {
+        "count": 21,
+        "mean": 2.35
+      },
+      "scenarioDuration": {
+        "min": 100.6,
+        "max": 3115.9,
+        "median": 315.7,
+        "p95": 3115.9,
+        "p99": 3115.9
+      },
+      "scenarioCounts": {
+        "register patient": 4,
+        "list encounters of one patient": 2,
+        "find patient and add short encounter": 1,
+        "find patient and add long encounter": 2
+      },
+      "errors": {},
+      "codes": {
+        "200": 21
+      },
+      "matches": 0,
+      "latencies": [
+        1030118717,
+        286357332,
+        21849387,
+        233584903,
+        2923426364,
+        1954090207,
+        1048997694,
+        75995709,
+        73316744,
+        31193213,
+        23002320,
+        39866816,
+        15653064,
+        145405402,
+        25815086,
+        161578505,
+        14983788,
+        86540154,
+        199101509,
+        8235340,
+        16714497
+      ],
+      "customStats": {},
+      "counters": {},
+      "concurrency": 0,
+      "pendingRequests": 0,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2020-12-21T20:19:46.761Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 22,
+      "latency": {
+        "min": 8.9,
+        "max": 198.2,
+        "median": 19.7,
+        "p95": 194.4,
+        "p99": 198.2
+      },
+      "rps": {
+        "count": 22,
+        "mean": 2.2
+      },
+      "scenarioDuration": {
+        "min": 35.6,
+        "max": 248,
+        "median": 155,
+        "p95": 248,
+        "p99": 248
+      },
+      "scenarioCounts": {
+        "list encounters of one patient": 2,
+        "register patient": 3,
+        "find patient and add long encounter": 1,
+        "find patient and add short encounter": 1,
+        "home": 3
+      },
+      "errors": {},
+      "codes": {
+        "200": 19,
+        "302": 3
+      },
+      "matches": 0,
+      "latencies": [
+        18740347,
+        14694773,
+        18816179,
+        10056970,
+        198198368,
+        26989576,
+        160251936,
+        21830571,
+        190539523,
+        8852646,
+        22247138,
+        191898536,
+        16946047,
+        190154553,
+        9429743,
+        12710670,
+        38156579,
+        72963762,
+        20582014,
+        15351212,
+        16510964,
+        14827245
+      ],
+      "customStats": {},
+      "counters": {},
+      "concurrency": 0,
+      "pendingRequests": 0,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2020-12-21T20:19:56.762Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 25,
+      "latency": {
+        "min": 9.4,
+        "max": 231.4,
+        "median": 15.6,
+        "p95": 198.8,
+        "p99": 231.4
+      },
+      "rps": {
+        "count": 25,
+        "mean": 2.5
+      },
+      "scenarioDuration": {
+        "min": 29.8,
+        "max": 364.6,
+        "median": 217.1,
+        "p95": 364.6,
+        "p99": 364.6
+      },
+      "scenarioCounts": {
+        "home": 3,
+        "list encounters of one patient": 1,
+        "find patient and add long encounter": 3,
+        "find patient and add short encounter": 2,
+        "register patient": 1
+      },
+      "errors": {},
+      "codes": {
+        "200": 22,
+        "302": 3
+      },
+      "matches": 0,
+      "latencies": [
+        16965251,
+        11977039,
+        16904859,
+        24167623,
+        24086058,
+        10659996,
+        177410691,
+        9425033,
+        12742210,
+        188000972,
+        12855348,
+        20075340,
+        231393047,
+        11604281,
+        13109819,
+        160687239,
+        11293844,
+        14966409,
+        182535921,
+        12172762,
+        18953318,
+        185757266,
+        11302145,
+        15647065,
+        10981003
+      ],
+      "customStats": {},
+      "counters": {},
+      "concurrency": 0,
+      "pendingRequests": 0,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2020-12-21T20:19:57.274Z",
+      "scenariosCreated": 1,
+      "scenariosCompleted": 1,
+      "requestsCompleted": 2,
+      "latency": {
+        "min": 11.4,
+        "max": 17.9,
+        "median": 14.7,
+        "p95": 17.9,
+        "p99": 17.9
+      },
+      "rps": {
+        "count": 2,
+        "mean": 4
+      },
+      "scenarioDuration": {
+        "min": 33.4,
+        "max": 33.4,
+        "median": 33.4,
+        "p95": 33.4,
+        "p99": 33.4
+      },
+      "scenarioCounts": {
+        "list encounters of one patient": 1
+      },
+      "errors": {},
+      "codes": {
+        "200": 2
+      },
+      "matches": 0,
+      "latencies": [
+        17909326,
+        11425745
+      ],
+      "customStats": {},
+      "counters": {},
+      "concurrency": 0,
+      "pendingRequests": 0,
+      "scenariosAvoided": 0
+    }
+  ]
+}
