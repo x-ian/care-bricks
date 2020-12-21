@@ -68,6 +68,8 @@ const patientsRoutes = (app, fs, db) => {
     // READ
     app.get('/patients', (req, res) => {
 		const name = req.query.name;
+		console.log("search patient: " + name);
+		
 		if (name === undefined) {
 			glob(dataPath + '/**/*_patient.json', {}, (err, files)=>{
 				var jsonArray = [];
@@ -125,6 +127,7 @@ const patientsRoutes = (app, fs, db) => {
     // READ
     app.get('/patients/:uuid', (req, res) => {
         const uuid = req.params["uuid"];	
+		console.log("get patient: " + uuid);
         fs.readFile(path.join(dataPath, uuid, uuid + '_patient.json'), [],(err, data) => {
             if (err) {
                 throw err;
@@ -152,10 +155,10 @@ const patientsRoutes = (app, fs, db) => {
     // CREATE
     app.post('/patients', (req, res) => {
 		//requiring path and fs modules
-		console.log("create patient called");
 		//joining path of directory 
 		let patient = req.body;
 		patient.id = UUIDGeneratorNode(); 
+		console.log("create patient called " + patient.id);
 		patient.rev = 1;
 		patient.parentRev = 0;
 	    let meta = {};

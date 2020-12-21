@@ -189,3 +189,22 @@ Dory
 * https://serviceworke.rs/
 * https://developers.google.com/web/fundamentals/primers/service-workers
 * https://medium.com/@bhargavshah2011/overview-of-web-worker-service-worker-56082720dcd0
+
+### Artillery for load testing
+
+```
+artillery run -o artillery-test-report.json artillery-test.yml ; artillery report -o artillery-test-report.html artillery-test-report.json
+```
+
+### NVM for NodeJS switching
+
+```
+nvm use node
+node server.js
+```
+
+### Nodemon for dev env
+
+```
+nodemon server.js --ignore 'scripts'
+```
