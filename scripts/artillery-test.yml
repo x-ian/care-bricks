@@ -1,0 +1,134 @@
+config:
+  target: http://touchscreenpi:3001
+  phases:
+	  # Create 10 virtual users every second for 5 minutes
+    - duration: 30
+      arrivalRate: 1
+  variables:
+    id:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+    name:
+      - "Zione"
+      - "Dalitso"
+      - "Mark"
+      - "Malia"
+scenarios:
+  - name: "home"
+    flow:
+      - get:
+          url: "/"
+  - name: "list encounters of one patient"
+    flow:
+      - get:
+          url: "/patients/{{ id }}"
+      - get:
+          url: "/patients/1/encounters"
+  - name: "find patient and add short encounter"
+    flow:
+      - get:
+          url: "/patients?name={{ name }}"
+      - get:
+          url: "/patients/{{ id }}/encounters"
+      - post:
+          url: "/patients/{{ id }}/encounters"
+          json:
+              "type": "art-visit"
+              "Visit Date": "3"
+              "Age (curr)": "3"
+              "Height": "2"
+              "Weight": "2"
+              "Pregnant/Breastfeed_val": "1"
+              "Pregnant/Breastfeed_text": "Bf"
+              "Pregnant/Breastfeed Child HCC No": "F"
+  - name: "register patient"
+    flow:
+      - get:
+          url: "/patients?name={{ name }}"
+      - post:
+          url: "/patients/"
+          json: 
+            "type": "demographic"
+            "givenname": "Zione"
+            "middlename": ""
+            "familyname": "bf75d51f60"
+            "birthdate": "1980-07-01 00:00:00"
+            "birthdateEstimated": "1"
+            "deathdate": ""
+            "gender": "F"
+            "phone": "035413a2bd"
+            "mobile": ""
+            "email": ""
+            "facilityId": ""
+            "nationalId": "9df6eb3ed0"
+            "hivId": ""
+            "guardianName": ""
+            "guardianPhone": ""
+  - name: "find patient and add long encounter"
+    flow:
+      - get:
+          url: "/patients?name={{ name }}"
+      - get:
+          url: "/patients/{{ id }}/encounters"
+      - post:
+          url: "/patients/{{ id }}/encounters"
+          json:
+              "type": "art-register"
+              "Transfer-In Date": "3"
+              "Guardian Name": "H"
+              "Phone Guardian": "3"
+              "Agreed to FUP_val": "1"
+              "Agreed to FUP_text": "Y"
+              "Guardian Relation": "E"
+              "HIV related diseases": "F"
+              "Urine LAM/CrAg Result_val": "1"
+              "Urine LAM/CrAg Result_text": "HgB"
+              "CD4 %": "3"
+              "CD4": "3"
+              "CD4 Date": "3"
+              "Pregnant/Breastfeeding_val": "1"
+              "Pregnant/Breastfeeding_text": "Preg"
+              "TB Status at initiation_val": "1"
+              "TB Status at initiation_text": "Last >2yrs"
+              "KS_val": "1"
+              "KS_text": "Y"
+              "Height": "3"
+              "Weight": "3"
+              "Ever taken ARVs_val": "0"
+              "Ever taken ARVs_text": "N"
+              "Age at Initiation": "3"
+              "Last ARVs (drug)": "D"
+              "Last ARVs (Date)": "D"
+              "Location of ART initiation": "D"
+              "Site HTS Serial No.": "F"
+              "Test Date": "3"
+              "Test type_val": "1"
+              "Test type_text": "PCR"
+              "ART education done_val": "1"
+              "ART education done_text": "Y"
+              "ART education Date": "3"
+              "TB Treatment Reg No.": "D"
+              "TB Treatment Start Date_val": "1"
+              "TB Treatment Start Date_text": "Yes"
+              "ART Regimens #1": "D"
+              "ART Regimens #1 Start Date": "3"
+              "ART Regimens #2": "D"
+              "ART Regimens #2 Start Date": "3"
+              "Blood Pressure sys": "3"
+              "Blood Pressure dias": "3"
+              "Age group_val": "2"
+              "Age group_text": "15 - 19 years"
+              "Date of HIV diagnosis": "3"
+              "HIV Type_val": "1"
+              "HIV Type_text": "HIV 2"
+              "ART Status at registration_val": "1"
+              "ART Status at registration_text": "Re-initiation"
+              "Condition at ART initiation_val": "1"
+              "Condition at ART initiation_text": "2"
+              "TPT Start date": "3"
+              "TPT End date": "3"
+              "TB Treatment End date": "3"
+              "Number of times client re-started ART after default or stop ": "6"
+
