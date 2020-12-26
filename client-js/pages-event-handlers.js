@@ -123,8 +123,10 @@ function defaultButtonDatepad(e) {
 		document.getElementById('year').value += e.target.id.substring(7);
 	} else if (e.target.id.startsWith("monthpad-")) {
 		document.getElementById('month').value = e.target.id.substring(9);
+		document.getElementById('input').value = document.getElementById('year').value + '-' + document.getElementById('month').value + '-' + document.getElementById('day').value;
 	} else if (e.target.id.startsWith("day-")) {
 		document.getElementById('day').value = e.target.id.substring(4);
+		document.getElementById('input').value = document.getElementById('year').value + '-' + document.getElementById('month').value + '-' + document.getElementById('day').value;
 	}
 }
 
@@ -210,7 +212,7 @@ $(function(){
 
 // respond to keys pressed
 $(document).keypress(function(e) {
-	event.preventDefault();
+	// event.preventDefault();
 	if ($('#navigation-next').prop('disabled') === false) {
 		if(e.which == 13) {
 		// enter pressed

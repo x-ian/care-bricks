@@ -14,7 +14,7 @@ db.serialize(function() {
  
   var stmt = db.prepare("INSERT INTO patientcache VALUES (?, ?, ?, ?, ?)");
   const glob = require("glob");
-  glob('../data-lh/**/*_patient.json', {}, (err, files)=>{
+  glob('../data/**/*_patient.json', {}, (err, files)=>{
 	  
 	console.log("importing all patient files...");
   	files.forEach(file => {

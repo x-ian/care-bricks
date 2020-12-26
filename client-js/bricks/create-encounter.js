@@ -10,25 +10,26 @@ function onLoadCreateEncounter() {
 function hookNextCreateEncounter(e) {
 	console.log('sd');
 	updateCurrentEncounter(currentEncounter);
-	if (!jQuery.isEmptyObject(currentEncounter)) { 
+	if (!jQuery.isEmptyObject(currentEncounter)) {
 		// 'normal encounter'
 		$.ajax({
-		    type: "POST",
-		    url: "/patients/" + currentPatient.id + "/encounters/",
-		    // The key needs to match your method's input parameter (case-sensitive).
-		    data: JSON.stringify(currentEncounter),
-		    contentType: "application/json; charset=utf-8",
-		    dataType: "json",
-		    success: function(data){
+			type: "POST",
+			url: "/patients/" + currentPatient.id + "/encounters/",
+			// The key needs to match your method's input parameter (case-sensitive).
+			data: JSON.stringify(currentEncounter),
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function(data) {
 				// unclear if to continue with current encounter or start a new one
 				// updateCurrentEncounter(data);
 				updateCurrentEncounter({});
 			},
-		    error: function(errMsg) {
+			error: function(errMsg) {
 				console.log("errMsg");
 				console.log(JSON.stringify(errMsg));
-		        alert(errMsg);
-		    }
+				alert(errMsg);
+			},
+			async: false
 		});
 	}
 }

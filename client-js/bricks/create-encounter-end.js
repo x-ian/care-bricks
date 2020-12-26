@@ -26,7 +26,8 @@ function hookFinishCreateEncounterEnd(e) {
 				console.log("errMsg");
 				console.log(JSON.stringify(errMsg));
 		        alert(errMsg);
-		    }
+		    },
+			async:false
 		});
 	}
 	location = 'flow-select.html';

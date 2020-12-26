@@ -18,13 +18,14 @@ function hookNextCreatePatient(e) {
 	    dataType: "json",
 	    success: function(data){
 			updateCurrentPatient(data);
+			loadCurrentPatient(function() {
+			});
 			// alert('Data saved');
 			// location = 'flow-select.html';
 		},
 	    error: function(errMsg) {
-			console.log("errMsg");
-			console.log(JSON.stringify(errMsg));
 	        alert(errMsg);
-	    }
+	    },
+		async:false
 	});
 }

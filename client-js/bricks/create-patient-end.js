@@ -52,7 +52,8 @@ async function doAjax(args) {
 	    // The key needs to match your method's input parameter (case-sensitive).
 	    data: JSON.stringify(currentPatient),
 	    contentType: "application/json; charset=utf-8",
-	    dataType: "json"
+	    dataType: "json",
+		async:false
 	});
 
         return result;

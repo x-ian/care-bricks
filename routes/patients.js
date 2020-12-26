@@ -2,7 +2,7 @@ const patientsRoutes = (app, fs, db) => {
 
 	// const dataPath = "./data/";
 	const path = require('path');
-	const dataPath = path.join(__dirname, "../../data-lh");
+	const dataPath = path.join(__dirname, "../../data");
 	const glob = require("glob");
 	const crypto = require('crypto');
 
@@ -175,17 +175,10 @@ const patientsRoutes = (app, fs, db) => {
 	    patient.meta = meta;
 
 		// const directoryPath = path.join(__dirname, '/' + patient.id);
-		fs.mkdir(path.join(dataPath, patient.id), (err2) => {
-		            if (err2) {
-		                throw err2;
-		            }
-		        			        fs.writeFile(path.join(dataPath, patient.id, patient.id + '_patient.json'), JSON.stringify(patient, null, 2), 'utf-8', (err) => {
-		        			            if (err) {
-		        			                throw err;
-		        			            }
-		        res.status(200).send(patient);
-		        			        });
-		});
+		fs.mkdir(path.join(dataPath, patient.id), (err2) => { if (err2) { throw err2; }
+		fs.writeFile(path.join(dataPath, patient.id, patient.id + '_patient.json'), JSON.stringify(patient, null, 2),
+		'utf-8', (err) => { if (err) { throw err; } console.log("create pateint: " + patient.id);
+		res.status(200).send(patient); }); });
 			
 		// const directoryPath = path.join(__dirname, '../data/' + patient.id);
 		// fs.mkdirSync(directoryPath);

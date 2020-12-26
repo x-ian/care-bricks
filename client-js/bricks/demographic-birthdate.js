@@ -87,4 +87,7 @@ function onLoadDemographicBirthdate() {
 		$('#birthdate').val(currentPatient.birthdate).change();
 		statusOfNextButton();
 	});
+	
+	$('#birthdate').focus();
+	
 }

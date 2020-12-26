@@ -25,6 +25,11 @@ function onLoadVisitQuestion() {
 		// defaultButtonBooleanpad(e);
 		statusOfNextButton();
 	});
+	
+	$('#input').on("input", function(e) {
+		statusOfNextButton();
+	});
+	$('#input').focus();
 }
 
 function hookNextVisitQuestion(e) {
