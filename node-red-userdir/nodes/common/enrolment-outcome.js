@@ -4,10 +4,6 @@ module.exports = function(RED) {
       var node = this;
       node.program = config.program;
       node.programoutcome = config.programoutcome;
-      node.on('input', function(msg) {
-          msg.payload = msg.payload; //.toLowerCase();
-          node.send(msg);
-      });
   }
   RED.nodes.registerType("enrolment-outcome",ScreenEnrolmentOutcomeNode);
 }

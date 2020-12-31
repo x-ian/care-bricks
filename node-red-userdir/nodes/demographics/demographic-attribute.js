@@ -5,10 +5,6 @@ module.exports = function(RED) {
       node.label = config.label;
       node.key = config.key;
       node.datatype = config.datatype;
-      node.on('input', function(msg) {
-          msg.payload = msg.payload; //.toLowerCase();
-          node.send(msg);
-      });
   }
   RED.nodes.registerType("demographic-attribute",ScreenDemographicAttributeNode);
 }
