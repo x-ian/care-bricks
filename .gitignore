@@ -4,3 +4,4 @@ js/node-red-flows.json
 node_modules
 **/.DS_Store
 data/**
+node-red-userdir/projects/**
