@@ -88,12 +88,24 @@ var myChart = new Chart(ctx, {
 * https://nodered.org/docs/creating-nodes/
 * http://noderedguide.com/
 
+#### Careflow Node-rED startup
+
+node-red -u /Users/xian/projects/data-first-emr/workflow-poc-emr/node-red-userdir
+
 #### Dynamic properties / lists
 
 * in switch and change(?) node
 * https://nodered.org/docs/api/ui/editableList/
 * https://groups.google.com/forum/#!topic/node-red/SZLsfsBuuBs
 * https://discourse.nodered.org/t/how-to-make-custom-ui-widgets/15340/8
+
+#### Projects
+
+Switch from master to another branch better done once on command line via git checkout <branch>. Otherwise NR always (?) tries to merge to branch with currently active master.
+	
+System-generated key file with encryption file (if left on default) is in config.json and config.json.backup. Most likely better not handing these around.
+
+Project management from NR is using github project ... The whole node-red-userdir is excluded from main workflow-poc-emr via .gitignore.
 
 ### Persistence
 
@@ -104,6 +116,12 @@ var myChart = new Chart(ctx, {
 ### Nodejs
 
 memory limits: https://medium.com/@ashleydavis75/node-js-memory-limitations-30d3fe2664c0
+
+#### Async stuff
+
+Use async / await these days.
+* https://blog.risingstack.com/node-js-async-best-practices-avoiding-callback-hell-node-js-at-scale/
+* https://stackabuse.com/avoiding-callback-hell-in-node-js/
 
 ### REST API
 
@@ -208,3 +226,15 @@ node server.js
 ```
 nodemon server.js --ignore 'scripts'
 ```
+
+### server-less
+
+cf multicast
+
+multicast all current changes
+
+if server detects by latest multicast that it is out of sync, deliberately request all changes since last known sync
+
+server needs to keep transaction counter
+
+hash code of each unit/file
