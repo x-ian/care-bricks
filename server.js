@@ -12,35 +12,16 @@ app.use(express.static('bootstrap-studio-export'));
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(':memory:');
 
-db.serialize(function() {
-	db.run("CREATE TABLE patientcache (uuid TEXT, givenname TEXT, familyname TEXT, facilityid TEXT, nationalid TEXT)");
+const EventEmitter = require('events');
+class DataChangeEmitter extends EventEmitter {}
+const dataChangeEmitter = new DataChangeEmitter();
 
-	var stmt = db.prepare("INSERT INTO patientcache VALUES (?, ?, ?, ?, ?)");
-	const glob = require("glob");
-	glob('../data/**/*_patient.json', {}, (err, files) => {
+const sqlite3cache = require('./modules/sqlite3cache');
+sqlite3cache.init(dataChangeEmitter, db);
 
-		console.log("importing all patient files...");
-		files.forEach(file => {
-			// guess there is a better way than using sync, but I'm too lazy
-			var data = fs.readFileSync(file);
-			var p = JSON.parse(data);
-			stmt.run(p.id, p.givenname, p.familyname, p.facilityId, p.nationalId);
-			// console.log('run statement');
-		});
-		stmt.finalize();
-		console.log("importing done");
-		// db.each("SELECT * FROM patientcache", function(err, row) {
-		// 		if (err) {
-		// 			console.log(err);
-		// 		}
-		//   console.log(row.id + ": " + row.givenname);
-		// });
-		console.log('run done');
-	});
-});
-
-const routes = require('./routes/routes.js')(app, db);
+const routes = require('./routes/routes.js')(app, db, dataChangeEmitter);
 
 const server = app.listen(3001, () => {
 	console.log('listening on port %s...', server.address().port);
 });
+

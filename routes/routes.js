@@ -1,7 +1,7 @@
 // import other routes
 const patientsRoutes = require('./patients');
 
-const appRouter = (app, cache) => {
+const appRouter = (app, cache, dataChangeEmitter) => {
 
     // default route
     app.get('/', (req, res) => {
@@ -9,7 +9,7 @@ const appRouter = (app, cache) => {
     });
 
     // // other routes
-    patientsRoutes(app, cache);
+    patientsRoutes(app, cache, dataChangeEmitter);
 
 };
 
