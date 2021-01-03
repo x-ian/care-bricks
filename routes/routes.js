@@ -1,16 +1,15 @@
 // import other routes
 const patientsRoutes = require('./patients');
 
-const appRouter = (app, fs, cache) => {
+const appRouter = (app, cache) => {
 
     // default route
     app.get('/', (req, res) => {
-        // res.send('welcome to the development api-server');
 		res.redirect('flow-select.html');
     });
 
     // // other routes
-    patientsRoutes(app, fs, cache);
+    patientsRoutes(app, cache);
 
 };
 

@@ -105,7 +105,7 @@ Switch from master to another branch better done once on command line via git ch
 	
 System-generated key file with encryption file (if left on default) is in config.json and config.json.backup. Most likely better not handing these around.
 
-Project management from NR is using github project ... The whole node-red-userdir is excluded from main workflow-poc-emr via .gitignore.
+Project management from NR is using github project workflow-poc-emr-nodered. The whole node-red-userdir is excluded from main workflow-poc-emr via .gitignore.
 
 ### Persistence
 
