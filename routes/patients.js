@@ -4,10 +4,9 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 	const cfutil = require('../modules/cfutil');
 	const fs = require('fs');
 	const fsp = require('fs/promises');
-	const path = require('path');
-	const dataPath = path.join(__dirname, "../../data-lh");
+	var config = require('../config');
 	const g = require("glob");
-
+	const path = require('path');
 	const util = require('util');
 	const glob = util.promisify(g);
 
@@ -22,7 +21,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 				try {
 					// was a bit tricky, but got it eventually for async iterator 
 					// https://zellwk.com/blog/async-await-in-loops/
-					let files = await glob(dataPath + '/**/*_patient.json', {});
+					let files = await glob(config.repository.data + '/**/*_patient.json', {});
 
 					const promises = files.map(async file => {
 						const data = await fsp.readFile(file);
@@ -41,7 +40,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 					const {
 						exec
 					} = require("child_process");
-					exec('/usr/bin/find ' + dataPath + ' -name "*_patient.json" -print0 | /usr/bin/xargs -0 /usr/local/bin/jq \'select((.givenname | test("' + name + '";"i")) or (.familyname | test("' + name + '";"i"))) .id\'', async(error, stdout, stderr) => {
+					exec('/usr/bin/find ' + config.repository.data + ' -name "*_patient.json" -print0 | /usr/bin/xargs -0 /usr/local/bin/jq \'select((.givenname | test("' + name + '";"i")) or (.familyname | test("' + name + '";"i"))) .id\'', async(error, stdout, stderr) => {
 						if (error) {
 							console.log(`error: ${error.message}`);
 							return;
@@ -58,7 +57,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 								//First condition to check if string is not empty
 								//Second condition checks if string contains not just whitespace
 								var uuid = line.trim().replace(/['"]+/g, '');
-								const data = await fsp.readFile(dataPath + '/' + uuid + "/" + uuid + "_patient.json");
+								const data = await fsp.readFile(config.repository.data + '/' + uuid + "/" + uuid + "_patient.json");
 								return JSON.parse(data);
 							}
 						});
@@ -74,7 +73,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 						}
 
 						const promises = rows.map(async row => {
-							const data = await fsp.readFile(dataPath + '/' + row.uuid + "/" + row.uuid + "_patient.json");
+							const data = await fsp.readFile(config.repository.data + '/' + row.uuid + "/" + row.uuid + "_patient.json");
 							return JSON.parse(data);
 						});
 						const jsonArray = await Promise.all(promises)
@@ -92,7 +91,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 		try {
 			const uuid = req.params["uuid"];
 			console.log("get patient: " + uuid);
-			let data = await fsp.readFile(path.join(dataPath, uuid, uuid + '_patient.json'));
+			let data = await fsp.readFile(path.join(config.repository.data, uuid, uuid + '_patient.json'));
 			res.send(JSON.parse(data));
 		} catch (e) {
 			next(e);
@@ -138,12 +137,12 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 			meta.updatedBy = ""
 			patient.meta = meta;
 
-			// const directoryPath = path.join(__dirname, '/' + patient.id);
-			fs.mkdir(path.join(dataPath, patient.id), { recursive: true }, (err2) => {
+			fs.mkdir(path.join(config.repository.data, patient.id), { recursive: true }, (err2) => {
 				if (err2) {
 					console.log(err2);
 				}
-				fs.writeFile(path.join(dataPath, patient.id, patient.id + '_patient.json'), JSON.stringify(patient, null, 2), 'utf-8', (err) => {
+
+				fs.writeFile(path.join(config.repository.data, patient.id, patient.id + '_patient.json'), JSON.stringify(patient, null, 2), 'utf-8', (err) => {
 					if (err) {
 						console.log(err);
 					}
@@ -164,7 +163,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 	app.get('/encounters/:uuid', (req, res) => {
 		try {
 			const uuid = req.params["uuid"];
-			glob(dataPath + '/*/*_' + uuid + '.json', {}, (err, files) => {
+			glob(config.repository.data + '/*/*_' + uuid + '.json', {}, (err, files) => {
 				if (err) {
 					// handle error
 				}
@@ -188,7 +187,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 		try {
 			const uuid = req.params["uuid"];
 
-			let files = await glob(dataPath + '/' + uuid + '/*_*_*.json', {});
+			let files = await glob(config.repository.data + '/' + uuid + '/*_*_*.json', {});
 			const promises = files.map(async file => {
 				const data = await fsp.readFile(file);
 				return JSON.parse(data);
@@ -225,7 +224,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 			meta.updatedBy = ""
 			encounter.meta = meta;
 
-			fs.writeFile(path.join(dataPath, uuid, cfutil.currentTimestamp() + '_' + encounter.type + '_' + encounter.id + '.json'), JSON.stringify(encounter, null, 2), 'utf-8', (err) => {
+			fs.writeFile(path.join(config.repository.data, uuid, cfutil.currentTimestamp() + '_' + encounter.type + '_' + encounter.id + '.json'), JSON.stringify(encounter, null, 2), 'utf-8', (err) => {
 				if (err) {
 					throw err;
 				}

@@ -34,3 +34,20 @@ exports.currentTimestamp = function () {
 		return "" + year + "" + month + "" + date + '-' + hr + "" + min + "" + sec;
 	// }
 };
+
+exports.currentDatestamp = function () {
+	// function currentTimestamp() {
+		var d = new Date();
+		
+		var date = d.getDate();
+		if (date < 10) {
+		    date = "0" + date;
+		}
+		var month = d.getMonth() + 1;
+		if (month < 10) {
+		    month = "0" + month;
+		}
+		var year = d.getFullYear();		
+		return "" + year + "" + month + "" + date;
+	// }
+};

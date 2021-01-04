@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const dataPath = path.join(__dirname, "../../data-lh");
+// const dataPath = path.join(__dirname, "../../data-lh");
+var config = require('../config');
 
 exports.init = function(dataChangeEmitter, db) {
 
@@ -10,7 +11,7 @@ exports.init = function(dataChangeEmitter, db) {
 		var stmt = db.prepare("INSERT INTO patientcache VALUES (?, ?, ?, ?, ?)");
 		const glob = require("glob");
 		console.log("importing all patient files...");
-		glob(dataPath + '/**/*_patient.json', {}, (err, files) => {
+		glob(config.repository.data + '/**/*_patient.json', {}, (err, files) => {
 
 			files.forEach(file => {
 				// guess there is a better way than using sync, but I'm too lazy
@@ -36,7 +37,6 @@ exports.init = function(dataChangeEmitter, db) {
 	});
 
 	dataChangeEmitter.on('patientCreate', (patient) => {
-		console.log("patientCreate: " + patient);
 		var stmt = db.prepare("INSERT INTO patientcache VALUES (?, ?, ?, ?, ?)");
 		stmt.run(patient.id, patient.givenname, patient.familyname, patient.facilityId, patient.nationalId);
 		stmt.finalize();
