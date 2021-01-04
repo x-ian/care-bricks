@@ -1,8 +1,9 @@
-var currentPatient = null;
+var currentPatient = {};
 var currentEncounter = {};
 
 function updateCurrentPatient(patient) {
 	sessionStorage.removeItem('currentPatient');
+	console.log("updateCurrentPatient: " + JSON.stringify(patient));
 	currentPatient = patient;
 	sessionStorage.setItem('currentPatient', JSON.stringify(patient));
 }

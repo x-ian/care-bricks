@@ -25,4 +25,7 @@ function onLoadFlowSelect() {
 		divRow.appendChild(divHr);
 		allFlows.appendChild(divRow);
 	}
+	
+	updateCurrentPatient({});
+	updateCurrentEncounter({});
 }

@@ -32,4 +32,7 @@ function onLoadFlowStartNodes() {
 			}
 		}
 	}
+	updateCurrentPatient({});
+	updateCurrentEncounter({});
+	
 }
