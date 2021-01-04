@@ -1,4 +1,4 @@
-var name = "";
+var n = "";
 var addressHierarchy;
 
 function onLoadAddressLiberia() {
@@ -7,7 +7,7 @@ function onLoadAddressLiberia() {
 	let nodeid = getUrlParam('nodeid');
 	var node = nodeById(jsonFlow, nodeid);
 	// $('#input-label').contents().last().replaceWith(node.label);
-	name = node.name;
+	n = node;
 
 	$('#list-country').change(function() {
 		$('#list-county').empty(); $('#input-county').val("").change();
@@ -49,7 +49,11 @@ function onLoadAddressLiberia() {
 		}
 	});
 	
-	loadCurrentPatient();
+	if (node.scope === 'encounter') {
+		loadCurrentEncounter(function() {});
+	} else {
+		loadCurrentPatient();
+	}
 	
 	$.ajax({
 	  dataType: "json",
@@ -72,11 +76,16 @@ function onLoadAddressLiberia() {
 
 function hookNextAddressLiberia(e) {
 	var address = {};
-	address.line = [];
-	address.city = $('#input-city').val();
-	address.district = $('#input-district').val();
-	address.county = $('#input-county').val();
+	// address.line = [];
 	address.country = $('#input-country').val();
-	currentPatient.currentAddress = address;
-	updateCurrentPatient(currentPatient);
+	address.county = $('#input-county').val();
+	address.district = $('#input-district').val();
+	address.city = $('#input-city').val();
+	if (n.scope === 'encounter') {
+		currentEncounter[n.key] = address;
+		updateCurrentEncounter(currentEncounter);
+	} else {
+		currentPatient[n.key] = address;
+		updateCurrentPatient(currentPatient);
+	}	
 }
