@@ -1,5 +1,5 @@
 config:
-  target: http://touchscreenpi:3001
+  target: http://localhost:3001
   phases:
 	  # Create 10 virtual users every second for 5 minutes
     - duration: 30
