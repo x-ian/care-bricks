@@ -235,6 +235,41 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 			next(e);
 		}
 	});
+	
+	// -------------------------------- queue
+
+	app.get('/queue/all', (req, res, next) => {
+		try {
+			res.redirect('/patients');
+		} catch (e) {
+			next(e);
+		}
+	});
+
+	// READ
+	app.get('/queue/:queuename/:date', (req, res, next) => {
+		try {
+			const queuename = req.params["queuename"];
+				const date = req.params["date"];
+
+				var jsonArray = [];
+				db.all("SELECT * FROM queuecache WHERE queuename = '" + queuename + "' AND d = '" + date + "' AND fulfilled = false", async function(err, rows) {
+					if (err) {
+						throw err;
+					}
+
+					const promises = rows.map(async row => {
+						const data = await fsp.readFile(config.repository.data + '/' + row.patientuuid + "/" + row.patientuuid + "_patient.json");
+						return JSON.parse(data);
+					});
+					const jsonArray = await Promise.all(promises);
+					res.send(jsonArray);
+				});
+		} catch (e) {
+			next(e);
+		}
+	});
+	
 };
 
 module.exports = patientsRoutes;

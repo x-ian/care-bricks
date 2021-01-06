@@ -1,11 +1,19 @@
 var patients = new Map([]);
+var node;
 
 function onLoadPatientsQueue() {
+	let nodeid = getUrlParam('nodeid');
+	node = nodeById(jsonFlow, nodeid);
+
+	if (node.label === undefined || node.label === "") {
+	} else {
+		$('#input-label').contents().last().replaceWith(node.label);
+	}
+	
 	patientStorage = $.parseJSON(
 	    $.ajax(
 	        {
-	           url: "/patients",
-	           // url: "assets/resources/patient-storage.json",
+	           url: "/queue/" + node.queueName + "/" + node.queueDateFilter,
 	           async: false,
 				cache: false,
 	           dataType: 'json'
@@ -33,8 +41,10 @@ function hookNextPatientsQueue(e) {
 	
 	updateCurrentPatient(patients.get($('#patients :selected').val()));
 	
-	let encounter_type = flowLabelFromSubnode(jsonFlow, getUrlParam('nodeid'));
+	let encounter_type = node.encounterType;
+	if (encounter_type === undefined) {
+		encounter_type = flowLabelFromSubnode(jsonFlow, getUrlParam('nodeid'));
+	}
 	currentEncounter["type"] = encounter_type;
 	updateCurrentEncounter(currentEncounter);
-	
 }

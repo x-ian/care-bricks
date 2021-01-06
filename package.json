@@ -12,6 +12,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "glob": "^7.1.6",
+    "pouchdb": "^7.2.2",
+    "pouchdb-adapter-memory": "^7.2.2",
     "sqlite3": "^5.0.0"
   }
 }

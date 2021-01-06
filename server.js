@@ -10,15 +10,20 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('bootstrap-studio-export'));
 
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(':memory:');
-
 const EventEmitter = require('events');
 class DataChangeEmitter extends EventEmitter {}
 const dataChangeEmitter = new DataChangeEmitter();
 
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database(':memory:');
 const sqlite3cache = require('./modules/sqlite3cache');
 sqlite3cache.init(dataChangeEmitter, db);
+
+// var PouchDB = require('pouchdb');
+// PouchDB.plugin(require('pouchdb-adapter-memory'));
+// var pouchdb = new PouchDB('pouchdbcache', {adapter: 'memory'});
+// const pouchdbcache = require('./modules/pouchdbcache');
+// pouchdbcache.init(dataChangeEmitter, pouchdb);
 
 const transactionlog = require('./modules/transactionlog');
 transactionlog.init(dataChangeEmitter);

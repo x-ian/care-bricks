@@ -4,7 +4,10 @@
         color: '#C7E9C0',
         defaults: {
             name: {value:""}
-            ,expression: {value:""}
+            ,queueName: {value:""}
+            ,queueDateFilter: {value:""}
+            ,label: {value:""}
+            ,encounterType: {value:""}
         },
         inputs:0,
         outputs:1,
@@ -20,14 +23,23 @@
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
-
     <div class="form-row">
-        <label for="node-input-expression">
-            <i class="fa fa-expression"></i>
-            <span data-i18n="common.label.node-input-expression">Filter expression</span>
-        </label>
-        <input type="text" id="node-input-expression">
+        <label for="node-input-queueName"><i class="icon-tag"></i> Name of Queue</label>
+        <input type="text" id="node-input-queueName" placeholder="Name">
     </div>
+    <div class="form-row">
+        <label for="node-input-queueDateFilter"><i class="icon-tag"></i> Date Filter of queue</label>
+        <input type="text" id="node-input-queueDateFilter" placeholder="Filter">
+    </div>
+    <div class="form-row">
+        <label for="node-input-label"><i class="icon-tag"></i> Label</label>
+        <input type="text" id="node-input-label" placeholder="Label">
+    </div>
+    <div class="form-row">
+        <label for="node-input-encounterType"><i class="icon-tag"></i>Encounter type</label>
+        <input type="text" id="node-input-encounterType" placeholder="Type of new encounter">
+    </div>
+
 </script>
 
 <script type="text/x-red" data-help-name="patients">
