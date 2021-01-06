@@ -4,6 +4,7 @@
         color: '#6d70d0',
         defaults: {
             name: {value:""}
+            ,label: {value: ""}
             ,scope: {value: "demographic"}
             ,key: {value:"address"}
         },
@@ -20,6 +21,13 @@
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-label">
+            <i class="fa fa-label"></i>
+            <span data-i18n="common.label.label">Label</span>
+        </label>
+        <input type="text" id="node-input-label">
     </div>
     <div class="form-row">
         <label for="node-input-scope">
