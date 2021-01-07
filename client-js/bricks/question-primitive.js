@@ -13,9 +13,9 @@ function onLoadQuestionPrimitive() {
 	let nodeid = getUrlParam('nodeid');
 	node = nodeById(jsonFlow, nodeid);
 	key = getKey(node);
+	console.log("aaa" + key);
 	label = getLabel(node);
-	
-	$('#input-label').contents().last().replaceWith(label);
+	$('#input-label').text(label);	
 
 	if (node.scope === 'encounter') {
 		loadCurrentPatient();

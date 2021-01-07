@@ -11,7 +11,7 @@ function onLoadQuestionSelect() {
 	key = getKey(node);
 	label = getLabel(node);
 
-	$('#input-label').contents().last().replaceWith(label);
+	$('#input-label').text(label);
 
 	let dropdown = $('#select-entries');
 	$.each(node.devices, function(key, entry) {
@@ -27,12 +27,10 @@ function onLoadQuestionSelect() {
 		// select element from encounter
 		// $('#select-entries :selected').val()
 		// $('#input').val(currentPatient.currentEncounter[name]);
-	// });
+		// });
 }
 
 function hookNextQuestionSelect(e) {
-	currentEncounter[name + "_val"] = $('#select-entries :selected').val();
-	currentEncounter[name + "_text"] = $('#select-entries :selected').text();
 	if (node.scope === 'encounter') {
 		currentEncounter[key + "_val"] = $('#select-entries :selected').val();
 		currentEncounter[key + "_text"] = $('#select-entries :selected').text();

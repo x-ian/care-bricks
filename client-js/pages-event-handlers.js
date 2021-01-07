@@ -63,6 +63,9 @@ function getLabel(node) {
 
 function getKey(node) {
 	if (node.key === undefined || node.key.trim() === '') {
+		if (node.name === undefined || node.name.trim() === '') {
+			return node.type;
+		}
 		return node.name;
 	} else {
 		return node.key;
