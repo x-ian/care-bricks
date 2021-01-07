@@ -1,14 +1,14 @@
 var patients = new Map([]);
 var node;
+var label = "";
 
 function onLoadPatientsQueue() {
 	let nodeid = getUrlParam('nodeid');
 	node = nodeById(jsonFlow, nodeid);
+	key = getKey(node);
+	label = getLabel(node);
 
-	if (node.label === undefined || node.label === "") {
-	} else {
-		$('#input-label').contents().last().replaceWith(node.label);
-	}
+	$('#input-label').contents().last().replaceWith(label);
 	
 	patientStorage = $.parseJSON(
 	    $.ajax(
@@ -38,11 +38,11 @@ function onLoadPatientsQueue() {
 function hookNextPatientsQueue(e) {
 	// console.log($('#patients :selected').val());
 	// console.log(patients.get($('#patients :selected').val()));
-	
 	updateCurrentPatient(patients.get($('#patients :selected').val()));
 	
+	loadCurrentEncounter();
 	let encounter_type = node.encounterType;
-	if (encounter_type === undefined) {
+	if (encounter_type === undefined || encounter_type.trim() === '') {
 		encounter_type = flowLabelFromSubnode(jsonFlow, getUrlParam('nodeid'));
 	}
 	currentEncounter["type"] = encounter_type;

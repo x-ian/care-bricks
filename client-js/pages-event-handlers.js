@@ -51,6 +51,24 @@ function formatDate(date) {
 	return ("0" + date.getDate()).slice(-2) + "-" + monthNames[date.getMonth()] + "-" + date.getFullYear();
 }
 
+function getLabel(node) {
+	if (node.label === undefined || node.label.trim() === '') {
+		if (node.name === undefined || node.name.trim() === '') {
+			return node.type;
+		}
+		return node.name;
+	}
+	return node.label;
+}
+
+function getKey(node) {
+	if (node.key === undefined || node.key.trim() === '') {
+		return node.name;
+	} else {
+		return node.key;
+	}
+}
+
 // ---------------------------------------------------------
 // common onload stuff for pages
 

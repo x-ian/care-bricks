@@ -1,5 +1,5 @@
 function onLoadSummary() {
-	loadCurrentPatient();
+	loadCurrentPatient(function() {
 	loadCurrentEncounter(function() {
 		$('#input-label').contents().last().replaceWith("Data summary for " + currentPatient.givenname + " " + currentPatient.familyname);
 		
@@ -19,6 +19,6 @@ function onLoadSummary() {
 			$('#summary').append(node.info);
 			// $('#summary').append('<pre>' + node.info + '</pre>');
 		}
-		
+	});
 	});
 }

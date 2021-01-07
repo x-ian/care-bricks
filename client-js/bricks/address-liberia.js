@@ -1,13 +1,14 @@
-var n = "";
+var node;
+var key;
+var label = "";
 var addressHierarchy;
 
 function onLoadAddressLiberia() {
 	$('#navigation-next').prop('disabled', true);
 
 	let nodeid = getUrlParam('nodeid');
-	var node = nodeById(jsonFlow, nodeid);
+	node = nodeById(jsonFlow, nodeid);
 	// $('#input-label').contents().last().replaceWith(node.label);
-	n = node;
 
 	$('#list-country').change(function() {
 		$('#list-county').empty(); $('#input-county').val("").change();
@@ -51,9 +52,8 @@ function onLoadAddressLiberia() {
 	
 	if (node.scope === 'encounter') {
 		loadCurrentEncounter(function() {});
-	} else {
-		loadCurrentPatient();
 	}
+	loadCurrentPatient();
 	
 	$.ajax({
 	  dataType: "json",
@@ -82,10 +82,10 @@ function hookNextAddressLiberia(e) {
 	address.district = $('#input-district').val();
 	address.city = $('#input-city').val();
 	if (n.scope === 'encounter') {
-		currentEncounter[n.key] = address;
+		currentEncounter[key] = address;
 		updateCurrentEncounter(currentEncounter);
 	} else {
-		currentPatient[n.key] = address;
+		currentPatient[key] = address;
 		updateCurrentPatient(currentPatient);
 	}	
 }
