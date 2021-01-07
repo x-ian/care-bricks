@@ -1,13 +1,17 @@
-var name = "";
+var node;
+var key;
+var label = "";
 
-function onLoadVisitSelect() {
+function onLoadQuestionSelect() {
 	$('#navigation-next').prop('disabled', true);
 	processPageDemographicAttribute();
 
 	let nodeid = getUrlParam('nodeid');
-	var node = nodeById(jsonFlow, nodeid);
-	$('#input-label').contents().last().replaceWith(node.label);
-	name = node.name;
+	node = nodeById(jsonFlow, nodeid);
+	key = getKey(node);
+	label = getLabel(node);
+
+	$('#input-label').contents().last().replaceWith(label);
 
 	let dropdown = $('#select-entries');
 	$.each(node.devices, function(key, entry) {
@@ -26,9 +30,16 @@ function onLoadVisitSelect() {
 	// });
 }
 
-function hookNextVisitSelect(e) {
+function hookNextQuestionSelect(e) {
 	currentEncounter[name + "_val"] = $('#select-entries :selected').val();
 	currentEncounter[name + "_text"] = $('#select-entries :selected').text();
-	updateCurrentEncounter(currentEncounter);
-	// updateCurrentPatient(currentPatient);
+	if (node.scope === 'encounter') {
+		currentEncounter[key + "_val"] = $('#select-entries :selected').val();
+		currentEncounter[key + "_text"] = $('#select-entries :selected').text();
+		updateCurrentEncounter(currentEncounter);
+	} else {
+		currentPatient[key + "_val"] = $('#select-entries :selected').val();
+		currentPatient[key + "_text"] = $('#select-entries :selected').text();
+		updateCurrentPatient(currentPatient);
+	}	
 }

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html id="page-question-primitive">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CareFlow EMR</title>
+    <meta name="description" content="Workflow-driven, touchscreen-based point-of-care EMR">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/favicon180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon512x512.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+<!-- Matomo -->
+<script type="text/javascript">
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
+    console.log("It's a local server- no matomo tracking!");
+} else {
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.hotel-africa.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+}
+</script>
+<!-- End Matomo Code -->
+</head>
+
+<body>
+    <header class="emr-header">
+        <div class="emr-header-element emr-header-element__name"><span id="header-name">&nbsp;&nbsp;</span></div>
+        <div class="emr-header-element"><i class="fa fa-female d-none" id="header-female"></i><i class="fa fa-male d-none" id="header-male"></i></div>
+        <div class="emr-header-element">
+            <div><span id="header-birthdate"></span></div>
+        </div>
+        <div class="emr-header-element"><span id="header-currentAddress"></span></div>
+        <div class="emr-header-element"><span id="header-id"></span></div>
+    </header>
+    <div class="container">
+        <h4 id="input-label" style="margin: 10px 0px 0px;">&lt;placeholder&gt;</h4>
+        <hr><input type="text" id="input">
+        <hr>
+        <div id="alphapad" style="width: 600px;">
+            <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-a" type="button">A</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-b" type="button">B</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="alphapad-c" type="button">C</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-d" type="button">D</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-e" type="button">E</button>
+                <button
+                    class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-f" type="button">F</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-g" type="button">G</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-h" type="button">H</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                        id="alphapad-bksp" type="button">Bksp</button></div>
+            <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-i" type="button">I</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-j" type="button">J</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="alphapad-k" type="button">K</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-l" type="button">L</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-m" type="button">M</button>
+                <button
+                    class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-n" type="button">N</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-o" type="button">O</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-p" type="button">P</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                        id="alphapad-quote" type="button">'</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-dash" type="button">-</button></div>
+            <div class="btn-group emr-keyboard-row mx-1 my-1" role="group"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-q" type="button">Q</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-r" type="button">R</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="alphapad-s" type="button">S</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-t" type="button">T</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-u" type="button">U</button>
+                <button
+                    class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-v" type="button">V</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-w" type="button">W</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-x" type="button">X</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                        id="alphapad-y" type="button">Y</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="alphapad-z" type="button">Z</button></div>
+        </div>
+        <div id="keypad" style="width: 250px;">
+            <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-1" type="button">1</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-2" type="button">2</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="keypad-3" type="button">3</button></div>
+            <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-4" type="button">4</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-5" type="button">5</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="keypad-6">6</button></div>
+            <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-7" type="button">7</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-8" type="button">8</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="keypad-9">9</button></div>
+            <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-dot" type="button">.</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="keypad-0" type="button">0</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1"
+                    id="keypad-bksp" type="button">Bksp</button></div>
+        </div>
+        <div id="booleanpad" style="width: 250px;">
+            <div class="emr-keyboard-row btn-group mx-1 my-1"><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="booleanpad-yes" type="button">Yes</button><button class="btn btn-primary emr-keyboard-key mx-1 my-1" id="booleanpad-no" type="button">No&nbsp;</button></div>
+        </div>
+        <div id="datepad" class="emr-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col"><label>Year&nbsp;</label><input type="text" id="year" maxlength="4" minlength="4">
+                        <div style="width: 200px;">
+                            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="keypad-1" type="button">1</button><button class="btn btn-primary mx-1" id="keypad-2" type="button">2</button><button class="btn btn-primary" id="keypad-3" type="button">3</button></div>
+                            <div
+                                class="btn-group btn-block" role="group"><button class="btn btn-primary" id="keypad-4" type="button">4</button><button class="btn btn-primary mx-1" id="keypad-5" type="button">5</button><button class="btn btn-primary" id="keypad-6" type="button">6</button></div>
+                        <div
+                            class="btn-group btn-block" role="group"><button class="btn btn-primary" id="keypad-7" type="button">7</button><button class="btn btn-primary mx-1" id="keypad-8" type="button">8</button><button class="btn btn-primary" id="keypad-9" type="button">9</button></div>
+                    <div class="btn-group btn-block"
+                        role="group"><button class="btn btn-primary" id="keypad-dot" type="button" style="width: 96.9375px;">.</button><button class="btn btn-primary mx-1" id="keypad-0" type="button" style="width: 96.9375px;">0</button><button class="btn btn-primary"
+                            id="keypad-bksp" type="button" style="width: 96.9375px;">Bksp</button></div>
+                </div>
+            </div>
+            <div class="col"><label>Month&nbsp;</label><input type="text" id="month" minlength="2" maxlength="2">
+                <div style="width: 220px;">
+                    <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="monthpad-01" type="button">01 (Jan)</button><button class="btn btn-primary mx-1" id="monthpad-02" type="button">02 (Feb)</button><button class="btn btn-primary" id="monthpad-03" type="button">03 (Mar)</button></div>
+                    <div
+                        class="btn-group btn-block" role="group"><button class="btn btn-primary" id="monthpad-04" type="button">04 (Apr)</button><button class="btn btn-primary mx-1" id="monthpad-05" type="button">05 (May)</button><button class="btn btn-primary" id="monthpad-06" type="button">06 (Jun)</button></div>
+                <div
+                    class="btn-group btn-block" role="group"><button class="btn btn-primary" id="monthpad-07" type="button">07 (Jul)</button><button class="btn btn-primary mx-1" id="monthpad-08" type="button">08 (Aug)</button><button class="btn btn-primary" id="monthpad-09" type="button">09 (Sep)</button></div>
+            <div
+                class="btn-group btn-block" role="group"><button class="btn btn-primary" id="monthpad-10" type="button">10 (Oct)</button><button class="btn btn-primary mx-1" id="monthpad-11" type="button">11 (Nov)</button><button class="btn btn-primary" id="monthpad-12" type="button">12 (Dec)</button></div>
+    </div>
+    </div>
+    <div class="col"><label>Day&nbsp;</label><input type="text" id="day" minlength="1" maxlength="2">
+        <div>
+            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" type="button" disabled="">0</button><button class="btn btn-primary mx-1" id="day-1" type="button">1</button><button class="btn btn-primary" id="day-2" type="button">2</button><button class="btn btn-primary mx-1"
+                    id="day-3" type="button">3</button><button class="btn btn-primary" id="day-4" type="button">4</button><button class="btn btn-primary mx-1" id="day-5" type="button">5</button><button class="btn btn-primary" id="day-6" type="button">6</button>
+                <button
+                    class="btn btn-primary mx-1" id="day-7" type="button">7</button><button class="btn btn-primary" id="day-8" type="button">8</button><button class="btn btn-primary mx-1" id="day-9" type="button">9</button></div>
+            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="day-10" type="button">10</button><button class="btn btn-primary mx-1" id="day-11" type="button">11</button><button class="btn btn-primary" id="day-12" type="button">12</button><button class="btn btn-primary mx-1"
+                    id="day-13" type="button">13</button><button class="btn btn-primary" id="day-14" type="button">14</button><button class="btn btn-primary mx-1" id="day-15" type="button">15</button><button class="btn btn-primary" id="day-16" type="button">16</button>
+                <button
+                    class="btn btn-primary mx-1" id="day-17" type="button">17</button><button class="btn btn-primary" id="day-18" type="button">18</button><button class="btn btn-primary mx-1" id="day-19" type="button">19</button></div>
+            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="day-20" type="button">20</button><button class="btn btn-primary mx-1" id="day-21" type="button">21</button><button class="btn btn-primary" id="day-22" type="button">22</button><button class="btn btn-primary mx-1"
+                    id="day-23" type="button">23</button><button class="btn btn-primary" id="day-24" type="button">24</button><button class="btn btn-primary mx-1" id="day-25" type="button">25</button><button class="btn btn-primary" id="day-26" type="button">26</button>
+                <button
+                    class="btn btn-primary mx-1" id="day-27" type="button">27</button><button class="btn btn-primary" id="day-28" type="button">28</button><button class="btn btn-primary mx-1" id="day-29" type="button">29</button></div>
+            <div class="btn-group btn-block" role="group"><button class="btn btn-primary" id="day-30" type="button">30</button><button class="btn btn-primary mx-1" id="day-31" type="button">31</button><button class="btn btn-primary" type="button" disabled="">32</button><button class="btn btn-primary mx-1"
+                    type="button" disabled="">33</button><button class="btn btn-primary" type="button" disabled="">34</button><button class="btn btn-primary mx-1" type="button" disabled="">35</button><button class="btn btn-primary" type="button" disabled="">36</button>
+                <button
+                    class="btn btn-primary mx-1" type="button" disabled="">37</button><button class="btn btn-primary" type="button" disabled="">38</button><button class="btn btn-primary mx-1" type="button" disabled="">39</button></div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+        <button
+            class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/client-js/node-red-flow-parser.js"></script>
+    <script src="assets/client-js/lib/Chart.min.js"></script>
+    <script src="assets/client-js/lib/Chart.utils.js"></script>
+    <script src="assets/client-js/lib/dexie.min.js"></script>
+    <script src="assets/client-js/local-storage.js"></script>
+    <script src="assets/client-js/pages-event-handlers.js"></script>
+</body>
+
+</html>
