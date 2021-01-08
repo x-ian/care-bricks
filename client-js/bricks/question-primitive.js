@@ -1,6 +1,4 @@
 var node;
-var key;
-var label = "";
 
 function statusOfNextButton() {
 	$('#navigation-next').prop('disabled', ($('#input').val().length == 0));
@@ -12,19 +10,16 @@ function onLoadQuestionPrimitive() {
 
 	let nodeid = getUrlParam('nodeid');
 	node = nodeById(jsonFlow, nodeid);
-	key = getKey(node);
-	console.log("aaa" + key);
-	label = getLabel(node);
-	$('#input-label').text(label);	
+	$('#input-label').text(labelFor(node));	
 
 	if (node.scope === 'encounter') {
 		loadCurrentPatient();
 		loadCurrentEncounter(function() {
-			$('#input').val(currentEncounter[key]);
+			$('#input').val(currentEncounter[getKey(node)]);
 		});
 	} else {
 		loadCurrentPatient(function() {
-			$('#input').val(currentPatient[key]);
+			$('#input').val(currentPatient[getKey(node)]);
 		});
 	};
 
@@ -44,10 +39,10 @@ function onLoadQuestionPrimitive() {
 
 function hookNextQuestionPrimitive(e) {
 	if (node.scope === 'encounter') {
-		currentEncounter[key] = $('#input').val();
+		currentEncounter[getKey(node)] = $('#input').val();
 		updateCurrentEncounter(currentEncounter);
 	} else {
-		currentPatient[key] = $('#input').val();
+		currentPatient[getKey(node)] = $('#input').val();
 		updateCurrentPatient(currentPatient);
 	}
 }

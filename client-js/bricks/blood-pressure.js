@@ -1,8 +1,22 @@
+var keyPrefix;
+
 function statusOfNextButton() {
 	$('#navigation-next').prop('disabled', ($('#input-bp-dia').val().length == 0 || $('#input-bp-sys').val().length == 0));
 }
 
 function onLoadBloodPressure() {
+	let nodeid = getUrlParam('nodeid');
+	node = nodeById(jsonFlow, nodeid);
+	$('#input-label').text(labelFor(node));	
+
+	keyPrefix = keyFor(node);
+	console.log("aaa" + keyPrefix);
+	if (!keyPrefix) {
+		keyPrefix = "bloodpressure";
+	} else {
+		keyPrefix += "";
+	}
+
 	statusOfNextButton();
 	$('#input-bp-sys').on('change', function() {
 		statusOfNextButton();
@@ -13,8 +27,8 @@ function onLoadBloodPressure() {
 
 	loadCurrentPatient();
 	loadCurrentEncounter(function() {
-		$('#input-bp-sys').val(currentEncounter.bpSys);
-		$('#input-bp-dia').val(currentEncounter.bpDia);
+		$('#input-bp-sys').val(currentEncounter[keyPrefix + "-sys"]);
+		$('#input-bp-dia').val(currentEncounter[keyPrefix + "-dia"]);
 	});
 
 	$('.btn').click(function(e) {
@@ -30,7 +44,7 @@ function onLoadBloodPressure() {
 }
 
 function hookNextBloodPressure(e) {
-	currentEncounter.bpSys = $('#input-bp-sys').val();
-	currentEncounter.bpDia = $('#input-bp-dia').val();
+	currentEncounter[keyPrefix + "-sys"] = $('#input-bp-sys').val();
+	currentEncounter[keyPrefix + "-dia"] = $('#input-bp-dia').val();
 	updateCurrentEncounter(currentEncounter);
 }

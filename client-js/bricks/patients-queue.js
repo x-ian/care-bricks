@@ -1,14 +1,10 @@
 var patients = new Map([]);
-var node;
-var label = "";
 
 function onLoadPatientsQueue() {
 	let nodeid = getUrlParam('nodeid');
 	node = nodeById(jsonFlow, nodeid);
-	key = getKey(node);
-	label = getLabel(node);
 
-	$('#input-label').contents().last().replaceWith(label);
+	$('#input-label').contents().last().replaceWith(labelFor(node));
 	
 	patientStorage = $.parseJSON(
 	    $.ajax(

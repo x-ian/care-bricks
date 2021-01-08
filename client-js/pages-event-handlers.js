@@ -51,7 +51,7 @@ function formatDate(date) {
 	return ("0" + date.getDate()).slice(-2) + "-" + monthNames[date.getMonth()] + "-" + date.getFullYear();
 }
 
-function getLabel(node) {
+function labelFor(node) {
 	if (node.label === undefined || node.label.trim() === '') {
 		if (node.name === undefined || node.name.trim() === '') {
 			return node.type;
@@ -61,7 +61,7 @@ function getLabel(node) {
 	return node.label;
 }
 
-function getKey(node) {
+function keyFor(node) {
 	if (node.key === undefined || node.key.trim() === '') {
 		if (node.name === undefined || node.name.trim() === '') {
 			return node.type;

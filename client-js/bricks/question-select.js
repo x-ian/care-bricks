@@ -1,6 +1,4 @@
 var node;
-var key;
-var label = "";
 
 function onLoadQuestionSelect() {
 	$('#navigation-next').prop('disabled', true);
@@ -8,10 +6,8 @@ function onLoadQuestionSelect() {
 
 	let nodeid = getUrlParam('nodeid');
 	node = nodeById(jsonFlow, nodeid);
-	key = getKey(node);
-	label = getLabel(node);
 
-	$('#input-label').text(label);
+	$('#input-label').text(labelFor(node));
 
 	let dropdown = $('#select-entries');
 	$.each(node.devices, function(key, entry) {
@@ -31,6 +27,7 @@ function onLoadQuestionSelect() {
 }
 
 function hookNextQuestionSelect(e) {
+	key = getKey(node);
 	if (node.scope === 'encounter') {
 		currentEncounter[key + "_val"] = $('#select-entries :selected').val();
 		currentEncounter[key + "_text"] = $('#select-entries :selected').text();

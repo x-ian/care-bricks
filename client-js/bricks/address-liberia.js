@@ -1,6 +1,4 @@
 var node;
-var key;
-var label = "";
 var addressHierarchy;
 
 function onLoadAddressLiberia() {
@@ -8,7 +6,7 @@ function onLoadAddressLiberia() {
 
 	let nodeid = getUrlParam('nodeid');
 	node = nodeById(jsonFlow, nodeid);
-	// $('#input-label').contents().last().replaceWith(node.label);
+	$('#input-label').text(labelFor(node));	
 
 	$('#list-country').change(function() {
 		$('#list-county').empty(); $('#input-county').val("").change();
@@ -81,11 +79,11 @@ function hookNextAddressLiberia(e) {
 	address.county = $('#input-county').val();
 	address.district = $('#input-district').val();
 	address.city = $('#input-city').val();
-	if (n.scope === 'encounter') {
-		currentEncounter[key] = address;
+	if (node.scope === 'encounter') {
+		currentEncounter[keyFor(node)] = address;
 		updateCurrentEncounter(currentEncounter);
 	} else {
-		currentPatient[key] = address;
+		currentPatient[keyFor(node)] = address;
 		updateCurrentPatient(currentPatient);
 	}	
 }
