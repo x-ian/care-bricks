@@ -10,7 +10,6 @@ function onLoadBloodPressure() {
 	$('#input-label').text(labelFor(node));	
 
 	keyPrefix = keyFor(node);
-	console.log("aaa" + keyPrefix);
 	if (!keyPrefix) {
 		keyPrefix = "bloodpressure";
 	} else {
