@@ -5,6 +5,7 @@ module.exports = function(RED) {
         this.scope = properties.scope;
         this.key = properties.key;
         this.datatype = properties.datatype;
+		this.optional = properties.optional;
     }
     RED.nodes.registerType("question-primitive",QuestionPrimitiveNode);
 }

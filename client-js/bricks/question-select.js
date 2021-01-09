@@ -27,7 +27,7 @@ function onLoadQuestionSelect() {
 }
 
 function hookNextQuestionSelect(e) {
-	key = getKey(node);
+	key = keyFor(node);
 	if (node.scope === 'encounter') {
 		currentEncounter[key + "_val"] = $('#select-entries :selected').val();
 		currentEncounter[key + "_text"] = $('#select-entries :selected').text();

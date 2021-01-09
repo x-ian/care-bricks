@@ -7,7 +7,8 @@
             label: { value: "" },
             scope: { value: "encounter"},
             key: { value: "" },
-            datatype: { value: "string" }
+            datatype: { value: "string" },
+            optional: { value: "" }
         },
 
         inputs: 1,
@@ -55,6 +56,12 @@
     </div>
 
     <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-optional" placeholder="" style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-optional" style="width:70%;">Input optional</label>
+    </div>
+
+    <div class="form-row">
         <label for="node-input-datatype">
             <i class="fa fa-envelope"></i>
             <span data-i18n="common.label.datatype">Primitive Datatype</span>
@@ -69,6 +76,4 @@
 		        <option value="dateTime" data-i18n="single-question-primitive.dateTime">DateTime</option>
         </select>
     </div>
-
-    <div class="form-tips" data-i18n="[html]single-question-primitive.tip"></div>
 </script>
