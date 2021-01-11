@@ -1,15 +1,33 @@
 var patients = new Map([]);
 
+function dateString() {
+	var d = new Date();
+
+	var date = d.getDate();
+	if (date < 10) {
+	    date = "0" + date;
+	}
+	var month = d.getMonth() + 1;
+	if (month < 10) {
+	    month = "0" + month;
+	}
+	var year = d.getFullYear();		
+	return "" + year + "-" + month + "-" + date;
+}
+
 function onLoadPatientsQueue() {
 	let nodeid = getUrlParam('nodeid');
 	node = nodeById(jsonFlow, nodeid);
 
 	$('#input-label').contents().last().replaceWith(labelFor(node));
-	
+	var d = node.queueDateFilter;
+	if (d === undefined || d === '') {
+		d = dateString() + '%2000:00:00';
+	}
 	patientStorage = $.parseJSON(
 	    $.ajax(
 	        {
-	           url: "/queue/" + node.queueName + "/" + node.queueDateFilter,
+	           url: "/queue/" + node.queueName + "/" + d,
 	           async: false,
 				cache: false,
 	           dataType: 'json'

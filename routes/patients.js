@@ -259,8 +259,12 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 					}
 
 					const promises = rows.map(async row => {
-						const data = await fsp.readFile(config.repository.data + '/' + row.patientuuid + "/" + row.patientuuid + "_patient.json");
-						return JSON.parse(data);
+						try {
+							const data = await fsp.readFile(config.repository.data + '/' + row.patientuuid + "/" + row.patientuuid + "_patient.json");
+							return JSON.parse(data);
+						} catch (e) {
+							return null;
+						}
 					});
 					const jsonArray = await Promise.all(promises);
 					res.send(jsonArray);

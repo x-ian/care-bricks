@@ -1,0 +1,9 @@
+{
+	"name": "workflow-emr-poc-scripts",
+	"version": "0.1.0",
+	"description": "An example module to illustrate the usage of a package.json",
+	"author": "x-ian",
+	"dependencies": {
+		"shelljs": "^0.8.4"
+	}
+}

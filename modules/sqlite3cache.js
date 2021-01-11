@@ -7,7 +7,8 @@ exports.init = function(dataChangeEmitter, db) {
 
 	db.serialize(function() {
 		cacheName(db);
-		cacheQueue(db);
+		cacheAppointment(db);
+		// cacheQueue(db);
 	});
 
 	dataChangeEmitter.on('patientUpdate', (patient) => {
@@ -46,7 +47,7 @@ exports.init = function(dataChangeEmitter, db) {
 
 		var stmt = db.prepare("INSERT INTO patientcache VALUES (?, ?, ?, ?, ?)");
 		const glob = require("glob");
-		console.log("importing all patients...");
+		console.log("importing all patients..." + new Date());
 		var i = 0;
 		glob(config.repository.data + '/*/*_patient.json', {}, (err, files) => {
 
@@ -58,7 +59,7 @@ exports.init = function(dataChangeEmitter, db) {
 				i++;
 			});
 			stmt.finalize();
-			console.log("patient import done: " + i);
+			console.log("patient import done: " + i + " " + new Date());
 		});
 	};
 	
@@ -81,6 +82,27 @@ exports.init = function(dataChangeEmitter, db) {
 			});
 			stmt.finalize();
 			console.log("appointment import done: " + i);
+		});
+	};
+	
+	function cacheAppointment(db) {
+		db.run("CREATE TABLE queuecache (patientuuid TEXT, encounteruuid TEXT, queuename TEXT, d DATE, fulfilled BOOLEAN)");
+
+		var stmt = db.prepare("INSERT INTO queuecache VALUES (?, ?, ?, ?, ?)");
+		const glob = require("glob");
+		console.log("importing all lh hiv appointments..." + new Date());
+		var i = 0;
+		glob(config.repository.data + '/*/*_appointment_*.json', {}, (err, files) => {
+
+			files.forEach(file => {
+				// guess there is a better way than using sync, but I'm too lazy
+				var data = fs.readFileSync(file);
+				var e = JSON.parse(data);
+				stmt.run(e.patientId, e.id, e.type, e['Appointment date'], false);
+				i++;
+			});
+			stmt.finalize();
+			console.log("lh appointment import done: " + i + " " + new Date());
 		});
 	};
 	
