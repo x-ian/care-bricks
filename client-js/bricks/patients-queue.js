@@ -22,7 +22,7 @@ function onLoadPatientsQueue() {
 	$('#input-label').contents().last().replaceWith(labelFor(node));
 	var d = node.queueDateFilter;
 	if (d === undefined || d === '') {
-		d = dateString() + '%2000:00:00';
+		// d = dateString() + '%2000:00:00';
 	}
 	patientStorage = $.parseJSON(
 	    $.ajax(

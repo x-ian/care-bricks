@@ -238,3 +238,59 @@ if server detects by latest multicast that it is out of sync, deliberately reque
 server needs to keep transaction counter
 
 hash code of each unit/file
+
+### Screencasting
+
+New flow
+patients queue
+
+
+question primitive
+blood pressure
+vitals
+question select
+device coordinates
+switch
+address liberia
+show video
+take photo
+summary
+next appointment
+
+job aid
+
+Careflow:
+Scalable and agile 
+
+Patient Management Information System (PMIS)
+
+with lean & tailored development 
+
+in a workflow-driven & guideline-defined clinical environment 
+
+for touchscreen-based clinical workstations
+
+
+Task: 
+Introduce a vitals screening station into the EHR/PMIS at your facility
+(Assumptions: 
+- EHR/PMIS already rolled out
+- Patient previously registered and ‘checked in’ for todays visit at registration station)
+
+
+patient queue of todays’ checked-in patients
+primitive question height
+primitive question weight
+end flow
+
+historical summary chart
+switch adult —> skip height
+switch infant —> MUAC
+  show video
+select question refer to malnutrition
+
+primitive question date
+replace with next appointment
+
+introduce device coordinates
+
