@@ -15,7 +15,7 @@ function onLoadSwitch() {
 				if ((node.rules[i].v) == '') {
 					div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id + '>' + entry.type + ' ' + entry.name + '</a> (no rule specified in workflow)' + '</div></div>');	
 				} else {
-					eval(node.rules[i].v)
+					// eval(node.rules[i].v)
 					div.append('<div class=row><div class="col text-center"><a class="btn btn-primary text-center" role=button href=' + entry.type + '.html?nodeid=' + entry.id + '>' + entry.type + ' ' + entry.name + '</a> ' + node.rules[i].v + ' (' + eval(node.rules[i].v) + ')' + '</div></div>');
 				}
 			} catch (e) {

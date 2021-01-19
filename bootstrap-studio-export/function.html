@@ -47,7 +47,10 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     </header>
     <div class="container">
         <h4 id="input-label" style="margin: 10px 0px 0px;">Function node</h4>
-        <hr><label>As of now the evaluation of this node is not active; manually select from all the outgoing transitions below. This will be done automatically in future.</label>
+        <hr><label>As of now this brick only executes its content and displays it. It does NOT yet automatically progress in the flow as this simplifies development and testing.</label>
+        <hr>
+        <div id="eval-result"></div>
+        <hr>
         <div id="all-transitions"></div>
     </div>
     <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>

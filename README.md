@@ -208,6 +208,19 @@ Dory
 * https://developers.google.com/web/fundamentals/primers/service-workers
 * https://medium.com/@bhargavshah2011/overview-of-web-worker-service-worker-56082720dcd0
 
+### GPS coordinations / OpenStreetMaps 
+
+http://www.openstreetmap.org/?mlat=49.8719803&mlon=8.3350004&zoom=12
+
+
+```
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=8.12370300292969%2C49.80431392204895%2C8.460159301757814%2C49.93951039093599&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=12/49.8720/8.2919">View Larger Map</a></small>
+```
+
+https://render.openstreetmap.org/cgi-bin/export?bbox=8.190994262695314,49.831353215826354,8.39286804199219,49.91247109715859&scale=89218&format=png
+
+0.2113405
+
 ### Artillery for load testing
 
 ```
@@ -239,58 +252,4 @@ server needs to keep transaction counter
 
 hash code of each unit/file
 
-### Screencasting
-
-New flow
-patients queue
-
-
-question primitive
-blood pressure
-vitals
-question select
-device coordinates
-switch
-address liberia
-show video
-take photo
-summary
-next appointment
-
-job aid
-
-Careflow:
-Scalable and agile 
-
-Patient Management Information System (PMIS)
-
-with lean & tailored development 
-
-in a workflow-driven & guideline-defined clinical environment 
-
-for touchscreen-based clinical workstations
-
-
-Task: 
-Introduce a vitals screening station into the EHR/PMIS at your facility
-(Assumptions: 
-- EHR/PMIS already rolled out
-- Patient previously registered and ‘checked in’ for todays visit at registration station)
-
-
-patient queue of todays’ checked-in patients
-primitive question height
-primitive question weight
-end flow
-
-historical summary chart
-switch adult —> skip height
-switch infant —> MUAC
-  show video
-select question refer to malnutrition
-
-primitive question date
-replace with next appointment
-
-introduce device coordinates
 
