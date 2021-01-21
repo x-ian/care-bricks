@@ -3,7 +3,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 
 	const cfutil = require('../modules/cfutil');
 	const fs = require('fs');
-	const fsp = require('fs/promises');
+	const fsp = require('fs').promises;
 	var config = require('../config');
 	const g = require("glob");
 	const path = require('path');

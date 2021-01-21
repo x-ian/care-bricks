@@ -1,5 +1,5 @@
 const fs = require('fs');
-const fsp = require('fs/promises');
+const fsp = require('fs').promises;
 const cfutil = require('../modules/cfutil');
 var config = require('../config');
 
