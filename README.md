@@ -1,5 +1,27 @@
 # workflow-poc-emr
 
+### Installation
+
+#### Set up runtime environment
+
+1. Install NodeJS (a recent version, maybe 12 or higher) and NPM (might come with Node)
+1. npm install -g nodemon
+1. git clone https://github.com/x-ian/workflow-poc-emr
+1. cd workflow-poc-emr
+1. npm install
+1. Start runtime environment with node server.js or nodemon server-js —ignore ‘scripts’. Per default the data repository dir is under ../repository (can be changed in config.js). Open http://localhost:3001
+
+#### Set up design environment
+
+1. Install Node-RED (at least 0.18)
+1. Start Node-RED with node-red -u <path work workflow-poc-emr repo>/node-red-userdir
+1. Open http://localhost:1880
+1. Now the ugly part. <agically make Node-RED project feature with GitHub connection work
+  * create / add new SSH key
+  * send me the key so that I can add this as repository-specific ‘deploy key’
+  * somehow get Node-RED to properly checkout the project (here it often didn’t work)
+1. Once the project is properly set up, find the Careflow config node (currently on the Malaria flow) and add a new config. It is basically the fully qualified path to the file with the flow definition for the runtime environment. Every Node-RED deploy copies the flow definition into this file.
+
 ### Dev interface for  bricks
 
 brick interface
