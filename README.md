@@ -7,16 +7,16 @@ Upfront: Depending on distro, the default packages for Node-RED and NodeJS can b
 #### Set up runtime environment
 
 1. Install NodeJS (a recent version, maybe 12 or higher) and NPM (might come with Node)
-1. npm install -g nodemon
-1. git clone https://github.com/x-ian/workflow-poc-emr
-1. cd workflow-poc-emr
-1. npm install
-1. Start runtime environment with node server.js or nodemon server-js —ignore ‘scripts’. Per default the data repository dir is under ../repository (can be changed in config.js). Open http://localhost:3001
+1. ```npm install -g nodemon```
+1. ```git clone https://github.com/x-ian/workflow-poc-emr```
+1. ```cd workflow-poc-emr```
+1. ```npm install```
+1. Start runtime environment with ```node server.js``` or ```nodemon server-js —ignore ‘scripts’```. Per default the data repository dir is under ../repository (can be changed in config.js). Open http://localhost:3001
 
 #### Set up design environment
 
 1. Install Node-RED (at least 0.18)
-1. Start Node-RED with node-red -u <path work workflow-poc-emr repo>/node-red-userdir
+1. Start Node-RED with ```node-red -u <path work workflow-poc-emr repo>/node-red-userdir```
 1. Open http://localhost:1880
 1. Now the ugly part. <agically make Node-RED project feature with GitHub connection work
     * create / add new SSH key
