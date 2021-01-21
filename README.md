@@ -1,5 +1,20 @@
 # workflow-poc-emr
 
+### Dev interface for  bricks
+
+brick interface
+
+* node id or flow id via URL get parameter
+* node type and other properties via jsonFlow 
+* HTML with id page-<filename>
+* central event handler for page load (hook onLoad<brickname>) and hook for next button (hook hookNext<brickname>) ; optionally any interaction/button pressed
+
+access in bricks to:
+
+* currentPatient
+* currentEncounter
+* optional / on-demand: pastEncounters
+
 ### Stuff
 
 #### Webcam for photos
