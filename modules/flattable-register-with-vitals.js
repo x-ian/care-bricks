@@ -27,7 +27,6 @@ exports.init = function(dataChangeEmitter) {
 		if (encounter.type === 'art-visit') {
 			
 		}
-		art-visit
 	});
 
 	dataChangeEmitter.on('encounterUpdate', (encounter) => {

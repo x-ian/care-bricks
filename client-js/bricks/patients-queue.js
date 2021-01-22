@@ -12,7 +12,7 @@ function dateString() {
 	    month = "0" + month;
 	}
 	var year = d.getFullYear();		
-	return "" + year + "-" + month + "-" + date;
+	return "" + year + "" + month + "" + date;
 }
 
 function onLoadPatientsQueue() {
@@ -22,7 +22,7 @@ function onLoadPatientsQueue() {
 	$('#input-label').contents().last().replaceWith(labelFor(node));
 	var d = node.queueDateFilter;
 	if (d === undefined || d === '') {
-		// d = dateString() + '%2000:00:00';
+		d = dateString(); // + '%2000:00:00';
 	}
 	patientStorage = $.parseJSON(
 	    $.ajax(
@@ -41,8 +41,14 @@ function onLoadPatientsQueue() {
 	
 	$('#navigation-next').prop('disabled', true);
 	let dropdown = $('#patients');
+	console.log("ROWCONTENT: " + JSON.stringify(node));
+	console.log("ROWCONTENT: " + node.rowContent);
 	patients.forEach((entry, key, map) => {
-		dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.hivId + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
+		if (node.rowContent) {
+			dropdown.append(eval(node.rowContent));
+		} else {
+			dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.hivId + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
+		}
 	});
 	dropdown.change(function() {
 		$('#navigation-next').prop('disabled', false);

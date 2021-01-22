@@ -32,6 +32,46 @@ function loadCurrentEncounter(callback) {
 }
 
 function updateHeader(patient) {
+	
+	var careflowConfig = 'ghii';
+	switch (careflowConfig) {
+		case 'ghii':
+			updateHeaderGhii(patient);
+			break;
+		case 'malawi':
+			break;
+		default:
+			console.log("Unknown config " + careflowConfig + ". Using default");
+			updateHeaderDefault(patient);
+			break;
+	}
+}
+
+function updateHeaderGhii(patient) {
+		$('emr-header').empty();
+		$('emr-header').append(
+	`<header class="emr-header">
+	    <div class="emr-header-element emr-header-element__name"><span id="header-name"></span></div>
+	    <div class="emr-header-element">
+	        <div><span id="header-birthdate"></span></div>
+	    </div>
+	    <div class="emr-header-element"><span id="header-id"></span></div>
+	</header>
+	`);
+	try {
+		$('#header-name').text(patient.Name);
+		if (patient['Health ID'] === undefined) {
+			$('#header-id').text("ID: " + patient.id);
+		} else {
+			$('#header-id').text("Health ID: " + patient['Health ID']);
+		}
+		$('#header-birthdate').text(patient.Age_text);
+	} catch (e) {
+		console.error(e);
+	}
+}
+
+function updateHeaderDefault(patient) {
 	try {
 		$('#header-name').text(patient.givenname + " " + patient.familyname);
 		if (patient.hivId === undefined) {

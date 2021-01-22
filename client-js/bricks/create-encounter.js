@@ -8,7 +8,6 @@ function onLoadCreateEncounter() {
 }
 
 function hookNextCreateEncounter(e) {
-	console.log('sd');
 	updateCurrentEncounter(currentEncounter);
 	if (!jQuery.isEmptyObject(currentEncounter)) {
 		// 'normal encounter'
