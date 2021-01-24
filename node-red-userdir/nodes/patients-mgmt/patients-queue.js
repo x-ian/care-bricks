@@ -7,7 +7,7 @@ module.exports = function(RED) {
       node.queueDateFilter = config.queueDateFilter;
       node.label = config.label;
       node.encounterType = config.encounterType;
-      node.rowContent = config.rowContent;
+      node.rowcontent = config.rowcontent;
   }
   RED.nodes.registerType("patients-queue",PatientsQueueNode);
 }

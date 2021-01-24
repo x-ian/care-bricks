@@ -41,11 +41,9 @@ function onLoadPatientsQueue() {
 	
 	$('#navigation-next').prop('disabled', true);
 	let dropdown = $('#patients');
-	console.log("ROWCONTENT: " + JSON.stringify(node));
-	console.log("ROWCONTENT: " + node.rowContent);
 	patients.forEach((entry, key, map) => {
-		if (node.rowContent) {
-			dropdown.append(eval(node.rowContent));
+		if (node.rowcontent) {
+			dropdown.append(eval(node.rowcontent));
 		} else {
 			dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.hivId + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
 		}

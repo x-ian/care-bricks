@@ -6,6 +6,7 @@ module.exports = function(RED) {
       node.includeidentifier = config.includeidentifier;
       node.program = config.program;
       node.expression = config.expression;
+      node.rowcontent = config.rowcontent;
   }
   RED.nodes.registerType("find-patient",ScreenFindPatientNode);
 }

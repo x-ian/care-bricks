@@ -8,13 +8,30 @@
           ,includeidentifier: {value:""}
           ,program: {value:""}
           ,expression: {value:""}
+		  ,rowcontent: {value:""}
         },
         inputs:0,
         outputs:1,
         icon: "inject.png",
         label: function() {
             return this.name||"Find Patient";
-        }
+        },
+		oneditprepare: function() {
+			this.editor = RED.editor.createEditor({
+			   id: 'node-input-rowcontent-editor',
+			   mode: 'ace/mode/javascript',
+			   value: $("#node-input-rowcontent").val()
+			});
+		},
+		oneditsave: function() {
+			$("#node-input-rowcontent").val(this.editor.getValue());
+		    this.editor.destroy();
+		    delete this.editor;
+		},
+		oneditcancel: function() {
+		    this.editor.destroy();
+		    delete this.editor;
+		}
     });
 </script>
 
@@ -57,8 +74,11 @@
         </label>
         <input type="text" id="node-input-expression">
     </div>
-</script>
-
-<script type="text/x-red" data-help-name="find-patient">
-    <p>workflow-poc-emr screen for </p>
+	
+    <div class="form-row" node-text-editor-row">
+		<input type="hidden" id="node-input-rowcontent">
+	    <label for="node-input-rowcontent-editor"><i class="fa fa-expression"></i>Row content</label>
+		<div style="height: 200px; min-height:150px;" class="node-text-editor" id="node-input-rowcontent-editor"></div>
+	</div>
+	
 </script>

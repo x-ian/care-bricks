@@ -33,9 +33,16 @@ function onLoadFindPatient() {
 		$('#navigation-next').prop('disabled', true);
 		let dropdown = $('#patient-list ');
 		dropdown.empty();
+		let nodeid = getUrlParam('nodeid');
+		node = nodeById(jsonFlow, nodeid);
 		patientList.forEach((entry, key, map) => {
-			dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.hivId + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
+			if (node.rowcontent) {
+				dropdown.append(eval(node.rowcontent));
+			} else {
+				dropdown.append('<option class=emr-select-option value=' + "" + key + '>' + entry.hivId + " - " + entry.givenname + " " + entry.familyname + " - " + entry.gender + " - " + entry.birthdate + '</option>');
+			}
 		});
+
 		dropdown.change(function() {
 			$('#navigation-next').prop('disabled', false);
 		});

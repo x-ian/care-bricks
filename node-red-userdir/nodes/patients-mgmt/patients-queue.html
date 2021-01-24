@@ -8,14 +8,31 @@
             ,queueDateFilter: {value:""}
             ,label: {value:""}
             ,encounterType: {value:""}
-            ,rowContent: {value:""}
+			,rowcontent: {value:"default"}
         },
         inputs:0,
         outputs:1,
         icon: "inject.png",
         label: function() {
             return this.name||"Patients Queue";
-        }
+        },
+		oneditprepare: function() {
+			this.editor = RED.editor.createEditor({
+			   id: 'node-input-rowcontent-editor',
+			   mode: 'ace/mode/javascript',
+				value: $("#node-input-rowcontent").val() //this.rowcontent
+			});
+		},
+		oneditsave: function() {
+		    // rowcontent = this.editor.getValue();
+			$("#node-input-rowcontent").val(this.editor.getValue());
+		    this.editor.destroy();
+		    delete this.editor;
+		},
+		oneditcancel: function() {
+		    this.editor.destroy();
+		    delete this.editor;
+		}
     });
 </script>
 
@@ -37,16 +54,12 @@
         <input type="text" id="node-input-label" placeholder="Label">
     </div>
     <div class="form-row">
-        <label for="node-input-encounterType"><i class="icon-tag"></i>New Encounter type</label>
+        <label for="node-input-encounterType"><i class="icon-tag"></i>Start with new Encounter type</label>
         <input type="text" id="node-input-encounterType" placeholder="Type of new encounter">
     </div>
-    <div class="form-row">
-        <label for="node-input-rowContent"><i class="icon-tag"></i>Content of rows</label>
-        <input type="text" id="node-input-rowContent" placeholder="Custom JS code for each row">
-    </div>
-
-</script>
-
-<script type="text/x-red" data-help-name="patients">
-    <p>workflow-poc-emr screen for </p>
+    <div class="form-row" node-text-editor-row">
+		<input type="hidden" id="node-input-rowcontent">
+	    <label for="node-input-rowcontent-editor"><i class="fa fa-expression"></i>Row content</label>
+		<div style="height: 200px; min-height:150px;" class="node-text-editor" id="node-input-rowcontent-editor"></div>
+	</div>
 </script>
