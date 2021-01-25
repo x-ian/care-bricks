@@ -19,7 +19,7 @@ module.exports = function(RED) {
 	  			  const http = require('http');
 
 	  			  const file = fs.createWriteStream(node.careflow_runtime.runtime_flow_path);
-	  			  const request = http.get("http://localhost:1880/flows", function(response) {
+	  			  const request = http.get("http://localhost:" + RED.settings.uiPort + "/flows", function(response) {
 	  			    response.pipe(file);
 	  			  });
 				} else {
