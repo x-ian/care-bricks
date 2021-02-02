@@ -10,6 +10,7 @@ Upfront: Depending on distro, the default packages for Node-RED and NodeJS can b
 1. ```npm install -g nodemon```
 1. ```git clone https://github.com/x-ian/workflow-poc-emr```
 1. ```cd workflow-poc-emr```
+1. ```cd bootstrap-studio-export/assets; ln -s ../../client-js/ .; ln -s ../../resources/ .; cd -```
 1. ```npm install```
 1. Start runtime environment with ```node server.js``` or ```nodemon server-js —ignore ‘scripts’```. Per default the data repository dir is under ../repository (can be changed in config.js). Open http://localhost:3001
 
