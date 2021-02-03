@@ -13,6 +13,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon512x512.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 <!-- Matomo -->
 <script type="text/javascript">
@@ -47,44 +48,28 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
     </header>
     <div class="container">
         <h4 id="input-label" style="margin: 10px 0px 0px;">&lt;take-photo&gt;</h4>
-        <hr><label>(Next to continue)&nbsp;</label><video id="webcam" autoplay playsinline width="640" height="480"></video>
+        <hr><button class="btn btn-danger" data-toggle="tooltip" data-bs-tooltip="" id="btn-snap" type="button" title="Take Photo"><i class="icon ion-record"></i></button><button class="btn btn-primary d-none" data-toggle="tooltip" data-bs-tooltip="" id="btn-undo"
+            type="button" title="Retry"><i class="fa fa-undo"></i></button><button class="btn btn-secondary" data-toggle="tooltip" data-bs-tooltip="" id="btn-flip" type="button" title="Flip camera"><i class="icon ion-ios-reverse-camera"></i></button><video id="webcam" autoplay playsinline width="640" height="480"></video>
 <canvas id="canvas" class="d-none"></canvas>
-<audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
-
-    <script src="assets/client-js/lib/webcam-easy.min.js"></script>
-
-<script>
-	const webcamElement = document.getElementById('webcam');
-	const canvasElement = document.getElementById('canvas');
-	const snapSoundElement = document.getElementById('snapSound');
-	const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
+<audio id="snapSound" src="assets/client-js/lib/webcam-easy.snap.wav" preload = "auto"></audio>
+<img src="" id="camera-output" class="d-none">
 	
- webcam.start()
-    .then(result =>{
-       console.log("webcam started");
-    })
-    .catch(err => {
-        console.log(err);
-    });
-	
-	// var picture = webcam.snap();
-</script>
-	
-	<a href="" onclick="webcam.snap();">Take photo</a>
+<script src="assets/client-js/lib/webcam-easy.min.js"></script>
 </div>
-    <footer class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
+    <footer
+        class="text-center emr-footer fixed-bottom"><button class="btn btn-primary btn-danger" id="navigation-cancel" type="button"><i class="fa fa-window-close emr-icon"></i><span>Cancel</span></button><button class="btn btn-primary btn-light ml-auto" id="navigation-back" type="button"><i class="fa fa-angle-left emr-icon"></i><span>Back</span></button>
         <button
             class="btn btn-primary btn-light" id="navigation-clear" type="button"><i class="fa fa-trash emr-icon"></i><span>Clear</span></button><button class="btn btn-primary active btn-success" id="navigation-next" type="button"><span class="emr-icon">Next</span><i class="fa fa-angle-right"></i></button></footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/client-js/node-red-flow-parser.js"></script>
-    <script src="assets/client-js/lib/Chart.min.js"></script>
-    <script src="assets/client-js/lib/Chart.utils.js"></script>
-    <script src="assets/client-js/lib/dexie.min.js"></script>
-    <script src="assets/client-js/local-storage.js"></script>
-    <script src="assets/client-js/pages-event-handlers.js"></script>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="assets/js/chart.min.js"></script>
+            <script src="assets/js/bs-init.js"></script>
+            <script src="assets/client-js/node-red-flow-parser.js"></script>
+            <script src="assets/client-js/lib/Chart.min.js"></script>
+            <script src="assets/client-js/lib/Chart.utils.js"></script>
+            <script src="assets/client-js/lib/dexie.min.js"></script>
+            <script src="assets/client-js/local-storage.js"></script>
+            <script src="assets/client-js/pages-event-handlers.js"></script>
 </body>
 
 </html>

@@ -171,3 +171,13 @@ exports.queueInmemoryTodo = async function(queuename, date) {
 	});
 }
 
+exports.createMedia = async function(uuid, media) {
+	var mediaId = cfutil.UUIDGeneratorNode();
+	
+	var base64Data = media.photo.replace(/^data:image\/png;base64,/, "");
+	
+	await fsp.writeFile(path.join(config.repository.data, uuid, cfutil.currentTimestamp() + '_media_' + mediaId + '.png'), base64Data, 'base64');
+	return mediaId;
+}
+
+

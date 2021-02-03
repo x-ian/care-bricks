@@ -137,6 +137,22 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 		}
 	});
 	
+	
+	// -------------------------------- media
+
+	app.post('/patients/:uuid/media', async (req, res, next) => {
+		try {
+			console.log("create media called");
+			const uuid = req.params["uuid"];
+			
+			const media = await storage.createMedia(uuid, req.body);
+
+			dataChangeEmitter.emit('mediaCreate', media);
+			res.status(200).send({media});
+		} catch (e) {
+			next(e);
+		}
+	});
 };
 
 module.exports = patientsRoutes;
