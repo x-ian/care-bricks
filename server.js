@@ -4,6 +4,9 @@ const app = express();
 // increasing limits as photo uploads was hitting this
 app.use(express.json({limit: '5mb', extended: true}));
 app.use(express.urlencoded({limit: "5mb", extended: true, parameterLimit:50000}));
+
+const https = require('https');
+
 const fs = require('fs');
 var config = require('./config');
 config.init();
@@ -33,7 +36,18 @@ transactionlog.init(dataChangeEmitter);
 
 const routes = require('./routes/routes.js')(app, db, dataChangeEmitter);
 
+// http
 const server = app.listen(config.web.port, () => {
-	console.log('listening on port %s...', server.address().port);
+	console.log('listening for http on port %s...', server.address().port);
 });
+
+// openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./selfsigned.key -out selfsigned.crt
+// https
+var privateKey = fs.readFileSync( 'selfsigned.key' );
+var certificate = fs.readFileSync( 'selfsigned.crt' );
+https.createServer({
+    key: privateKey,
+    cert: certificate
+}, app).listen(config.web.httpsport);
+console.log('listening for https on port %s...', 3443);
 

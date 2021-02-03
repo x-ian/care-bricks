@@ -17,4 +17,5 @@ exports.init = function() {
 
 	exports.web = {}
 	exports.web.port = 3001;
+	exports.web.httpsport = 3443;
 };
