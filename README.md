@@ -300,52 +300,50 @@ hash code of each unit/file
 
 Brick type | purpose | status
 --- | --- | ---
-address-liberia.html | | 
-blood-pressure.html | | 
-careflow-config.html | | 
-careflow.html | | 
-case-end.html | | 
-case-start.html | | 
-check-in.html | | 
-create-encounter-end.html | | 
-create-encounter.html | | 
-create-patient-end.html | | 
-create-patient.html | | 
-demographic-birthdate.html | | 
-device-coordinates.html | | 
-dhis2-tracker-query.html | | 
-dhis2-tracker-store.html | | 
-end-flow.html | | 
-enrolment-outcome.html | | 
-find-patient.html | | 
-find-patient.html | | 
-height-weight.html | | 
-hl7-create-message.html | | 
-hl7-receive-message.html | | 
-invoke-flow.html | | 
-lab-order-entry.html | | 
-lab-test-result.html | | 
-medication-dispensation.html | | 
-medication-prescription.html | | 
-next-appointment.html | | 
-patients-queue.html | | 
-play-audio.html | | 
-print-barcode.html | | 
-question-primitive.html | | 
-question-select.html | | 
-referral.html | | 
-register-patient.html | | 
-scan-barcode.html | | 
-set-encountertype.html | | 
-show-video.html | | 
-sms-receive-message.html | | 
-sms-send-message.html | | 
-summary-chart-art.html | | 
-summary-clinical.html | | 
-summary-graph.html | | 
-summary-interactive.html | | 
-summary.html | | 
-take-photo.html | | 
-tb-screening.html | | 
-text-to-speech.html | | 
-
+address-liberia | address entry with address hierarchy of liberia | done
+blood-pressure | blood pressure of dia and sys | only UI
+careflow-config | path of runtime env | wip
+careflow | path of runtime env | wip
+case-end | end a case (aka anonymous demographic record) | wip 
+case-start | start a case (aka anonymous demographic record) | wip 
+check-in | check-in patient for specific visit type | not done 
+create-encounter-end | create new encounter and stop flow | done 
+create-encounter | create new encounter and continue flow (e.g. to create a 2nd encounter in the same flow) | done 
+create-patient-end | create new demographic record and stop flow | done
+create-patient | create new demographic record and continue flow (e.g. to create demographic record and continue with encounter right away) | done
+demographic-birthdate | Birthdate entry by date or age | wip
+device-coordinates | Store GPS coordinates as reported by browser | done 
+dhis2-tracker-query | query dhis2 data | not done
+dhis2-tracker-store | push data to dhis2 | not done
+end-flow | end flow without server-side persistent | done
+enrolment-outcome | set outcome of enrolment | not done
+find-patient | find patient by name or id | wip
+height-weight | combined height and weight entry | wip
+hl7-create-message | create and send HL7 message | not done 
+hl7-receive-message | receive HL7 message | not done
+invoke-flow | invoke another flow | not done
+lab-order-entry | lab order entry | not done
+lab-test-result | retrieve lab result | not done
+medication-dispensation | dispense medication | not done
+medication-prescription | prescribe medication | not done
+next-appointment | set next appointment date (by date or time period) | wip
+patients-queue | show list of patient from specific queue | wip 
+play-audio | play audio file | done
+print-barcode | print barcode label | not done
+question-primitive | generic primitive question | done
+question-select | generic (single/multiple choice) question | multiple not done
+referral | referral | not done
+register-patient | start process to register new patient | done
+scan-barcode | scan a barcode label (via device camera) | wip
+set-encountertype | set/change encounter type | done
+show-video | show video file | done
+sms-receive-message | receive sms message | not done
+sms-send-message | send sms message | not done
+summary-chart-art | display mastercard-like overview of patient | not done
+summary-clinical | | not done
+summary-graph | plot graph over time from one data point | not done
+summary-interactive | display summary and add pre-defined nagivation buttons | wip
+summary | display patient and current encounter as JSON | done 
+take-photo | take and upload photo from device camera | done 
+tb-screening | block of TB specialised screening questions | not done
+text-to-speech | test to speech output | done
