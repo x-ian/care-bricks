@@ -296,4 +296,56 @@ server needs to keep transaction counter
 
 hash code of each unit/file
 
+### Current Brick types
+
+Brick type | purpose | status
+--- | --- | ---
+address-liberia.html | | 
+blood-pressure.html | | 
+careflow-config.html | | 
+careflow.html | | 
+case-end.html | | 
+case-start.html | | 
+check-in.html | | 
+create-encounter-end.html | | 
+create-encounter.html | | 
+create-patient-end.html | | 
+create-patient.html | | 
+demographic-birthdate.html | | 
+device-coordinates.html | | 
+dhis2-tracker-query.html | | 
+dhis2-tracker-store.html | | 
+end-flow.html | | 
+enrolment-outcome.html | | 
+find-patient.html | | 
+find-patient.html | | 
+height-weight.html | | 
+hl7-create-message.html | | 
+hl7-receive-message.html | | 
+invoke-flow.html | | 
+lab-order-entry.html | | 
+lab-test-result.html | | 
+medication-dispensation.html | | 
+medication-prescription.html | | 
+next-appointment.html | | 
+patients-queue.html | | 
+play-audio.html | | 
+print-barcode.html | | 
+question-primitive.html | | 
+question-select.html | | 
+referral.html | | 
+register-patient.html | | 
+scan-barcode.html | | 
+set-encountertype.html | | 
+show-video.html | | 
+sms-receive-message.html | | 
+sms-send-message.html | | 
+summary-chart-art.html | | 
+summary-clinical.html | | 
+summary-graph.html | | 
+summary-interactive.html | | 
+summary.html | | 
+take-photo.html | | 
+tb-screening.html | | 
+text-to-speech.html | | 
 
