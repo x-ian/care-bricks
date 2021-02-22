@@ -1,4 +1,4 @@
-# workflow-poc-emr
+# care-bricks
 
 ### Installation
 
@@ -8,8 +8,8 @@ Upfront: Depending on distro, the default packages for Node-RED and NodeJS can b
 
 1. Install NodeJS (a recent version, maybe 12 or higher) and NPM (might come with Node)
 1. ```npm install -g nodemon```
-1. ```git clone https://github.com/x-ian/workflow-poc-emr```
-1. ```cd workflow-poc-emr```
+1. ```git clone https://github.com/x-ian/care-bricks```
+1. ```cd care-bricks```
 1. ```cd bootstrap-studio-export/assets; ln -s ../../client-js/ .; ln -s ../../resources/ .; cd -```
 1. ```npm install```
 1. Start runtime environment with ```node server.js``` or ```nodemon server-js —ignore ‘scripts’```. Per default the data repository dir is under ../repository (can be changed in config.js). Open http://localhost:3001
@@ -17,7 +17,7 @@ Upfront: Depending on distro, the default packages for Node-RED and NodeJS can b
 #### Set up design environment
 
 1. Install Node-RED (at least 0.18)
-1. Start Node-RED with ```node-red -u <path work workflow-poc-emr repo>/node-red-userdir```
+1. Start Node-RED with ```node-red -u <path work care-bricks repo>/node-red-userdir```
 1. Open http://localhost:1880
 1. Now the ugly part. <agically make Node-RED project feature with GitHub connection work
     * create / add new SSH key
@@ -113,15 +113,15 @@ var myChart = new Chart(ctx, {
 #### Node-red / design environment
 
 1. Install NodeRed (avoid registering as a daemon / service)
-1. clone GitHub repo workflow-poc-emr
-1. Start NodeRed with ```node-red --userDir workflow-poc-emr/node-red-userdir node-red-userdir/example-flows.json```
+1. clone GitHub repo care-bricks
+1. Start NodeRed with ```node-red --userDir care-bricks/node-red-userdir node-red-userdir/example-flows.json```
 1. Open http://localhost:1880
-1. Find (or add) one (and really only just one for all flows) node 'config runtime' and set flowpath to the absolute filename of the JSON flow file as used by the runtime environment (realpath of workflow-poc-emr/resources/node-red-flows.json). This file will be updated with every NodeRed deploy and therefore update the runtime env with the most recent flow definition.
+1. Find (or add) one (and really only just one for all flows) node 'config runtime' and set flowpath to the absolute filename of the JSON flow file as used by the runtime environment (realpath of care-bricks/resources/node-red-flows.json). This file will be updated with every NodeRed deploy and therefore update the runtime env with the most recent flow definition.
    
 #### Runtime environment
 
 1. Run ```workflow-poc/emr/docs/bootstrap-studio-export-script.sh bootstrap-studio-export``` (or manually invoke commands from there)
-1. Configure/run web server with rootdir on workflow-poc-emr/bootstrap-studio-export, e.g. with ```cd workflow-poc-emr/bootstrap-studio-export; python3 -m http.server```
+1. Configure/run web server with rootdir on care-bricks/bootstrap-studio-export, e.g. with ```cd care-bricks/bootstrap-studio-export; python3 -m http.server```
 
 ### Node-RED Custom Nodes
 
@@ -130,7 +130,7 @@ var myChart = new Chart(ctx, {
 
 #### Careflow Node-rED startup
 
-node-red -u /Users/xian/projects/data-first-emr/workflow-poc-emr/node-red-userdir
+node-red -u /Users/xian/projects/data-first-emr/care-bricks/node-red-userdir
 
 #### Dynamic properties / lists
 
@@ -145,7 +145,7 @@ Switch from master to another branch better done once on command line via git ch
 	
 System-generated key file with encryption file (if left on default) is in config.json and config.json.backup. Most likely better not handing these around.
 
-Project management from NR is using github project workflow-poc-emr-nodered. The whole node-red-userdir is excluded from main workflow-poc-emr via .gitignore.
+Project management from NR is using github project care-bricks-nodered. The whole node-red-userdir is excluded from main care-bricks via .gitignore.
 
 ### Persistence
 
