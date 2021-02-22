@@ -108,29 +108,11 @@ var myChart = new Chart(ctx, {
 </div>
 ```
 
-### Install
-
-#### Node-red / design environment
-
-1. Install NodeRed (avoid registering as a daemon / service)
-1. clone GitHub repo care-bricks
-1. Start NodeRed with ```node-red --userDir care-bricks/node-red-userdir node-red-userdir/example-flows.json```
-1. Open http://localhost:1880
-1. Find (or add) one (and really only just one for all flows) node 'config runtime' and set flowpath to the absolute filename of the JSON flow file as used by the runtime environment (realpath of care-bricks/resources/node-red-flows.json). This file will be updated with every NodeRed deploy and therefore update the runtime env with the most recent flow definition.
-   
-#### Runtime environment
-
-1. Run ```workflow-poc/emr/docs/bootstrap-studio-export-script.sh bootstrap-studio-export``` (or manually invoke commands from there)
-1. Configure/run web server with rootdir on care-bricks/bootstrap-studio-export, e.g. with ```cd care-bricks/bootstrap-studio-export; python3 -m http.server```
 
 ### Node-RED Custom Nodes
 
 * https://nodered.org/docs/creating-nodes/
 * http://noderedguide.com/
-
-#### Careflow Node-rED startup
-
-node-red -u /Users/xian/projects/data-first-emr/care-bricks/node-red-userdir
 
 #### Dynamic properties / lists
 
@@ -146,22 +128,6 @@ Switch from master to another branch better done once on command line via git ch
 System-generated key file with encryption file (if left on default) is in config.json and config.json.backup. Most likely better not handing these around.
 
 Project management from NR is using github project care-bricks-nodered. The whole node-red-userdir is excluded from main care-bricks via .gitignore.
-
-### Persistence
-
-* PostgreSQL with postgrest (http://postgrest.org/en/v6.0/)
-* lowdb and multiple instances (https://github.com/typicode/lowdb, https://github.com/typicode/lowdb/issues/296)
-* self-made with something ala https://github.com/typicode/json-server
-
-### Nodejs
-
-memory limits: https://medium.com/@ashleydavis75/node-js-memory-limitations-30d3fe2664c0
-
-#### Async stuff
-
-Use async / await these days.
-* https://blog.risingstack.com/node-js-async-best-practices-avoiding-callback-hell-node-js-at-scale/
-* https://stackabuse.com/avoiding-callback-hell-in-node-js/
 
 ### REST API
 
@@ -194,64 +160,6 @@ findbynameorid
 find scheduled patients
 find checked-in patients
 
-
-### JSON query languages
-
-* jq - https://stedolan.github.io/jq/, https://jq.alhur.es/jiq/
-* http://jmespath.org/
-* http://jsoniq.org/
-
-### JSON Merging
-
-* JSON.stringify can pretty print to some degree. either everything in one line or each value on its own (good for demographics). multiple visits might be easiest in one-line-per-visit, but requires post-stringify introduction of newlines at the right places. (https://stackoverflow.com/questions/3515523/javascript-how-to-generate-formatted-easy-to-read-json-straight-from-an-object, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#Parameters)
-* as visits are never deleted (only marked as voided) using diff with a patch file should be able detect (and with manually parsing of the output merge) concurrent visits. But without further checks it would also duplicate historical visits, which have been modified at the remote site.
-* diff3 is a 3-way-merge with a common ancestor, but  doesn't work on a by-line basis
-* comm is line by line, but requires lexically sorted files. can then show lines which are only present in one or the other. (https://stackoverflow.com/questions/4544709/compare-two-files-line-by-line-and-generate-the-difference-in-another-file)
-* to be assessed: will it be easier to keep each visit in its own dedicated JSON file? (might not scale well in file systems)
-* to be assessed: maybe explicit line numbering also helps? (https://unix.stackexchange.com/questions/136380/compare-two-files-strictly-line-by-line-without-insertions-or-deletions)
-
-### Node.JS on Android
-
-* https://stackoverflow.com/questions/36632649/running-node-js-on-android
-* example of enhanced/fixed version https://github.com/inu1255/node-on-android/commit/3c48931bf303f2e9dd7f6011fe7684a711b6041f, https://github.com/simoarpe/node-on-android/commit/d198350f8346b94f9562e6ee540441b50fdc49d8, https://techgaun.github.io/active-forks/index.html#node-on-mobile/node-on-android
-
-Termux
-
-* https://www.freecodecamp.org/news/building-a-node-js-application-on-android-part-1-termux-vim-and-node-js-dfa90c28958f/
-* https://wiki.termux.com/wiki/Remote_Access
-
-Node on Android
-
-* https://github.com/Manoj-Roy/node-on-android
-
-```
-PATH=$PATH:/Users/xian/Library/Android/sdk//platform-tools/adb
-cd ~/projects/data-first-emr/nodejs-mobile/node-on-android/careflow
-npm run build ; adb install -r build/app.apk 
-adb shell am start -n com.mafintosh.nodeonandroid/com.mafintosh.nodeonandroid.MainActivity
-```
-
-* Logging to file (for easier access via web?): https://stackoverflow.com/questions/8393636/node-log-in-a-file-instead-of-the-console
-
-
-J2V8
-
-* https://github.com/eclipsesource/J2V8
-
-Dory
-
-* https://play.google.com/store/apps/details?id=io.tempage.dorynode&hl=en
-
-Node.js for Mobile Apps
-
-* https://code.janeasystems.com/nodejs-mobile
-
-### Service worker for Offline first
-
-* https://serviceworke.rs/
-* https://developers.google.com/web/fundamentals/primers/service-workers
-* https://medium.com/@bhargavshah2011/overview-of-web-worker-service-worker-56082720dcd0
-
 ### GPS coordinations / OpenStreetMaps 
 
 http://www.openstreetmap.org/?mlat=49.8719803&mlon=8.3350004&zoom=12
@@ -283,15 +191,3 @@ node server.js
 ```
 nodemon server.js --ignore 'scripts'
 ```
-
-### server-less
-
-cf multicast
-
-multicast all current changes
-
-if server detects by latest multicast that it is out of sync, deliberately request all changes since last known sync
-
-server needs to keep transaction counter
-
-hash code of each unit/file
