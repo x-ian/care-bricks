@@ -2,7 +2,7 @@
 
 ### Installation
 
-Upfront: Depending on distro, the default packages for Node-RED and NodeJS can be outdated. I suggest to first try to go with the defaults, but it might be necessary to switch to a more recent version (but I don't even know why version are minimally required).
+Upfront: Depending on distro, the default packages for Node-RED and NodeJS can be outdated. I suggest to first try to go with the defaults, but it might be necessary to switch to a more recent version (but I don't even know which version is minimally required).
 
 #### Set up runtime environment
 
@@ -295,5 +295,3 @@ if server detects by latest multicast that it is out of sync, deliberately reque
 server needs to keep transaction counter
 
 hash code of each unit/file
-
-
