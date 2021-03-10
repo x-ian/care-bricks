@@ -33,7 +33,7 @@ function loadCurrentEncounter(callback) {
 
 function updateHeader(patient) {
 	
-	var careflowConfig = 'ghii';
+	var careflowConfig = '';
 	switch (careflowConfig) {
 		case 'ghii':
 			updateHeaderGhii(patient);
