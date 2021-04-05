@@ -18,5 +18,6 @@ function onLoadFunction() {
 		eval(f);
 		updateCurrentEncounter(currentEncounter);
 		$('#eval-result').append('<pre>' + JSON.stringify(currentEncounter, null, 2) + '</pre>');
+		$('#eval-result').append('<pre>' + JSON.stringify(currentPatient, null, 2) + '</pre>');
 	});
 }
