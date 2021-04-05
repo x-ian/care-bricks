@@ -126,6 +126,19 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 		}
 	});
 
+	app.get('/queue/encountertype', async (req, res, next) => {
+		try {
+			const encountertype_filter = req.query.encountertype_filter;
+			const encountertype_exclude = req.query.encountertype_exclude;
+			const date = req.query.date;
+			console.log(date);
+			const patients = await storage.queue_encountertype(encountertype_filter, encountertype_exclude, date);
+			res.send(patients);
+		} catch (e) {
+			next(e);
+		}
+	});
+	
 	app.get('/queue/:queuename/:date', async (req, res, next) => {
 		try {
 			const queuename = req.params["queuename"];
@@ -136,8 +149,7 @@ const patientsRoutes = (app, db, dataChangeEmitter) => {
 			next(e);
 		}
 	});
-	
-	
+
 	// -------------------------------- media
 
 	app.post('/patients/:uuid/media', async (req, res, next) => {

@@ -27,7 +27,7 @@ function onLoadPatientsQueue() {
 	patientStorage = $.parseJSON(
 	    $.ajax(
 	        {
-	           url: "/queue/" + node.queueName + "/" + d,
+	           url: "/queue/encountertype?encountertype_filter=" + node.queueName + "&encountertype_exclude=" + node.encounterType+ "&date=" + d,
 	           async: false,
 				cache: false,
 	           dataType: 'json'

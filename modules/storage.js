@@ -151,6 +151,31 @@ exports.queue = async function(encountertype, date) {
 	return jsonArray;
 }
 
+exports.queue_encountertype = async function(encountertype_filter, encountertype_exclude, date) {
+	let files = await glob(config.repository.data + '/*/' + date + '-*_' + encountertype_filter + '*.json', {});
+	
+	// tricky implementation, don't really know which part does what
+	var jsonArray = [];
+	// reduce isn't directly meant for async stuff(???)
+	const promises = await files.reduce(async (acc, file) => {
+		// awaiting the accumulator from previous run to make sure we step through all
+		await acc;
+		var dir = file.substring(0, file.lastIndexOf('/'));
+		var patientid = dir.substring(dir.lastIndexOf('/'));
+		let filesExclude = await glob(config.repository.data + '/' + patientid + '/' + date + '-*_' + encountertype_exclude + '*.json', {});
+		if (filesExclude.length == 0) {
+			// if no excluded encountertypes for this date are stored, then consider the patient as part of this list
+			const encounter = await fsp.readFile(file);
+			const patient = await fsp.readFile(dir + '/' + patientid + '_patient.json');
+			jsonArray.push(JSON.parse(patient));
+		} 
+		return acc;
+	}, []);
+	// don't think this makes any differeny any more; but if i'm curious enough, i might try to understand it
+	const jsonArray2 = await Promise.all(promises)
+	return jsonArray;
+}
+
 exports.queueInmemoryTodo = async function(queuename, date) {
 	
 	var jsonArray = [];
