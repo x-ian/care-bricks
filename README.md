@@ -19,7 +19,7 @@ Upfront: Depending on distro, the default packages for Node-RED and NodeJS can b
 1. Install Node-RED (at least 0.18)
 1. Start Node-RED with ```node-red -u <path work care-bricks repo>/node-red-userdir```
 1. Open http://localhost:1880
-1. Now the ugly part. <agically make Node-RED project feature with GitHub connection work
+1. Now the ugly part. magically make Node-RED project feature with GitHub connection work
     * create / add new SSH key
     * send me the key so that I can add this as repository-specific ‘deploy key’
     * somehow get Node-RED to properly checkout the project (here it often didn’t work)
